@@ -1,0 +1,181 @@
+body {
+  margin:  0;
+}
+
+
+a.exhibit-link {
+  background-color:  #ff0;
+}
+
+a.exhibit-record-link {
+  display: block;
+  text-decoration: none;
+}
+
+div.carousel-container {
+  max-height:  40vh;
+  overflow: hidden;
+}
+
+div.top-bar-container {
+  /* just in case */
+}
+
+div.purple-bar-container {
+  /*margin-left: 10vw;*/
+  /*width: 80vw;*/
+  height: 6vh;
+  padding-top: 2vh;
+  background-color: #430467;
+  /*margin-bottom: 4vh;*/
+}
+
+div.purple-bar-container span.top-title {
+  font-size: 2em;
+  color:  #fff;
+  margin-left: 4vw;
+}
+
+div.navigation-bar-container {
+  background-color: #ddd;
+  height: 4vh;
+  padding-bottom: 2vh;
+}
+
+div.navigation-bar-container div.navigation-bar {
+  margin-left: 4vw;
+  padding-top: 2vh;
+}
+
+img.ov-logo {
+  position: absolute;
+  right: 0;
+  margin-right: 4vw;
+  width:  8vw;
+}
+
+div.navigation-bar-container div.navigation-bar span.affliated-websites-menu {
+  width:  14vw;
+  margin-right: 2vw;
+  right:  0;
+  position: absolute;
+}
+
+a.navigation-link {
+  text-decoration: none;
+  color: #430467;
+  overflow: hidden;
+  position: relative;
+  top: 0;
+  display: inline-block;
+  /*4vh tall*/
+  /*min-height: 2vh;*/
+  /*margin-left: 2vw;*/
+}
+
+a.navigation-link div {
+  height: 2vh;
+  /*padding-left: 2vw;*/
+  padding-right: 2vw;
+  font-size: 1em;
+  text-align:  center;
+  /*background-color: #732487;*/
+}
+
+div.bottom-bar-container {
+  height: 20vh;
+  background-color: #666;
+}
+
+a.bottom-bar-link {
+  width:  20vw;
+  text-decoration: none;
+  font-size: 1.2em;
+  color: #fff;
+  display: block;
+}
+
+div.exhibit-container {
+  position: relative;
+  width: 100%;
+}
+
+div.exhibit-sidebar {
+  vertical-align: top;
+  background-color: #f4f4f4;
+  display: inline-block;
+  width: 30%;
+}
+
+/*wagtail overrides*/
+div.exhibit-body {
+  vertical-align: top;
+  display: inline-block;
+  width: 60%;
+}
+
+/*main page title */
+div.exhibit-container h1 {
+  margin-left: 30%;
+  font-size: 3em;
+  display: block;
+}
+
+div.exhibit-body h2 {
+  font-size: 1.8em;
+  display: block;
+}
+
+div.exhibit-body p {
+  font-size: 1.4em;
+  background-color: #f4f4f4;
+  padding:  1em;
+  margin: 0;
+}
+
+div.exhibit-container a.exhibit-nav-link {
+  display: block;
+  text-decoration: none;
+
+  font-size: 1em;
+}
+
+a.exhibit-index-link {
+  display: inline-block;
+  width: 20vw;
+  height:  18vw;
+  margin-left: 3vw;
+
+  text-decoration: none;
+  color:  #000;
+  font-size: 1.2em;
+  position: relative;
+}
+
+div.exhibit-index-link-title {
+  width:  100%;
+  text-align: center;
+  bottom:  0;
+  position: absolute;
+}
+
+div.exhibit-index-coverimg {
+  background-color: #eee;
+  width: 20vw;
+  min-height:  15vw;
+  background-size: cover;
+}
+
+div.exhibit-authorbubble {
+  position: absolute;
+  width: 4vw;
+  height: 4vw;
+  border-radius: 30vw;
+  background-size: cover;
+  right: 1vw;
+  bottom: 6vh;
+}
+
+
+
+
