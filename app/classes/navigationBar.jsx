@@ -18,7 +18,7 @@ class NavigationBar extends Component {
         <div className="navigation-bar-container">
           <div className="navigation-bar">
             <NavigationLink href="/exhibits" text="Exhibits" />
-            <NavigationLink href="/special_collections" text="Special Collections" />
+            <NavigationLink href="/specialCollections" text="Special Collections" />
 
             <span className="affliated-websites-menu">
               Visit our affiliated websites

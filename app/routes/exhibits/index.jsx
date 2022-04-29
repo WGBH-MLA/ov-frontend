@@ -1,6 +1,7 @@
 import { Link, useLoaderData } from "remix"
-// import { getExhibits } from "~/exhibit"
+import { getExhibits } from "~/exhibit"
 
+// // commented out so we can use fake data
 // export const loader = async () => {
 //   return await getExhibits()
 // }

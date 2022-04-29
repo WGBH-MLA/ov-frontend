@@ -1,8 +1,15 @@
 function Footer(props){
   return(
     <div className="bottom-bar-container">
-      <FooterLink link="/" text="Home" />
-      <FooterLink link="/exhibits" text="Exhibits" />
+      <div className="bottom-bar-column">
+        <div className="bottom-bar-logos">
+          <img src="/MLA_logo_white.png" />
+        </div>
+      </div>
+      <div className="bottom-bar-column">
+        <FooterLink link="/" text="Home" />
+        <FooterLink link="/exhibits" text="Exhibits" />
+      </div>
     </div>
   )
 }
@@ -13,4 +20,4 @@ function FooterLink(props){
   )
 }
 
-module.exports = {Footer, FooterLink}
+module.exports = { Footer, FooterLink }

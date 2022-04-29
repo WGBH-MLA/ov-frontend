@@ -1,7 +1,6 @@
-body {
+body, h1 {
   margin:  0;
 }
-
 
 a.exhibit-link {
   background-color:  #ff0;
@@ -37,9 +36,9 @@ div.purple-bar-container span.top-title {
 }
 
 div.navigation-bar-container {
-  background-color: #ddd;
-  height: 4vh;
-  padding-bottom: 2vh;
+  background-color: #ededed;
+  height: 2.6vh;
+  padding-bottom: 3.6vh;
 }
 
 div.navigation-bar-container div.navigation-bar {
@@ -83,8 +82,19 @@ a.navigation-link div {
 }
 
 div.bottom-bar-container {
+  padding-top: 2vh;
   height: 20vh;
   background-color: #666;
+}
+
+div.bottom-bar-column {
+  margin-left: 5vw;
+  width: 20vw;
+  display: inline-block;
+}
+
+div.bottom-bar-logos, div.bottom-bar-logos img{
+  width: 10vw;
 }
 
 a.bottom-bar-link {
@@ -101,27 +111,53 @@ div.exhibit-container {
 }
 
 div.exhibit-sidebar {
+  border-right: 1px solid #000;
+  padding-top: 2vw;
+  padding-left: 2vw;
+  margin-left: 6vw;
+  margin-right: 2vw;
+  margin-top: 6vh;
   vertical-align: top;
-  background-color: #f4f4f4;
+  /*background-color: #f4f4f4;*/
   display: inline-block;
-  width: 30%;
+  width: 18%;
 }
 
-/*wagtail overrides*/
+a.exhibit-sidebar-link {
+  color: #99f;
+  display: block;
+  text-decoration: none;
+  font-size: 1em;
+  margin-top: 1em;
+}
+
 div.exhibit-body {
+  margin-top: 6vh;
   vertical-align: top;
   display: inline-block;
-  width: 60%;
+  width: 64%;
+}
+
+div.exhibit-titlebar {
+  height:  30vh;
+  position: relative;
 }
 
 /*main page title */
-div.exhibit-container h1 {
-  margin-left: 30%;
+h1.exhibit-titlebar-title {
+  color: #fff;
+  background-color: #404  ;
+  padding: 1vw;
   font-size: 3em;
   display: block;
+  bottom: 0;
+  position: absolute;
+  width: 40vw;
+  text-align: center;
 }
 
 div.exhibit-body h2 {
+  color: #404;
   font-size: 1.8em;
   display: block;
 }
@@ -136,7 +172,6 @@ div.exhibit-body p {
 div.exhibit-container a.exhibit-nav-link {
   display: block;
   text-decoration: none;
-
   font-size: 1em;
 }
 
@@ -174,6 +209,65 @@ div.exhibit-authorbubble {
   background-size: cover;
   right: 1vw;
   bottom: 6vh;
+}
+
+div.exhibit-bottom-graybar {
+  background-color: #ededed;
+}
+
+div.exhibit-bottomlinks-container {
+  margin-left: 8vw;
+  margin-top: 6vh;
+  padding-bottom: 6vh;
+}
+
+div.exhibit-bottomlinks-also {
+  display: inline-block;
+  font-size: 2em;
+  color: #404;
+  width: 60vw;
+}
+
+div.exhibit-bottomlinks-allexhibits {
+  width: 30vw;
+  display: inline-block;
+}
+
+div.exhibit-bottomlinks-top {
+  padding-top: 6vh;
+}
+
+div.exhibit-bottomlinks {
+  margin-top: 4vh;
+}
+
+div.exhibit-bottomlink {
+  display: inline-block;
+  width:  24vw;
+  height: 24vh;
+  margin-right: 6vw;
+}
+
+div.exhibit-bottomlink a {
+ text-decoration: none;
+ color: #000;
+}
+
+div.exhibit-bottomlink-image {
+  background-size: cover;
+  background-position: center;
+  width:  24vw;
+  height: 24vh;
+}
+
+div.exhibit-bottomlink-title {
+  margin-top: 2vh;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+div.exhibit-bottomlink-subtitle {
+  font-size: 1em;
 }
 
 
