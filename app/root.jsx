@@ -10,6 +10,7 @@ import {
 
 import NavigationBar from "./classes/navigationBar"
 import {Footer, FooterLink} from "./classes/footer"
+import { renderPageLinks } from "./classes/pageHelpers"
 
 import styles from "~/styles.css";
 // use webpack css loader instead? v
@@ -19,7 +20,7 @@ export function links() {
 }
 
 export function meta(){
-  return { title: "GBH Openvault" };
+  return { title: "GBH Open Vault" };
 }
 
 export default function App() {

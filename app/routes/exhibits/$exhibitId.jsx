@@ -1,14 +1,15 @@
 import { Link, useLoaderData } from "remix"
 import { getExhibit } from "~/exhibit"
+import { renderAuthorBubble, renderPageLink, renderPageLinks } from "~/classes/pageHelpers"
 
-// // commented out so we can use fake data
+
+// commented out so we can use fake data
 // export const loader = async ( { params } ) => {
 //   console.log( 'exx id ', params )
 //   return await getExhibit( params.exhibitId )
-// };
+// }
 
 export default function Exhibits() {
-  // const exhibit = useLoaderData()
   const exhibit = {
     id: 8,
     meta: {
@@ -35,6 +36,12 @@ export default function Exhibits() {
     cover_image: 'https://s3.amazonaws.com/americanarchive.org/cpb-aacip_111-451g1rhp.jpg',
     hero_image: 'https://s3.amazonaws.com/americanarchive.org/cpb-aacip_35-89d51nbw.jpg',
 
+    // author information
+    author: {
+      name: "Coolman Slick",
+      image_url: "https://s3.amazonaws.com/americanarchive.org/staff/Staff_Carter.jpg"
+    },
+
     related_exhibits: [
       {
         id: 6,
@@ -49,7 +56,7 @@ export default function Exhibits() {
         cover_image: 'https://s3.amazonaws.com/americanarchive.org/cpb-aacip_111-451g1rhp.jpg',
 
         author: {
-          name: "Coolman Slick",
+          name: "Weakman Wack",
           image_url: "https://s3.amazonaws.com/americanarchive.org/staff/Alexandra-Garcia.jpg"
         }
       },
@@ -66,7 +73,7 @@ export default function Exhibits() {
         cover_image: 'https://s3.amazonaws.com/americanarchive.org/cpb-aacip_111-451g1rhp.jpg',
 
         author: {
-          name: "Weakman Wack",
+          name: "Coolman Slick",
           image_url: "https://s3.amazonaws.com/americanarchive.org/staff/Staff_Carter.jpg"
         }
       },
@@ -89,22 +96,9 @@ export default function Exhibits() {
       },
     ]
 
-    // hypothetical with section pages
-    // sections: [
-    //   {
-    //     id: 6,
-    //     meta: {
-    //       type: 'exhibit.ExhibitPage',
-    //       detail_url: 'http://localhost/api/v2/pages/6/',
-    //       html_url: 'http://localhost/wewf-sdfsdf/',
-    //       slug: 'wewf-sdfsdf',
-    //       first_published_at: '2022-03-28T18:28:32.842202Z'
-    //     },
-    //     title: 'wewf  sdfsdf'
-    //   },
-    // ]
   }
-  // console.log( 'exhibit data', exhibit )
+  // const exhibit = useLoaderData()
+  
 
   let sidebar
   if(exhibit.sections){
@@ -128,10 +122,40 @@ export default function Exhibits() {
   let bottomBar
   if(exhibit.related_exhibits){
     bottomBar = (
+
       <div className="exhibit-bottom-graybar">
-        { renderBottomExhibitLinks(exhibit.related_exhibits) }
+        <div className="pagelinks-container">
+          <div className="pagelinks-top">
+            <div className="pagelinks-also">
+              You may also like
+            </div>
+
+            <div className="pagelinks-all">
+              <Link className="exhibit-nav-link" to="/exhibits" >View all scholar exhibits ></Link>
+            </div>
+          </div>
+        
+            { renderPageLinks('exhibits', exhibit.related_exhibits) }
+        </div>
       </div>
+
+
+
     ) 
+  }
+
+  let exhibitAuthor
+  if(exhibit.author){
+    let byline = (
+      <div className="author-byline">
+        By { exhibit.author.name }
+      </div>
+    )
+    exhibitAuthor = (
+      <div className="exhibit-authorbubble-container">
+        { renderAuthorBubble(exhibit.author) } { byline }
+      </div>
+    )
   }
 
   return (
@@ -139,48 +163,17 @@ export default function Exhibits() {
       <div className="exhibit-container">
         { titleBar }
         { sidebar }
-        
-        <div className="exhibit-body" dangerouslySetInnerHTML={{ __html: exhibit.body }} />
+          
+
+        <div className="exhibit-body-container">
+          { exhibitAuthor }
+          <div className="exhibit-body" dangerouslySetInnerHTML={{ __html: exhibit.body }} />
+        </div>
         
         { bottomBar }
       </div>
     </div>
   );
-}
-
-function renderBottomExhibitLinks(exhibits){
-  let exhibitBottomLinks = exhibits.map( (exhibit) => { return renderBottomExhibitLink(exhibit) })
-
-  return (
-    <div className="exhibit-bottomlinks-container">
-      <div className="exhibit-bottomlinks-top">
-        <div className="exhibit-bottomlinks-also">
-          You may also like
-        </div>
-
-        <div className="exhibit-bottomlinks-allexhibits">
-          <Link className="exhibit-nav-link" to="/exhibits" >View all scholar exhibits ></Link>
-        </div>
-      </div>
-
-      <div className="exhibit-bottomlinks">
-        { exhibitBottomLinks }
-      </div>
-    </div>
-  )
-}
-
-function renderBottomExhibitLink(exhibit){
-  console.log( 'exxx', exhibit )
-  return (
-    <div className="exhibit-bottomlink">
-      <a href={ '/exhibits' + exhibit.id }>
-        <div className="exhibit-bottomlink-image" style={{ backgroundImage: "url(" + exhibit.cover_image + ")" }}></div>
-        <div className="exhibit-bottomlink-title">{ exhibit.title }</div>
-        <div className="exhibit-bottomlink-subtitle">By { exhibit.author.name }</div>
-      </a>
-    </div>
-  )
 }
 
 function renderSidebarSection(section){
@@ -193,15 +186,4 @@ function scrollSectionIntoView(section){
   let ele = document.getElementById(section.id)
   ele.scrollIntoView()
 }
-
-
-
-// page-based section approach
-// function renderSidebarSection(section){
-//   return (
-//     <Link to={ section.meta.html_url } className="exhibit-sidebar-link">{ section.title }</Link>
-//   )
-// }
-
-
 

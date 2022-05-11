@@ -1,5 +1,6 @@
 import { Link, useLoaderData } from "remix"
 import { getExhibits } from "~/exhibit"
+import { renderAuthorBubble, renderPageLink, renderPageLinks } from "~/classes/pageHelpers"
 
 // // commented out so we can use fake data
 // export const loader = async () => {
@@ -11,68 +12,66 @@ export default function Exhibits() {
 
   // actually get from api
   // exhibits = useLoaderData()
-
-  exhibits = {
-    items: [
-      // {
-      //   id: 3,
-      //   meta: {
-      //     type: 'home.HomePage',
-      //     detail_url: 'http://localhost/api/v2/pages/3/',
-      //     html_url: 'http://localhost/',
-      //     slug: 'home',
-      //     first_published_at: '2022-03-17T18:09:42.733436Z'
-      //   },
-      //   title: 'GBH Openvault'
-      // },
-      {
-        id: 6,
-        meta: {
-          type: 'exhibit.ExhibitPage',
-          detail_url: 'http://localhost/api/v2/pages/6/',
-          html_url: 'http://localhost/wewf-sdfsdf/',
-          slug: 'wewf-sdfsdf',
-          first_published_at: '2022-03-28T18:28:32.842202Z'
-        },
-        title: 'wewf  sdfsdf',
-        author_image: "/carousel/march.jpg",
-        cover_image: "/carousel/guitar.jpg"
+  exhibits = [
+    {
+      id: 6,
+      meta: {
+        type: 'exhibit.ExhibitPage',
+        detail_url: 'http://localhost/api/v2/pages/6/',
+        html_url: 'http://localhost/wewf-sdfsdf/',
+        slug: 'wewf-sdfsdf',
+        first_published_at: '2022-03-28T18:28:32.842202Z'
       },
-      {
-        id: 8,
-        meta: {
-          type: 'exhibit.ExhibitPage',
-          detail_url: 'http://localhost/api/v2/pages/8/',
-          html_url: 'http://localhost/bibg-boy-pages/',
-          slug: 'bibg-boy-pages',
-          first_published_at: '2022-03-28T19:03:49.853855Z'
-        },
-        title: 'bibg boy pages',
-        author_image: "/carousel/march.jpg",
-        cover_image: "/carousel/guitar.jpg"
+      title: 'wewf  sdfsdf',
+      cover_image: 'https://s3.amazonaws.com/americanarchive.org/cpb-aacip_111-451g1rhp.jpg',
+
+      author: {
+        name: "Weakman Wack",
+        image_url: "https://s3.amazonaws.com/americanarchive.org/staff/Alexandra-Garcia.jpg"
       }
-    ]
-  }
+    },
+    {
+      id: 7,
+      meta: {
+        type: 'exhibit.ExhibitPage',
+        detail_url: 'http://localhost/api/v2/pages/7/',
+        html_url: 'http://localhost/holy-heck/',
+        slug: 'holy-heck',
+        first_published_at: '2022-03-28T18:28:32.842202Z'
+      },
+      title: 'holy heck',
+      cover_image: 'https://s3.amazonaws.com/americanarchive.org/cpb-aacip_111-451g1rhp.jpg',
+
+      author: {
+        name: "Coolman Slick",
+        image_url: "https://s3.amazonaws.com/americanarchive.org/staff/Staff_Carter.jpg"
+      }
+    },
+    {
+      id: 8,
+      meta: {
+        type: 'exhibit.ExhibitPage',
+        detail_url: 'http://localhost/api/v2/pages/8/',
+        html_url: 'http://localhost/wowie-zowie/',
+        slug: 'wowie-zowie',
+        first_published_at: '2022-03-28T18:28:32.842202Z'
+      },
+      title: 'wowie zowie',
+      cover_image: 'https://s3.amazonaws.com/americanarchive.org/cpb-aacip_111-451g1rhp.jpg',
+
+      author: {
+        name: "Just Alright, Esq.",
+        image_url: "https://s3.amazonaws.com/americanarchive.org/staff/Staff_Curtis.jpg"
+      }
+    },
+  ]
 
   console.log( 'ex', exhibits )
-  let items = exhibits.items
+
+  let exhibitLinks = renderPageLinks('exhibits', exhibits)
   return (
-    <div>
-      <h1>Exhibits</h1>
-        {items.map(exhibit => (
-          <Link className="exhibit-index-link" to={ "/exhibits/" + exhibit.id }>
-
-            <div className="exhibit-index-coverimg" style={{ backgroundImage: "url(" + exhibit.cover_image + ")" }}>
-            
-              <div className="exhibit-authorbubble" style={{ backgroundImage: "url(" + exhibit.author_image + ")" }}>
-              </div>
-            </div>
-
-            <div className="exhibit-index-link-title">
-              { exhibit.title }
-            </div>
-          </Link>  
-        ))}
+    <div className="pagelinks-container">
+      { exhibitLinks }
     </div>
-  );
+  )
 }
