@@ -181,7 +181,7 @@ div.exhibit-container {
   width: 100%;
 }
 
-div.exhibit-sidebar {
+div.page-sidebar {
   border-right: 1px solid #000;
   padding-top: 2vw;
   padding-left: 2vw;
@@ -194,7 +194,7 @@ div.exhibit-sidebar {
   width: 18%;
 }
 
-a.exhibit-sidebar-link {
+a.page-sidebar-link {
   color: #99f;
   display: block;
   font-size: 1em;
@@ -229,13 +229,13 @@ div.exhibit-body {
 
 }
 
-div.exhibit-titlebar {
+div.page-titlebar {
   height:  30vh;
   position: relative;
 }
 
 /*main page title */
-h1.exhibit-titlebar-title {
+h1.page-titlebar-title {
   color: #fff;
   background-color: #404  ;
   padding: 1vw;

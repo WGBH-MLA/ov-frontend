@@ -1,5 +1,6 @@
 import { Link, useLoaderData } from "remix"
 import { getSpecialCollection } from "~/specialCollection"
+import { renderSidebarSection } from "~/classes/pageHelpers"
 
 // // commented out so we can use fake data
 // export const loader = async ( { params } ) => {
@@ -10,7 +11,7 @@ import { getSpecialCollection } from "~/specialCollection"
 export default function SpecialCollections() {
   // const exhibit = useLoaderData();
 
-  const specialCollection = {
+  const spec = {
     id: 8,
     meta: {
       type: 'specialCollection.SpecialCoPage',
@@ -41,27 +42,16 @@ export default function SpecialCollections() {
         },
         title: 'wewf  sdfsdf'
       },
-      {
-        id: 16,
-        meta: {
-          type: 'exhibit.SpecialCollectionPage',
-          detail_url: 'http://localhost/api/v2/pages/6/',
-          html_url: 'http://localhost/wewf-sdfsdf/',
-          slug: 'wewf-sdfsdf',
-          first_published_at: '2022-03-28T18:28:32.842202Z'
-        },
-        title: 'wewf  sdfsdf'
-      },      
+
     ]
   }
-  console.log( 'special collection data', specialCollection )
 
   let sidebar
-  if(specialCollection.sections){
-    console.log( 'whatttt', specialCollection.sections )
+  if(spec.sections){
+    console.log( 'whatttt', spec.sections )
     sidebar = (
       <div className="special-collection-sidebar">
-        { specialCollection.sections.map( (section) => { return renderSidebarSection(section) } ) }
+        { spec.sections.map( (section) => { return renderSidebarSection(section) } ) }
       </div>
     )
   }
@@ -69,17 +59,11 @@ export default function SpecialCollections() {
   return (
     <div>
       <div className="specialcollection-container">
-        <h1>{ specialcollection.title }</h1>
+        <h1>{ spec.title }</h1>
         { sidebar }
-        <div className="specialcollection-body" dangerouslySetInnerHTML={{ __html: specialcollection.body }} />
+        <div className="specialcollection-body" dangerouslySetInnerHTML={{ __html: spec.body }} />
         <Link className="specialcollection-nav-link" to="/specialCollections" >Back to Special Collections</Link>
       </div>
     </div>
   );
 }
-
-// function renderSidebarSection(section){
-//   return (
-//     <Link to={ section.meta.html_url } className="exhibit-sidebar-link">{ section.title }</Link>
-//   )
-// }

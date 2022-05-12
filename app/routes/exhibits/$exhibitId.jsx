@@ -1,6 +1,6 @@
 import { Link, useLoaderData } from "remix"
 import { getExhibit } from "~/exhibit"
-import { renderAuthorBubble, renderPageLink, renderPageLinks } from "~/classes/pageHelpers"
+import { renderAuthorBubble, renderPageLink, renderPageLinks, renderSidebar, renderSidebarSection } from "~/classes/pageHelpers"
 
 
 // commented out so we can use fake data
@@ -102,21 +102,12 @@ export default function Exhibits() {
 
   let sidebar
   if(exhibit.sections){
-    sidebar = (
-      <div className="exhibit-sidebar">
-        <div className="exhibit-sidebar-title">In This Exhibit</div>
-        { exhibit.sections.map( (section) => { return renderSidebarSection(section) } ) }
-      </div>
-    )
+    sidebar = renderSidebar(exhibit.sections)
   }
 
   let titleBar
   if(exhibit.title){
-    titleBar = (
-      <div className="exhibit-titlebar" style={{ backgroundImage: "url(" + exhibit.hero_image + ")" }}>
-        <h1 className="exhibit-titlebar-title">{ exhibit.title }</h1>
-      </div>
-    )
+    titleBar = renderPageTitlebar(exhibit.title, exhibit.hero_image)
   }
 
   let bottomBar
@@ -135,12 +126,9 @@ export default function Exhibits() {
             </div>
           </div>
         
-            { renderPageLinks('exhibits', exhibit.related_exhibits) }
+          { renderPageLinks('exhibits', exhibit.related_exhibits) }
         </div>
       </div>
-
-
-
     ) 
   }
 
@@ -163,7 +151,6 @@ export default function Exhibits() {
       <div className="exhibit-container">
         { titleBar }
         { sidebar }
-          
 
         <div className="exhibit-body-container">
           { exhibitAuthor }
@@ -174,12 +161,6 @@ export default function Exhibits() {
       </div>
     </div>
   );
-}
-
-function renderSidebarSection(section){
-  return (
-    <a href="#" onClick={ () => { scrollSectionIntoView(section)  } } className="exhibit-sidebar-link">> { section.title }</a>
-  )
 }
 
 function scrollSectionIntoView(section){

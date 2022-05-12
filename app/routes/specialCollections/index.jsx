@@ -1,17 +1,17 @@
 import { Link, useLoaderData } from "remix"
 import { getExhibits } from "~/exhibit"
 
-export const loader = async () => {
-  return await getExhibits()
-}
+// export const loader = async () => {
+//   return await getExhibits()
+// }
 
-export default function Exhibits() {
-  let exhibits
+export default function SpecialCollections() {
+  let specs
 
   // actually get from api
   // exhibits = useLoaderData()
 
-  exhibits = {
+  specs = {
     items: [
       // {
       //   id: 3,
@@ -30,10 +30,10 @@ export default function Exhibits() {
           type: 'exhibit.ExhibitPage',
           detail_url: 'http://localhost/api/v2/pages/6/',
           html_url: 'http://localhost/wewf-sdfsdf/',
-          slug: 'wewf-sdfsdf',
+          slug: 'very-special-collection',
           first_published_at: '2022-03-28T18:28:32.842202Z'
         },
-        title: 'wewf  sdfsdf'
+        title: 'Very Special Collection'
       },
       {
         id: 8,
@@ -41,16 +41,15 @@ export default function Exhibits() {
           type: 'exhibit.ExhibitPage',
           detail_url: 'http://localhost/api/v2/pages/8/',
           html_url: 'http://localhost/bibg-boy-pages/',
-          slug: 'bibg-boy-pages',
+          slug: 'just-alright-collection',
           first_published_at: '2022-03-28T19:03:49.853855Z'
         },
-        title: 'bibg boy pages'
+        title: 'Its Fine'
       }
     ]
   }
 
-  console.log( 'ex', exhibits )
-  let items = exhibits.items
+  let items = specs.items
   return (
     <div>
       <h1>Exhibits</h1>

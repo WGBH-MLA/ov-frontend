@@ -38,4 +38,28 @@ return (
   )
 }
 
-module.exports = { renderAuthorBubble, renderPageLink, renderPageLinks }
+function renderSidebar(pageType, sections){
+  let pageTypeName = pageType === "exhibit" ? "Exhibit" ? "Collection"
+  return (
+    <div className="page-sidebar">
+      <div className="page-sidebar-title">In This { pageTypeName }</div>
+      { sections.map( (section) => { return renderSidebarSection(section) } ) }
+    </div>
+  )
+}
+function renderSidebarSection(section){
+  return (
+    <a href="#" onClick={ () => { scrollSectionIntoView(section)  } } className="page-sidebar-link">> { section.title }</a>
+  )
+}
+
+function renderPageTitleBar(title, hero_image_url){
+  return (
+    <div className="exhibit-titlebar" style={{ backgroundImage: "url(" + hero_image_url + ")" }}>
+      <h1 className="exhibit-titlebar-title">{ title }</h1>
+    </div>
+  )
+}
+
+
+module.exports = { renderAuthorBubble, renderPageLink, renderPageLinks, renderSidebarSection, renderSidebar, renderPageTitleBar }
