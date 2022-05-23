@@ -1,6 +1,6 @@
 import { Link, useLoaderData } from "remix"
 import { getSpecialCollection } from "~/specialCollection"
-import { renderSidebarSection } from "~/classes/pageHelpers"
+import { renderAuthorBubble, renderPageLink, renderPageLinks, renderSidebar, renderSidebarSection, renderPageTitleBar } from "~/classes/pageHelpers"
 
 // // commented out so we can use fake data
 // export const loader = async ( { params } ) => {
@@ -14,7 +14,7 @@ export default function SpecialCollections() {
   const spec = {
     id: 8,
     meta: {
-      type: 'specialCollection.SpecialCoPage',
+      type: 'specialCollection.SpecialCollectionPage',
       detail_url: 'http://localhost/api/v2/pages/8/',
       html_url: 'http://localhost/bibg-boy-pages/',
       slug: 'bibg-boy-pages',
@@ -34,36 +34,64 @@ export default function SpecialCollections() {
       {
         id: 6,
         meta: {
-          type: 'exhibit.SpecialCollectionPage',
+          type: 'specialCollection.SpecialCollectionPage',
           detail_url: 'http://localhost/api/v2/pages/6/',
           html_url: 'http://localhost/wewf-sdfsdf/',
           slug: 'wewf-sdfsdf',
           first_published_at: '2022-03-28T18:28:32.842202Z'
         },
-        title: 'wewf  sdfsdf'
+        title: 'wewf sdfsdf'
       },
-
+      {
+        id: 16,
+        meta: {
+          type: 'specialCollection.SpecialCollectionPage',
+          detail_url: 'http://localhost/api/v2/pages/6/',
+          html_url: 'http://localhost/wewf-sdfsdf/',
+          slug: 'wewf-sdfsdf',
+          first_published_at: '2022-03-28T18:28:32.842202Z'
+        },
+        title: 'wewf sdfsdf'
+      },
     ]
   }
 
   let sidebar
   if(spec.sections){
-    console.log( 'whatttt', spec.sections )
-    sidebar = (
-      <div className="special-collection-sidebar">
-        { spec.sections.map( (section) => { return renderSidebarSection(section) } ) }
+    sidebar = renderSidebar("specialcollectionc", spec.sections)
+  }
+
+  let titleBar
+  if(spec.title){
+    titleBar = renderPageTitleBar(spec.title, spec.hero_image)
+  }
+
+  let collectionAuthor
+  if(spec.author){
+    let byline = (
+      <div className="author-byline">
+        By { spec.author.name }
+      </div>
+    )
+    collectionAuthor = (
+      <div className="page-authorbubble-container">
+        { renderAuthorBubble(spec.author) } { byline }
       </div>
     )
   }
 
   return (
     <div>
-      <div className="specialcollection-container">
-        <h1>{ spec.title }</h1>
+      <div className="page-container">
+        { titleBar }
         { sidebar }
-        <div className="specialcollection-body" dangerouslySetInnerHTML={{ __html: spec.body }} />
-        <Link className="specialcollection-nav-link" to="/specialCollections" >Back to Special Collections</Link>
+
+        <div className="page-body-container">
+          { collectionAuthor }
+          <div className="page-body" dangerouslySetInnerHTML={{ __html: spec.body }} />
+        </div>
+        
       </div>
     </div>
-  );
+  )
 }

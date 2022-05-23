@@ -1,6 +1,6 @@
 import { Link, useLoaderData } from "remix"
 import { getExhibit } from "~/exhibit"
-import { renderAuthorBubble, renderPageLink, renderPageLinks, renderSidebar, renderSidebarSection } from "~/classes/pageHelpers"
+import { renderAuthorBubble, renderPageLink, renderPageLinks, renderSidebar, renderSidebarSection, renderPageTitleBar } from "~/classes/pageHelpers"
 
 
 // commented out so we can use fake data
@@ -99,15 +99,14 @@ export default function Exhibits() {
   }
   // const exhibit = useLoaderData()
   
-
   let sidebar
   if(exhibit.sections){
-    sidebar = renderSidebar(exhibit.sections)
+    sidebar = renderSidebar("exhibit", exhibit.sections)
   }
 
   let titleBar
   if(exhibit.title){
-    titleBar = renderPageTitlebar(exhibit.title, exhibit.hero_image)
+    titleBar = renderPageTitleBar(exhibit.title, exhibit.hero_image)
   }
 
   let bottomBar
@@ -122,7 +121,7 @@ export default function Exhibits() {
             </div>
 
             <div className="pagelinks-all">
-              <Link className="exhibit-nav-link" to="/exhibits" >View all scholar exhibits ></Link>
+              <Link className="page-nav-link" to="/exhibits" >View all scholar exhibits ></Link>
             </div>
           </div>
         
@@ -140,7 +139,7 @@ export default function Exhibits() {
       </div>
     )
     exhibitAuthor = (
-      <div className="exhibit-authorbubble-container">
+      <div className="page-authorbubble-container">
         { renderAuthorBubble(exhibit.author) } { byline }
       </div>
     )
@@ -148,19 +147,19 @@ export default function Exhibits() {
 
   return (
     <div>
-      <div className="exhibit-container">
+      <div className="page-container">
         { titleBar }
         { sidebar }
 
-        <div className="exhibit-body-container">
+        <div className="page-body-container">
           { exhibitAuthor }
-          <div className="exhibit-body" dangerouslySetInnerHTML={{ __html: exhibit.body }} />
+          <div className="page-body" dangerouslySetInnerHTML={{ __html: exhibit.body }} />
         </div>
         
         { bottomBar }
       </div>
     </div>
-  );
+  )
 }
 
 function scrollSectionIntoView(section){

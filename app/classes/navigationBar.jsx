@@ -5,20 +5,34 @@ import DrawerMenu from './drawerMenu'
 class NavigationBar extends Component {
   constructor(props){
     super(props)
-
-    this.state = {
-      drawerOpen: false
-    }
-
-    this.toggleDrawer = this.toggleDrawer.bind(this)
-  }
-
-  toggleDrawer(){
-    this.setState({drawerOpen: !this.state.drawerOpen})
   }
 
   render(){
-    let drawerItems = [
+    let aboutLinks = [
+      {
+        label: "About Open Vault",
+        url: "/about"
+      },
+      {
+        label: "Support Us",
+        url: "/support"
+      },
+      {
+        label: "Visit Us",
+        url: "/visit"
+      },
+      {
+        label: "FAQ",
+        url: "/faq"
+      },
+      {
+        label: "Credits",
+        url: "/credits"
+      },
+
+    ]
+
+    let affiliatedSites = [
       {
         label: "American Archive of Public Broadcasting (AAPB)",
         subLabel: "Access nearly 12,000 public media programs",
@@ -42,10 +56,12 @@ class NavigationBar extends Component {
 
         <div className="navigation-bar-container">
           <div className="navigation-bar">
-            <NavigationLink href="/exhibits" text="Exhibits" />
-            <NavigationLink href="/specialCollections" text="Special Collections" />
+            <NavigationLink href="/series" text="GBH Series" />
+            <NavigationLink href="/exhibits" text="Scholar Exhibits" />
+            <NavigationLink href="/specialCollections" text="Collections" />
+            <DrawerMenu classes=" about-menu" toggleDrawer={ this.toggleDrawer } label={ "About" } items={ aboutLinks } />
 
-            <DrawerMenu toggleDrawer={ this.toggleDrawer } drawerOpen={ this.state.drawerOpen } label={ "Visit our affiliated websites" } items={ drawerItems } />
+            <DrawerMenu classes=" affiliated-websites-menu" toggleDrawer={ this.toggleDrawer } label={ "Visit our affiliated websites" } items={ affiliatedSites } />
           </div>
         </div>
       </div>

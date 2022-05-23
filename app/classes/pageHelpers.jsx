@@ -39,7 +39,7 @@ return (
 }
 
 function renderSidebar(pageType, sections){
-  let pageTypeName = pageType === "exhibit" ? "Exhibit" ? "Collection"
+  let pageTypeName = pageType === "exhibit" ? "Exhibit" : "Collection"
   return (
     <div className="page-sidebar">
       <div className="page-sidebar-title">In This { pageTypeName }</div>
@@ -47,6 +47,7 @@ function renderSidebar(pageType, sections){
     </div>
   )
 }
+
 function renderSidebarSection(section){
   return (
     <a href="#" onClick={ () => { scrollSectionIntoView(section)  } } className="page-sidebar-link">> { section.title }</a>
@@ -55,8 +56,8 @@ function renderSidebarSection(section){
 
 function renderPageTitleBar(title, hero_image_url){
   return (
-    <div className="exhibit-titlebar" style={{ backgroundImage: "url(" + hero_image_url + ")" }}>
-      <h1 className="exhibit-titlebar-title">{ title }</h1>
+    <div className="page-titlebar" style={{ backgroundImage: "url(" + hero_image_url + ")" }}>
+      <h1 className="page-titlebar-title">{ title }</h1>
     </div>
   )
 }

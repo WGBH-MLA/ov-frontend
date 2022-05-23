@@ -1,5 +1,5 @@
 import { Link, useLoaderData } from "remix"
-import { getExhibits } from "~/exhibit"
+import { getSpecialCollections } from "~/specialCollection"
 
 // export const loader = async () => {
 //   return await getExhibits()

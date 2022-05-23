@@ -5,19 +5,19 @@ function DrawerMenu(props) {
     items = props.items.map((item) => { return <DrawerItem label={ item.label } subLabel={ item.subLabel } url={ item.url } /> })
   }
 
-  let drawerClasses = "drawermenu-items"
-  if(props.drawerOpen){
-    drawerClasses += " open"
+  let drawerClasses = "drawermenu-container"
+  if(props.classes){
+    drawerClasses += props.classes
   }
 
   return(
-    <div className="drawermenu-container">
-      <span onClick={ props.toggleDrawer } className="drawermenu-label">
+    <div className={ drawerClasses }>
+      <span className="drawermenu-label">
         { props.label }
         <div className="drawermenu-toggle"></div>
       </span>
 
-      <div className={ drawerClasses }>
+      <div className="drawermenu-items">
         { items }
       </div>
 
