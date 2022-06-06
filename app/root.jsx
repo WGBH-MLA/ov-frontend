@@ -5,7 +5,7 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
-  Link  
+  Link
 } from "remix";
 
 import NavigationBar from "./classes/navigationBar"
