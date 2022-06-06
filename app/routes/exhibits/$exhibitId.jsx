@@ -13,7 +13,7 @@ export const loader = async ( { params } ) => {
 
 export default function Exhibits() {
 
-  // const exhibit = useLoaderData()
+  const exhibit = useLoaderData()
 
   let sidebar
   if(exhibit.sections){

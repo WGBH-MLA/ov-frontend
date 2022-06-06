@@ -2,17 +2,13 @@ import { Link, useLoaderData } from "remix"
 import { getExhibits } from "~/exhibit"
 import { renderAuthorBubble, renderPageLink, renderPageLinks } from "~/classes/pageHelpers"
 
-// // commented out so we can use fake data
 export const loader = async () => {
   return await getExhibits()
 }
 
 export default function Exhibits() {
-  let exhibits
 
-  // actually get from api
-  exhibits = useLoaderData()
-
+  let exhibits = useLoaderData()
 
   console.log( 'ex', exhibits )
 
