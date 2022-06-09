@@ -1,5 +1,6 @@
 import { Link, useLoaderData } from "remix"
 import { getSpecialCollections } from "~/specialCollection"
+import { renderAuthorBubble, renderPageLink, renderPageLinks } from "~/classes/pageHelpers"
 
 // export const loader = async () => {
 //   return await getExhibits()
@@ -11,55 +12,121 @@ export default function SpecialCollections() {
   // actually get from api
   // exhibits = useLoaderData()
 
-  specs = {
-    items: [
-      // {
-      //   id: 3,
-      //   meta: {
-      //     type: 'home.HomePage',
-      //     detail_url: 'http://localhost/api/v2/pages/3/',
-      //     html_url: 'http://localhost/',
-      //     slug: 'home',
-      //     first_published_at: '2022-03-17T18:09:42.733436Z'
-      //   },
-      //   title: 'GBH Openvault'
-      // },
-      {
-        id: 6,
-        meta: {
-          type: 'exhibit.ExhibitPage',
-          detail_url: 'http://localhost/api/v2/pages/6/',
-          html_url: 'http://localhost/wewf-sdfsdf/',
-          slug: 'very-special-collection',
-          first_published_at: '2022-03-28T18:28:32.842202Z'
-        },
-        title: 'Very Special Collection'
+  specs = [
+    {
+      id: 6,
+      meta: {
+        type: 'exhibit.ExhibitPage',
+        detail_url: 'http://localhost/api/v2/pages/6/',
+        html_url: 'http://localhost/wewf-sdfsdf/',
+        slug: 'wewf-sdfsdf',
+        first_published_at: '2022-03-28T18:28:32.842202Z'
       },
-      {
-        id: 8,
-        meta: {
-          type: 'exhibit.ExhibitPage',
-          detail_url: 'http://localhost/api/v2/pages/8/',
-          html_url: 'http://localhost/bibg-boy-pages/',
-          slug: 'just-alright-collection',
-          first_published_at: '2022-03-28T19:03:49.853855Z'
-        },
-        title: 'Its Fine'
-      }
-    ]
-  }
+      title: 'wewf  sdfsdf',
+      cover_image: 'https://s3.amazonaws.com/americanarchive.org/cpb-aacip_111-451g1rhp.jpg'
+    },
+    {
+      id: 7,
+      meta: {
+        type: 'exhibit.ExhibitPage',
+        detail_url: 'http://localhost/api/v2/pages/7/',
+        html_url: 'http://localhost/holy-heck/',
+        slug: 'holy-heck',
+        first_published_at: '2022-03-28T18:28:32.842202Z'
+      },
+      title: 'holy heck',
+      cover_image: 'https://s3.amazonaws.com/americanarchive.org/cpb-aacip_111-451g1rhp.jpg'
+    },
+    {
+      id: 8,
+      meta: {
+        type: 'exhibit.ExhibitPage',
+        detail_url: 'http://localhost/api/v2/pages/8/',
+        html_url: 'http://localhost/wowie-zowie/',
+        slug: 'wowie-zowie',
+        first_published_at: '2022-03-28T18:28:32.842202Z'
+      },
+      title: 'wowie zowie',
+      cover_image: 'https://s3.amazonaws.com/americanarchive.org/cpb-aacip_111-451g1rhp.jpg'
+    },
+    {
+      id: 6,
+      meta: {
+        type: 'exhibit.ExhibitPage',
+        detail_url: 'http://localhost/api/v2/pages/6/',
+        html_url: 'http://localhost/wewf-sdfsdf/',
+        slug: 'wewf-sdfsdf',
+        first_published_at: '2022-03-28T18:28:32.842202Z'
+      },
+      title: 'wewf  sdfsdf',
+      cover_image: 'https://s3.amazonaws.com/americanarchive.org/cpb-aacip_111-451g1rhp.jpg'
+    },
+    {
+      id: 7,
+      meta: {
+        type: 'exhibit.ExhibitPage',
+        detail_url: 'http://localhost/api/v2/pages/7/',
+        html_url: 'http://localhost/holy-heck/',
+        slug: 'holy-heck',
+        first_published_at: '2022-03-28T18:28:32.842202Z'
+      },
+      title: 'holy heck',
+      cover_image: 'https://s3.amazonaws.com/americanarchive.org/cpb-aacip_111-451g1rhp.jpg'
+    },
+    {
+      id: 8,
+      meta: {
+        type: 'exhibit.ExhibitPage',
+        detail_url: 'http://localhost/api/v2/pages/8/',
+        html_url: 'http://localhost/wowie-zowie/',
+        slug: 'wowie-zowie',
+        first_published_at: '2022-03-28T18:28:32.842202Z'
+      },
+      title: 'wowie zowie',
+      cover_image: 'https://s3.amazonaws.com/americanarchive.org/cpb-aacip_111-451g1rhp.jpg'
+    },
+    {
+      id: 6,
+      meta: {
+        type: 'exhibit.ExhibitPage',
+        detail_url: 'http://localhost/api/v2/pages/6/',
+        html_url: 'http://localhost/wewf-sdfsdf/',
+        slug: 'wewf-sdfsdf',
+        first_published_at: '2022-03-28T18:28:32.842202Z'
+      },
+      title: 'wewf  sdfsdf',
+      cover_image: 'https://s3.amazonaws.com/americanarchive.org/cpb-aacip_111-451g1rhp.jpg'
+    },
+    {
+      id: 7,
+      meta: {
+        type: 'exhibit.ExhibitPage',
+        detail_url: 'http://localhost/api/v2/pages/7/',
+        html_url: 'http://localhost/holy-heck/',
+        slug: 'holy-heck',
+        first_published_at: '2022-03-28T18:28:32.842202Z'
+      },
+      title: 'holy heck',
+      cover_image: 'https://s3.amazonaws.com/americanarchive.org/cpb-aacip_111-451g1rhp.jpg'
+    },
+    {
+      id: 8,
+      meta: {
+        type: 'exhibit.ExhibitPage',
+        detail_url: 'http://localhost/api/v2/pages/8/',
+        html_url: 'http://localhost/wowie-zowie/',
+        slug: 'wowie-zowie',
+        first_published_at: '2022-03-28T18:28:32.842202Z'
+      },
+      title: 'wowie zowie',
+      cover_image: 'https://s3.amazonaws.com/americanarchive.org/cpb-aacip_111-451g1rhp.jpg'
+    },
+  ]
 
-  let items = specs.items
+  let specialCollectionLinks = renderPageLinks('specialCollections', specs)
   return (
-    <div>
-      <h1>Exhibits</h1>
-        {items.map(exhibit => (
-          <Link className="exhibit-index-link" to={ "/exhibits/" + exhibit.id }>
-            <div className="exhibit-index-link-title">
-              { exhibit.title }
-            </div>
-          </Link>  
-        ))}
+    <div className="pagelinks-container">
+      { specialCollectionLinks }
     </div>
   );
 }

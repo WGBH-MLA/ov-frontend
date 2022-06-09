@@ -5,17 +5,32 @@ body, h1 {
   font-family: 'Lato', sans-serif;
 }
 
+input {
+  padding: 0px;
+}
+
 a {
   text-decoration: none;
+}
+
+a.series-alphabet-link {
+  width: 1vw;
+  display: inline-block;
+  font-size: 1em;
+  padding-right: 0.6vw;
 }
 
 h1.series-bigtitle {
   color:  #430467;
   font-size: 3em;
+  margin-left: 6vw;
+  margin-bottom: 2vh;
 }
 
 div.series-summary {
   font-size: 1.4em;
+  margin-bottom: 6vh;
+  margin-left: 6vw;
 }
 
 div.series-group {
@@ -45,8 +60,44 @@ a.series-link {
   margin-bottom: 1.6vh;
 }
 
+a.static-link {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 40%;
+  display: inline-block;
+  color: #2B72F6;
+  font-size: 1em;
+  font-weight: bold;
+  padding:  1em;
+  height: 2.3vh;
+}
+
+div.static-halfbox img {
+  max-width: 100%;
+}
+
+div.static-halfbox {
+  text-align: center;
+  vertical-align: middle;
+  display: inline-block;
+  width: 48%;
+  color: #430467;
+  font-weight: bold;
+  font-size: 1.6em;
+}
+
+div.big-blue-button {
+  border-radius: 30px;
+  background-color: #2B72F6;
+}
+
+hr.spaced-hr {
+}
+
 div.series-search-container input {
-  height:  5vh;
+  height:  4vh;
+  max-height: 3em;
   width: 60%;
 }
 
@@ -56,7 +107,9 @@ div.series-search-button {
   background-color: #2B72F6;
   width:  20%;
   width:  5vh;
-  height:  5vh;
+  height:  4vh;
+  max-height: 3em;
+
 }
 
 div.carousel-container {
@@ -131,12 +184,16 @@ div.affiliated-websites-menu {
   text-align: center;
 }
 
-div.about-menu {
-  position: absolute;
-  width: 10vw;
-  color: #430467;
+div.affiliated-websites-menu a.drawer-item {
+  padding-top: 2vh;
+  padding-bottom: 3vh;
 }
 
+div.about-menu {
+  position: absolute;
+  width: 12vw;
+  color: #430467;
+}
 
 div.drawermenu-container {
   display: inline-block;
@@ -165,23 +222,28 @@ div.drawermenu-toggle {
 }
 
 div.drawermenu-items {
+  min-width: 8vw;
   display: none;
-  padding-top: 1vw;
 }
   
 a.drawer-item {
-  padding-top: 0.5vw;
-  padding-bottom: 0.8vw;
+  padding-top: 1vh;
   padding-left: 2vw;
   padding-right: 2vw;
   text-align: left;
   display: block;
+
+  min-width: 8vw;
+
+  min-height: 2em;
   height: 6vh;
+  max-height: 2em;
   color: #000;
 }
 
 a.drawer-item:hover {
   background-color: #cdcdcd;
+
 }
 
 a.drawer-item div.drawer-title {
@@ -248,7 +310,6 @@ div.page-container {
 }
 
 div.page-sidebar {
-  border-right: 1px solid #000;
   padding-top: 2vw;
   padding-left: 2vw;
   margin-left: 6vw;
@@ -258,6 +319,11 @@ div.page-sidebar {
   /*background-color: #f4f4f4;*/
   display: inline-block;
   width: 18%;
+  font-size: 1.2em;
+}
+
+div.page-sidebar-border {
+  border-right: 1px solid #000;
 }
 
 a.page-sidebar-link {
@@ -313,6 +379,11 @@ h1.page-titlebar-title {
   text-align: center;
 }
 
+h1.page-titlebar-title h2.page-titlebar-subtitle{
+  font-size: 0.4em;
+  font-weight: normal;
+}
+
 div.page-body h2 {
   color: #404;
   font-size: 1.8em;
@@ -320,8 +391,8 @@ div.page-body h2 {
 }
 
 div.page-body p {
-  font-size: 1.4em;
-  background-color: #f4f4f4;
+  font-size: 1.2em;
+  /*background-color: #f4f4f4;*/
   padding:  1em;
   margin: 0;
 }
@@ -393,9 +464,10 @@ div.pagelinks {
 div.pagelink {
   position: relative;
   display: inline-block;
-  width:  24vw;
-  height: 24vh;
-  margin-right: 6vw;
+  width:  20vw;
+  height: 20em;
+  margin-right: 10vw;
+  margin-bottom: 8vh;
 }
 
 div.exhibit-bottomlink a {
@@ -405,8 +477,8 @@ div.exhibit-bottomlink a {
 div.pagelink-image {
   background-size: cover;
   background-position: center;
-  width:  24vw;
-  height: 24vh;
+  width:  100%;
+  height: 20em;
 }
 
 div.pagelink-title {
@@ -430,7 +502,7 @@ div.author-bubble {
 div.author-bubble.box-attach {
   position: absolute;
   bottom: -2vw;
-  right: 2vw;
+  right: -2vw;
 }
 
 
