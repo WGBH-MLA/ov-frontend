@@ -15,8 +15,8 @@ function renderAuthorBubble(author, boxAttach=false){
 
 function renderPageLink(pageType, page){
   console.log( 'exxx', page )
-  // TODO render author bubble for each author in authors
   let authorBubble = renderAuthorBubble(page.authors[0], true)
+
   return (
     <div className="pagelink">
       <a href={ '/' + pageType + '/' + page.id }>
@@ -24,7 +24,6 @@ function renderPageLink(pageType, page){
         <div className="pagelink-title">{ page.title }</div>
 
         { authorBubble }
-
         <div className="pagelink-subtitle">By { page.authors[0].name }</div>
       </a>
     </div>
@@ -57,10 +56,20 @@ function renderSidebarSection(section){
   )
 }
 
-function renderPageTitleBar(title, hero_image_url){
+function renderPageTitleBar(title, hero_image_url, subtitle=null){
+  let subtitleContainer
+  if(subtitle){
+    subtitleContainer = (
+      <h2 className="page-titlebar-subtitle">{ subtitle }</h2>
+    )
+  }
+
   return (
     <div className="page-titlebar" style={{ backgroundImage: "url(" + hero_image_url + ")" }}>
-      <h1 className="page-titlebar-title">{ title }</h1>
+      <h1 className="page-titlebar-title">
+        { title }
+        {subtitleContainer}
+      </h1>
     </div>
   )
 }
