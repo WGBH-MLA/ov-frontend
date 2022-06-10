@@ -1,4 +1,6 @@
 import { Link } from "remix"
+
+
 function renderAuthorBubble(author, boxAttach=false){
   let classes = "author-bubble"
   if(boxAttach){
@@ -13,11 +15,7 @@ function renderAuthorBubble(author, boxAttach=false){
 
 function renderPageLink(pageType, page){
   console.log( 'exxx', page )
-  let authorBubble, authorByline
-  if(page.author){
-    authorBubble = renderAuthorBubble(page.author, true)
-    authorByline = (<div className="pagelink-subtitle">By { page.author.name }</div>)
-  }
+  let authorBubble = renderAuthorBubble(page.authors[0], true)
 
   return (
     <div className="pagelink">
@@ -26,7 +24,7 @@ function renderPageLink(pageType, page){
         <div className="pagelink-title">{ page.title }</div>
 
         { authorBubble }
-        { authorByline }
+        <div className="pagelink-subtitle">By { page.authors[0].name }</div>
       </a>
     </div>
   )
