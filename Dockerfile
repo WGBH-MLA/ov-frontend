@@ -3,15 +3,16 @@ RUN npm install -g npm npm-upgrade
 
 WORKDIR /var/app
 
-COPY ./ .
+COPY package.json .
 RUN npm i
-
-RUN npm run build
 
 CMD npm run dev
 
 # production
 FROM dev AS production
+
+COPY ./ .
+RUN npm run build
 
 ENV NODE_ENV=production
 CMD npm run start
