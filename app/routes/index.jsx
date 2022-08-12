@@ -3,6 +3,7 @@ import { Carousel } from "react-responsive-carousel"
 import { renderPageLinks } from "~/classes/pageHelpers"
 import { getExhibits } from "~/exhibit"
 
+
 export function loader() {
   return getExhibits()
 }
@@ -10,8 +11,7 @@ export function loader() {
 export default function Index() {
   const exhibits = useLoaderData()
 
-
-  let exhibitLinks = renderPageLinks('exhibits', exhibits.items)
+  let exhibitLinks = renderPageLinks("exhibits", exhibits.items)
 
   return (
     <div className="home-container">
@@ -39,8 +39,6 @@ export default function Index() {
       </div>
 
       <div className="pagelinks-container">
-
-
         <hr />
 
         <div className="pagelinks-top">

@@ -2,19 +2,16 @@ import { Link, useLoaderData } from "remix"
 import { getExhibit } from "~/exhibit"
 import { renderAuthorBubble, renderPageLink, renderPageLinks, renderSidebar, renderSidebarSection, renderPageTitleBar } from "~/classes/pageHelpers"
 
+import { decode } from "html-entities"
 
 export const loader = async ( { params } ) => {
-  // fake data loader
-  // import { exhibits } from '~/exhibit_data'
-  // return exhibits.items[0]
   console.log( 'exx id ', params )
   return await getExhibit( params.exhibitId )
 }
 
 export default function Exhibits() {
-
   const exhibit = useLoaderData()
-
+  
   let sidebar
   if(exhibit.sections){
     sidebar = renderSidebar("exhibit", exhibit.sections)
@@ -22,7 +19,7 @@ export default function Exhibits() {
 
   let titleBar
   if(exhibit.title){
-    titleBar = renderPageTitleBar(exhibit.title, exhibit.hero_image)
+    titleBar = renderPageTitleBar(exhibit.title, process.env.OV_API_URL + exhibit.hero_image.url)
   }
 
   let bottomBar
@@ -37,7 +34,7 @@ export default function Exhibits() {
             </div>
 
             <div className="pagelinks-all">
-              <Link className="page-nav-link" to="/exhibits" >View all scholar exhibits ></Link>
+              <Link className="page-nav-link" to="/exhibits" >View all scholar exhibits &gt;</Link>
             </div>
           </div>
 
@@ -48,19 +45,20 @@ export default function Exhibits() {
   }
 
   let exhibitAuthor
-  if(exhibit.author){
+  if(exhibit.authors.length > 0){
     let byline = (
       <div className="author-byline">
-        By { exhibit.author.name }
+        By { exhibit.authors[0].name }
       </div>
     )
     exhibitAuthor = (
       <div className="page-authorbubble-container">
-        { renderAuthorBubble(exhibit.author) } { byline }
+        { renderAuthorBubble(exhibit.authors[0]) } { byline }
       </div>
     )
   }
 
+  console.log( 'exhibit body', decode(exhibit.body) )
   return (
     <div>
       <div className="page-container">
@@ -69,7 +67,8 @@ export default function Exhibits() {
 
         <div className="page-body-container">
           { exhibitAuthor }
-          <div className="page-body" dangerouslySetInnerHTML={{ __html: exhibit.body }} />
+
+          <div className="page-body" dangerouslySetInnerHTML={{ __html: decode(exhibit.body) }} />
         </div>
 
         { bottomBar }
