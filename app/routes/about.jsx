@@ -23,21 +23,21 @@ export default function About() {
 
             <hr className="spaced-hr" />
 
-            <a class="static-link">American Archive of Public Broadcasting</a>
+            <a className="static-link">American Archive of Public Broadcasting</a>
             <p>
               In 2013, the Corporation for Public Broadcasting selected GBH and the Library of Congress as the permanent stewards of the American Archive of Public Broadcasting, an initiative seeking to identify, preserve and make accessible significant historical content created by public media, and to preserve at-risk public media before its content is lost to posterity. Approximately 40,000 hours of content comprising 68,000 programs, contributed by 100 stations across the country, have been digitized. We provide access to nearly 12,000 of these programs, which are available online at americanarchive.org.
             </p>
 
             <hr className="spaced-hr" />
 
-            <a class="static-link">GBH Stock Sales</a>
+            <a className="static-link">GBH Stock Sales</a>
             <p>
               For professional licensing requests, please visit the GBH Stock Sales website or call 617-300-3939.
             </p>
 
             <hr className="spaced-hr" />
 
-            <a class="static-link">Boston TV News Digital Library</a>
+            <a className="static-link">Boston TV News Digital Library</a>
             <p>
               You can explore more of GBH’s collection in the Boston TV News Digital Library. During this CLIR and IMLS-funded project, we worked with the Boston Public Library, Cambridge Community Television, and Northeast Historic Film to digitize and bring to life local news stories produced in and about Boston from 1960 to 2000. Nearly 2,000 news programs are available online at BostonLocalTV.org.
             </p>

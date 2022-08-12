@@ -6,7 +6,7 @@ function renderAuthorBubble(author, boxAttach=false){
     classes += " box-attach"
   }
   return (
-    <div style={{ backgroundImage: "url(" + author.image_url + ")" }} className={ classes }>
+    <div style={{ backgroundImage: "url(" + process.env.OV_API_URL + author.image.url + ")" }} className={ classes }>
     </div>
   )
 }
@@ -14,15 +14,15 @@ function renderAuthorBubble(author, boxAttach=false){
 function renderPageLink(pageType, page){
   console.log( 'exxx', page )
   let authorBubble, authorByline
-  if(page.author){
-    authorBubble = renderAuthorBubble(page.author, true)
-    authorByline = (<div className="pagelink-subtitle">By { page.author.name }</div>)
+  if(page.authors && page.authors.length > 0){
+    authorBubble = renderAuthorBubble(page.authors[0], true)
+    authorByline = (<div className="pagelink-subtitle">By { page.authors[0].name }</div>)
   }
 
   return (
     <div className="pagelink">
       <a href={ '/' + pageType + '/' + page.id }>
-        <div className="pagelink-image" style={{ backgroundImage: "url(" + page.cover_image + ")" }}></div>
+        <div className="pagelink-image" style={{ backgroundImage: "url(" + process.env.OV_API_URL + page.cover_image.url + ")" }}></div>
         <div className="pagelink-title">{ page.title }</div>
 
         { authorBubble }
@@ -54,7 +54,7 @@ function renderSidebar(pageType, sections){
 
 function renderSidebarSection(section){
   return (
-    <a href="#" onClick={ () => { scrollSectionIntoView(section)  } } className="page-sidebar-link">> { section.title }</a>
+    <a href="#" onClick={ () => { scrollSectionIntoView(section)  } } className="page-sidebar-link">&gt; { section.title }</a>
   )
 }
 
@@ -75,6 +75,5 @@ function renderPageTitleBar(title, hero_image_url, subtitle=null){
     </div>
   )
 }
-
 
 module.exports = { renderAuthorBubble, renderPageLink, renderPageLinks, renderSidebarSection, renderSidebar, renderPageTitleBar }

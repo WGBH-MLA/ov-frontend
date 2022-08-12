@@ -1,10 +1,12 @@
 export async function getExhibits() {
   // how you get just exhibits 
-  return await fetch("http://localhost:8000/api/v2/pages", (res) => {
-    console.log(res)
+  return await fetch(process.env.OV_API_URL + "/api/v2/exhibit", (res) => {
+    console.log("exs", res)
   })
 }
 
 export async function getExhibit(id) {
-  return await fetch("http://localhost:8000/api/v2/pages/" + id)
+  return await fetch(process.env.OV_API_URL + "/api/v2/exhibit/" + id, (res) => {
+    console.log("ex", res)
+  })
 }

@@ -19,7 +19,7 @@ class NavigationBar extends Component {
       },
       {
         label: "Visit Us",
-        url: "/visit"
+        url: "/visitus"
       },
       {
         label: "FAQ",

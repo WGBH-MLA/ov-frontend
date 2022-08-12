@@ -227,15 +227,17 @@ div.drawermenu-items {
 }
   
 a.drawer-item {
-  padding-top: 1vh;
+  padding-top: 2vh;
   padding-left: 2vw;
   padding-right: 2vw;
+  padding-bottom: 0vh;
   text-align: left;
+  line-height: 2vh;
   display: block;
 
   min-width: 8vw;
 
-  min-height: 2em;
+  min-height: 4em;
   height: 6vh;
   max-height: 2em;
   color: #000;
@@ -247,7 +249,7 @@ a.drawer-item:hover {
 }
 
 a.drawer-item div.drawer-title {
-  font-size: 1em;
+  font-size: 1.2em;
   font-weight: bold;
 }
 

@@ -26,7 +26,7 @@ export default function Series() {
     if(seriesSearch.length > 0){
       seriesGroup = seriesGroup.filter( (title) => title.toLowerCase().includes(seriesSearch) )
     }
-    seriesGroup = seriesGroup.map( (title) => { return <Link className="series-link" to="https://americanarchive.org" >{ title }</Link> })
+    seriesGroup = seriesGroup.map( (title) => { return <a className="series-link" href="https://americanarchive.org" >{ title }</a> })
 
     return(
       <div className="series-group">
