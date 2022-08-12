@@ -7,6 +7,7 @@ export const loader = async () => {
 }
 
 export default function Exhibits() {
+
   let exhibits = useLoaderData()
 
   console.log( 'ex', exhibits )

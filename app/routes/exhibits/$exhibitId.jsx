@@ -5,12 +5,12 @@ import { renderAuthorBubble, renderPageLink, renderPageLinks, renderSidebar, ren
 import { decode } from "html-entities"
 
 export const loader = async ( { params } ) => {
+  console.log( 'exx id ', params )
   return await getExhibit( params.exhibitId )
 }
 
 export default function Exhibits() {
   const exhibit = useLoaderData()
-  console.log( 'wow its exhibit', exhibit )
   
   let sidebar
   if(exhibit.sections){
@@ -37,11 +37,11 @@ export default function Exhibits() {
               <Link className="page-nav-link" to="/exhibits" >View all scholar exhibits &gt;</Link>
             </div>
           </div>
-        
+
           { renderPageLinks('exhibits', exhibit.related_exhibits) }
         </div>
       </div>
-    ) 
+    )
   }
 
   let exhibitAuthor
@@ -70,7 +70,7 @@ export default function Exhibits() {
 
           <div className="page-body" dangerouslySetInnerHTML={{ __html: decode(exhibit.body) }} />
         </div>
-        
+
         { bottomBar }
       </div>
     </div>
@@ -81,4 +81,3 @@ function scrollSectionIntoView(section){
   let ele = document.getElementById(section.id)
   ele.scrollIntoView()
 }
-

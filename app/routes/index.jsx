@@ -3,15 +3,15 @@ import { Carousel } from "react-responsive-carousel"
 import { renderPageLinks } from "~/classes/pageHelpers"
 import { getExhibits } from "~/exhibit"
 
-export const loader = async ( { params } ) => {
-  return await getExhibits()
+
+export function loader() {
+  return getExhibits()
 }
 
 export default function Index() {
-
   const exhibits = useLoaderData()
 
-  let exhibitLinks = renderPageLinks('exhibits', exhibits.items)
+  let exhibitLinks = renderPageLinks("exhibits", exhibits.items)
 
   return (
     <div className="home-container">
