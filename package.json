@@ -24,7 +24,7 @@
     "@remix-run/dev": "^1.7.0"
   },
   "engines": {
-    "node": ">=14"
+    "node": ">=18"
   },
   "sideEffects": false
 }

@@ -1,4 +1,4 @@
-FROM node:16-alpine AS dev
+FROM node:18-alpine AS dev
 RUN npm install -g npm npm-upgrade
 
 WORKDIR /var/app
