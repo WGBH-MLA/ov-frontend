@@ -20,7 +20,7 @@ function renderPageLink(pageType, page){
   return (
     <div className="pagelink">
       <a href={ '/' + pageType + '/' + page.id }>
-        <div className="pagelink-image" style={{ backgroundImage: "url(" + process.env.OV_API_URL + page.cover_image.url + ")" }}></div>
+        <div className="pagelink-image" style={{ backgroundImage: page.cover_image ? "url(" + process.env.OV_API_URL + page.cover_image.url + ")" : null }}></div>
         <div className="pagelink-title">{ page.title }</div>
 
         { authorBubble }
