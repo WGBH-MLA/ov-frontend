@@ -1,30 +1,34 @@
 import { Link } from "remix"
 
-
 function renderAuthorBubble(author, boxAttach=false){
   let classes = "author-bubble"
   if(boxAttach){
     // this sticks to bottom right of parent box
     classes += " box-attach"
   }
+
   return (
-    <div style={{ backgroundImage: "url(" + process.env.OV_API_URL + author.image.url + ")" }} className={ classes }>
+    <div style={{ backgroundImage: "url(" + author.image.full_url + ")" }} className={ classes }>
     </div>
   )
 }
 
 function renderPageLink(pageType, page){
-  console.log( 'exxx', page )
-  let authorBubble = renderAuthorBubble(page.authors[0], true)
+  let author
+  if(page.authors && page.authors.length > 0){
+    author = page.authors[0]
+  } else {
+    author = { name: "author!", image: {full_url: "/carousel/guitar.jpg"} }
+  }
+  let authorBubble = renderAuthorBubble(author, true)
 
   return (
     <div className="pagelink">
-      <a href={ '/' + pageType + '/' + page.id }>
-        <div className="pagelink-image" style={{ backgroundImage: page.cover_image ? "url(" + process.env.OV_API_URL + page.cover_image.url + ")" : null }}></div>
+      <a href={ "/" + pageType + "/" + page.id }>
+        <div className="pagelink-image" style={{ backgroundImage: page.cover_image ? "url(" + page.cover_image.full_url + ")" : null }}></div>
         <div className="pagelink-title">{ page.title }</div>
-
         { authorBubble }
-        <div className="pagelink-subtitle">By { page.authors[0].name }</div>
+        <div className="pagelink-subtitle">By { author.name }</div>
       </a>
     </div>
   )
@@ -68,7 +72,7 @@ function renderPageTitleBar(title, hero_image_url, subtitle=null){
     <div className="page-titlebar" style={{ backgroundImage: "url(" + hero_image_url + ")" }}>
       <h1 className="page-titlebar-title">
         { title }
-        {subtitleContainer}
+        { subtitleContainer }
       </h1>
     </div>
   )

@@ -3,15 +3,35 @@ import { Carousel } from "react-responsive-carousel"
 import { renderPageLinks } from "~/classes/pageHelpers"
 import { getExhibits } from "~/exhibit"
 
-
-export function loader() {
-  return getExhibits()
+export const loader = async () => {
+  return await getExhibits()
 }
 
 export default function Index() {
-  const exhibits = useLoaderData()
+  let exhibits = useLoaderData()
 
-  let exhibitLinks = renderPageLinks("exhibits", exhibits.items)
+  let exhibitLinksContainer
+    console.log( 'duh ex', exhibits )
+  if(exhibits && exhibits.items && exhibits.items.length > 0){
+    let exhibitLinks = renderPageLinks("exhibits", exhibits.items)
+    exhibitLinksContainer = (
+      <div className="pagelinks-container">
+        <hr />
+
+        <div className="pagelinks-top">
+          <div className="pagelinks-also">
+            Scholar Exhibits
+          </div>
+
+          <div className="pagelinks-all">
+            <Link className="exhibit-viewall" to="/exhibits" >View All</Link>
+          </div>
+        </div>
+
+        { exhibitLinks }
+      </div>
+    )
+  }
 
   return (
     <div className="home-container">
@@ -38,21 +58,7 @@ export default function Index() {
         </Carousel>
       </div>
 
-      <div className="pagelinks-container">
-        <hr />
-
-        <div className="pagelinks-top">
-          <div className="pagelinks-also">
-            Scholar Exhibits
-          </div>
-
-          <div className="pagelinks-all">
-            <Link className="exhibit-viewall" to="/exhibits" >View All</Link>
-          </div>
-        </div>
-
-        { exhibitLinks }
-      </div>
+      { exhibitLinksContainer }
     </div>
   );
 }

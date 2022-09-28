@@ -107,7 +107,7 @@ div.series-search-button {
   background-color: #2B72F6;
   width:  20%;
   width:  5vh;
-  height:  4vh;
+  height:  4.5vh;
   max-height: 3em;
 
 }
@@ -125,6 +125,7 @@ div.purple-bar-container {
   /*margin-left: 10vw;*/
   /*width: 80vw;*/
   height: 6vh;
+  min-height: 3.6em;
   padding-top: 2vh;
   background-color: #430467;
   /*margin-bottom: 4vh;*/
@@ -138,13 +139,14 @@ div.purple-bar-container a.top-title {
 
 div.navigation-bar-container {
   background-color: #ededed;
-  height: 2.6vh;
-  padding-bottom: 3.6vh;
+  height: 1.2em;
+  min-height: 1.2em;
+  padding-bottom: 2em;
 }
 
 div.navigation-bar-container div.navigation-bar {
   margin-left: 4vw;
-  padding-top: 2vh;
+  padding-top: 1em;
 }
 
 img.ov-logo {
@@ -213,7 +215,7 @@ div.drawermenu-toggle {
   margin-left: 0.5vw;
   display: inline-block;
   width: 1vw;
-  max-width: 16px;
+  max-width: 14px;
   height: 0.6vw;
   max-height:8px;
   background-position: center;
@@ -222,7 +224,7 @@ div.drawermenu-toggle {
 }
 
 div.drawermenu-items {
-  min-width: 8vw;
+  min-width: 12vw;
   display: none;
 }
   
@@ -364,7 +366,8 @@ div.page-body {
 }
 
 div.page-titlebar {
-  height:  30vh;
+  height:  40vh;
+  min-height: 22em;
   position: relative;
 }
 

@@ -20,7 +20,6 @@ function DrawerMenu(props) {
       <div className="drawermenu-items">
         { items }
       </div>
-
     </div>
   )
 }

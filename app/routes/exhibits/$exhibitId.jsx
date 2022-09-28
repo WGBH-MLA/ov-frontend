@@ -1,7 +1,6 @@
 import { Link, useLoaderData } from "remix"
 import { getExhibit } from "~/exhibit"
 import { renderAuthorBubble, renderPageLink, renderPageLinks, renderSidebar, renderSidebarSection, renderPageTitleBar } from "~/classes/pageHelpers"
-
 import { decode } from "html-entities"
 
 export const loader = async ( { params } ) => {
@@ -11,15 +10,18 @@ export const loader = async ( { params } ) => {
 
 export default function Exhibits() {
   const exhibit = useLoaderData()
-  
-  let sidebar
+
+  let sections
   if(exhibit.sections){
-    sidebar = renderSidebar("exhibit", exhibit.sections)
+    sections = exhibit.sections
+  } else {
+    sections = []
   }
+  let sidebar = renderSidebar("exhibit", sections)
 
   let titleBar
   if(exhibit.title){
-    titleBar = renderPageTitleBar(exhibit.title, process.env.OV_API_URL + exhibit.hero_image.url)
+    titleBar = renderPageTitleBar(exhibit.title, exhibit.hero_image.full_url)
   }
 
   let bottomBar
@@ -58,7 +60,6 @@ export default function Exhibits() {
     )
   }
 
-  console.log( 'exhibit body', decode(exhibit.body) )
   return (
     <div>
       <div className="page-container">

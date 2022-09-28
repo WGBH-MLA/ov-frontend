@@ -120,7 +120,7 @@ export default function SpecialCollections() {
       },
       title: 'wowie zowie',
       cover_image: 'https://s3.amazonaws.com/americanarchive.org/cpb-aacip_111-451g1rhp.jpg'
-    },
+    }
   ]
 
   let specialCollectionLinks = renderPageLinks('specialCollections', specs)

@@ -6,21 +6,22 @@ import {
   Scripts,
   ScrollRestoration,
   Link
-} from "remix";
+} from "remix"
 
 import NavigationBar from "./classes/navigationBar"
 import {Footer, FooterLink} from "./classes/footer"
 import { renderPageLinks } from "./classes/pageHelpers"
 
-import styles from "~/styles.css";
+import styles from "~/styles.css"
 // use webpack css loader instead? v
 import carouselStyles from "~/../../node_modules/react-responsive-carousel/lib/styles/carousel.min.css"
+
 export function links() {
   return [{ rel: "stylesheet", href: styles }, { rel: "stylesheet", href: carouselStyles }]
 }
 
 export function meta(){
-  return { title: "GBH Open Vault" };
+  return { title: "GBH Open Vault" }
 }
 
 export default function App() {
@@ -37,9 +38,9 @@ export default function App() {
         <Outlet />
         <ScrollRestoration />
         <Scripts />
-        {process.env.NODE_ENV === "development" && <LiveReload />}
+        { process.env.NODE_ENV === "development" && <LiveReload />}
         <Footer />
       </body>
     </html>
-  );
+  )
 }
