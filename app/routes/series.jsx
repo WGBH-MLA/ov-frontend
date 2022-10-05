@@ -39,13 +39,13 @@ export default function Series() {
   return (
     <div className="page-container">
       <div className="page-sidebar">
-        <div className="page-sidebar-title">Search GBH Series</div>
+        <div className="page-sidebar-title spaced">Search GBH Series</div>
         <div className="series-search-container">
           <input onKeyUp={ (e) => { setSeriesSearch(e.target.value) } } type="text" name="series-search" placeholder="Series Name" />
           <div className="series-search-button" />
         </div>
 
-        <div className="page-sidebar-title">Jump To</div>
+        <div className="page-sidebar-title spaced">Jump To</div>
         <div className="series-alphabet">
           { alphabetLinks }
         </div>

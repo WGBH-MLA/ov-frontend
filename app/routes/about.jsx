@@ -16,7 +16,7 @@ export default function About() {
             <h2>Welcome to Open Vault!</h2>
 
             <p>
-              Open Vault contains video, audio, images, searchable transcripts, and resource management tools, all of which are available for individual and classroom learning. As America’s preeminent public broadcasting producer, the source of fully one-third of PBS’ prime-time lineup, GBH has been on the front lines of history for nearly seven decades. GBH productions - from local radio and television to nationally distributed programming - have documented our collective cultural heritage in moving images and sound. In 1979, GBH became the first public broadcasting station to develop an archive, staffed by professional archivists. For more than 35 years, MLA staff have preserved, cataloged, and provided access to materials produced by GBH. We currently manage and preserve nearly 1 million audio, video, film, and digital assets dating back to 1947.
+              Open Vault contains video, audio, images, searchable transcripts, and resource management tools, all of which are available for individual and classroom learning. As America's preeminent public broadcasting producer, the source of fully one-third of PBS' prime-time lineup, GBH has been on the front lines of history for nearly seven decades. GBH productions - from local radio and television to nationally distributed programming - have documented our collective cultural heritage in moving images and sound. In 1979, GBH became the first public broadcasting station to develop an archive, staffed by professional archivists. For more than 35 years, MLA staff have preserved, cataloged, and provided access to materials produced by GBH. We currently manage and preserve nearly 1 million audio, video, film, and digital assets dating back to 1947.
             </p>
 
             <hr className="spaced-hr" />
@@ -37,13 +37,13 @@ export default function About() {
 
             <a className="static-link">Boston TV News Digital Library</a>
             <p>
-              You can explore more of GBH’s collection in the Boston TV News Digital Library. During this CLIR and IMLS-funded project, we worked with the Boston Public Library, Cambridge Community Television, and Northeast Historic Film to digitize and bring to life local news stories produced in and about Boston from 1960 to 2000. Nearly 2,000 news programs are available online at BostonLocalTV.org.
+              You can explore more of GBH's collection in the Boston TV News Digital Library. During this CLIR and IMLS-funded project, we worked with the Boston Public Library, Cambridge Community Television, and Northeast Historic Film to digitize and bring to life local news stories produced in and about Boston from 1960 to 2000. Nearly 2,000 news programs are available online at BostonLocalTV.org.
             </p>
 
-            <div className="static-halfbox">
+            <div className="static-halfbox purple bold">
               <img src="https://s3.amazonaws.com/openvault.wgbh.org/carousel/press-and-the-people-q-80.jpg" />
             </div>
-            <div className="static-halfbox">
+            <div className="static-halfbox purple bold blockquote-text">
               The entire GBH collection and AAPB are available for research on location at GBH. Contact us to schedule a research visit in our Brighton, MA offices.
             </div>
 

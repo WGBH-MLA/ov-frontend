@@ -2,7 +2,7 @@ import { Link, useLoaderData } from "remix"
 import { renderAuthorBubble, renderPageLink, renderPageLinks, renderSidebar, renderSidebarSection, renderPageTitleBar } from "~/classes/pageHelpers"
 
 export default function SupportUs() {
-  let titleBar = renderPageTitleBar("Support Us", "https://s3.amazonaws.com/openvault.wgbh.org/carousel/press-and-the-people-q-80.jpg", "Help us preserve and provide access to GBH’s historic collection of programs for years to come!")
+  let titleBar = renderPageTitleBar("Support Us", "https://s3.amazonaws.com/openvault.wgbh.org/carousel/press-and-the-people-q-80.jpg", "Help us preserve and provide access to GBH's historic collection of programs for years to come!")
 
   return (
     <div>
@@ -13,62 +13,28 @@ export default function SupportUs() {
 
         <div className="page-body-container">
           <div className="page-body">
-            <h2>Welcome to Open Vault!</h2>
 
-            <p>
-              Open Vault contains video, audio, images, searchable transcripts, and resource management tools, all of which are available for individual and classroom learning. As America’s preeminent public broadcasting producer, the source of fully one-third of PBS’ prime-time lineup, GBH has been on the front lines of history for nearly seven decades. GBH productions - from local radio and television to nationally distributed programming - have documented our collective cultural heritage in moving images and sound. In 1979, GBH became the first public broadcasting station to develop an archive, staffed by professional archivists. For more than 35 years, MLA staff have preserved, cataloged, and provided access to materials produced by GBH. We currently manage and preserve nearly 1 million audio, video, film, and digital assets dating back to 1947.
-            </p>
-
-            <hr className="spaced-hr" />
-
-            <a className="static-link">American Archive of Public Broadcasting</a>
-            <p>
-              In 2013, the Corporation for Public Broadcasting selected GBH and the Library of Congress as the permanent stewards of the American Archive of Public Broadcasting, an initiative seeking to identify, preserve and make accessible significant historical content created by public media, and to preserve at-risk public media before its content is lost to posterity. Approximately 40,000 hours of content comprising 68,000 programs, contributed by 100 stations across the country, have been digitized. We provide access to nearly 12,000 of these programs, which are available online at americanarchive.org.
-            </p>
-
-            <hr className="spaced-hr" />
-
-            <a className="static-link">GBH Stock Sales</a>
-            <p>
-              For professional licensing requests, please visit the GBH Stock Sales website or call 617-300-3939.
-            </p>
-
-            <hr className="spaced-hr" />
-
-            <a className="static-link">Boston TV News Digital Library</a>
-            <p>
-              You can explore more of GBH’s collection in the Boston TV News Digital Library. During this CLIR and IMLS-funded project, we worked with the Boston Public Library, Cambridge Community Television, and Northeast Historic Film to digitize and bring to life local news stories produced in and about Boston from 1960 to 2000. Nearly 2,000 news programs are available online at BostonLocalTV.org.
-            </p>
-
-            <div className="static-halfbox">
-              <img src="https://s3.amazonaws.com/openvault.wgbh.org/carousel/press-and-the-people-q-80.jpg" />
+            <div className="purple blockquote-text bold">
+              "GBH has created an unparalleled public media archive with over 350,000 master-level materials on various formats including videotape, film and audiotape. These materials, many vulnerable to complete deterioration, must be preserved and digitized so that they can be available for future generations. We are literally in a race against time.""
             </div>
-            <div className="static-halfbox">
-              The entire GBH collection and AAPB are available for research on location at GBH. Contact us to schedule a research visit in our Brighton, MA offices.
-            </div>
+            <div className="small-text purple spaced">— Karen Cariani, David O. Ives Executive Director, GBH Archives</div>
 
-            <h2>Current Initiatives</h2>
+            <h2>NEH Challenge</h2>
 
             <p>
               In 2018, GBH received a $750,000 challenge grant from the National Endowment for the Humanities (NEH) to preserve and digitize the most at-risk items in the GBH archival collection, specifically 83,000 media resources. This effort will preserve the archive we have built and ensure that future media assets are properly preserved as they are created. The grant calls for a 4:1 match, or $3 million in matching dollars over the next four years.
             </p>
 
-            <p>
+            <div className="med-textline">
               A gift in support of Open Vault, leveraged by the NEH Challenge grant currently underway, directly enables us to:
-            </p>
+            </div>
 
-            <ul>
-              <li>Digitize critical programs that are currently deteriorating on obsolete formats</li>
-              <li>Add newly digitized content to Open Vault</li>
-              <li>Improve our website with new features and improve functionality and discoverability of the collection </li>
-              <li>Sustain Open Vault technical infrastructure so that we can continue to provide online access to the collection</li>
-            </ul>
+            <div class="med-textline">Digitize critical programs that are currently deteriorating on obsolete formats</div>
+            <div class="med-textline">Add newly digitized content to Open Vault</div>
+            <div class="med-textline">Improve our website with new features and improve functionality and discoverability of the collection</div>
+            <div class="med-textline">Sustain Open Vault technical infrastructure so that we can continue to provide online access to the collection</div>
 
-            <h2>Mailing Address</h2>
-            <p>
-              Open Vault<br /> GBH Archives<br /> WGBH Educational Foundation<br /> One Guest Street<br /> Boston, MA 02135
-            </p>
-
+            <a className="static-link blockquote-text bold">Read the entire case for support here</a>
           </div>
         </div>
       </div>
