@@ -14,7 +14,7 @@ a {
 }
 
 a.series-alphabet-link {
-  width: 1vw;
+  width: 4vw;
   display: inline-block;
   font-size: 1em;
   padding-right: 0.6vw;
@@ -64,14 +64,13 @@ a.static-link {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  width: 40%;
   display: inline-block;
   color: #2B72F6;
-  font-size: 1em;
   font-weight: bold;
   padding:  1em;
   height: 2.3vh;
 }
+
 
 div.static-halfbox img {
   max-width: 100%;
@@ -82,8 +81,6 @@ div.static-halfbox {
   vertical-align: middle;
   display: inline-block;
   width: 48%;
-  color: #430467;
-  font-weight: bold;
   font-size: 1.6em;
 }
 
@@ -193,6 +190,7 @@ div.affiliated-websites-menu a.drawer-item {
 
 div.about-menu {
   position: absolute;
+  min-width: 240px;
   width: 12vw;
   color: #430467;
 }
@@ -215,6 +213,7 @@ div.drawermenu-toggle {
   margin-left: 0.5vw;
   display: inline-block;
   width: 1vw;
+  min-width: 14px;
   max-width: 14px;
   height: 0.6vw;
   max-height:8px;
@@ -229,18 +228,18 @@ div.drawermenu-items {
 }
   
 a.drawer-item {
-  padding-top: 2vh;
+  padding-top: 3vh;
   padding-left: 2vw;
   padding-right: 2vw;
-  padding-bottom: 0vh;
+  padding-bottom: 1vh;
   text-align: left;
   line-height: 2vh;
   display: block;
 
   min-width: 8vw;
 
-  min-height: 4em;
-  height: 6vh;
+  min-height: 2em;
+  height: 2vh;
   max-height: 2em;
   color: #000;
 }
@@ -356,6 +355,7 @@ div.page-authorbubble-container div.author-byline {
 
 div.page-body-container {
   margin-top: 6vh;
+  margin-bottom: 8vh;
   vertical-align: top;
   display: inline-block;
   width: 64%;
@@ -387,6 +387,13 @@ h1.page-titlebar-title {
 h1.page-titlebar-title h2.page-titlebar-subtitle{
   font-size: 0.4em;
   font-weight: normal;
+}
+
+div.page-body h1 {
+  color:  #430467;
+  font-size: 3em;
+  display: block;
+  margin-bottom: 1em;
 }
 
 div.page-body h2 {
@@ -508,6 +515,46 @@ div.author-bubble.box-attach {
   position: absolute;
   bottom: -2vw;
   right: -2vw;
+}
+
+div.med-heading {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+div.med-textline {
+  font-size: 1.1em;
+  margin-bottom: 2em;
+}
+
+.blockquote-text {
+  font-size: 1.6em;
+}
+
+.gray {
+  color: #aaa;
+}
+
+.black {
+  color: #000;
+}
+
+.purple {
+  color: #430467;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+div.spaced {
+  margin-top: 1em;
+  vertical-align: top;
+  text-align: left;
+}
+
+div.small-text {
+  font-size: 1em;
 }
 
 

@@ -15,7 +15,7 @@ function Footer(props){
         <div className="bottom-bar-column">
           <FooterLink link="/projects" text="Projects/Grants" />
           <FooterLink link="/support_us" text="Support Us" />
-          <FooterLink link="/visit_us" text="Visit Us" />
+          <FooterLink link="/visitus" text="Visit Us" />
           <FooterLink link="/help" text="Help" />
           <FooterLink link="/credits" text="Credits" />
         </div>

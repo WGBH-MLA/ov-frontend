@@ -15,7 +15,7 @@ class NavigationBar extends Component {
       },
       {
         label: "Support Us",
-        url: "/support"
+        url: "/supportus"
       },
       {
         label: "Visit Us",
