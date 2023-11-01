@@ -9,8 +9,8 @@ export const loader = async () => {
 export default function Exhibits() {
 
   let exhibits = useLoaderData()
-
   let exhibitLinks = renderPageLinks('exhibits', exhibits.items)
+
   return (
     <div className="pagelinks-container">
       { exhibitLinks }
