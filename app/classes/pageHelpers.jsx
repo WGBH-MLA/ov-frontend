@@ -14,12 +14,12 @@ function renderAuthorBubble(author, boxAttach=false){
 }
 
 function renderPageLink(pageType, page){
-  let authorSection, authorLink
+  let authorBubble, authorLink
   
   if(page.authors && page.authors.length > 0){
-    author = page.authors[0]
+    let author = page.authors[0]
     authorBubble = renderAuthorBubble(author, true)
-    aulo = (
+    authorLink = (
       <div className="pagelink-subtitle">By { author.name }</div>
     )
   }
