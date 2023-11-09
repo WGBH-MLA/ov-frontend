@@ -1,10 +1,9 @@
-FROM node:18-alpine AS dev
+FROM node:alpine AS dev
+WORKDIR /app
+ENV PATH="${PATH}:/app/node_modules/.bin"
+
 RUN npm install -g npm npm-upgrade
 
-WORKDIR /var/app
-
-COPY package.json .
-RUN npm i
 
 CMD npm run dev
 
@@ -12,6 +11,7 @@ CMD npm run dev
 FROM dev AS production
 
 COPY ./ .
+RUN npm i
 RUN npm run build
 
 ENV NODE_ENV=production
