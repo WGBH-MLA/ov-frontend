@@ -13,9 +13,7 @@ export default function SpecialCollections() {
   specs = useLoaderData()
 
   console.log( 'specky wecky', specs )
-
-  let specialCollectionLinks = renderPageLinks('specialCollections', specs)
-
+  let specialCollectionLinks = renderPageLinks('specialCollections', specs.items)
 
   return (
     <div className="pagelinks-container">
