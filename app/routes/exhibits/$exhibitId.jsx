@@ -11,6 +11,8 @@ export const loader = async ( { params } ) => {
 export default function Exhibits() {
   const exhibit = useLoaderData()
 
+  console.log( 'exx gon give it to ya', exhibit )
+
   let sections
   if(exhibit.sections){
     sections = exhibit.sections

@@ -557,4 +557,10 @@ div.small-text {
   font-size: 1em;
 }
 
+/*content blocks*/
+
+div.content-text {
+  background-color: #ff0;  
+}
+
 
