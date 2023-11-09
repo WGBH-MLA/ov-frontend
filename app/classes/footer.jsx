@@ -1,4 +1,4 @@
-function Footer(props){
+export function Footer(props){
   return(
     <div className="bottom-bar-container">
       <div className="bottom-bar-row">
@@ -33,10 +33,8 @@ function Footer(props){
   )
 }
 
-function FooterLink(props){
+export function FooterLink(props){
   return (
     <a className="bottom-bar-link" href={ props.link }>{ props.text }</a>
   )
 }
-
-module.exports = { Footer, FooterLink }

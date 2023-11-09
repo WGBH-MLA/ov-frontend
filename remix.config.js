@@ -1,7 +1,7 @@
 /**
  * @type {import('@remix-run/dev/config').AppConfig}
  */
-module.exports = {
+const config = {
   appDirectory: "app",
   assetsBuildDirectory: "public/build",
   publicPath: "/build/",
@@ -9,3 +9,5 @@ module.exports = {
   devServerPort: 8002,
   ignoredRouteFiles: [".*"]
 };
+
+export default config;

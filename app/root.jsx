@@ -6,9 +6,9 @@ import {
   Scripts,
   ScrollRestoration,
   Link
-} from "remix"
+} from "@remix-run/react"
 
-import NavigationBar from "./classes/navigationBar"
+import {NavigationBar} from "./classes/navigationBar"
 import {Footer, FooterLink} from "./classes/footer"
 import { renderPageLinks } from "./classes/pageHelpers"
 

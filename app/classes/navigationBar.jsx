@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import NavigationLink from './navigationLink'
-import DrawerMenu from './drawerMenu'
+import {NavigationLink} from './navigationLink'
+import {DrawerMenu} from './drawerMenu'
 
-class NavigationBar extends Component {
+export class NavigationBar extends Component {
   constructor(props){
     super(props)
   }
@@ -68,5 +68,3 @@ class NavigationBar extends Component {
     )
   }
 }
-
-module.exports = NavigationBar

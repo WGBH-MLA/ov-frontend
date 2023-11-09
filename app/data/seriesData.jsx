@@ -1,4 +1,4 @@
-const seriesData = {
+export const seriesData = {
     ["A"]: [
         "AIDS Quarterly, The",
         "AIDS Special",
@@ -1082,5 +1082,3 @@ const seriesData = {
     ]
     
 }
-
-module.exports = { seriesData }

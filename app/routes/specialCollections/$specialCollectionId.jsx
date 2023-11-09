@@ -1,4 +1,4 @@
-import { Link, useLoaderData } from "remix"
+import { useLoaderData } from "@remix-run/react"
 import { getSpecialCollection } from "~/specialCollection"
 import { renderAuthorBubble, renderPageLink, renderPageLinks, renderSidebar, renderSidebarSection, renderPageTitleBar } from "~/classes/pageHelpers"
 
