@@ -21,7 +21,15 @@ export default function Exhibits() {
 
   let titleBar
   if(exhibit.title){
-    titleBar = renderPageTitleBar(exhibit.title, exhibit.hero_image.full_url)
+
+    let hero
+    if(exhibit.hero_image){
+      hero = exhibit.hero_image.full_url
+    } else {
+      hero = "/gbh-mural.jpeg"
+    }
+
+    titleBar = renderPageTitleBar(exhibit.title, hero)
   }
 
   let bottomBar
@@ -47,7 +55,7 @@ export default function Exhibits() {
   }
 
   let exhibitAuthor
-  if(exhibit.authors.length > 0){
+  if(exhibit.authors && exhibit.authors.length > 0){
     let byline = (
       <div className="author-byline">
         By { exhibit.authors[0].name }

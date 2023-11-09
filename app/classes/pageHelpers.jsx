@@ -14,13 +14,15 @@ function renderAuthorBubble(author, boxAttach=false){
 }
 
 function renderPageLink(pageType, page){
-  let author
+  let authorBubble, authorLink
+  
   if(page.authors && page.authors.length > 0){
-    author = page.authors[0]
-  } else {
-    author = { name: "author!", image: {full_url: "/carousel/guitar.jpg"} }
+    let author = page.authors[0]
+    authorBubble = renderAuthorBubble(author, true)
+    authorLink = (
+      <div className="pagelink-subtitle">By { author.name }</div>
+    )
   }
-  let authorBubble = renderAuthorBubble(author, true)
 
   return (
     <div className="pagelink">
@@ -28,7 +30,7 @@ function renderPageLink(pageType, page){
         <div className="pagelink-image" style={{ backgroundImage: page.cover_image ? "url(" + page.cover_image.full_url + ")" : null }}></div>
         <div className="pagelink-title">{ page.title }</div>
         { authorBubble }
-        <div className="pagelink-subtitle">By { author.name }</div>
+        { authorLink }
       </a>
     </div>
   )
@@ -36,8 +38,7 @@ function renderPageLink(pageType, page){
 
 function renderPageLinks(pageType, pages){
   let pageLinks = pages.map( (page) => { return renderPageLink(pageType, page) })
-
-return (
+  return (
     <div className="pagelinks">
       { pageLinks }
     </div>
