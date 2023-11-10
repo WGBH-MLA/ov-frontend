@@ -5,9 +5,10 @@ const config = {
   appDirectory: "app",
   assetsBuildDirectory: "public/build",
   publicPath: "/build/",
-  serverBuildDirectory: "build",
+  serverBuildPath: "./build/index.js",
   devServerPort: 8002,
-  ignoredRouteFiles: [".*"]
+  ignoredRouteFiles: [".*"],
+  serverModuleFormat: "esm",
 };
 
 export default config;

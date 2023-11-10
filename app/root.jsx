@@ -21,7 +21,7 @@ export function links() {
 }
 
 export function meta(){
-  return { title: "GBH Open Vault" }
+  return [{ title: "GBH Open Vault" }]
 }
 
 export default function App() {
