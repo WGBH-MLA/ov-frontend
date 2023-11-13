@@ -98,15 +98,28 @@ div.series-search-container input {
   width: 60%;
 }
 
+
+div.series-search-container input.series-search {
+  height:  2em;
+  max-height: 2em;
+    
+  padding-block: 0px;
+  padding-inline: 0px;
+}
+
 div.series-search-button {
   display: inline-block;
   vertical-align: middle;
   background-color: #2B72F6;
   width:  20%;
   width:  5vh;
-  height:  4.5vh;
-  max-height: 3em;
 
+
+  height:  2em;
+  max-height: 2em;
+  background-image: url("/magnifying_glass.png");
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 div.carousel-container {

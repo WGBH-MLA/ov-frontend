@@ -1,4 +1,4 @@
-function NavigationLink(props){
+export function NavigationLink(props){
   return(
     <a className="navigation-link" href={ props.href }>
       <div>
@@ -7,5 +7,3 @@ function NavigationLink(props){
     </a>
   )
 }
-
-module.exports = NavigationLink

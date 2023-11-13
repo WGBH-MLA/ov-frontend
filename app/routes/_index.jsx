@@ -1,4 +1,5 @@
-import { Link, useLoaderData } from "remix"
+import { Link } from "@remix-run/react"
+import { useLoaderData } from "@remix-run/react"
 import { Carousel } from "react-responsive-carousel"
 import { renderPageLinks } from "~/classes/pageHelpers"
 import { getExhibits } from "~/exhibit"
