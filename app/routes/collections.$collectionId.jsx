@@ -1,18 +1,18 @@
-import { Link, useLoaderData } from "remix"
-import { getSpecialCollection } from "~/specialCollection"
+import { useLoaderData } from "@remix-run/react"
+import { getCollection } from "~/collection"
 import { renderAuthorBubble, renderPageLink, renderPageLinks, renderSidebar, renderSidebarSection, renderPageTitleBar } from "~/classes/pageHelpers"
 
 export const loader = async ( { params } ) => {
   console.log( 'collection id ', params )
-  return await getSpecialCollection( params.specialCollectionId )
+  return await getCollection( params.collectionId )
 };
 
-export default function SpecialCollections() {
+export default function Collections() {
   const spec = useLoaderData();
   
   let sidebar
   if(spec.sections){
-    sidebar = renderSidebar("specialcollection", spec.sections)
+    sidebar = renderSidebar("collections", spec.sections)
   }
 
   let titleBar
@@ -50,7 +50,6 @@ export default function SpecialCollections() {
 
         <div className="page-body-container">
           { collectionAuthor }
-
           <div className="page-body" dangerouslySetInnerHTML={{ __html: spec.body }} />
         </div>
         

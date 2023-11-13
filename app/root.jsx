@@ -6,9 +6,9 @@ import {
   Scripts,
   ScrollRestoration,
   Link
-} from "remix"
+} from "@remix-run/react"
 
-import NavigationBar from "./classes/navigationBar"
+import {NavigationBar} from "./classes/navigationBar"
 import {Footer, FooterLink} from "./classes/footer"
 import { renderPageLinks } from "./classes/pageHelpers"
 
@@ -21,7 +21,7 @@ export function links() {
 }
 
 export function meta(){
-  return { title: "GBH Open Vault" }
+  return [{ title: "GBH Open Vault" }]
 }
 
 export default function App() {

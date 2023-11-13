@@ -1,4 +1,4 @@
-import { Link, useLoaderData } from "remix"
+import { Link, useLoaderData } from "@remix-run/react"
 import { getExhibit } from "~/exhibit"
 import { renderAuthorBubble, renderPageLink, renderPageLinks, renderSidebar, renderSidebarSection, renderPageTitleBar } from "~/classes/pageHelpers"
 import { decode } from "html-entities"

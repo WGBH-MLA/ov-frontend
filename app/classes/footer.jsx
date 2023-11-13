@@ -1,4 +1,4 @@
-function Footer(props){
+export function Footer(props){
   return(
     <div className="bottom-bar-container">
       <div className="bottom-bar-row">
@@ -10,11 +10,11 @@ function Footer(props){
         <div className="bottom-bar-column">
           <FooterLink link="/series" text="GBH Series" />
           <FooterLink link="/exhibits" text="Exhibits" />
-          <FooterLink link="/specialCollections" text="Collections" />
+          <FooterLink link="/collections" text="Collections" />
         </div>
         <div className="bottom-bar-column">
           <FooterLink link="/projects" text="Projects/Grants" />
-          <FooterLink link="/support_us" text="Support Us" />
+          <FooterLink link="/supportus" text="Support Us" />
           <FooterLink link="/visitus" text="Visit Us" />
           <FooterLink link="/help" text="Help" />
           <FooterLink link="/credits" text="Credits" />
@@ -33,10 +33,8 @@ function Footer(props){
   )
 }
 
-function FooterLink(props){
+export function FooterLink(props){
   return (
     <a className="bottom-bar-link" href={ props.link }>{ props.text }</a>
   )
 }
-
-module.exports = { Footer, FooterLink }

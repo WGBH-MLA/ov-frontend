@@ -1,4 +1,4 @@
-function DrawerMenu(props) {
+export function DrawerMenu(props) {
 
   let items
   if(props.items){
@@ -36,5 +36,3 @@ function DrawerItem(props){
     </a>
   )
 }
-  
-module.exports = DrawerMenu

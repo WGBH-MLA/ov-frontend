@@ -1,6 +1,6 @@
 import { Link } from "remix"
 
-function renderAuthorBubble(author, boxAttach=false){
+export function renderAuthorBubble(author, boxAttach=false){
   let classes = "author-bubble"
   if(boxAttach){
     // this sticks to bottom right of parent box
@@ -13,7 +13,7 @@ function renderAuthorBubble(author, boxAttach=false){
   )
 }
 
-function renderPageLink(pageType, page){
+export function renderPageLink(pageType, page){
   let authorBubble, authorLink
   
   if(page.authors && page.authors.length > 0){
@@ -36,7 +36,7 @@ function renderPageLink(pageType, page){
   )
 }
 
-function renderPageLinks(pageType, pages){
+export function renderPageLinks(pageType, pages){
   let pageLinks = pages.map( (page) => { return renderPageLink(pageType, page) })
   return (
     <div className="pagelinks">
@@ -45,7 +45,7 @@ function renderPageLinks(pageType, pages){
   )
 }
 
-function renderSidebar(pageType, sections){
+export function renderSidebar(pageType, sections){
   let pageTypeName = pageType === "exhibit" ? "Exhibit" : "Collection"
   return (
     <div className="page-sidebar">
@@ -55,13 +55,13 @@ function renderSidebar(pageType, sections){
   )
 }
 
-function renderSidebarSection(section){
+export function renderSidebarSection(section){
   return (
     <a href="#" onClick={ () => { scrollSectionIntoView(section)  } } className="page-sidebar-link">&gt; { section.title }</a>
   )
 }
 
-function renderPageTitleBar(title, hero_image_url, subtitle=null){
+export function renderPageTitleBar(title, hero_image_url, subtitle=null){
   let subtitleContainer
   if(subtitle){
     subtitleContainer = (
@@ -78,5 +78,3 @@ function renderPageTitleBar(title, hero_image_url, subtitle=null){
     </div>
   )
 }
-
-module.exports = { renderAuthorBubble, renderPageLink, renderPageLinks, renderSidebarSection, renderSidebar, renderPageTitleBar }

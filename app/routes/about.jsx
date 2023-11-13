@@ -1,4 +1,3 @@
-import { Link, useLoaderData } from "remix"
 import { renderAuthorBubble, renderPageLink, renderPageLinks, renderSidebar, renderSidebarSection, renderPageTitleBar } from "~/classes/pageHelpers"
 
 export default function About() {

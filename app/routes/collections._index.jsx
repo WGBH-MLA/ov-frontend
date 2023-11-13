@@ -1,23 +1,23 @@
-import { Link, useLoaderData } from "remix"
-import { getSpecialCollections } from "~/specialCollection"
+import { Link, useLoaderData } from "@remix-run/react"
+import { getCollections } from "~/collection"
 import { renderAuthorBubble, renderPageLink, renderPageLinks } from "~/classes/pageHelpers"
 
 export const loader = async () => {
-  return await getSpecialCollections()
+  return await getCollections()
 }
 
-export default function SpecialCollections() {
+export default function Collections() {
   let specs
 
   // actually get from api
   specs = useLoaderData()
 
   console.log( 'specky wecky', specs )
-  let specialCollectionLinks = renderPageLinks('specialCollections', specs.items)
+  let collectionLinks = renderPageLinks('collections', specs.items)
 
   return (
     <div className="pagelinks-container">
-      { specialCollectionLinks }
+      { collectionLinks }
     </div>
   );
 }
