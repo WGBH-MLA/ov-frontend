@@ -10,11 +10,11 @@ export function Footer(props){
         <div className="bottom-bar-column">
           <FooterLink link="/series" text="GBH Series" />
           <FooterLink link="/exhibits" text="Exhibits" />
-          <FooterLink link="/specialCollections" text="Collections" />
+          <FooterLink link="/collections" text="Collections" />
         </div>
         <div className="bottom-bar-column">
           <FooterLink link="/projects" text="Projects/Grants" />
-          <FooterLink link="/support_us" text="Support Us" />
+          <FooterLink link="/supportus" text="Support Us" />
           <FooterLink link="/visitus" text="Visit Us" />
           <FooterLink link="/help" text="Help" />
           <FooterLink link="/credits" text="Credits" />

@@ -1,18 +1,18 @@
 import { useLoaderData } from "@remix-run/react"
-import { getSpecialCollection } from "~/specialCollection"
+import { getCollection } from "~/collection"
 import { renderAuthorBubble, renderPageLink, renderPageLinks, renderSidebar, renderSidebarSection, renderPageTitleBar } from "~/classes/pageHelpers"
 
 export const loader = async ( { params } ) => {
   console.log( 'collection id ', params )
-  return await getSpecialCollection( params.specialCollectionId )
+  return await getCollection( params.collectionId )
 };
 
-export default function SpecialCollections() {
+export default function Collections() {
   const spec = useLoaderData();
   
   let sidebar
   if(spec.sections){
-    sidebar = renderSidebar("specialcollection", spec.sections)
+    sidebar = renderSidebar("collections", spec.sections)
   }
 
   let titleBar
