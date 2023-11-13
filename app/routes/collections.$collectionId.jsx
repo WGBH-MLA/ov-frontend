@@ -50,7 +50,6 @@ export default function Collections() {
 
         <div className="page-body-container">
           { collectionAuthor }
-
           <div className="page-body" dangerouslySetInnerHTML={{ __html: spec.body }} />
         </div>
         

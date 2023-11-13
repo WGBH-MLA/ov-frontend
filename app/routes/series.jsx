@@ -41,7 +41,7 @@ export default function Series() {
       <div className="page-sidebar">
         <div className="page-sidebar-title spaced">Search GBH Series</div>
         <div className="series-search-container">
-          <input onKeyUp={ (e) => { setSeriesSearch(e.target.value) } } type="text" name="series-search" placeholder="Series Name" />
+          <input className="series-search" onKeyUp={ (e) => { setSeriesSearch(e.target.value) } } type="text" name="series-search" placeholder="Series Name" />
           <div className="series-search-button" />
         </div>
 
