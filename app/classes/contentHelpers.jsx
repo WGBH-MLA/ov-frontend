@@ -1,3 +1,5 @@
+import { decode } from "html-entities"
+
 export function renderBlocks(blocks){
   // jsx likes to be in an array to be concatted when rendered
   let output = []
@@ -54,11 +56,9 @@ export function creditsContent(block){
   // let creditHTML = parser.parseFromString(block.value)
   // var creds = creditHTML.querySelector("p")
 
-  // return (
-  //   <div key={ block.id } id={ block.id } className="content-block content-credits">
-  //     { creds[0] }
-  //   </div>  
-  // )
+  return (
+    <div className="page-body" dangerouslySetInnerHTML={{ __html: decode(block.value) }} />
+  )
 }
 
 export function interviewsContent(block){}
@@ -67,4 +67,3 @@ export function photographsContent(block){}
 export function originalFootageContent(block){}
 export function relatedContentContent(block){}
 export function imageContent(block){}
-

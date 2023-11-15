@@ -581,6 +581,7 @@ div.content-block {
 div.content-text {}
 
 div.content-heading {
+  font-weight: bold;
   color: #404;
   font-size: 1.8em;
 }
