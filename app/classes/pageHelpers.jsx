@@ -1,4 +1,4 @@
-import { Link } from "remix"
+import { useLoaderData } from "@remix-run/react"
 
 export function renderAuthorBubble(author, boxAttach=false){
   let classes = "author-bubble"

@@ -3,7 +3,8 @@ import { getCollection } from "~/collection"
 import { renderAuthorBubble, renderPageLink, renderPageLinks, renderSidebar, renderSidebarSection, renderPageTitleBar } from "~/classes/pageHelpers"
 
 // block render methods
-import * as contentHelpers from "~/classes/contentHelpers"
+// import * as contentHelpers from "~/classes/contentHelpers"
+import { renderBlocks, renderBlock, textContent } from "~/classes/contentHelpers"
 
 export const loader = async ( { params } ) => {
   console.log( 'collection id ', params )
@@ -33,7 +34,7 @@ export default function Collections() {
 
   let blockContent
   if(spec.content && spec.content.length > 0){
-    blockContent = contentHelpers.renderBlocks(spec.content)
+    blockContent = renderBlocks(spec.content)
   }
 
   return (

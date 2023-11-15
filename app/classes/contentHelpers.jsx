@@ -1,4 +1,4 @@
-function renderBlocks(blocks){
+export function renderBlocks(blocks){
   // jsx likes to be in an array to be concatted when rendered
   let output = []
   blocks.forEach( (block) => {
@@ -9,7 +9,7 @@ function renderBlocks(blocks){
   return output
 }
 
-function renderBlock(block){
+export function renderBlock(block){
   if(block.type == "text"){
     return textContent(block)
   } else if(block.type == "credits"){
@@ -21,12 +21,10 @@ function renderBlock(block){
 }
 
 
-function textContent(block){
+export function textContent(block){
   return (
     <div key={ block.id } id={ block.id } className="content-text">
       { block.value }
     </div>  
   )
 }
-
-module.exports = { renderBlocks, renderBlock, textContent }
