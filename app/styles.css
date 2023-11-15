@@ -402,6 +402,7 @@ h1.page-titlebar-title h2.page-titlebar-subtitle{
   font-weight: normal;
 }
 
+/*styling elements rendered from exhibit body field*/
 div.page-body h1 {
   color:  #430467;
   font-size: 3em;
@@ -572,8 +573,19 @@ div.small-text {
 
 /*content blocks*/
 
-div.content-text {
-  background-color: #ff0;  
+div.content-block {
+  font-size: 1.2em;
+  padding: 1em;
 }
 
+div.content-text {}
+
+div.content-heading {
+  color: #404;
+  font-size: 1.8em;
+}
+
+div.content-credits {
+  list-style-type: square;
+}
 
