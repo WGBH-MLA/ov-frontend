@@ -578,6 +578,15 @@ div.content-block {
   padding: 1vw;
 }
 
+div.content-block h3 {
+  color: #404;
+}
+
+div.content-block div.content-block-body p {
+  font-size: 1em;
+  padding: 0;
+}
+
 div.content-text {}
 
 div.content-heading {
@@ -586,7 +595,17 @@ div.content-heading {
   font-size: 1.8em;
 }
 
-div.content-credits {
-  list-style-type: square;
+div.content-image {
+  color: #fff;
+  background-color: #222;
 }
 
+div.content-relatedcontent {}
+
+div.content-relatedcontent a {
+  display: inline-block;
+  color: #2B72F6;
+  width: 50%;
+}
+
+div.content-credits p {}

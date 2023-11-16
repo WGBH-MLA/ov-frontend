@@ -1,3 +1,4 @@
+import { decode } from "html-entities"
 import { useLoaderData } from "@remix-run/react"
 import { getCollection } from "~/collection"
 import { renderAuthorBubble, renderPageLink, renderPageLinks, renderSidebar, renderSidebarSection, renderPageTitleBar } from "~/classes/pageHelpers"
@@ -23,7 +24,6 @@ export default function Collections() {
   }
   sidebar = renderSidebar("collections", sections)
 
-
   let titleBar
   if(spec.title){
 
@@ -42,6 +42,16 @@ export default function Collections() {
     blockContent = renderBlocks(spec.content)
   }
 
+  let introduction
+  if(spec.introduction){
+    introduction = (
+      <div class="content-block">
+        <h3>Introduction</h3>
+        <div className="content-block-body" dangerouslySetInnerHTML={{ __html: decode(spec.introduction) }} />
+      </div>
+    )
+  }
+
   return (
     <div>
       <div className="page-container">
@@ -50,6 +60,7 @@ export default function Collections() {
 
         <div className="page-body-container">
           <div className="page-body">
+            { introduction } 
             { blockContent }
           </div>
         </div>
