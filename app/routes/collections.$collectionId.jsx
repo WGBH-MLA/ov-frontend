@@ -5,7 +5,7 @@ import { renderAuthorBubble, renderPageLink, renderPageLinks, renderSidebar, ren
 
 // block render methods
 // import * as contentHelpers from "~/classes/contentHelpers"
-import { renderBlocks, renderBlock, textContent, interviewsContent, archivalFootageContent, photographsContent, originalFootageContent, relatedContentContent, creditsContent, headingContent, imageContent } from "~/classes/contentHelpers"
+import { renderBlocks, renderBlock, textContent, interviewsContent, archivalFootageContent, photographsContent, originalFootageContent, relatedContentContent, creditsContent, headingContent, imageContent, sections } from "~/classes/contentHelpers"
 
 export const loader = async ( { params } ) => {
   console.log( 'collection id ', params )
@@ -15,14 +15,8 @@ export const loader = async ( { params } ) => {
 export default function Collections() {
   const spec = useLoaderData();
   console.log( 'SINGLE SPEC', spec )  
-  let sidebar, sections
-  if(spec.sections){
-    sections = spec.sections
-  } else {
-    // temp
-    sections = []
-  }
-  sidebar = renderSidebar("collections", sections)
+  let sidebar
+  sidebar = renderSidebar("collections", sections(spec.content))
 
   let titleBar
   if(spec.title){

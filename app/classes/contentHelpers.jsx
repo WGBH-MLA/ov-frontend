@@ -28,6 +28,7 @@ export function renderBlock(block){
   } else if(block.type == "heading"){
     return headingContent(block)
   } else if(block.type == "image"){
+    return imageContent(block)
   } else if(block.type == "credits") {
     return creditsContent(block)
   } else {
@@ -38,7 +39,7 @@ export function renderBlock(block){
 
 export function textContent(block){
   return (
-    <div key={ block.id } id={ block.id } className="content-block content-text">
+    <div id={ block.id } key={ block.id } className="content-block content-text">
       { block.value }
     </div>  
   )
@@ -46,7 +47,7 @@ export function textContent(block){
 
 export function headingContent(block){
   return (
-    <div key={ block.id } id={ block.id } className="content-block content-heading">
+    <div id={ block.id } key={ block.id } className="content-block content-heading">
       { block.value }
     </div>  
   )
@@ -54,7 +55,7 @@ export function headingContent(block){
 
 export function imageContent(block){
   return (
-    <div key={ block.id } id={ block.id } className="content-block content-image">
+    <div id={ block.id } key={ block.id } className="content-block content-image">
       An Image! (id { block.value })
     </div>
   )
@@ -69,7 +70,7 @@ export function relatedContentContent(block){
   })
 
   return (
-    <div key={ block.id } id={ block.id } className="content-block content-relatedcontent">
+    <div id={ block.id } key={ block.id } className="content-block content-relatedcontent">
       <h3>Related Content</h3>
       { content }
     </div>
@@ -78,7 +79,7 @@ export function relatedContentContent(block){
 
 export function creditsContent(block){
   return (
-    <div className="content-block content-credits">
+    <div id={ block.id } className="content-block content-credits">
       <h3>Credits</h3>
       <div className="content-block-body" dangerouslySetInnerHTML={{ __html: decode(block.value) }} />
     </div>
@@ -87,7 +88,13 @@ export function creditsContent(block){
 
 // generic block
 export function contentBlock(block){
-  <div className="content-block" dangerouslySetInnerHTML={{ __html: decode(block.value) }} />
+  <div id={ block.id } className="content-block" dangerouslySetInnerHTML={{ __html: decode(block.value) }} />
+}
+
+export function sections(blocks){
+  return blocks.map( (block, i) => {
+    return { id: block.id, title: `Section ${i}`}
+  })
 }
 
 
