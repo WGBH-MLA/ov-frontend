@@ -91,13 +91,6 @@ export function contentBlock(block){
   <div id={ block.id } className="content-block" dangerouslySetInnerHTML={{ __html: decode(block.value) }} />
 }
 
-export function sections(blocks){
-  return blocks.map( (block, i) => {
-    return { id: block.id, title: `Section ${i}`}
-  })
-}
-
-
 
 // export function interviewsContent(block){}
 // export function archivalFootageContent(block){}

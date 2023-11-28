@@ -1,10 +1,11 @@
 import { decode } from "html-entities"
 import { renderAuthorBubble, renderPageLink, renderPageLinks, renderSidebar, renderSidebarSection, renderPageTitleBar } from "~/classes/pageHelpers"
-import { renderBlocks, renderBlock, textContent, interviewsContent, archivalFootageContent, photographsContent, originalFootageContent, relatedContentContent, creditsContent, headingContent, imageContent, sections } from "~/classes/contentHelpers"
+import { renderBlocks, renderBlock, textContent, interviewsContent, archivalFootageContent, photographsContent, originalFootageContent, relatedContentContent, creditsContent, headingContent, imageContent } from "~/classes/contentHelpers"
 
 export function renderCollection(collection){
   let sidebar
-  sidebar = renderSidebar("collections", sections(collection.content))
+  // take every 'heading' type block, which are guaranteed to have a title field
+  sidebar = renderSidebar("collections", collection.content.filter( (block) => block.type == "heading" ))
 
   let titleBar
   if(collection.title){

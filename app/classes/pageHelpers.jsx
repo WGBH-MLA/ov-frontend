@@ -57,7 +57,7 @@ export function renderSidebar(pageType, sections){
 
 export function renderSidebarSection(section){
   return (
-    <a href={ `#${section.id}` } onClick={ () => { scrollSectionIntoView(section)  } } className="page-sidebar-link">&gt; { section.title }</a>
+    <a href={ `#${section.id}` } onClick={ () => { scrollSectionIntoView(section)  } } className="page-sidebar-link">&gt; { section.value }</a>
   )
 }
 
