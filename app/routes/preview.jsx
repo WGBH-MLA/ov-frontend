@@ -1,6 +1,5 @@
 import { Link, useLoaderData } from "@remix-run/react"
 import { getPreview } from "~/preview"
-// import { renderAuthorBubble, renderPageLink, renderPageLinks, renderSidebar, renderSidebarSection, renderPageTitleBar } from "~/classes/pageHelpers"
 import { decode } from "html-entities"
 import { renderCollection } from "~/classes/collectionPresenter"
 import { renderExhibit } from "~/classes/exhibitPresenter"
@@ -31,7 +30,6 @@ export default function Preview() {
     rendered = renderExhibit(preview)
   }
 
-
   return (
     <div>
       <div className="page-container">
@@ -39,7 +37,6 @@ export default function Preview() {
         <div className="page-body-container">
           { rendered }
         </div>
-
       </div>
     </div>
   )
