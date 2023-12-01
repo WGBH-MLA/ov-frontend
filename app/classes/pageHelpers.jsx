@@ -1,4 +1,4 @@
-import { Link } from "remix"
+import { useLoaderData } from "@remix-run/react"
 
 export function renderAuthorBubble(author, boxAttach=false){
   let classes = "author-bubble"
@@ -57,7 +57,7 @@ export function renderSidebar(pageType, sections){
 
 export function renderSidebarSection(section){
   return (
-    <a href="#" onClick={ () => { scrollSectionIntoView(section)  } } className="page-sidebar-link">&gt; { section.title }</a>
+    <a href={ `#${section.id}` } onClick={ () => { scrollSectionIntoView(section)  } } className="page-sidebar-link">&gt; { section.value }</a>
   )
 }
 

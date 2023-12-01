@@ -73,26 +73,26 @@ export default function Credits() {
 
               <div>
                 <div className="gray spaced">GBH Legal</div>
-                <div class="black">Nike Okediji</div>
-                <div class="black">Susan Rosen</div>
-                <div class="black">Doug Ryan</div>
+                <div className="black">Nike Okediji</div>
+                <div className="black">Susan Rosen</div>
+                <div className="black">Doug Ryan</div>
               </div>
 
               <div>
                 <div className="gray spaced">Copyeditor</div>
-                <div class="black">Eleanor Beram</div>
+                <div className="black">Eleanor Beram</div>
               </div>
 
             </div>
             <div className="static-halfbox small-text spaced">
               <div>
                 <div className="gray spaced">With thanks to</div>
-                <div class="black">Steve Baldwin, National Boston Ned Biddle, National Boston Kevin Carter, technical advisor, GBH Nancy Dillon, library manager, GBH Dale Freeman, assistant archivist, Archives and Special Collections Department, Healey Library, University of Massachusetts at Boston</div>
+                <div className="black">Steve Baldwin, National Boston Ned Biddle, National Boston Kevin Carter, technical advisor, GBH Nancy Dillon, library manager, GBH Dale Freeman, assistant archivist, Archives and Special Collections Department, Healey Library, University of Massachusetts at Boston</div>
               </div>
 
               <div>
                 <div className="gray spaced">Special thanks to our friends and colleagues in Archives:</div>
-                <div class="black">Jordan Berson, Mary Ide, Keith Luf, Jonathan Pipe, Leah Weisse</div>
+                <div className="black">Jordan Berson, Mary Ide, Keith Luf, Jonathan Pipe, Leah Weisse</div>
               </div>
 
             </div>
