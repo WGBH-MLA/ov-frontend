@@ -1,8 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;700&display=swap');
 
-body, h1 {
+body, h1, h2 {
   margin:  0;
   font-family: 'Lato', sans-serif;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
 }
 
 input {
@@ -18,6 +22,10 @@ a.series-alphabet-link {
   display: inline-block;
   font-size: 1em;
   padding-right: 0.6vw;
+}
+
+p, li {
+  line-height: 1.6em;
 }
 
 h1.series-bigtitle {
@@ -82,6 +90,7 @@ div.static-halfbox {
   display: inline-block;
   width: 48%;
   font-size: 1.6em;
+  margin-bottom: 2em;
 }
 
 div.big-blue-button {
@@ -154,7 +163,11 @@ div.navigation-bar-container {
   padding-bottom: 2em;
 }
 
-div.navigation-bar-container div.navigation-bar {
+div.navigation-bar-container div#mobile-menu-icon {
+  display: none;
+}
+
+div.navigation-bar-container div#navigation-bar {
   margin-left: 4vw;
   padding-top: 1em;
 }
@@ -210,7 +223,6 @@ div.about-menu {
 
 div.drawermenu-container {
   display: inline-block;
-  z-index: 100;
 }
 
 div.drawermenu-label {
@@ -375,7 +387,7 @@ div.page-body-container {
 }
 
 div.page-body {
-
+  font-size: 1.18vw;
 }
 
 div.page-titlebar {
@@ -414,10 +426,10 @@ div.page-body h2 {
   color: #404;
   font-size: 1.8em;
   display: block;
+  margin: 2em;
 }
 
 div.page-body p {
-  font-size: 1.2em;
   /*background-color: #f4f4f4;*/
   padding:  1em;
   margin: 0;
@@ -491,7 +503,7 @@ div.pagelink {
   position: relative;
   display: inline-block;
   width:  20vw;
-  height: 20em;
+  height: 15vw;
   margin-right: 10vw;
   margin-bottom: 8vh;
 }
@@ -504,7 +516,7 @@ div.pagelink-image {
   background-size: cover;
   background-position: center;
   width:  100%;
-  height: 20em;
+  height: 15vw;
 }
 
 div.pagelink-title {
@@ -543,6 +555,7 @@ div.med-textline {
 
 .blockquote-text {
   font-size: 1.6em;
+  margin-bottom: 1em;
 }
 
 .gray {
@@ -609,3 +622,105 @@ div.content-relatedcontent a {
 }
 
 div.content-credits p {}
+
+@media only screen and (max-width: 900px) {
+/* navigation */
+  .hidden {
+    display: none;
+  }
+
+  div.navigation-bar-container {
+    position: absolute;
+    top: 0;
+    min-width: 100%;
+    width: 100%;
+    margin: 0;
+    height: inherit;
+  }
+
+  div.navigation-bar-container div#navigation-bar {
+    margin: 0;
+    padding: 0;
+  }
+
+  div.drawermenu-toggle {
+    display: none;
+  }
+
+  a.navigation-link {
+    position: relative;
+    display: block;
+  }
+  
+  div.affiliated-websites-menu, div.about-menu {
+    display: block;
+    margin-bottom: 2vh;
+    height: 2em;
+    right: initial;
+  }
+
+  div.drawermenu-container, span.drawermenu-label, div.about-menu, div.drawermenu-container div.drawermenu-items, div.affiliated-websites-menu a.drawer-item,  div.about-menu a.drawer-item, span.drawermenu-label {
+    min-width: 100%;
+    display: block;
+    width: 100%;
+  }
+
+  span.drawermenu-label {
+    text-align: center;
+    background-color: #ededed;
+    color: #a9a9a9;
+  }
+
+  div.page-titlebar {
+    display: none;
+  }
+
+  div.drawermenu-container a.drawer-item, a.navigation-link div {
+    width: 100%;
+    font-size: 3.6vw;
+  }
+
+  div.drawermenu-container a.drawer-item, a.navigation-link {
+    border: 1px solid white;
+  }
+
+  div.drawermenu-items {
+    display: block;
+    border: 0;
+    padding: 0;
+  }
+
+  div.drawermenu-items a.drawer-item div.drawer-subtitle{
+    display: none;
+  }
+
+  div.drawermenu-items a.drawer-item {
+    border: 1px solid white;
+    padding: 0;
+    font-size: 3.6vw;
+  }
+
+  a.drawer-item div.drawer-title {
+    text-align: center;
+    font-size: 4vw;
+    font-weight: normal;
+  }
+
+  div.navigation-bar-container div#mobile-menu-icon {
+    font-size: 6vw;
+    color: #fff;
+    background-color: #430467;
+    width: 100%;
+    height: 2em;
+    display: block;
+    background-image: url("/menu-white.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+  }
+
+  /* body */
+  div.page-container {
+    display: none;
+  }
+}
