@@ -88,7 +88,7 @@ export function creditsContent(block){
 
 // generic block
 export function contentBlock(block){
-  <div id={ block.id } className="content-block" dangerouslySetInnerHTML={{ __html: decode(block.value) }} />
+  return <div id={ block.id } className="content-block" dangerouslySetInnerHTML={{ __html: decode(block.value) }} />
 }
 
 
