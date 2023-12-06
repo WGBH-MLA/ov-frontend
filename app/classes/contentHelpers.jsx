@@ -3,7 +3,6 @@ import { decode } from "html-entities"
 export function renderBlocks(blocks){
   // jsx likes to be in an array to be concatted when rendered
   let output = []
-  blocks = [{type: "people", value: "WEE WEE WEE WEE"}]
   blocks.forEach( (block) => {
     output.push( renderBlock(block) )
   })

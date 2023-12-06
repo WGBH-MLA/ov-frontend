@@ -8,10 +8,9 @@ export function MobileMenu(props){
 
 function toggleMobileMenu(e){
   var navBar = document.getElementById("navigation-bar")
-
-  if(navBar.classList.contains("hidden")){
-    navBar.classList.remove("hidden")
+  if(navBar.classList.contains("mobile-hidden")){
+    navBar.classList.remove("mobile-hidden")
   } else {
-    navBar.classList.add("hidden")
+    navBar.classList.add("mobile-hidden")
   }
 }

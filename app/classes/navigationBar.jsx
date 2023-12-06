@@ -58,13 +58,13 @@ export class NavigationBar extends Component {
         <div className="navigation-bar-container">
           <MobileMenu />
 
-          <div id="navigation-bar" className="navigation-bar">
+          <div id="navigation-bar" className="navigation-bar mobile-hidden">
             <NavigationLink href="/series" text="GBH Series" />
             <NavigationLink href="/exhibits" text="Scholar Exhibits" />
             <NavigationLink href="/collections" text="Collections" />
-            <DrawerMenu classes="about-menu" toggleDrawer={ this.toggleDrawer } label={ "About" } items={ aboutLinks } />
 
-            <DrawerMenu classes=" affiliated-websites-menu" toggleDrawer={ this.toggleDrawer } label={ "Visit our affiliated websites" } items={ affiliatedSites } />
+            <DrawerMenu classes="about-menu" toggleDrawer={ this.toggleDrawer } label={ "About" } items={ aboutLinks } />
+            <DrawerMenu classes="affiliated-websites-menu" toggleDrawer={ this.toggleDrawer } label={ "Visit our affiliated websites" } items={ affiliatedSites } />
           </div>
         </div>
       </div>
