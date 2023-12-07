@@ -639,6 +639,7 @@ a.content-aapbblock {
 }
 
 a.content-aapbblock div.shade-bar {
+  vertical-align: middle;
   font-size: 1vw;
   text-align: left;
   width: 100%;
@@ -648,5 +649,20 @@ a.content-aapbblock div.shade-bar {
   position: absolute;
   bottom: 0;
   height: 6vw;
+  line-height: 3vw;
 }
+
+a.content-aapbblock div.blue-plus {
+  bottom: 1vw;
+  right: 1vw;
+  position: absolute;
+  width: 4vw;
+  min-height: 4vw;
+  height: 4vw;
+  background-color: #2B72F6;
+  border-radius: 20vw;
+  text-align: center;
+  vertical-align: middle;
+  color: #fff;
+  font-size: 3vw;
 

@@ -129,6 +129,7 @@ export function aapbBlock(block){
   return (
     <a style={{ backgroundImage: `url(${devImgSrc(block.image.src)})` }} className="content-aapbblock" href={ block.link }>
       <div className="shade-bar" dangerouslySetInnerHTML={{ __html: decode(block.title) }}/>
+      <div className="blue-plus">+</div>
     </a>
   )
 }
