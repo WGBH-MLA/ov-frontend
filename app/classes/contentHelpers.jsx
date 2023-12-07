@@ -13,8 +13,10 @@ export function renderBlocks(blocks){
 export function renderBlock(block){
   if(block.type == "text"){
     return textContent(block)
-  // } else if(block.type == "interviews"){
-  //   return interviewsContent(block)
+  } else if(block.type == "interviews"){
+    return interviewsContent(block)
+  } else if(block.type == "programs"){
+    return programsContent(block)    
   // } else if(block.type == "archivalFootage"){
   //   return archivalFootageContent(block)
   // } else if(block.type == "photographs"){
@@ -65,7 +67,7 @@ export function relatedContentContent(block){
   var links = block.value
   var content = links.map( (link) => {
     return (
-      <a href={ link.link }>{ link.title }</a>
+      <a href={ link.link } dangerouslySetInnerHTML={{ __html: decode(link.title) }} />
     )
   })
 
@@ -86,13 +88,64 @@ export function creditsContent(block){
   )
 }
 
+export function interviewsContent(block){
+  var interviews = block.value.map( (interview) => {
+    return (
+      <a className="interview" href={ interview.link }>
+        <img src={ devImgSrc(interview.image.src) } />
+        <div dangerouslySetInnerHTML={{ __html: decode(interview.title) }}/>
+      </a>
+    )
+  })
+
+  interviews = block.value.map( (interview) => {
+    return aapbBlock(interview)
+  })
+
+  return (
+    <div id={ block.id } className="content-interviews">
+      <h3>Interviews</h3>
+      { interviews }
+    </div>
+  )
+}
+
+export function programsContent(block){
+  var programs = block.value.map( (program) => {
+    return (
+      <a className="program" href={ program.link } dangerouslySetInnerHTML={{ __html: decode(program.title) }} />
+    )
+  })
+
+  return (
+    <div id={ block.id } className="content-programs">
+      <h3>Programs</h3>
+      { programs }
+    </div>
+  )
+}
+
+export function aapbBlock(block){
+  return (
+    <a style={{ backgroundImage: `url(${devImgSrc(block.image.src)})` }} className="content-aapbblock" href={ block.link }>
+      <div className="shade-bar" dangerouslySetInnerHTML={{ __html: decode(block.title) }}/>
+    </a>
+  )
+}
+
 // generic block
 export function contentBlock(block){
   return <div id={ block.id } className="content-block" dangerouslySetInnerHTML={{ __html: decode(block.value) }} />
 }
 
+function devImgSrc(src){
+  if(src.startsWith("/")){
+    return "http://localhost:8000" + src
+  }
+}
 
 // export function interviewsContent(block){}
 // export function archivalFootageContent(block){}
 // export function photographsContent(block){}
 // export function originalFootageContent(block){}
+

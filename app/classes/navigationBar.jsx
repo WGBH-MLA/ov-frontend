@@ -29,7 +29,6 @@ export class NavigationBar extends Component {
         label: "Credits",
         url: "/credits"
       },
-
     ]
 
     let affiliatedSites = [
@@ -43,7 +42,6 @@ export class NavigationBar extends Component {
         subLabel: "License footage from GBH programs",
         url: "http://www.wgbhstocksales.org/"
       },
-      
     ]
 
     return(
