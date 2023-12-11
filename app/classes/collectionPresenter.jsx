@@ -1,8 +1,10 @@
 import { decode } from "html-entities"
 import { renderAuthorBubble, renderPageLink, renderPageLinks, renderSidebar, renderSidebarSection, renderPageTitleBar } from "~/classes/pageHelpers"
 import { renderBlocks, renderBlock, textContent, interviewsContent, archivalFootageContent, photographsContent, originalFootageContent, relatedContentContent, creditsContent, headingContent, imageContent } from "~/classes/contentHelpers"
+import { parseAapbGuids, AAPBRecord } from "~/classes/aapbRecordHelpers"
 
 export function renderCollection(collection){
+  console.log( 'hey!', collection )
   let sidebar
   // take every 'heading' type block, which are guaranteed to have a title field
   sidebar = renderSidebar("collections", collection.content.filter( (block) => block.type == "heading" ))
@@ -35,6 +37,15 @@ export function renderCollection(collection){
     )
   }
 
+  let aapbRecords
+  if(collection.aapb_records){
+    var guids = parseAapbGuids(collection.aapb_records)
+
+    aapbRecords = guids.map( (guid) => {
+      return <AAPBRecord guid={ guid } />
+    })
+  }
+
   return (
     <div>
       <div className="page-container">
@@ -43,8 +54,9 @@ export function renderCollection(collection){
 
         <div className="page-body-container">
           <div className="page-body">
-            { introduction } 
+            { introduction }
             { blockContent }
+            { aapbRecords }
           </div>
         </div>
         

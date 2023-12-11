@@ -98,10 +98,6 @@ export function interviewsContent(block){
     )
   })
 
-  interviews = block.value.map( (interview) => {
-    return aapbBlock(interview)
-  })
-
   return (
     <div id={ block.id } className="content-interviews">
       <h3>Interviews</h3>
@@ -122,15 +118,6 @@ export function programsContent(block){
       <h3>Programs</h3>
       { programs }
     </div>
-  )
-}
-
-export function aapbBlock(block){
-  return (
-    <a style={{ backgroundImage: `url(${devImgSrc(block.image.src)})` }} className="content-aapbblock" href={ block.link }>
-      <div className="shade-bar" dangerouslySetInnerHTML={{ __html: decode(block.title) }}/>
-      <div className="blue-plus">+</div>
-    </a>
   )
 }
 

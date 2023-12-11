@@ -627,12 +627,12 @@ div.content-programs a.program {
 }
 
 a.content-aapbblock {
-  margin-left: 4vw;
+  margin-right: 1vw;
   background-color: #ff0;
   color: #404;
   font-weight: bold;
-  width: 24vw;
-  min-height: 18vw;
+  width: 30vw;
+  min-height: 22.5vw;
   text-align: center;
   display: inline-block;
   position: relative;
@@ -652,7 +652,7 @@ a.content-aapbblock div.shade-bar {
   line-height: 3vw;
 }
 
-a.content-aapbblock div.blue-plus {
+a.content-aapbblock div.blue-circle {
   bottom: 1vw;
   right: 1vw;
   position: absolute;
@@ -664,5 +664,17 @@ a.content-aapbblock div.blue-plus {
   text-align: center;
   vertical-align: middle;
   color: #fff;
-  font-size: 3vw;
+  font-size: 3vw;  
+}
 
+a.content-aapbblock div.blue-circle div {
+  /* white triangle */
+  bottom: -1vw;
+  right: -1.32vw;
+  position: relative;
+  width: 0; 
+  height: 0; 
+  border-top: 1vw solid transparent;
+  border-bottom: 1vw solid transparent;
+  border-left: 1.68vw solid #fff;
+}
