@@ -2,7 +2,7 @@ export function DrawerMenu(props) {
 
   let items
   if(props.items){
-    items = props.items.map((item) => { return <DrawerItem label={ item.label } subLabel={ item.subLabel } url={ item.url } /> })
+    items = props.items.map((item, index) => { return <DrawerItem key={ index} label={ item.label } subLabel={ item.subLabel } url={ item.url } /> })
   }
 
   let drawerClasses = "drawermenu-container"

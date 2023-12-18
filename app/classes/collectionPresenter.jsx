@@ -1,10 +1,10 @@
 import { decode } from "html-entities"
 import { renderAuthorBubble, renderPageLink, renderPageLinks, renderSidebar, renderSidebarSection, renderPageTitleBar } from "~/classes/pageHelpers"
 import { renderBlocks, renderBlock, textContent, interviewsContent, archivalFootageContent, photographsContent, originalFootageContent, relatedContentContent, creditsContent, headingContent, imageContent } from "~/classes/contentHelpers"
-import { parseAapbGuids, AAPBRecord } from "~/classes/aapbRecordHelpers"
+import { parseAapbRecordGroup, AAPBRecord } from "~/classes/aapbRecordHelpers"
 
 export function renderCollection(collection){
-  console.log( 'hey!', collection )
+  // console.log( 'collection data', collection )
   let sidebar
   // take every 'heading' type block, which are guaranteed to have a title field
   sidebar = renderSidebar("collections", collection.content.filter( (block) => block.type == "heading" ))
@@ -25,6 +25,8 @@ export function renderCollection(collection){
   let blockContent
   if(collection.content && collection.content.length > 0){
     blockContent = renderBlocks(collection.content)
+    // example for aapb content block
+    // blockContent = renderBlocks([{type: "aapb_record", guid: "cpb-aacip-bfc89659489"}])
   }
 
   let introduction
@@ -37,12 +39,27 @@ export function renderCollection(collection){
     )
   }
 
-  let aapbRecords
+  let aapbRecordGroups
   if(collection.aapb_records){
-    var guids = parseAapbGuids(collection.aapb_records)
+    // collection.aapb_records is an array of aapb_record_groups
 
-    aapbRecords = guids.map( (guid) => {
-      return <AAPBRecord guid={ guid } />
+    aapbRecordGroups = collection.aapb_records.map( (aapbRecordGroup, index) => {
+      // this func is where we split by whitespace v
+      var guids = parseAapbRecordGroup(aapbRecordGroup.value.ids)
+
+      // preserve these flags' effect for each aapb_record_group
+      var showThumbnail = aapbRecordGroup.value.show_thumbnail
+      var showTitle = aapbRecordGroup.value.show_title
+
+      var aapbRecords = guids.map( (guid, index) => {
+        return <AAPBRecord key={ index } guid={ guid } showTitle={ showTitle } showThumbnail={ showThumbnail } />
+      })
+
+      return (
+        <div key={ index } className="aapb-record-group">
+          { aapbRecords }
+        </div>
+      )
     })
   }
 
@@ -56,7 +73,7 @@ export function renderCollection(collection){
           <div className="page-body">
             { introduction }
             { blockContent }
-            { aapbRecords }
+            { aapbRecordGroups }
           </div>
         </div>
         

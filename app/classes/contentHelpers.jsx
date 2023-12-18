@@ -1,41 +1,46 @@
 import { decode } from "html-entities"
+import { AAPBRecord } from "~/classes/aapbRecordHelpers"
 
 export function renderBlocks(blocks){
   // jsx likes to be in an array to be concatted when rendered
   let output = []
-  blocks.forEach( (block) => {
-    output.push( renderBlock(block) )
+  blocks.forEach( (block, index) => {
+    output.push( renderBlock(block, index) )
   })
 
   return output
 }
 
-export function renderBlock(block){
+export function renderBlock(block, key){
   if(block.type == "text"){
-    return textContent(block)
+    return textContent(block, key)
   } else if(block.type == "interviews"){
-    return interviewsContent(block)
+    return interviewsContent(block, key)
   } else if(block.type == "programs"){
-    return programsContent(block)    
+    return programsContent(block, key)    
   // } else if(block.type == "archivalFootage"){
-  //   return archivalFootageContent(block)
+  //   return archivalFootageContent(block, key)
   // } else if(block.type == "photographs"){
-  //   return photographsContent(block)
+  //   return photographsContent(block, key)
   // } else if(block.type == "originalFootage"){
-  //   return originalFootageContent(block)
+  //   return originalFootageContent(block, key)
   } else if(block.type == "related_content"){
-    return relatedContentContent(block)
+    return relatedContentContent(block, key)
   // } else if(block.type == "credits"){
-  //   return creditsContent(block)
+  //   return creditsContent(block, key)
   } else if(block.type == "heading"){
-    return headingContent(block)
+    return headingContent(block, key)
   } else if(block.type == "image"){
-    return imageContent(block)
-  } else if(block.type == "credits") {
-    return creditsContent(block)
+    return imageContent(block, key)
+  } else if(block.type == "credits"){
+    return creditsContent(block, key)
+
+  } else if(block.type == "aapb_record"){
+    // share the AAPBRecord component with the separate aapb_record_group feature
+    return <AAPBRecord key={ key } guid={ block.guid } />
   } else {
     // return (<div key={ block.id }>I DONT FEEL LIKE IT</div>)
-    return contentBlock(block)
+    return contentBlock(block, key)
   }
 }
 
@@ -65,14 +70,14 @@ export function imageContent(block){
 
 export function relatedContentContent(block){
   var links = block.value
-  var content = links.map( (link) => {
+  var content = links.map( (link, index) => {
     return (
-      <a href={ link.link } dangerouslySetInnerHTML={{ __html: decode(link.title) }} />
+      <a key={ index } href={ link.link } dangerouslySetInnerHTML={{ __html: decode(link.title) }} />
     )
   })
 
   return (
-    <div id={ block.id } key={ block.id } className="content-block content-relatedcontent">
+    <div key={ block.id } id={ block.id } key={ block.id } className="content-block content-relatedcontent">
       <h3>Related Content</h3>
       { content }
     </div>
@@ -81,7 +86,7 @@ export function relatedContentContent(block){
 
 export function creditsContent(block){
   return (
-    <div id={ block.id } className="content-block content-credits">
+    <div key={ block.id } id={ block.id } className="content-block content-credits">
       <h3>Credits</h3>
       <div className="content-block-body" dangerouslySetInnerHTML={{ __html: decode(block.value) }} />
     </div>
@@ -89,9 +94,9 @@ export function creditsContent(block){
 }
 
 export function interviewsContent(block){
-  var interviews = block.value.map( (interview) => {
+  var interviews = block.value.map( (interview, index) => {
     return (
-      <a className="interview" href={ interview.link }>
+      <a key={ index } className="interview" href={ interview.link }>
         <img src={ devImgSrc(interview.image.src) } />
         <div dangerouslySetInnerHTML={{ __html: decode(interview.title) }}/>
       </a>
@@ -99,7 +104,7 @@ export function interviewsContent(block){
   })
 
   return (
-    <div id={ block.id } className="content-interviews">
+    <div key={ block.id } id={ block.id } className="content-interviews">
       <h3>Interviews</h3>
       { interviews }
     </div>
@@ -107,14 +112,14 @@ export function interviewsContent(block){
 }
 
 export function programsContent(block){
-  var programs = block.value.map( (program) => {
+  var programs = block.value.map( (program, index) => {
     return (
-      <a className="program" href={ program.link } dangerouslySetInnerHTML={{ __html: decode(program.title) }} />
+      <a key={ index } className="program" href={ program.link } dangerouslySetInnerHTML={{ __html: decode(program.title) }} />
     )
   })
 
   return (
-    <div id={ block.id } className="content-programs">
+    <div key={ block.id } id={ block.id } className="content-programs">
       <h3>Programs</h3>
       { programs }
     </div>
@@ -123,7 +128,7 @@ export function programsContent(block){
 
 // generic block
 export function contentBlock(block){
-  return <div id={ block.id } className="content-block" dangerouslySetInnerHTML={{ __html: decode(block.value) }} />
+  return <div key={ block.id } id={ block.id } className="content-block" dangerouslySetInnerHTML={{ __html: decode(block.value) }} />
 }
 
 function devImgSrc(src){

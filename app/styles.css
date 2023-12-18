@@ -627,8 +627,9 @@ div.content-programs a.program {
 }
 
 a.content-aapbblock {
+  background-size: contain;
   margin-right: 1vw;
-  background-color: #ff0;
+  background-color: #999;
   color: #404;
   font-weight: bold;
   width: 30vw;
@@ -636,6 +637,7 @@ a.content-aapbblock {
   text-align: center;
   display: inline-block;
   position: relative;
+  margin-top: 4vh;
 }
 
 a.content-aapbblock div.shade-bar {
@@ -649,8 +651,16 @@ a.content-aapbblock div.shade-bar {
   position: absolute;
   bottom: 0;
   height: 6vw;
-  line-height: 3vw;
+  line-height: 6vw;
+  overflow: hidden;
 }
+
+a.content-aapbblock div.shade-bar div {
+  /*  extra element here to pad without changing shade bar size */
+  width: 100%;
+  padding-left: 2vw;
+}
+
 
 a.content-aapbblock div.blue-circle {
   bottom: 1vw;
@@ -678,3 +688,8 @@ a.content-aapbblock div.blue-circle div {
   border-bottom: 1vw solid transparent;
   border-left: 1.68vw solid #fff;
 }
+
+
+div.aapb-record-group {}
+
+
