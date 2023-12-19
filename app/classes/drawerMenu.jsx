@@ -5,7 +5,7 @@ export function DrawerMenu(props) {
     items = props.items.map((item) => { return <DrawerItem label={ item.label } subLabel={ item.subLabel } url={ item.url } /> })
   }
 
-  let drawerClasses = "drawermenu-container"
+  let drawerClasses = "drawermenu-container "
   if(props.classes){
     drawerClasses += props.classes
   }
