@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import {NavigationLink} from './navigationLink'
-import {DrawerMenu} from './drawerMenu'
+import { NavigationLink } from './navigationLink'
+import { DrawerMenu } from './drawerMenu'
+import { MobileMenu } from './mobileMenu'
 
 export class NavigationBar extends Component {
   constructor(props){
@@ -53,13 +54,15 @@ export class NavigationBar extends Component {
         </div>
 
         <div className="navigation-bar-container">
-          <div className="navigation-bar">
+          <MobileMenu />
+
+          <div id="navigation-bar" className="navigation-bar mobile-hidden">
             <NavigationLink href="/series" text="GBH Series" />
             <NavigationLink href="/exhibits" text="Scholar Exhibits" />
             <NavigationLink href="/collections" text="Collections" />
-            <DrawerMenu classes=" about-menu" toggleDrawer={ this.toggleDrawer } label={ "About" } items={ aboutLinks } />
 
-            <DrawerMenu classes=" affiliated-websites-menu" toggleDrawer={ this.toggleDrawer } label={ "Visit our affiliated websites" } items={ affiliatedSites } />
+            <DrawerMenu classes="about-menu" toggleDrawer={ this.toggleDrawer } label={ "About" } items={ aboutLinks } />
+            <DrawerMenu classes="affiliated-websites-menu" toggleDrawer={ this.toggleDrawer } label={ "Visit our affiliated websites" } items={ affiliatedSites } />
           </div>
         </div>
       </div>

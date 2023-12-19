@@ -8,8 +8,8 @@ import {
   Link
 } from "@remix-run/react"
 
-import {NavigationBar} from "./classes/navigationBar"
-import {Footer, FooterLink} from "./classes/footer"
+import { NavigationBar } from "./classes/navigationBar"
+import { Footer, FooterLink } from "./classes/footer"
 import { renderPageLinks } from "./classes/pageHelpers"
 
 import styles from "~/styles.css"
