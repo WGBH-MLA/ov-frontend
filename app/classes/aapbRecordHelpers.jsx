@@ -8,12 +8,10 @@ export function parseAapbGuids(aapbRecordGroups){
   // comes as array of 'aapb_record_group'
 
   // would be preferable to have values from api come split in an array rather than with arbitrary whitespace
-  console.log( 'its da aapbRecordGroups', aapbRecordGroups )
   var guids = aapbRecordGroups.map( (aapbRecordGroup) => {
     return parseAapbRecordGroup(aapbRecordGroup.value.ids)
   }).flat()
   
-  console.log( 'its da guids baby!', guids )
   return guids
 }
 
@@ -30,7 +28,6 @@ export class AAPBRecord extends Component {
   constructor(props){
     super(props)
     this.state = {
-      // woo: "great"
       showThumbnail: props.showThumbnail,
       showTitle: props.showTitle
     }
