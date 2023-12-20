@@ -14,43 +14,28 @@ export function renderBlocks(blocks){
 export function renderBlock(block, key){
   if(block.type == "text"){
     return textContent(block, key)
-  } else if(block.type == "interviews"){
-
-    console.log( 'show me da block', block )
-    // here its an aapbrecordgroup
-    return (
-      <div>
-        <div className="guids-block-title" dangerouslySetInnerHTML={{ __html: decode(block.value.title) }} />
-        { handleAapbRecordGroup(block, key) }
-      </div>
-    )
-  } else if(block.type == "programs"){
-    return programsContent(block, key)    
-  // } else if(block.type == "archivalFootage"){
-  //   return archivalFootageContent(block, key)
-  // } else if(block.type == "photographs"){
-  //   return photographsContent(block, key)
-  // } else if(block.type == "originalFootage"){
-  //   return originalFootageContent(block, key)
-  } else if(block.type == "related_content"){
-    return relatedContentContent(block, key)
-  // } else if(block.type == "credits"){
-  //   return creditsContent(block, key)
+  } else if(block.type == "interviews" || block.type == "archival_footage" || block.type == "photographs" || block.type == "original_footage" || block.type == "programs" || block.type == "related_content"){
+    return aapbRecordsBlock(block, key)
   } else if(block.type == "heading"){
     return headingContent(block, key)
   } else if(block.type == "image"){
     return imageContent(block, key)
   } else if(block.type == "credits"){
     return creditsContent(block, key)
-
-  } else if(block.type == "aapb_record"){
-    // just an example
-    // share the AAPBRecord component with the separate aapb_record_group feature
-    return <AAPBRecord key={ key } guid={ block.guid } />
   } else {
     // return (<div key={ block.id }>I DONT FEEL LIKE IT</div>)
     return contentBlock(block, key)
   }
+}
+
+export function aapbRecordsBlock(block, key){
+  // here its an aapbrecordgroup
+  return (
+    <div>
+      <div className="guids-block-title" dangerouslySetInnerHTML={{ __html: decode(block.value.title) }} />
+      { handleAapbRecordGroup(block, key) }
+    </div>
+  )
 }
 
 export function textContent(block){
@@ -77,60 +62,11 @@ export function imageContent(block){
   )
 }
 
-export function relatedContentContent(block){
-  var links = block.value
-  var content = links.map( (link, index) => {
-    return (
-      <a key={ index } href={ link.link } dangerouslySetInnerHTML={{ __html: decode(link.title) }} />
-    )
-  })
-
-  return (
-    <div key={ block.id } id={ block.id } key={ block.id } className="content-block content-relatedcontent">
-      <h3>Related Content</h3>
-      { content }
-    </div>
-  )
-}
-
 export function creditsContent(block){
   return (
     <div key={ block.id } id={ block.id } className="content-block content-credits">
       <h3>Credits</h3>
       <div className="content-block-body" dangerouslySetInnerHTML={{ __html: decode(block.value) }} />
-    </div>
-  )
-}
-
-export function interviewsContent(block){
-  var interviews = block.value.map( (interview, index) => {
-    return (
-      <a key={ index } className="interview" href={ interview.link }>
-        <img src={ devImgSrc(interview.image.src) } />
-        <div dangerouslySetInnerHTML={{ __html: decode(interview.title) }}/>
-      </a>
-    )
-  })
-
-  return (
-    <div key={ block.id } id={ block.id } className="content-interviews">
-      <h3>Interviews</h3>
-      { interviews }
-    </div>
-  )
-}
-
-export function programsContent(block){
-  var programs = block.value.map( (program, index) => {
-    return (
-      <a key={ index } className="program" href={ program.link } dangerouslySetInnerHTML={{ __html: decode(program.title) }} />
-    )
-  })
-
-  return (
-    <div key={ block.id } id={ block.id } className="content-programs">
-      <h3>Programs</h3>
-      { programs }
     </div>
   )
 }
@@ -145,8 +81,3 @@ function devImgSrc(src){
     return "http://localhost:8000" + src
   }
 }
-
-// export function archivalFootageContent(block){}
-// export function photographsContent(block){}
-// export function originalFootageContent(block){}
-
