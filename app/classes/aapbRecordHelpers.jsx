@@ -2,6 +2,25 @@ import React, { Component } from 'react'
 
 const AAPB_HOST = "https://americanarchive.org"
 
+export function handleAapbRecordGroup(aapbRecordGroup, key){
+   // this func is where we split by whitespace v
+  var guids = parseAapbRecordGroup(aapbRecordGroup.value.guids)
+
+  // preserve these flags' effect for each aapb_record_group
+  var showThumbnail = aapbRecordGroup.value.show_thumbnail
+  var showTitle = aapbRecordGroup.value.show_title
+
+  var aapbRecords = guids.map( (guid, index) => {
+    return <AAPBRecord key={ index } guid={ guid } showTitle={ showTitle } showThumbnail={ showThumbnail } />
+  })
+
+  return (
+    <div key={ key } className="aapb-record-group">
+      { aapbRecords }
+    </div>
+  )
+}
+
 export function parseAapbGuids(aapbRecordGroups){
   // this flattens grousp into one group,  will delete
 

@@ -652,7 +652,6 @@ a.content-aapbblock {
   text-align: center;
   display: inline-block;
   position: relative;
-  margin-top: 4vh;
 }
 
 a.content-aapbblock div.shade-bar {
@@ -706,6 +705,16 @@ a.content-aapbblock div.blue-circle div {
 
 
 div.aapb-record-group {}
+
+div.guids-block-title {
+  font-size: 2vw;
+  font-weight: bold;
+  margin-left: 1vw;
+}
+
+div.guids-block-title p {
+  padding-left: 0;
+}
 
 @media only screen and (max-width: 900px) {
 /* navigation */
@@ -902,5 +911,14 @@ div.aapb-record-group {}
 
   div.bottom-bar-logos img {
     width: 30vw;
+  }
+
+  div.page-authorbubble-container {
+    margin-left: 4vw;
+  }
+
+  div.page-authorbubble-container div.author-byline {
+    bottom: 0;
+    display: block;
   }
 }

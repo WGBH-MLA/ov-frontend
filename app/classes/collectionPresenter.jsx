@@ -1,7 +1,7 @@
 import { decode } from "html-entities"
 import { renderAuthorBubble, renderPageLink, renderPageLinks, renderSidebar, renderSidebarSection, renderPageTitleBar } from "~/classes/pageHelpers"
 import { renderBlocks, renderBlock, textContent, interviewsContent, archivalFootageContent, photographsContent, originalFootageContent, relatedContentContent, creditsContent, headingContent, imageContent } from "~/classes/contentHelpers"
-import { parseAapbRecordGroup, AAPBRecord } from "~/classes/aapbRecordHelpers"
+import { handleAapbRecordGroup, AAPBRecord } from "~/classes/aapbRecordHelpers"
 
 export function renderCollection(collection){
   // console.log( 'collection data', collection )
@@ -39,30 +39,6 @@ export function renderCollection(collection){
     )
   }
 
-  let aapbRecordGroups
-  if(collection.aapb_records){
-    // collection.aapb_records is an array of aapb_record_groups
-
-    aapbRecordGroups = collection.aapb_records.map( (aapbRecordGroup, index) => {
-      // this func is where we split by whitespace v
-      var guids = parseAapbRecordGroup(aapbRecordGroup.value.ids)
-
-      // preserve these flags' effect for each aapb_record_group
-      var showThumbnail = aapbRecordGroup.value.show_thumbnail
-      var showTitle = aapbRecordGroup.value.show_title
-
-      var aapbRecords = guids.map( (guid, index) => {
-        return <AAPBRecord key={ index } guid={ guid } showTitle={ showTitle } showThumbnail={ showThumbnail } />
-      })
-
-      return (
-        <div key={ index } className="aapb-record-group">
-          { aapbRecords }
-        </div>
-      )
-    })
-  }
-
   return (
     <div>
       <div className="page-container">
@@ -73,7 +49,6 @@ export function renderCollection(collection){
           <div className="page-body">
             { introduction }
             { blockContent }
-            { aapbRecordGroups }
           </div>
         </div>
         

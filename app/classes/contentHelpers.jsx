@@ -1,5 +1,5 @@
 import { decode } from "html-entities"
-import { AAPBRecord } from "~/classes/aapbRecordHelpers"
+import { handleAapbRecordGroup, AAPBRecord } from "~/classes/aapbRecordHelpers"
 
 export function renderBlocks(blocks){
   // jsx likes to be in an array to be concatted when rendered
@@ -15,7 +15,15 @@ export function renderBlock(block, key){
   if(block.type == "text"){
     return textContent(block, key)
   } else if(block.type == "interviews"){
-    return interviewsContent(block, key)
+
+    console.log( 'show me da block', block )
+    // here its an aapbrecordgroup
+    return (
+      <div>
+        <div className="guids-block-title" dangerouslySetInnerHTML={{ __html: decode(block.value.title) }} />
+        { handleAapbRecordGroup(block, key) }
+      </div>
+    )
   } else if(block.type == "programs"){
     return programsContent(block, key)    
   // } else if(block.type == "archivalFootage"){
@@ -36,6 +44,7 @@ export function renderBlock(block, key){
     return creditsContent(block, key)
 
   } else if(block.type == "aapb_record"){
+    // just an example
     // share the AAPBRecord component with the separate aapb_record_group feature
     return <AAPBRecord key={ key } guid={ block.guid } />
   } else {
@@ -137,7 +146,6 @@ function devImgSrc(src){
   }
 }
 
-// export function interviewsContent(block){}
 // export function archivalFootageContent(block){}
 // export function photographsContent(block){}
 // export function originalFootageContent(block){}
