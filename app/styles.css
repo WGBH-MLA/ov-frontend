@@ -247,6 +247,7 @@ div.drawermenu-toggle {
   background-position: center;
   background-size: contain;
   background-image: url("/down-chevron-small.png");
+  background-repeat: no-repeat;
 }
 
 div.drawermenu-items {
@@ -389,7 +390,8 @@ div.page-body-container {
 }
 
 div.page-body {
-  font-size: 1.18vw;
+/*  font-size: 1.18vw;*/
+  font-size: clamp(16px, 1.18vw, 18px)
 }
 
 div.page-titlebar {
@@ -654,6 +656,13 @@ a.content-aapbblock {
   position: relative;
 }
 
+iframe.aapb-record-video {
+  padding: 0;
+  height: 22.5vw;
+  max-width: 30vw;
+  width: 30vw;
+}
+
 a.content-aapbblock div.shade-bar {
   vertical-align: middle;
   font-size: 1vw;
@@ -705,7 +714,13 @@ a.content-aapbblock div.blue-circle div {
 
 
 div.aapb-record-group {}
-
+/*
+iframe.aapb-record-video {
+  width: 100%;
+  min-height: 22.5vw;
+  height: 22.5vw;
+}
+*/
 div.guids-block-title {
   font-size: 2vw;
   font-weight: bold;
@@ -716,7 +731,7 @@ div.guids-block-title p {
   padding-left: 0;
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 600px) and (orientation: portrait) {
 /* navigation */
   .mobile-hidden {
     display: none;
@@ -886,7 +901,7 @@ div.guids-block-title p {
   div.page-body-container div.page-body, div.page-sidebar {
     padding-left: 4vw;
     padding-right: 4vw;
-    font-size: 4vw;
+    font-size: clamp(16px, 4vw, 18px);
     width: 92vw;
   }
 

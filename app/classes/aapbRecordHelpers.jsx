@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
-const AAPB_HOST = "https://americanarchive.org"
+// const AAPB_HOST = "https://americanarchive.org"
+const AAPB_HOST = "http://localhost:3000"
 
 export function handleAapbRecordGroup(aapbRecordGroup, key){
    // this func is where we split by whitespace v
@@ -11,7 +12,7 @@ export function handleAapbRecordGroup(aapbRecordGroup, key){
   var showTitle = aapbRecordGroup.value.show_title
 
   var aapbRecords = guids.map( (guid, index) => {
-    return <AAPBRecord key={ index } guid={ guid } showTitle={ showTitle } showThumbnail={ showThumbnail } />
+    return <AAPBRecord key={ index } guid={ guid } showTitle={ showTitle } showThumbnail={ showThumbnail } embedPlayer={ true} />
   })
 
   return (
@@ -47,6 +48,7 @@ export class AAPBRecord extends Component {
   constructor(props){
     super(props)
     this.state = {
+      showEmbed: false,
       showThumbnail: props.showThumbnail,
       showTitle: props.showTitle
     }
@@ -80,6 +82,15 @@ export class AAPBRecord extends Component {
     }
   }
 
+  embed(guid){
+    var url = `${AAPB_HOST}/openvault/${guid}`
+    return (
+      <a className="content-aapbblock" >
+        <iframe className="aapb-record-video" src={url} frameBorder="0" allowfullscreen="true" />
+      </a>
+    )
+  }
+
   render(){
     let recordBlock
     if(this.state.pbcore){
@@ -101,12 +112,29 @@ export class AAPBRecord extends Component {
         )
       }
 
-      recordBlock = (
-        <a style={ thumbnail } className="content-aapbblock" href={ this.aapbCatalogURL(this.state.guid) }>
-          { titleBar }
-          <div className="blue-circle"><div/></div>
-        </a>
-      )
+      if(this.state.showEmbed){
+        recordBlock = this.embed(this.state.guid)
+      } else {
+
+        if(this.props.embedPlayer){
+          recordBlock = (
+            <a style={ thumbnail } className="content-aapbblock" onClick={ () => this.setState({showEmbed: true}) } >
+              { titleBar }
+              <div className="blue-circle"><div/></div>
+            </a>
+          )  
+        } else {
+          // fake video player
+          recordBlock = (
+            <a style={ thumbnail } className="content-aapbblock" href={ this.aapbCatalogURL(this.state.guid) }>
+              { titleBar }
+              <div className="blue-circle"><div/></div>
+            </a>
+          )    
+        }
+        
+       }
+      
     }
 
     return recordBlock
