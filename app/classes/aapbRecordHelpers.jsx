@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-
 // const AAPB_HOST = "https://americanarchive.org"
-const AAPB_HOST = "http://localhost:3000"
+// const AAPB_HOST = "http://localhost:3000"
 
 export function handleAapbRecordGroup(aapbRecordGroup, key){
    // this func is where we split by whitespace v
@@ -11,15 +10,17 @@ export function handleAapbRecordGroup(aapbRecordGroup, key){
   var showThumbnail = aapbRecordGroup.value.show_thumbnail
   var showTitle = aapbRecordGroup.value.show_title
 
-  var aapbRecords = guids.map( (guid, index) => {
-    return <AAPBRecord key={ index } guid={ guid } showTitle={ showTitle } showThumbnail={ showThumbnail } embedPlayer={ true} />
-  })
+  // just the records boxes
+  // var aapbRecords = guids.map( (guid, index) => {
+  //   return <AAPBRecord key={ index } guid={ guid } showTitle={ showTitle } showThumbnail={ showThumbnail } embedPlayer={ true} />
+  // })
+  // return (
+  //   <div key={ key } className="aapb-record-group">
+  //     { aapbRecords }
+  //   </div>
+  // )
 
-  return (
-    <div key={ key } className="aapb-record-group">
-      { aapbRecords }
-    </div>
-  )
+  return <AAPBRecords guids={ guids } showThumbnail={ showThumbnail } showTitle={ showTitle } embedPlayer={ true } />
 }
 
 export function parseAapbGuids(aapbRecordGroups){
@@ -40,15 +41,14 @@ export function parseAapbRecordGroup(string){
 }
 
 async function retrieveAapbRecord(guid){
-  // cant get process.env in here, so need to use initializer to get it from env, but use this for now
-  return await fetch(AAPB_HOST + "/api/" + guid + ".json").then(response => response.json() ).catch((e) => console.log( `Error retrieving record from AAPB: ${e}` ))
+  return await fetch(window.ENV.AAPB_HOST + "/api/" + guid + ".json").then(response => response.json() ).catch((e) => console.log( `Error retrieving record from AAPB: ${e}` ))
 }
 
 export class AAPBRecord extends Component {
   constructor(props){
     super(props)
     this.state = {
-      showEmbed: false,
+      embedPlayer: true,
       showThumbnail: props.showThumbnail,
       showTitle: props.showTitle
     }
@@ -67,7 +67,7 @@ export class AAPBRecord extends Component {
   }
 
   aapbCatalogURL(guid){
-    return `${AAPB_HOST}/catalog/${guid}`
+    return `${window.ENV.AAPB_HOST}/catalog/${guid}`
   }
 
   aapbTitle(pbcore){
@@ -83,7 +83,7 @@ export class AAPBRecord extends Component {
   }
 
   embed(guid){
-    var url = `${AAPB_HOST}/openvault/${guid}`
+    var url = `${window.ENV.AAPB_HOST}/openvault/${guid}`
     return (
       <a className="content-aapbblock" >
         <iframe className="aapb-record-video" src={url} frameBorder="0" allowfullscreen="true" />
@@ -132,11 +132,40 @@ export class AAPBRecord extends Component {
             </a>
           )    
         }
-        
-       }
-      
+      }
     }
 
     return recordBlock
+  }
+}
+
+export class AAPBRecords extends Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      guids: props.guids,
+      embedPlayer: props.embedPlayer,
+      showThumbnail: props.showThumbnail,
+      showTitle: props.showTitle
+    }
+  }
+
+  render(){
+    var aapbRecords = this.state.guids.slice(0,2).map( (guid) => {
+      return <AAPBRecord guid={ guid } embedPlayer={ this.state.embedPlayer } showThumbnail={ this.state.showThumbnail } showTitle={ this.state.showTitle } />
+    })
+
+    // TODO: how are we representing this set of records via a blacklight query/url on aapb?
+    var recordsSearchLink = "https://americanarchive.org"
+
+    return (
+      <div className="aapb-records">
+        { aapbRecords }
+        <a className="aapb-records-seemore" href={ recordsSearchLink }>
+          View all { this.state.guids.length } on AAPBRecord &gt;
+        </a>
+      </div>
+    )
+    
   }
 }

@@ -5,8 +5,10 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
-  Link
+  Link,
+  useLoaderData
 } from "@remix-run/react"
+import { json } from "@remix-run/node"
 
 import { NavigationBar } from "./classes/navigationBar"
 import { Footer, FooterLink } from "./classes/footer"
@@ -16,6 +18,7 @@ import styles from "~/styles.css"
 // use webpack css loader instead? v
 import carouselStyles from "~/../../node_modules/react-responsive-carousel/lib/styles/carousel.min.css"
 
+
 export function links() {
   return [{ rel: "stylesheet", href: styles }, { rel: "stylesheet", href: carouselStyles }]
 }
@@ -24,7 +27,18 @@ export function meta(){
   return [{ title: "GBH Open Vault" }]
 }
 
+export async function loader() {
+  // lift these env vars from process.env so they can be injected into window
+  return json({
+    ENV: {
+      AAPB_HOST: process.env.AAPB_HOST
+    }
+  })
+}
+
 export default function App() {
+  var data = useLoaderData()
+
   return (
     <html lang="en">
       <head>
@@ -36,8 +50,17 @@ export default function App() {
       <body>
         <NavigationBar />
         <Outlet />
+
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.ENV = ${JSON.stringify(
+              data.ENV
+            )}`,
+          }}
+        />
         <ScrollRestoration />
         <Scripts />
+
         { process.env.NODE_ENV === "development" && <LiveReload />}
         <Footer />
       </body>

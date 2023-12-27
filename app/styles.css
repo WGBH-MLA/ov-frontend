@@ -643,10 +643,20 @@ div.content-programs a.program {
   
 }
 
+a.aapb-records-seemore {
+  display: block;
+  text-align: right;
+  padding-top: 2vh;
+  padding-right: 4vw;
+  color: #2B72F6;
+  font-weight: bold;
+  font-size: 1vw;
+}
+
 a.content-aapbblock {
   background-size: contain;
   margin-right: 1vw;
-  background-color: #999;
+  background-color: #000;
   color: #404;
   font-weight: bold;
   width: 30vw;
@@ -713,7 +723,7 @@ a.content-aapbblock div.blue-circle div {
 }
 
 
-div.aapb-record-group {}
+div.aapb-records {}
 /*
 iframe.aapb-record-video {
   width: 100%;
