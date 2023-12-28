@@ -3,7 +3,6 @@ import { getCollection } from "~/collection"
 import { renderCollection } from "~/classes/collectionPresenter"
 
 export const loader = async ( { params } ) => {
-  console.log( 'collection id ', params )
   return await getCollection( params.collectionId )
 };
 

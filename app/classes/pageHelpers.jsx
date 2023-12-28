@@ -13,14 +13,14 @@ export function renderAuthorBubble(author, boxAttach=false){
   )
 }
 
-export function renderPageLink(pageType, page){
+export function renderPageLink(pageType, page, key){
   let authorBubble, authorLink
   
   if(page.authors && page.authors.length > 0){
     let author = page.authors[0]
     authorBubble = renderAuthorBubble(author, true)
     authorLink = (
-      <div className="pagelink-subtitle">By { author.name }</div>
+      <div key={ key } className="pagelink-subtitle">By { author.name }</div>
     )
   }
 
@@ -37,7 +37,7 @@ export function renderPageLink(pageType, page){
 }
 
 export function renderPageLinks(pageType, pages){
-  let pageLinks = pages.map( (page) => { return renderPageLink(pageType, page) })
+  let pageLinks = pages.map( (page, index) => { return renderPageLink(pageType, page, index) })
   return (
     <div className="pagelinks">
       { pageLinks }
@@ -50,14 +50,14 @@ export function renderSidebar(pageType, sections){
   return (
     <div className="page-sidebar">
       <div className="page-sidebar-title">In This { pageTypeName }</div>
-      { sections.map( (section) => { return renderSidebarSection(section) } ) }
+      { sections.map( (section, index) => { return renderSidebarSection(section, index) } ) }
     </div>
   )
 }
 
-export function renderSidebarSection(section){
+export function renderSidebarSection(section, key){
   return (
-    <a href={ `#${section.id}` } onClick={ () => { scrollSectionIntoView(section)  } } className="page-sidebar-link">&gt; { section.value }</a>
+    <a key={ key } href={ `#${section.id}` } onClick={ () => { scrollSectionIntoView(section)  } } className="page-sidebar-link">&gt; { section.value }</a>
   )
 }
 

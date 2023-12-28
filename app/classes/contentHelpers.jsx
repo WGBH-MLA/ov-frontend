@@ -1,40 +1,42 @@
 import { decode } from "html-entities"
+import { handleAapbRecordGroup, AAPBRecord } from "~/classes/aapbRecordHelpers"
 
 export function renderBlocks(blocks){
   // jsx likes to be in an array to be concatted when rendered
   let output = []
-  blocks.forEach( (block) => {
-    output.push( renderBlock(block) )
+  blocks.forEach( (block, index) => {
+    output.push( renderBlock(block, index) )
   })
 
   return output
 }
 
-export function renderBlock(block){
+export function renderBlock(block, key){
+
   if(block.type == "text"){
-    return textContent(block)
-  // } else if(block.type == "interviews"){
-  //   return interviewsContent(block)
-  // } else if(block.type == "archivalFootage"){
-  //   return archivalFootageContent(block)
-  // } else if(block.type == "photographs"){
-  //   return photographsContent(block)
-  // } else if(block.type == "originalFootage"){
-  //   return originalFootageContent(block)
-  } else if(block.type == "related_content"){
-    return relatedContentContent(block)
-  // } else if(block.type == "credits"){
-  //   return creditsContent(block)
+    return textContent(block, key)
+  } else if(block.type == "interviews" || block.type == "archival_footage" || block.type == "photographs" || block.type == "original_footage" || block.type == "programs" || block.type == "related_content"){
+    return aapbRecordsBlock(block, key)
   } else if(block.type == "heading"){
-    return headingContent(block)
+    return headingContent(block, key)
   } else if(block.type == "image"){
-    return imageContent(block)
-  } else if(block.type == "credits") {
-    return creditsContent(block)
+    return imageContent(block, key)
+  } else if(block.type == "credits"){
+    return creditsContent(block, key)
   } else {
     // return (<div key={ block.id }>I DONT FEEL LIKE IT</div>)
-    return contentBlock(block)
+    return contentBlock(block, key)
   }
+}
+
+export function aapbRecordsBlock(block, key){
+  // here its an aapbrecordgroup
+  return (
+    <div>
+      <div className="guids-block-title" dangerouslySetInnerHTML={{ __html: decode(block.value.title) }} />
+      { handleAapbRecordGroup(block, key) }
+    </div>
+  )
 }
 
 export function textContent(block){
@@ -61,25 +63,9 @@ export function imageContent(block){
   )
 }
 
-export function relatedContentContent(block){
-  var links = block.value
-  var content = links.map( (link) => {
-    return (
-      <a href={ link.link }>{ link.title }</a>
-    )
-  })
-
-  return (
-    <div id={ block.id } key={ block.id } className="content-block content-relatedcontent">
-      <h3>Related Content</h3>
-      { content }
-    </div>
-  )
-}
-
 export function creditsContent(block){
   return (
-    <div id={ block.id } className="content-block content-credits">
+    <div key={ block.id } id={ block.id } className="content-block content-credits">
       <h3>Credits</h3>
       <div className="content-block-body" dangerouslySetInnerHTML={{ __html: decode(block.value) }} />
     </div>
@@ -88,11 +74,11 @@ export function creditsContent(block){
 
 // generic block
 export function contentBlock(block){
-  return <div id={ block.id } className="content-block" dangerouslySetInnerHTML={{ __html: decode(block.value) }} />
+  return <div key={ block.id } id={ block.id } className="content-block" dangerouslySetInnerHTML={{ __html: decode(block.value) }} />
 }
 
-
-// export function interviewsContent(block){}
-// export function archivalFootageContent(block){}
-// export function photographsContent(block){}
-// export function originalFootageContent(block){}
+function devImgSrc(src){
+  if(src.startsWith("/")){
+    return "http://localhost:8000" + src
+  }
+}
