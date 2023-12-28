@@ -12,6 +12,7 @@ export function renderBlocks(blocks){
 }
 
 export function renderBlock(block, key){
+
   if(block.type == "text"){
     return textContent(block, key)
   } else if(block.type == "interviews" || block.type == "archival_footage" || block.type == "photographs" || block.type == "original_footage" || block.type == "programs" || block.type == "related_content"){

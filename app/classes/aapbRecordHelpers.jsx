@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-// const AAPB_HOST = "https://americanarchive.org"
-// const AAPB_HOST = "http://localhost:3000"
 
 export function handleAapbRecordGroup(aapbRecordGroup, key){
    // this func is where we split by whitespace v
@@ -15,25 +13,12 @@ export function handleAapbRecordGroup(aapbRecordGroup, key){
   //   return <AAPBRecord key={ index } guid={ guid } showTitle={ showTitle } showThumbnail={ showThumbnail } embedPlayer={ true} />
   // })
   // return (
-  //   <div key={ key } className="aapb-record-group">
+  //   <div key={ key } className="aapb-records">
   //     { aapbRecords }
   //   </div>
   // )
 
   return <AAPBRecords guids={ guids } showThumbnail={ showThumbnail } showTitle={ showTitle } embedPlayer={ true } />
-}
-
-export function parseAapbGuids(aapbRecordGroups){
-  // this flattens grousp into one group,  will delete
-
-  // comes as array of 'aapb_record_group'
-
-  // would be preferable to have values from api come split in an array rather than with arbitrary whitespace
-  var guids = aapbRecordGroups.map( (aapbRecordGroup) => {
-    return parseAapbRecordGroup(aapbRecordGroup.value.ids)
-  }).flat()
-  
-  return guids
 }
 
 export function parseAapbRecordGroup(string){
@@ -162,7 +147,7 @@ export class AAPBRecords extends Component {
       <div className="aapb-records">
         { aapbRecords }
         <a className="aapb-records-seemore" href={ recordsSearchLink }>
-          View all { this.state.guids.length } on AAPBRecord &gt;
+          View all { this.state.guids.length } on AAPB &gt;
         </a>
       </div>
     )
