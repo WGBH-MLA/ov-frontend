@@ -1,3 +1,4 @@
+import { decode } from "html-entities"
 import { useLoaderData } from "@remix-run/react"
 
 export function renderAuthorBubble(author, boxAttach=false){
@@ -47,6 +48,7 @@ export function renderPageLinks(pageType, pages){
 
 export function renderSidebar(pageType, sections){
   let pageTypeName = pageType === "exhibit" ? "Exhibit" : "Collection"
+  
   return (
     <div className="page-sidebar">
       <div className="page-sidebar-title">In This { pageTypeName }</div>
@@ -56,10 +58,20 @@ export function renderSidebar(pageType, sections){
 }
 
 export function renderSidebarSection(section, key){
+  var title
+  if(section.type == "heading"){
+    title = section.value
+  } else {
+    // aapb blocks have-a the nested title
+    title = section.value.title
+  }
+
   return (
-    <a key={ key } href={ `#${section.id}` } onClick={ () => { scrollSectionIntoView(section)  } } className="page-sidebar-link">&gt; { section.value }</a>
+    <a key={ key } href={ `#${section.id}` } onClick={ () => { scrollSectionIntoView(section)  } } className="page-sidebar-link" dangerouslySetInnerHTML={{ __html: decode(title) }} />
   )
 }
+
+
 
 export function renderPageTitleBar(title, hero_image_url, subtitle=null){
   let subtitleContainer
