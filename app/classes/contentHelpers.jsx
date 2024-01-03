@@ -49,9 +49,7 @@ export function textContent(block){
 
 export function headingContent(block){
   return (
-    <div id={ block.id } key={ block.id } className="content-block content-heading">
-      { block.value }
-    </div>  
+    <div id={ block.id } key={ block.id } className="content-block content-heading" dangerouslySetInnerHTML={{ __html: decode(block.value) }} />
   )
 }
 
