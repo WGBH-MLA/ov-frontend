@@ -67,11 +67,14 @@ export function renderSidebarSection(section, key){
   }
 
   return (
-    <a key={ key } href={ `#${section.id}` } onClick={ () => { scrollSectionIntoView(section)  } } className="page-sidebar-link" dangerouslySetInnerHTML={{ __html: decode(title) }} />
+    <a key={ key } onClick={ () => { scrollSectionIntoView(section)  } } className="page-sidebar-link" dangerouslySetInnerHTML={{ __html: decode(title) }} />
   )
 }
 
-
+function scrollSectionIntoView(section){
+  let ele = document.getElementById(section.id)
+  ele.scrollIntoView({behavior: "smooth", block: "start"})
+}
 
 export function renderPageTitleBar(title, hero_image_url, subtitle=null){
   let subtitleContainer
