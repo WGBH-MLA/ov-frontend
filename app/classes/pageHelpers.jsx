@@ -19,7 +19,10 @@ export function renderPageLink(pageType, page, key){
   
   if(page.authors && page.authors.length > 0){
     let author = page.authors[0]
-    authorBubble = renderAuthorBubble(author, true)
+    if(author.image){
+      // can't really have authorbubblewithout an author image!
+      authorBubble = renderAuthorBubble(author, true)
+    }
     authorLink = (
       <div key={ key } className="pagelink-subtitle">By { author.name }</div>
     )
