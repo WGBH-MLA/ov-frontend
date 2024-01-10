@@ -35,7 +35,7 @@ export default class Series extends Component {
     let seriesAlphaGroups = Object.keys(seriesData).map( (letter) => {
       let seriesGroup = seriesData[letter]
       if(this.state.seriesSearch.length > 0){
-        seriesGroup = seriesGroup.filter( (title) => title.toLowerCase().includes(seriesSearch) )
+        seriesGroup = seriesGroup.filter( (title) => title.toLowerCase().includes(this.state.seriesSearch) )
       }
       
       seriesGroup = seriesGroup.map( (title) => { return <a className="series-link" href={ `${ this.state.aapb_host }/catalog?f[series_titles][]=${ title }&f[access_types][]=all` } >{ title }</a> })
@@ -54,7 +54,7 @@ export default class Series extends Component {
         <div className="page-sidebar">
           <div className="page-sidebar-title spaced">Search GBH Series</div>
           <div className="series-search-container">
-            <input className="series-search" onKeyUp={ (e) => { this.setState({aapb_host: e.target.value}) } } type="text" name="series-search" placeholder="Series Name" />
+            <input className="series-search" onKeyUp={ (e) => { this.setState({seriesSearch: e.target.value}) } } type="text" name="series-search" placeholder="Series Name" />
             <div className="series-search-button" />
           </div>
 

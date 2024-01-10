@@ -28,7 +28,7 @@ export function renderPageLink(pageType, page, key){
   return (
     <div className="pagelink">
       <a href={ "/" + pageType + "/" + page.id }>
-        <div className="pagelink-image" style={{ backgroundImage: page.cover_image ? "url(" + page.cover_image.full_url + ")" : null }}></div>
+        <div className="pagelink-image" style={{ backgroundImage: (page.cover_image && page.cover_image.full_url) ? "url(" + page.cover_image.full_url + ")" : null }}></div>
         <div className="pagelink-title">{ page.title }</div>
         { authorBubble }
         { authorLink }
