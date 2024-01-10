@@ -9,5 +9,10 @@ export const loader = async ( { params } ) => {
 
 export default function Exhibits() {
   const exhibit = useLoaderData()
+
+  if(!exhibit){
+    return <div className="page-body-container">Exhibit was not found!</div>
+  }
+
   return renderExhibit(exhibit)
 }

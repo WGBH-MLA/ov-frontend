@@ -40,10 +40,13 @@ export function aapbRecordsBlock(block, key){
 }
 
 export function textContent(block){
-  return (
-    <div id={ block.id } key={ block.id } className="content-block content-text">
-      { block.value }
-    </div>  
+  // return (
+  //   <div id={ block.id } key={ block.id } className="content-block content-text">
+  //     { block.value }
+  //   </div>  
+  // )
+   return (
+    <div id={ block.id } key={ block.id } className="content-block content-text" dangerouslySetInnerHTML={{ __html: decode(block.value) }} />  
   )
 }
 
