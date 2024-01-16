@@ -38,7 +38,7 @@ export default class Series extends Component {
         seriesGroup = seriesGroup.filter( (title) => title.toLowerCase().includes(this.state.seriesSearch) )
       }
       
-      seriesGroup = seriesGroup.map( (title) => { return <a className="series-link" href={ `${ this.state.aapb_host }/catalog?f[series_titles][]=${ title }&f[access_types][]=all` } >{ title }</a> })
+      seriesGroup = seriesGroup.map( (title) => { return <a className="series-link" href={ `${ this.state.aapb_host }/catalog?f[series_titles][]=${ title }&q=+(contributing_organizations: WGBH(MA) OR producing_organizations: WGBH Educational Foundation)&f[access_types][]=all` } >{ title }</a> })
 
       return(
         <div className="series-group">
