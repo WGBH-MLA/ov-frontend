@@ -21,9 +21,9 @@ const sk = new Searchkit({
         snippet_attributes: ['description'],
         facet_attributes: [
             { attribute: 'brand', field: 'brand.keyword', type: "string" },
-            { attribute: 'categories_lvl0', field: 'hierarchicalCategories.lvl0.keyword', type: "string" },
-            { attribute: 'categories_lvl1', field: 'hierarchicalCategories.lvl1.keyword', type: "string" },
-            { attribute: 'categories_lvl2', field: 'hierarchicalCategories.lvl2.keyword', type: "string" },
+            { attribute: 'hierarchicalCategories.lvl0', field: 'hierarchicalCategories.lvl0.keyword', type: "string" },
+            { attribute: 'hierarchicalCategories.lvl1', field: 'hierarchicalCategories.lvl1.keyword', type: "string" },
+            { attribute: 'hierarchicalCategories.lvl2', field: 'hierarchicalCategories.lvl2.keyword', type: "string" },
             { attribute: 'price', field: 'price', type: "numeric" }
         ]
     }
@@ -39,6 +39,15 @@ const HitView = (props) => {
         </div>
     );
 };
+
+
+const Panel = ({ header, children }) => (
+    <div className="panel">
+        <h5>{header}</h5>
+        {children}
+    </div>
+)
+
 const searchClient = Client(sk);
 
 export const App = () => (
@@ -46,15 +55,17 @@ export const App = () => (
         <Configure hitsPerPage={5} />
 
         <SearchBox />
-        <h2>Brand</h2>
-        <RefinementList attribute="brand" showMore searchable />
-        <HierarchicalMenu
-            attributes={[
-                'hierarchicalCategories.lvl0',
-                'hierarchicalCategories.lvl1',
-                'hierarchicalCategories.lvl2',
-            ]}
-        />
+        <Panel header="Brand">
+            <RefinementList attribute="brand" showMore searchable /></Panel>
+        <Panel header="categories">
+            <HierarchicalMenu
+                attributes={[
+                    'hierarchicalCategories.lvl0',
+                    'hierarchicalCategories.lvl1',
+                    'hierarchicalCategories.lvl2',
+                ]}
+            />
+        </Panel>
         <Hits hitComponent={HitView} />
         <Pagination />
     </InstantSearch>
