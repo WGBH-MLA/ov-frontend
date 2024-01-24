@@ -10,5 +10,11 @@
     "buffer": "^6.0.3",
     "parcel": "^2.11.0",
     "process": "^0.11.10"
+  },
+  "version": "0.0.1",
+  "description": "Open Vault Search",
+  "name": "ov-search",
+  "scripts": {
+    "dev": "parcel index.html"
   }
 }

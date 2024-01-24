@@ -1,6 +1,6 @@
 import { createRoot } from "react-dom/client";
 
-import { App } from "./search-demo";
+import { App } from "./search-ui";
 
 const container = document.getElementById("app");
 const root = createRoot(container)
