@@ -59,18 +59,21 @@ export const App = () => (
     <Configure hitsPerPage={3} />
     <SearchBox />
 
-    <ToggleRefinement attribute="featured" label='Featured' />
-    <RefinementList attribute="content_type" transformItems={
-      items => items.filter(item => CONTENT_TYPES.includes(item.value))
-        .map(item => {
-          switch (item.label) {
-            case 'exhibits.ExhibitPage':
-              return { ...item, label: 'Exhibits' }
-            case 'ov_collections.Collection':
-              return { ...item, label: 'Collections' }
-          }
-        })
-    } />
+    <div className='refinements-panel'>
+      <h3>Refinements</h3>
+      <ToggleRefinement attribute="featured" label='Featured' />
+      <RefinementList attribute="content_type" transformItems={
+        items => items.filter(item => CONTENT_TYPES.includes(item.value))
+          .map(item => {
+            switch (item.label) {
+              case 'exhibits.ExhibitPage':
+                return { ...item, label: 'Exhibits' }
+              case 'ov_collections.Collection':
+                return { ...item, label: 'Collections' }
+            }
+          })
+      } />
+    </div>
 
     <Hits hitComponent={HitView} />
     <Pagination />
