@@ -54,7 +54,7 @@ export default class Series extends Component {
         <div className="page-sidebar">
           <div className="page-sidebar-title spaced">Search GBH Series</div>
           <div className="series-search-container">
-            <input className="series-search" onKeyUp={ (e) => { this.setState({seriesSearch: e.target.value}) } } type="text" name="series-search" placeholder="Series Name" />
+            <input className="series-search" onKeyUp={ (e) => { this.setState({seriesSearch: e.target.value.toLowerCase() }) } } type="text" name="series-search" placeholder="Series Name" />
             <div className="series-search-button" />
           </div>
 

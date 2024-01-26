@@ -13,7 +13,6 @@ export function Footer(props){
           <FooterLink link="/collections" text="Collections" />
         </div>
         <div className="bottom-bar-column">
-          <FooterLink link="/projects" text="Projects/Grants" />
           <FooterLink link="/supportus" text="Support Us" />
           <FooterLink link="/visitus" text="Visit Us" />
           <FooterLink link="/help" text="Help" />

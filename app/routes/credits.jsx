@@ -2,16 +2,17 @@ import { Link, useLoaderData } from "remix"
 import { renderAuthorBubble, renderPageLink, renderPageLinks, renderSidebar, renderSidebarSection, renderPageTitleBar } from "~/classes/pageHelpers"
 
 export default function Credits() {
-  // let titleBar = renderPageTitleBar("", "https://s3.amazonaws.com/openvault.wgbh.org/carousel/press-and-the-people-q-80.jpg", "Open Vault provides online access to unique and historically important content produced by GBH.")
+  let titleBar = renderPageTitleBar("Funders & Credits", "https://s3.amazonaws.com/openvault.wgbh.org/carousel/press-and-the-people-q-80.jpg")
 
   return (
     <div>
       <div className="page-container">
+        { titleBar }
+
         <div className="page-sidebar" />
 
         <div className="page-body-container">
           <div className="page-body">
-            <h1>Funders & Credits</h1>
 
             <h2>Digital Infrastructure Project</h2>
 
@@ -53,7 +54,7 @@ export default function Credits() {
 
             <h2>Open Vault Credits</h2>
 
-            <div className="static-halfbox small-text spaced"> 
+            <div className="static-halfbox small-text spaced static-credits"> 
               <div>
                 <div className="gray spaced">Project Management</div>
                 <div className="black">Karen Cariani, Project Director</div>
@@ -84,7 +85,7 @@ export default function Credits() {
               </div>
 
             </div>
-            <div className="static-halfbox small-text spaced">
+            <div className="static-halfbox small-text spaced static-credits">
               <div>
                 <div className="gray spaced">With thanks to</div>
                 <div className="black">Steve Baldwin, National Boston Ned Biddle, National Boston Kevin Carter, technical advisor, GBH Nancy Dillon, library manager, GBH Dale Freeman, assistant archivist, Archives and Special Collections Department, Healey Library, University of Massachusetts at Boston</div>
