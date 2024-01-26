@@ -9,10 +9,7 @@ CONTENT_TYPES = ['exhibits.ExhibitPage', 'ov_collections.Collection']
 const sk = new Searchkit({
   connection: {
     host: "https://elastic.wgbh-mla.org",
-    auth: {
-      username: "elastic",
-      password: "password"
-    },
+    apiKey: "apikey"
   },
   search_settings: {
     search_attributes: [
@@ -38,7 +35,9 @@ const sk = new Searchkit({
       { attribute: 'featured', field: 'exhibits_exhibitpage__featured_filter', type: "string" }
     ]
   },
-})
+},
+  { debug: true }
+)
 
 const searchClient = Client(sk);
 
