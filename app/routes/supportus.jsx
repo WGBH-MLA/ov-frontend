@@ -12,6 +12,7 @@ export default function SupportUs() {
 
         <div className="page-body-container">
           <div className="page-body">
+            <h2>Support Open Vault</h2>
 
             <div className="purple blockquote-text bold">
               "GBH has created an unparalleled public media archive with over 350,000 master-level materials on various formats including videotape, film and audiotape. These materials, many vulnerable to complete deterioration, must be preserved and digitized so that they can be available for future generations. We are literally in a race against time.""
@@ -33,7 +34,16 @@ export default function SupportUs() {
             <div className="med-textline">Improve our website with new features and improve functionality and discoverability of the collection</div>
             <div className="med-textline">Sustain Open Vault technical infrastructure so that we can continue to provide online access to the collection</div>
 
-            <a className="static-link blockquote-text bold">Read the entire case for support here</a>
+            <div className="static-link blockquote-text bold">Read the entire case for support <a href="https://s3.amazonaws.com/openvault.wgbh.org/resources/case_for_support.pdf">here.</a></div>
+
+
+            <div className="med-textline">
+              If you are interested in supporting Open Vault and the NEH challenge currently underway, please contact Tatiana Espinal, Major Gifts Officer, at tatiana_espinal@wgbh.org or 617.300.3677.
+            </div>
+
+            <div className="med-textline">
+              GBH is a 501(c)(3) nonprofit organization. All donations are tax deductible to the extent allowable by law.
+            </div>
           </div>
         </div>
       </div>

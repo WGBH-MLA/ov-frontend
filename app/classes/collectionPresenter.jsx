@@ -4,10 +4,10 @@ import { renderBlocks, renderBlock, textContent, interviewsContent, archivalFoot
 import { handleAapbRecordGroup, AAPBRecord } from "~/classes/aapbRecordHelpers"
 
 export function renderCollection(collection){
-  // console.log( 'collection data', collection )
+  console.log( 'collection data', collection )
   let sidebar
   // take every 'heading' type block, which are guaranteed to have a title field
-  sidebar = renderSidebar("collections", collection.content.filter( (block) => block.type == "heading" || block.type == "interviews" || block.type == "archival_footage" || block.type == "photographs" || block.type == "original_footage" || block.type == "programs" || block.type == "related_content" ) )
+  sidebar = renderSidebar("collections", collection.content.filter( (block) => block.type == "heading" || block.type == "interviews" || block.type == "archival_footage" || block.type == "photographs" || block.type == "original_footage" || block.type == "programs" || block.type == "related_content" || "credits" ) )
 
   let titleBar
   if(collection.title){
