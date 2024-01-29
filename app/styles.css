@@ -218,6 +218,7 @@ div.affiliated-websites-menu {
 div.affiliated-websites-menu a.drawer-item {
   padding-top: 2vh;
   padding-bottom: 3vh;
+  min-height: 4vh;
 }
 
 div.about-menu {

@@ -40,6 +40,7 @@ export default class Series extends Component {
       
       seriesGroup = seriesGroup.map( (title) => { return <a className="series-link" href={ `${ this.state.aapb_host }/catalog?f[series_titles][]=${ title }&q=+(contributing_organizations: WGBH(MA) OR producing_organizations: WGBH Educational Foundation)&f[access_types][]=all` } >{ title }</a> })
 
+      if(seriesGroup.length > 0)
       return(
         <div className="series-group">
           <div id={ "series-"+letter.toLowerCase() } className="series-group-letter">{ letter }</div>
