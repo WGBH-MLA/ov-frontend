@@ -1,14 +1,15 @@
 import React from "react";
 import Client from "@searchkit/instantsearch-client";
 import Searchkit from "searchkit";
-import { InstantSearch, SearchBox, Hits, RefinementList, Snippet, Highlight, Pagination, Configure, ToggleRefinement } from "react-instantsearch";
+import { InstantSearch, SearchBox, Hits, RefinementList, Snippet, Highlight, Pagination, Configure, ToggleRefinement, CurrentRefinements } from "react-instantsearch";
 
-
-CONTENT_TYPES = ['exhibits.ExhibitPage', 'ov_collections.Collection']
+ATTRIBUTES = { 'content_type': 'Type', 'featured': 'Featured' }
+CONTENT_TYPES = { 'exhibits.ExhibitPage': 'Exhibits', 'ov_collections.Collection': 'Collections' }
 
 const sk = new Searchkit({
   connection: {
     host: "https://elastic.wgbh-mla.org",
+    // Base64 encoded id:api_key
     apiKey: "apikey"
   },
   search_settings: {
@@ -39,6 +40,16 @@ const sk = new Searchkit({
   { debug: true }
 )
 
+function transformContentTypes(items) {
+  return items.filter(item => item.value in CONTENT_TYPES)
+    .map(item => {
+      if (item.label in CONTENT_TYPES) {
+        return { ...item, label: CONTENT_TYPES[item.label] }
+      }
+    })
+}
+
+
 const searchClient = Client(sk);
 
 const HitView = (props) => {
@@ -53,14 +64,34 @@ const HitView = (props) => {
   );
 };
 
+
 export const App = () => (
   <InstantSearch indexName="wagtail__wagtailcore_page" searchClient={searchClient}>
     <Configure hitsPerPage={3} />
+    <CurrentRefinements
+      transformItems={
+        // transform refinement Labels
+        items => items.map(item => {
+          if (item.attribute in ATTRIBUTES) {
+            // if this is an attribute we track, transform the label for each refinement
+            item.refinements = item.refinements.map(refinement => {
+              if (refinement.value in CONTENT_TYPES) {
+                // Transform the refinement label
+                return { ...refinement, label: CONTENT_TYPES[refinement.value] }
+              }
+              return item
+            })
+            return { ...item, label: ATTRIBUTES[item.attribute] }
+          }
+        })
+      }
+    />
     <SearchBox />
 
     <div className='refinements-panel'>
       <h3>Refinements</h3>
       <ToggleRefinement attribute="featured" label='Featured' />
+      <RefinementList attribute="content_type" transformItems={transformContentTypes} />
       <RefinementList attribute="content_type" transformItems={
         items => items.filter(item => CONTENT_TYPES.includes(item.value))
           .map(item => {
