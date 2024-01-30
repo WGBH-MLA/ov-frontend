@@ -35,8 +35,10 @@ export function AAPBResults() {
     }, 500), []);
 
     useEffect(() => {
-        setResults(null); // Set results to null when the query changes to show the spinner
-        fetchResults(query);
+        if (query) {
+            setResults(null); // Set results to null when the query changes to show the spinner
+            fetchResults(query);
+        }
     }, [fetchResults, query]);
 
     return (
@@ -45,7 +47,8 @@ export function AAPBResults() {
                 Search AmericanArchive.org
                 &#x21E8;
                 <span className="ais-RefinementList-count">
-                    {results !== null ? results : <Spinner />}
+                    {/* If there's a query, show the spinner or results */}
+                    {query ? results !== null ? results : <Spinner /> : null}
                 </span>
             </a>
         </>

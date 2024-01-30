@@ -101,7 +101,13 @@ export const App = () => (
       <AAPBResults />
     </div>
 
-    <Hits hitComponent={HitView} />
-    <Pagination />
+    <Hits hitComponent={HitView} transformItems={
+      (items, meta) => {
+        // If no query, don't show any results
+        return meta.results.query ? items : []
+      }
+    }
+    />
+    < Pagination />
   </InstantSearch>
 );
