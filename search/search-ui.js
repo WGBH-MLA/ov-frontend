@@ -2,8 +2,13 @@ import React from "react";
 import Client from "@searchkit/instantsearch-client";
 import Searchkit from "searchkit";
 import { InstantSearch, SearchBox, Hits, RefinementList, Snippet, Highlight, Pagination, Configure, ToggleRefinement, CurrentRefinements } from "react-instantsearch";
+import { Error } from './utils.js'
 
+
+// Labels for refinements
 ATTRIBUTES = { 'content_type': 'Type', 'featured': 'Featured' }
+
+// Labels for content types
 CONTENT_TYPES = { 'exhibits.ExhibitPage': 'Exhibits', 'ov_collections.Collection': 'Collections' }
 
 const sk = new Searchkit({
@@ -67,6 +72,7 @@ const HitView = (props) => {
 
 export const App = () => (
   <InstantSearch indexName="wagtail__wagtailcore_page" searchClient={searchClient}>
+    <Error />
     <Configure hitsPerPage={3} />
     <CurrentRefinements
       transformItems={
@@ -92,17 +98,6 @@ export const App = () => (
       <h3>Refinements</h3>
       <ToggleRefinement attribute="featured" label='Featured' />
       <RefinementList attribute="content_type" transformItems={transformContentTypes} />
-      <RefinementList attribute="content_type" transformItems={
-        items => items.filter(item => CONTENT_TYPES.includes(item.value))
-          .map(item => {
-            switch (item.label) {
-              case 'exhibits.ExhibitPage':
-                return { ...item, label: 'Exhibits' }
-              case 'ov_collections.Collection':
-                return { ...item, label: 'Collections' }
-            }
-          })
-      } />
     </div>
 
     <Hits hitComponent={HitView} />
