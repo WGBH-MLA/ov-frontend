@@ -2,7 +2,7 @@ import React from "react";
 import Client from "@searchkit/instantsearch-client";
 import Searchkit from "searchkit";
 import { InstantSearch, SearchBox, Hits, RefinementList, Snippet, Highlight, Pagination, Configure, ToggleRefinement, CurrentRefinements } from "react-instantsearch";
-import { Error } from './utils.js'
+import { Error, AAPBResults } from './utils.js'
 
 
 // Labels for refinements
@@ -98,6 +98,7 @@ export const App = () => (
       <h3>Refinements</h3>
       <ToggleRefinement attribute="featured" label='Featured' />
       <RefinementList attribute="content_type" transformItems={transformContentTypes} />
+      <AAPBResults />
     </div>
 
     <Hits hitComponent={HitView} />

@@ -8,3 +8,13 @@ export function Error() {
     }
 }
 
+export function AAPBResults() {
+    return (
+        <>
+            <a href="#">
+                AmericanArchive.org
+                <span class="ais-RefinementList-count">5</span>
+            </a>
+        </>
+    )
+}
