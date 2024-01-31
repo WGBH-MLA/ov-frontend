@@ -1,8 +1,8 @@
 import React from "react";
 import Client from "@searchkit/instantsearch-client";
 import Searchkit from "searchkit";
-import { InstantSearch, SearchBox, Hits, RefinementList, Snippet, Highlight, Pagination, Configure, ToggleRefinement, CurrentRefinements } from "react-instantsearch";
-import { Error, AAPBResults, NoResults, NoResultsBoundary } from './utils.js'
+import { InstantSearch, SearchBox, Hits, RefinementList, Snippet, Highlight, Configure, ToggleRefinement, CurrentRefinements } from "react-instantsearch";
+import { Error, AAPBResults, NoResults, NoResultsBoundary, Pager } from './utils.js'
 
 
 // Labels for refinements
@@ -101,7 +101,7 @@ export const App = () => (
       <RefinementList attribute="content_type" transformItems={transformContentTypes} />
       <AAPBResults />
     </div>
-    <NoResultsBoundary fallback={<NoResults />}>
+    <NoResultsBoundary fallback={<NoResults />} >
       <Hits hitComponent={HitView} transformItems={
         (items, meta) => {
           // If no query, don't show any results
@@ -109,7 +109,7 @@ export const App = () => (
         }
       }
       />
-      <Pagination />
+      <Pager />
     </ NoResultsBoundary>
   </InstantSearch>
 );

@@ -1,4 +1,4 @@
-import { useInstantSearch, useSearchBox } from 'react-instantsearch';
+import { useInstantSearch, useSearchBox, Pagination } from 'react-instantsearch';
 import './spinner.css';
 import { useState, useEffect, useCallback } from 'react';
 import { debounce } from 'lodash';
@@ -21,6 +21,15 @@ export function Spinner() {
             <div className="rect5"></div>
         </div>
     </>
+}
+
+export function Pager() {
+    const { query } = useSearchBox();
+
+    return <>
+        {query && <Pagination />}
+    </>
+        ;
 }
 
 export function AAPBResults() {
@@ -77,8 +86,11 @@ export function NoResults() {
 
     return (
         <>
+            <h2>
+                No results for <i>{indexUiState.query}</i>
+            </h2>
             <p>
-                No results for <strong><q>{indexUiState.query}</q></strong>.
+                Try using different keywords, or check your spelling.
             </p>
         </>
     );
