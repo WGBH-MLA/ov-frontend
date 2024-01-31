@@ -1,4 +1,4 @@
-import { useInstantSearch, useSearchBox, Pagination } from 'react-instantsearch';
+import { useInstantSearch, useSearchBox, Pagination, ClearRefinements } from 'react-instantsearch';
 import './spinner.css';
 import { useState, useEffect, useCallback } from 'react';
 import { debounce } from 'lodash';
@@ -95,3 +95,11 @@ export function NoResults() {
         </>
     );
 }
+
+export function HiddenClearRefinements() {
+    const { indexUiState } = useInstantSearch();
+
+    if (indexUiState.refinementList) {
+        return <ClearRefinements />
+    }
+};

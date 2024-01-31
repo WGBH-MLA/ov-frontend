@@ -2,7 +2,7 @@ import React from "react";
 import Client from "@searchkit/instantsearch-client";
 import Searchkit from "searchkit";
 import { InstantSearch, SearchBox, Hits, RefinementList, Snippet, Highlight, Configure, ToggleRefinement, CurrentRefinements } from "react-instantsearch";
-import { Error, AAPBResults, NoResults, NoResultsBoundary, Pager } from './utils.js'
+import { Error, AAPBResults, NoResults, NoResultsBoundary, Pager, HiddenClearRefinements } from './utils.js'
 
 
 // Labels for refinements
@@ -93,6 +93,7 @@ export const App = () => (
         })
       }
     />
+    <HiddenClearRefinements />
     <SearchBox />
 
     <div className='refinements-panel'>
