@@ -28,7 +28,7 @@ export function AAPBResults() {
     const { query } = useSearchBox();
 
     const fetchResults = useCallback(debounce((currentQuery) => {
-        fetch(`https://americanarchive.org/api.json?q=${currentQuery}&rows=0`)
+        fetch(`https://americanarchive.org/api.json?q=${encodeURIComponent(currentQuery)}&rows=0`)
             .then(response => response.json())
             .then(data => setResults(data.response.numFound))
             .catch(error => console.error(error));
@@ -53,4 +53,33 @@ export function AAPBResults() {
             </a>
         </>
     )
+}
+
+export function NoResultsBoundary({ children, fallback }) {
+    const { results } = useInstantSearch();
+
+    // The `__isArtificial` flag makes sure not to display the No Results message
+    // when no hits have been returned.
+    if (!results.__isArtificial && results.nbHits === 0) {
+        return (
+            <>
+                {fallback}
+                <div hidden>{children}</div>
+            </>
+        );
+    }
+
+    return children;
+}
+
+export function NoResults() {
+    const { indexUiState } = useInstantSearch();
+
+    return (
+        <>
+            <p>
+                No results for <strong><q>{indexUiState.query}</q></strong>.
+            </p>
+        </>
+    );
 }
