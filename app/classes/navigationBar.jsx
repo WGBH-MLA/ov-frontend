@@ -3,6 +3,8 @@ import { NavigationLink } from './navigationLink'
 import { DrawerMenu } from './drawerMenu'
 import { MobileMenu } from './mobileMenu'
 
+import { Search } from './search'
+
 export class NavigationBar extends Component {
   constructor(props){
     super(props)
@@ -56,6 +58,7 @@ export class NavigationBar extends Component {
         <div className="navigation-bar-container">
           <MobileMenu />
 
+          {/*put search box here, nav with q to /search*/}
           <div id="navigation-bar" className="navigation-bar mobile-hidden">
             <NavigationLink href="/series" text="GBH Series" />
             <NavigationLink href="/exhibits" text="Scholar Exhibits" />

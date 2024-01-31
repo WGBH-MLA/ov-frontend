@@ -15,13 +15,16 @@
     "@remix-run/react": "2.2.0",
     "@remix-run/serve": "2.2.0",
     "@remix-run/server-runtime": "2.2.0",
+    "@searchkit/instantsearch-client": "^4.12.0",
     "html-entities": "^2.4.0",
     "isbot": "^3.7.0",
     "mysql": "^2.18.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-instantsearch": "^7.5.4",
     "react-responsive-carousel": "^3.2.23",
-    "remix": "2.2.0"
+    "remix": "2.2.0",
+    "searchkit": "^4.11.0"
   },
   "devDependencies": {
     "@remix-run/dev": "2.2.0"
