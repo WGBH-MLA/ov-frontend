@@ -7,7 +7,7 @@ export function renderCollection(collection){
   console.log( 'collection data', collection )
   let sidebar
   // take every 'heading' type block, which are guaranteed to have a title field
-  sidebar = renderSidebar("collections", collection.content.filter( (block) => block.type == "heading" || block.type == "interviews" || block.type == "archival_footage" || block.type == "photographs" || block.type == "original_footage" || block.type == "programs" || block.type == "related_content" || "credits" ) )
+  sidebar = renderSidebar("collections", collection.content.filter( (block) => block.type == "heading" || block.type == "interviews" || block.type == "archival_footage" || block.type == "photographs" || block.type == "original_footage" || block.type == "programs" || block.type == "related_content" || block.type == "credits" ) )
 
   let titleBar
   if(collection.title){
