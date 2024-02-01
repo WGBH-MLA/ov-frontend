@@ -48,8 +48,10 @@ export default function Credits() {
 
             </div>
 
-            <div className="static-halfbox small-text spaced">
-              org logos go here!
+            <div className="static-halfbox small-text spaced org-logos">
+              <img src="/mellon.png" />
+              <img src="/macfound.jpg" />
+              <img src="/imls.jpg" />
             </div>
 
             <h2>Open Vault Credits</h2>

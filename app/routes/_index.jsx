@@ -37,7 +37,7 @@ export default function Index() {
   return (
     <div className="home-container">
       <div className="carousel-container">
-        <Carousel dynamicHeight={true} infiniteLoop={true} >
+        <Carousel dynamicHeight={true} infiniteLoop={true} transitionTime={ 4 }>
           <a href="/guitar-thing">
             <div>
               <img src="/carousel/guitar.jpg" />
