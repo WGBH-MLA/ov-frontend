@@ -1,14 +1,16 @@
-FROM node:alpine AS dev
+# Development
+FROM node AS dev
 WORKDIR /app
 ENV PATH="${PATH}:/app/node_modules/.bin"
 
 RUN npm install -g npm npm-upgrade
+RUN npm i
 
 
 CMD npm run dev
 
-# production
-FROM dev AS production
+# Production
+FROM node:alpine AS production
 
 COPY ./ .
 RUN npm i

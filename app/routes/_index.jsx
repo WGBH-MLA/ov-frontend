@@ -1,8 +1,8 @@
 import { Link } from "@remix-run/react"
 import { useLoaderData } from "@remix-run/react"
 import { Carousel } from "react-responsive-carousel"
-import { renderPageLinks } from "~/classes/pageHelpers"
-import { getExhibits } from "~/exhibit"
+import { renderPageLinks } from "../classes/pageHelpers"
+import { getExhibits } from "../exhibit"
 
 export const loader = async () => {
   return await getExhibits()

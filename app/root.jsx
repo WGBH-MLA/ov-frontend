@@ -14,9 +14,11 @@ import { NavigationBar } from "./classes/navigationBar"
 import { Footer, FooterLink } from "./classes/footer"
 import { renderPageLinks } from "./classes/pageHelpers"
 
-import styles from "~/styles.css"
+import styles from "./styles.css"
+import "@fontsource/red-hat-display"
+import "@fontsource/red-hat-text"
 // use webpack css loader instead? v
-import carouselStyles from "~/../../node_modules/react-responsive-carousel/lib/styles/carousel.min.css"
+import carouselStyles from "./../node_modules/react-responsive-carousel/lib/styles/carousel.min.css"
 
 
 export function links() {
