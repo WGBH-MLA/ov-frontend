@@ -403,6 +403,8 @@ div.page-titlebar {
   height:  40vh;
   min-height: 22em;
   position: relative;
+  background-repeat: no-repeat;
+  background-size: 100vw auto;
 }
 
 /*main page title */
