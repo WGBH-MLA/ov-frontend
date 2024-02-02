@@ -1,4 +1,4 @@
-import { Link, useLoaderData } from "remix"
+import { Link, useLoaderData } from "@remix-run/react"
 import { renderAuthorBubble, renderPageLink, renderPageLinks, renderSidebar, renderSidebarSection, renderPageTitleBar } from "~/classes/pageHelpers"
 
 export default function Terms() {
