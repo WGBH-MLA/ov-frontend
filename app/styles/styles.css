@@ -47,7 +47,7 @@ ul.numbered-list {
 }
 
 h1.series-bigtitle {
-  color:  #430467;
+  color:  var(--dark-purple);
   font-size: 3em;
   margin-left: 6vw;
   margin-bottom: 2vh;
@@ -67,7 +67,7 @@ div.series-group {
 div.series-group-letter {
   font-size: 2em;
   font-weight: bold;
-  color: #430467;
+  color: var(--dark-purple);
   margin-bottom: 1.6vh;
 }
 
@@ -77,7 +77,7 @@ a.series-link {
   text-overflow: ellipsis;
   width: 40%;
   display: inline-block;
-  color: #2B72F6;
+  color: var(--blue);
   font-size: 1em;
   font-weight: bold;
 
@@ -91,7 +91,7 @@ a.static-link {
   white-space: nowrap;
   text-overflow: ellipsis;
   display: inline-block;
-  color: #2B72F6;
+  color: var(--blue);
   font-weight: bold;
   padding:  1em;
   height: 2.3vh;
@@ -113,7 +113,7 @@ div.static-halfbox {
 
 div.big-blue-button {
   border-radius: 30px;
-  background-color: #2B72F6;
+  background-color: var(--blue);
 }
 
 hr.spaced-hr {
@@ -139,7 +139,7 @@ div.series-search-button {
   margin-left: 0.2vw;
   display: inline-block;
   vertical-align: middle;
-  background-color: #2B72F6;
+  background-color: var(--blue);
   width:  3vw;
   height:  2vw;
   max-height: 2em;
@@ -164,21 +164,21 @@ div.purple-bar-container {
   height: 6vh;
   min-height: 3.6em;
   padding-top: 2vh;
-  background-color: #430467;
+  background-color: var(--purple);
   /*margin-bottom: 4vh;*/
 }
 
 div.purple-bar-container a.top-title {
   font-family: 'Red Hat Display', sans-serif;
   font-size: 2em;
-  color:  #fff;
+  color:  var(--white);
   margin-left: 4vw;
 }
 
 div.navigation-bar-container {
   position: relative;
   z-index: 1000;
-  background-color: #ededed;
+  background-color: var(--x-light-gray);
   height: 1.2em;
   min-height: 1.2em;
   padding-bottom: 2em;
@@ -201,7 +201,7 @@ img.ov-logo {
 }
 
 a.navigation-link {
-  color: #430467;
+  color: var(--dark-purple);
   overflow: hidden;
   position: relative;
   top: 0;
@@ -240,7 +240,7 @@ div.about-menu {
   position: absolute;
   min-width: 240px;
   width: 12vw;
-  color: #430467;
+  color: var(--dark-purple);
 }
 
 div.drawermenu-container {
@@ -289,11 +289,11 @@ a.drawer-item {
   min-height: 2em;
   height: 2vh;
   max-height: 2em;
-  color: #000;
+  color: var(--black);
 }
 
 a.drawer-item:hover {
-  background-color: #cdcdcd;
+  background-color: var(--light-gray);
 
 }
 
@@ -308,8 +308,8 @@ a.drawer-item div.drawer-subtitle {
 }
 
 div.drawermenu-items {
-  background-color: #ededed;
-  border: 1px solid white;
+  background-color: var(--x-light-gray);
+  border: 1px solid var(--white);
   display: none;
 }
 
@@ -317,8 +317,8 @@ div.bottom-bar-container {
   padding-top: 6vh;
   padding-bottom: 8vh;
   height: 20vh;
-  background-color: #333;
-  color: #fff;
+  background-color: var(--x-dark-gray);
+  color: var(--white);
 }
 
 div.bottom-bar-row {
@@ -352,7 +352,7 @@ div.bottom-bar-logos, div.bottom-bar-logos img{
 a.bottom-bar-link {
   width:  20vw;
   font-size: 1.2em;
-  color: #fff;
+  color: var(--white);
   display: block;
 }
 
@@ -375,11 +375,12 @@ div.page-sidebar {
 }
 
 div.page-sidebar-border {
-  border-right: 1px solid #000;
+  border-right: 1px solid var(--black);
 }
 
 a.page-sidebar-link {
-  color: #99f;
+  font-family: 'Red Hat Display', sans-serif;
+  color: var(--blue);
   display: block;
   font-size: 1em;
   margin-top: 1em;
@@ -426,8 +427,8 @@ div.page-titlebar {
 
 /*main page title */
 h1.page-titlebar-title {
-  color: #fff;
-  background-color: #404  ;
+  color: var(--white);
+  background-color: var(--dark-purple);
   padding: 1vw;
   font-size: 3em;
   display: block;
@@ -445,14 +446,14 @@ h1.page-titlebar-title h2.page-titlebar-subtitle{
 
 /*styling elements rendered from exhibit body field*/
 div.page-body h1 {
-  color:  #430467;
+  color: var(--dark-purple);
   font-size: 3em;
   display: block;
   margin-bottom: 1em;
 }
 
 div.page-body h2 {
-  color: #404;
+  color: var(--dark-purple);
   font-size: 1.8em;
   display: block;
   margin-bottom: 1.2em;
@@ -462,7 +463,7 @@ div.page-body p {
   /*background-color: #f4f4f4;*/
   margin-left: 0;
   margin-right: 0;
-  margin-up: 0;
+  margin-top: 0;
 }
 
 div.page-container a.page-nav-link {
@@ -480,7 +481,7 @@ a.exhibit-index-link {
   height:  18vw;
   margin-left: 3vw;
 
-  color:  #000;
+  color:  var(--black);
   font-size: 1.2em;
   position: relative;
 }
@@ -493,14 +494,14 @@ div.exhibit-index-link-title {
 }
 
 div.exhibit-index-coverimg {
-  background-color: #eee;
+  background-color: var(--x-light-gray);
   width: 20vw;
   min-height:  15vw;
   background-size: cover;
 }
 
 div.exhibit-bottom-graybar {
-  background-color: #ededed;
+  background-color: var(--x-light-gray);
 }
 
 div.pagelinks-container {
@@ -512,7 +513,7 @@ div.pagelinks-container {
 div.pagelinks-also {
   display: inline-block;
   font-size: 2em;
-  color: #404;
+  color: var(--dark-purple);
   width: 70vw;
 }
 
@@ -539,7 +540,7 @@ div.pagelink {
 }
 
 div.exhibit-bottomlink a {
- color: #000;
+ color: var(--black);
 }
 
 div.pagelink-image {
@@ -551,6 +552,7 @@ div.pagelink-image {
 
 div.pagelink-title {
   margin-top: 2vh;
+  font-family: 'Red Hat Display', sans-serif;
   font-size: 1em;
   font-weight: bold;
 }
@@ -564,7 +566,7 @@ div.author-bubble {
   width: 6vw;
   height: 6vw;
   border-radius: 20vw;
-  border: 2px solid #fff;
+  border: 2px solid var(--white);
 }
 
 div.author-bubble.box-attach {
@@ -613,7 +615,7 @@ div.content-block {
 }
 
 div.content-block h3 {
-  color: #404;
+  color: var(--dark-purple);
 }
 
 div.content-block div.content-block-body p {
@@ -625,27 +627,27 @@ div.content-text {}
 
 div.content-heading {
   font-weight: bold;
-  color: #404;
+  color: var(--dark-purple);
   font-size: 1.8em;
 }
 
 div.content-image {
-  color: #fff;
-  background-color: #222;
+  color: var(--white);
+  background-color: var(--x-dark-gray);
 }
 
 div.content-relatedcontent {}
 
 div.content-relatedcontent a {
   display: inline-block;
-  color: #2B72F6;
+  color: var(--blue);
   width: 50%;
 }
 
 div.content-credits p {}
 
 div.content-interviews a.interview {
-  color: #404;
+  color: var(--dark-purple);
   font-weight: bold;
   width: 50%;
   text-align: center;
@@ -665,7 +667,7 @@ a.aapb-records-seemore {
   text-align: right;
   padding-top: 2vh;
   padding-right: 4vw;
-  color: #2B72F6;
+  color: var(--blue);
   font-weight: bold;
   font-size: clamp(12px, 2rem, 16px);
 }
@@ -673,8 +675,8 @@ a.aapb-records-seemore {
 a.content-aapbblock {
   background-size: contain;
   margin-right: 1vw;
-  background-color: #000;
-  color: #404;
+  background-color: var(--black);
+  color: var(--dark-purple);
   font-weight: bold;
   width: 30vw;
   min-height: 22.5vw;
@@ -695,8 +697,8 @@ a.content-aapbblock div.shade-bar {
   font-size: 1vw;
   text-align: left;
   width: 100%;
-  color: #fff;
-  background-color: #000;
+  color: var(--white);
+  background-color: var(--black);
   opacity: 0.8;
   position: absolute;
   bottom: 0;
@@ -719,11 +721,11 @@ a.content-aapbblock div.blue-circle {
   width: 4vw;
   min-height: 4vw;
   height: 4vw;
-  background-color: #2B72F6;
+  background-color: var(--blue);
   border-radius: 20vw;
   text-align: center;
   vertical-align: middle;
-  color: #fff;
+  color: var(--white);
   font-size: 3vw;  
 }
 
@@ -736,7 +738,7 @@ a.content-aapbblock div.blue-circle div {
   height: 0; 
   border-top: 1vw solid transparent;
   border-bottom: 1vw solid transparent;
-  border-left: 1.68vw solid #fff;
+  border-left: 1.68vw solid var(--white);
 }
 
 
@@ -830,8 +832,8 @@ div.guids-block-title p {
 
   span.drawermenu-label {
     text-align: center;
-    background-color: #ededed;
-    color: #a9a9a9;
+    background-color: var(--x-light-gray);
+    color: var(--gray);
   }
 
   div.page-titlebar {
@@ -851,7 +853,7 @@ div.guids-block-title p {
 
   div.drawermenu-container a.drawer-item, a.navigation-link {
     border: 1px solid white;
-    color: #430467;
+    color: var(--dark-purple);
   }
 
   div.drawermenu-items {
@@ -877,8 +879,8 @@ div.guids-block-title p {
 
   div.navigation-bar-container div#mobile-menu-icon {
     font-size: 6vw;
-    color: #fff;
-    background-color: #430467;
+    color: var(--white);
+    background-color: var(--dark-purple);
     width: 96vw;
     height: 2em;
     display: block;
