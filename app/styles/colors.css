@@ -1,0 +1,58 @@
+/* GBH Brand colors */
+
+/* Primary Colors */
+
+.x-light-purple {
+  color: #f2cfff;
+}
+
+.light-purple {
+  color: #cc8fdf;
+}
+
+.purple {
+  color: #772b8d;
+}
+
+.dark-purple {
+  color: #590e6e;
+}
+
+.x-dark-purple {
+  color: #3f0051;
+}
+
+.accent-purple {
+  color: #bc27c7;
+}
+
+/* Supporting Colors */
+
+.x-light-grey {
+  color: #e2e5e6;
+}
+
+.light-grey {
+  color: #c3c6c9;
+}
+
+.gray {
+  color: #9da0a3;
+}
+
+.dark-grey {
+  color: #6a6d70;
+}
+
+.x-dark-grey {
+  color: #38393b;
+}
+
+/* Generic Colors */
+.black {
+  color: #000;
+}
+
+.white {
+  color: #fff;
+}

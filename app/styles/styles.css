@@ -1,3 +1,4 @@
+/* Fonts */
 @font-face {
   font-family: 'Red Hat Display';
   src: url('public/fonts/RedHatDisplay-VariableFont_wght.ttf');
@@ -7,8 +8,6 @@
   font-family: 'Red Hat Text';
   src: url('public/fonts/RedHatText-VariableFont_wght.ttf');
 }
-
-
 
 body, h1, h2 {
   margin:  0;
@@ -588,18 +587,6 @@ div.med-textline {
   font-size: 1.2em;
   line-height: 1.2em;
   margin-bottom: 1.2em;
-}
-
-.gray {
-  color: #aaa;
-}
-
-.black {
-  color: #000;
-}
-
-.purple {
-  color: #430467;
 }
 
 .bold {
