@@ -14,7 +14,7 @@ export function DrawerMenu(props) {
     <div className={ drawerClasses }>
       <span className="drawermenu-label">
         { props.label }
-        <div className="drawermenu-toggle"></div>
+        <DownChevron />
       </span>
 
       <div className="drawermenu-items">
@@ -27,12 +27,14 @@ export function DrawerMenu(props) {
 function DrawerItem(props){
   return(
     <a className="drawer-item" href={ props.url }>
-      <div className="drawer-title">
+      <h4 className="drawer-title">
         { props.label }
-      </div>
+      </h4>
       <div className="drawer-subtitle">
         { props.subLabel }
       </div>
     </a>
   )
 }
+
+export const DownChevron = () => <div class="chevron" />

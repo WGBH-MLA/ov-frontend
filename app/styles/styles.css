@@ -21,6 +21,27 @@ body, h1, h2 {
 
 h1, h2 {
   font-family: 'Red Hat Display', sans-serif;
+  color: var(--purple);
+  font-weight: 500;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  color: var(--purple);
+  font-size: 2rem;
+}
+
+h4 {
+  color: var(--black);
+  font-size: 1rem;
+  font-weight: 700;
 }
 
 input {
@@ -47,7 +68,6 @@ ul.numbered-list {
 }
 
 h1.series-bigtitle {
-  color:  var(--dark-purple);
   font-size: 3em;
   margin-left: 6vw;
   margin-bottom: 2vh;
@@ -128,9 +148,6 @@ div.series-search-container input {
 
 
 div.series-search-container input.series-search {
-  height:  1.6vw;
-  max-height: 1.6vw;
-    
   padding-block: 0px;
   padding-inline: 0px;
 }
@@ -164,7 +181,7 @@ div.purple-bar-container {
   height: 6vh;
   min-height: 3.6em;
   padding-top: 2vh;
-  background-color: var(--purple);
+  background-color: var(--x-dark-purple);
   /*margin-bottom: 4vh;*/
 }
 
@@ -189,8 +206,9 @@ div.navigation-bar-container div#mobile-menu-icon {
 }
 
 div.navigation-bar-container div#navigation-bar {
-  margin-left: 4vw;
-  padding-top: 1em;
+  margin-left: 2rem;
+  margin-right: 2rem;
+
 }
 
 img.ov-logo {
@@ -201,7 +219,7 @@ img.ov-logo {
 }
 
 a.navigation-link {
-  color: var(--dark-purple);
+  color: var(--purple);
   overflow: hidden;
   position: relative;
   top: 0;
@@ -213,98 +231,92 @@ a.navigation-link {
 }
 
 a.navigation-link div {
-  height: 2vh;
-  /*padding-left: 2vw;*/
-  padding-right: 2vw;
+  padding-left: 2rem;
+  padding-right: 2rem;
   font-size: 1em;
   text-align:  center;
   /*background-color: #732487;*/
 }
 
-div.affiliated-websites-menu {
+.affiliated-websites-menu {
   width:  28vw;
   min-width: 200px;
-  margin-right: 2vw;
+  margin-right: 2rem;
   right:  0;
   position: absolute;
   text-align: center;
 }
 
-div.affiliated-websites-menu a.drawer-item {
-  padding-top: 2vh;
+.affiliated-websites-menu a.drawer-item {
   padding-bottom: 3vh;
   min-height: 4vh;
 }
 
-div.about-menu {
+.about-menu {
   position: absolute;
   min-width: 240px;
   width: 12vw;
   color: var(--dark-purple);
 }
 
-div.drawermenu-container {
+.drawermenu-container {
   display: inline-block;
 }
 
-div.drawermenu-label {
+.drawermenu-label {
   display: block;
   position: absolute;
 }
 
-div.drawermenu-container:hover > div.drawermenu-items {
+.drawermenu-container:hover > .drawermenu-items {
   display: block;
 }
 
-div.drawermenu-toggle {
-  margin-left: 0.5vw;
+.chevron {
+  border-right: .2rem solid; 
+  border-bottom: .2rem solid;
+  border-radius: .2rem;
+  height: .5rem;
+  width: .5rem;
+  transform: rotate(45deg);
+  color: var(--purple);
   display: inline-block;
-  width: 1vw;
-  min-width: 14px;
-  max-width: 14px;
-  height: 0.6vw;
-  max-height:8px;
-  background-position: center;
-  background-size: contain;
-  background-image: url("/down-chevron-small.png");
-  background-repeat: no-repeat;
+  margin-left: .5rem;
 }
 
-div.drawermenu-items {
+.drawermenu-items {
   min-width: 12vw;
   display: none;
 }
   
-a.drawer-item {
-  padding-top: 3vh;
-  padding-left: 2vw;
-  padding-right: 2vw;
-  padding-bottom: 1vh;
+.drawer-item {
+  /* ;
+  padding-right: 2rem;
+  padding-bottom: 1rem; */
+  padding-left: 2rem;
   text-align: left;
-  line-height: 2vh;
   display: block;
-
-  min-width: 8vw;
-
-  min-height: 2em;
-  height: 2vh;
-  max-height: 2em;
+  min-width: 8rem;
+  min-height: 2rem;
+  height: 2rem;
+  max-height: 2rem;
   color: var(--black);
 }
 
-a.drawer-item:hover {
+.drawer-item:hover {
   background-color: var(--light-gray);
 
 }
 
-a.drawer-item div.drawer-title {
+.drawer-title {
   font-family: 'Red Hat Display', sans-serif;
-  font-size: 1.2em;
+  /* font-size: 1.2em; */
   font-weight: bold;
+  color: var(--purple)
 }
 
-a.drawer-item div.drawer-subtitle {
-  font-size: 0.8em;
+div.drawer-subtitle {
+  font-size: 0.8rem;
 }
 
 div.drawermenu-items {
@@ -362,8 +374,6 @@ div.page-container {
 }
 
 div.page-sidebar {
-  padding-top: 2vw;
-  padding-left: 2vw;
   margin-left: 6vw;
   margin-right: 2vw;
   margin-top: 6vh;
@@ -609,17 +619,13 @@ div.small-text {
 /*content blocks*/
 
 div.content-block {
-  font-size: clamp(16px, 4rem, 18px);
+  /* font-size: clamp(16px, 4rem, 18px); */
   padding: 1vw;
   margin-bottom: 1.2em;
 }
 
-div.content-block h3 {
-  color: var(--dark-purple);
-}
-
 div.content-block div.content-block-body p {
-  font-size: 1em;
+  /* font-size: 1rem; */
   padding: 0;
 }
 
@@ -627,8 +633,12 @@ div.content-text {}
 
 div.content-heading {
   font-weight: bold;
-  color: var(--dark-purple);
   font-size: 1.8em;
+}
+
+div.content-subheading {
+  font-weight: bold;
+  font-size: 1.4em;
 }
 
 div.content-image {
@@ -787,12 +797,25 @@ div.guids-block-title p {
   padding-left: 0;
 }
 
+.hidden {
+  display: none;
+}
+
+@media only screen and (min-width: 601px){
+  #mobile-menu {
+    display: none;
+  }
+}
+
+
 @media only screen and (max-width: 600px) and (orientation: portrait) {
 /* navigation */
   .mobile-hidden {
     display: none;
   }
-
+  #mobile-menu {
+    display: block;
+  }
   div.navigation-bar-container {
     position: fixed;
     top: 0;
@@ -813,9 +836,9 @@ div.guids-block-title p {
   }
 
   a.navigation-link, a.drawer-item, span.drawermenu-label, a.drawer-item div.drawer-title {
-    font-size: 3.6vw;
-    position: relative;
-    display: block;
+    /* font-size: 3.6vw; */
+    /* position: relative;
+    display: block; */
   }
   
   div.affiliated-websites-menu, div.about-menu {
@@ -878,18 +901,22 @@ div.guids-block-title p {
   }
 
   div.navigation-bar-container div#mobile-menu-icon {
-    font-size: 6vw;
     color: var(--white);
-    background-color: var(--dark-purple);
+    font-size: 3rem;
+    background-color: var(--x-dark-purple);
     width: 96vw;
-    height: 2em;
     display: block;
-    padding-left: 4vw;
-    padding-top: 4vw;
+    padding-left: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
     background-image: url("/menu-white.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: right;
+    width: 35px;
+    height: 5px;
+    background-color: #333;
+    margin: 6px 0;
   }
 
   /* title bar */
