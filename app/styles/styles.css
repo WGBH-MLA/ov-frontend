@@ -68,9 +68,9 @@ ul.numbered-list {
 }
 
 h1.series-bigtitle {
-  font-size: 3em;
-  margin-left: 6vw;
-  margin-bottom: 2vh;
+  font-size: 3rem;
+  margin-bottom: 3rem;
+  margin-top: 2rem;
 }
 
 div.series-summary {
@@ -172,17 +172,14 @@ div.carousel-container {
 }
 
 div.top-bar-container {
-  /* just in case */
+    /* just in case */
 }
 
 div.purple-bar-container {
-  /*margin-left: 10vw;*/
-  /*width: 80vw;*/
-  height: 6vh;
-  min-height: 3.6em;
-  padding-top: 2vh;
+  min-height: 3rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   background-color: var(--x-dark-purple);
-  /*margin-bottom: 4vh;*/
 }
 
 div.purple-bar-container a.top-title {
@@ -211,15 +208,14 @@ div.navigation-bar-container div#navigation-bar {
   justify-content: space-around;
   align-items: center;
   color: var(--purple);
-
-
+  font-size: 1.2rem;
 }
 
 img.ov-logo {
   position: absolute;
   right: 0;
-  margin-right: 4vw;
-  width:  8vw;
+  margin-right: 3rem;
+  width: 8rem;
 }
 
 a.navigation-link {
@@ -230,7 +226,6 @@ a.navigation-link {
 a.navigation-link div {
   padding-left: 2rem;
   padding-right: 2rem;
-  font-size: 1rem;
   text-align:  center;
   /*background-color: #732487;*/
 }
@@ -405,16 +400,19 @@ div.page-authorbubble-container div.author-byline {
 }
 
 div.page-body-container {
-  margin-top: 6vh;
-  margin-bottom: 8vh;
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+  margin-left: 4rem;
+  max-width: 750px;
+  margin-left: 4rem;
+  margin-right: 4rem;
   vertical-align: top;
   display: inline-block;
-  width: 64%;
+  font-size: 1.5rem;
+  line-height: 2.5rem;
 }
 
 div.page-body {
-/*  font-size: 1.18vw;*/
-  font-size: clamp(12px, 2rem, 16px);
 }
 
 div.page-titlebar {
@@ -430,8 +428,8 @@ div.page-titlebar {
 h1.page-titlebar-title {
   color: var(--white);
   background-color: var(--dark-purple);
-  padding: 1vw;
-  font-size: 3em;
+  padding: 1rem;
+  font-size: 2.5em;
   display: block;
   bottom: 0;
   position: absolute;
