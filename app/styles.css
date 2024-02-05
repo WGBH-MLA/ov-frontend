@@ -1,12 +1,27 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;700&display=swap');
+@font-face {
+  font-family: 'Red Hat Display';
+  src: url('public/fonts/RedHatDisplay-VariableFont_wght.ttf');
+}
+
+@font-face {
+  font-family: 'Red Hat Text';
+  src: url('public/fonts/RedHatText-VariableFont_wght.ttf');
+}
+
+
 
 body, h1, h2 {
   margin:  0;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Red Hat Text', sans-serif;
+
   margin-block-start: 0;
   margin-block-end: 0;
   margin-inline-start: 0;
   margin-inline-end: 0;
+}
+
+h1, h2 {
+  font-family: 'Red Hat Display', sans-serif;
 }
 
 input {
@@ -25,7 +40,7 @@ a.series-alphabet-link {
 }
 
 p, li {
-  line-height: clamp(1.8em, 1.8em, 4em);
+/*  line-height: clamp(1.8em, 1.8em, 4em);*/
 }
 
 ul.numbered-list {
@@ -140,6 +155,30 @@ div.carousel-container {
   overflow: hidden;
 }
 
+div.carousel-container .carousel .control-dots .dot {
+  width: 16px;
+  height: 16px;
+}
+
+div.carousel-container .carousel.carousel-slider button.control-arrow::before {
+  border: 0;
+}
+
+div.carousel-container .carousel.carousel-slider button.control-arrow.control-next::before {
+  content: "►";
+}
+
+div.carousel-container .carousel.carousel-slider button.control-arrow.control-prev::before  {
+  content: "◄";
+}
+
+div.carousel-container .carousel .slide .legend {
+  margin-left: -18%;
+  width: 35%;
+  font-size: 2rem;
+}
+
+
 div.top-bar-container {
   /* just in case */
 }
@@ -155,6 +194,7 @@ div.purple-bar-container {
 }
 
 div.purple-bar-container a.top-title {
+  font-family: 'Red Hat Display', sans-serif;
   font-size: 2em;
   color:  #fff;
   margin-left: 4vw;
@@ -283,6 +323,7 @@ a.drawer-item:hover {
 }
 
 a.drawer-item div.drawer-title {
+  font-family: 'Red Hat Display', sans-serif;
   font-size: 1.2em;
   font-weight: bold;
 }
@@ -396,13 +437,16 @@ div.page-body-container {
 
 div.page-body {
 /*  font-size: 1.18vw;*/
-  font-size: clamp(16px, 2vw, 20px);
+  font-size: clamp(12px, 2rem, 16px);
 }
 
 div.page-titlebar {
   height:  40vh;
   min-height: 22em;
   position: relative;
+  background-repeat: no-repeat;
+  background-size: 100vw auto;
+  font-family: 'Red Hat Display', sans-serif;
 }
 
 /*main page title */
@@ -414,7 +458,8 @@ h1.page-titlebar-title {
   display: block;
   bottom: 0;
   position: absolute;
-  width: 40vw;
+  min-width: 40vw;
+  max-width: 80vw;
   text-align: center;
 }
 
@@ -599,7 +644,7 @@ div.small-text {
 /*content blocks*/
 
 div.content-block {
-  font-size: 1.2em;
+  font-size: clamp(16px, 4rem, 18px);
   padding: 1vw;
   margin-bottom: 1.2em;
 }
@@ -659,7 +704,7 @@ a.aapb-records-seemore {
   padding-right: 4vw;
   color: #2B72F6;
   font-weight: bold;
-  font-size: clamp(16px, 1.18vw, 18px)
+  font-size: clamp(12px, 2rem, 16px);
 }
 
 a.content-aapbblock {
@@ -745,6 +790,11 @@ div.guids-block-title {
   font-weight: bold;
   margin-left: 1vw;
   margin-bottom: 1.2em;
+}
+
+div.org-logos img {
+  width: 100%;
+  margin-left: 4vw;
 }
 
 p.static-section {
@@ -942,7 +992,7 @@ div.guids-block-title p {
   div.page-body-container div.page-body, div.page-sidebar {
     padding-left: 4vw;
     padding-right: 4vw;
-    font-size: clamp(16px, 4vw, 18px);
+    font-size: clamp(12px, 2rem, 16px);;
     width: 92vw;
   }
 

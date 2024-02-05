@@ -8,16 +8,6 @@ export function handleAapbRecordGroup(aapbRecordGroup, key){
   var showThumbnail = aapbRecordGroup.value.show_thumbnail
   var showTitle = aapbRecordGroup.value.show_title
 
-  // just the records boxes
-  // var aapbRecords = guids.map( (guid, index) => {
-  //   return <AAPBRecord key={ index } guid={ guid } showTitle={ showTitle } showThumbnail={ showThumbnail } embedPlayer={ true} />
-  // })
-  // return (
-  //   <div key={ key } className="aapb-records">
-  //     { aapbRecords }
-  //   </div>
-  // )
-
   return <AAPBRecords guids={ guids } showThumbnail={ showThumbnail } showTitle={ showTitle } embedPlayer={ true } />
 }
 
