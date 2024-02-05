@@ -196,18 +196,22 @@ div.navigation-bar-container {
   position: relative;
   z-index: 1000;
   background-color: var(--x-light-gray);
-  height: 1.2em;
-  min-height: 1.2em;
-  padding-bottom: 2em;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 div.navigation-bar-container div#mobile-menu-icon {
   display: none;
+  color: var(--purple);
+
 }
 
 div.navigation-bar-container div#navigation-bar {
-  margin-left: 2rem;
-  margin-right: 2rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: var(--purple);
+
 
 }
 
@@ -219,21 +223,14 @@ img.ov-logo {
 }
 
 a.navigation-link {
-  color: var(--purple);
-  overflow: hidden;
-  position: relative;
-  top: 0;
-  height: 2em;
+  overflow: visible;
   display: inline-block;
-  /*4vh tall*/
-  /*min-height: 2vh;*/
-  /*margin-left: 2vw;*/
 }
 
 a.navigation-link div {
   padding-left: 2rem;
   padding-right: 2rem;
-  font-size: 1em;
+  font-size: 1rem;
   text-align:  center;
   /*background-color: #732487;*/
 }
@@ -243,8 +240,7 @@ a.navigation-link div {
   min-width: 200px;
   margin-right: 2rem;
   right:  0;
-  position: absolute;
-  text-align: center;
+  text-align: right;
 }
 
 .affiliated-websites-menu a.drawer-item {
@@ -253,10 +249,6 @@ a.navigation-link div {
 }
 
 .about-menu {
-  position: absolute;
-  min-width: 240px;
-  width: 12vw;
-  color: var(--dark-purple);
 }
 
 .drawermenu-container {
@@ -264,11 +256,10 @@ a.navigation-link div {
 }
 
 .drawermenu-label {
-  display: block;
-  position: absolute;
 }
 
 .drawermenu-container:hover > .drawermenu-items {
+  position: absolute;
   display: block;
 }
 
@@ -841,7 +832,7 @@ div.guids-block-title p {
     display: block; */
   }
   
-  div.affiliated-websites-menu, div.about-menu {
+  .affiliated-websites-menu, .about-menu {
     display: block;
     right: initial;
   }
