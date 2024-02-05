@@ -209,6 +209,7 @@ div.navigation-bar-container div#navigation-bar {
   align-items: center;
   color: var(--purple);
   font-size: 1.2rem;
+  font-weight: 500;
 }
 
 img.ov-logo {
@@ -239,8 +240,7 @@ a.navigation-link div {
 }
 
 .affiliated-websites-menu a.drawer-item {
-  padding-bottom: 3vh;
-  min-height: 4vh;
+  padding-bottom: 1rem;
 }
 
 .about-menu {
@@ -271,21 +271,16 @@ a.navigation-link div {
 }
 
 .drawermenu-items {
-  min-width: 12vw;
+  min-width: 15rem;
   display: none;
 }
-  
+
 .drawer-item {
-  /* ;
   padding-right: 2rem;
-  padding-bottom: 1rem; */
   padding-left: 2rem;
-  text-align: left;
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
   display: block;
-  min-width: 8rem;
-  min-height: 2rem;
-  height: 2rem;
-  max-height: 2rem;
   color: var(--black);
 }
 
@@ -302,7 +297,8 @@ a.navigation-link div {
 }
 
 div.drawer-subtitle {
-  font-size: 0.8rem;
+  font-size: 1rem;
+  font-weight: 300;
 }
 
 div.drawermenu-items {
@@ -887,6 +883,7 @@ div.guids-block-title p {
   a.drawer-item div.drawer-title {
     text-align: center;
     font-weight: normal;
+    font-size: 1.4rem;
   }
 
   div.navigation-bar-container div#mobile-menu-icon {
