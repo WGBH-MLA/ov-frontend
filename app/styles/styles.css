@@ -96,7 +96,7 @@ a.series-link {
   display: inline-block;
   color: var(--blue);
   font-size: 1em;
-  font-weight: bold;
+  font-weight: 500;
 
   height: 2.3vh;
 
@@ -400,16 +400,14 @@ div.page-body-container {
   margin-right: 4rem;
   vertical-align: top;
   display: inline-block;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   line-height: 2.5rem;
 }
 
 div.page-body {
   max-width: 750px;
-
-}
-div.series-page {
   margin-left: 20vw;
+
 }
 
 div.page-titlebar {
