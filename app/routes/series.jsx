@@ -65,7 +65,7 @@ export default class Series extends Component {
           </div>
         </div>
 
-        <div className="page-body-container">
+        <div className="page-body-container series-page">
           <h1 className="series-bigtitle">GBH Series</h1>
           <div className="series-summary">
             Browse by title and explore records on AAPB

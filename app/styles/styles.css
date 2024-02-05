@@ -352,9 +352,10 @@ div.page-container {
 }
 
 div.page-sidebar {
-  margin-left: 6vw;
-  margin-right: 2vw;
-  margin-top: 6vh;
+  position: fixed;
+  margin-left: 3rem;
+  margin-right: 2rem;
+  margin-top: 3rem;
   vertical-align: top;
   /*background-color: #f4f4f4;*/
   display: inline-block;
@@ -406,6 +407,9 @@ div.page-body-container {
 div.page-body {
   max-width: 750px;
 
+}
+div.series-page {
+  margin-left: 20vw;
 }
 
 div.page-titlebar {
