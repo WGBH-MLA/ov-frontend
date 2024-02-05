@@ -9,6 +9,7 @@ import {
   useLoaderData
 } from "@remix-run/react"
 import { json } from "@remix-run/node"
+import { useEffect } from 'react';
 
 import { NavigationBar } from "./classes/navigationBar"
 import { Footer, FooterLink } from "./classes/footer"
@@ -43,6 +44,23 @@ export async function loader() {
 
 export default function App() {
   var data = useLoaderData()
+
+  useEffect(() => {
+    let lastScrollTop = 0;
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    window.addEventListener('scroll', function() {
+      let scrollTop = document.documentElement.scrollTop;
+      if (scrollTop > lastScrollTop && scrollTop > 50) {
+        mobileMenu.style.top = "-7rem";
+
+      } else {
+        mobileMenu.style.top = "0";
+      }
+      lastScrollTop = scrollTop;
+    });
+  }, []); // Empty array means this effect runs once on component mount
+  
 
   return (
     <html lang="en">

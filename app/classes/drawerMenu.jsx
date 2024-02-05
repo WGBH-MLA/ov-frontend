@@ -37,4 +37,4 @@ function DrawerItem(props){
   )
 }
 
-export const DownChevron = () => <div class="chevron" />
+export const DownChevron = () => <div className="chevron" />
