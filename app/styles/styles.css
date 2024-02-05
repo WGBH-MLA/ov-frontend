@@ -74,14 +74,11 @@ h1.series-bigtitle {
 }
 
 div.series-summary {
-  font-size: 1.4em;
-  margin-bottom: 6vh;
-  margin-left: 6vw;
+  font-size: 1.2em;
+  margin-bottom: 4rem 
 }
 
 div.series-group {
-  margin-bottom: 6vh;
-  margin-left: 6vw;
 }
 
 div.series-group-letter {
@@ -232,7 +229,6 @@ a.navigation-link div {
 }
 
 .affiliated-websites-menu {
-  width:  28vw;
   min-width: 200px;
   margin-right: 2rem;
   right:  0;
@@ -397,9 +393,8 @@ div.page-authorbubble-container div.author-byline {
 
 div.page-body-container {
   margin-top: 2rem;
-  margin-bottom: 4rem;
-  margin-left: 4rem;
-  max-width: 750px;
+  margin-bottom: 3rem;
+  margin-left: 3rem;
   margin-left: 4rem;
   margin-right: 4rem;
   vertical-align: top;
@@ -409,6 +404,8 @@ div.page-body-container {
 }
 
 div.page-body {
+  max-width: 750px;
+
 }
 
 div.page-titlebar {
@@ -437,6 +434,7 @@ h1.page-titlebar-title {
 h1.page-titlebar-title h2.page-titlebar-subtitle{
   font-size: 0.4em;
   font-weight: normal;
+  color: var(--x-light-gray);
 }
 
 /*styling elements rendered from exhibit body field*/
