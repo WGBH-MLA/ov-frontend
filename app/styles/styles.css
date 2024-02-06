@@ -345,14 +345,14 @@ div.page-container {
 }
 
 div.page-sidebar {
-  margin-left: 8vw;
+  position: fixed;
+  margin-left: 2rem;
   vertical-align: top;
 
   display: inline-block;
   width: 18%;
   font-size: 1.2em;
   min-width: 12rem;
-  transition: 0.5s;
 }
 
 html[data-scroll='0'] div.page-sidebar {
@@ -379,6 +379,7 @@ a.page-sidebar-link {
 
 #sidebar-menu-icon > div {
   background-color: var(--purple);
+  padding: 0rem;
 }
 .sidebar-open {
   background-color: #fffd;

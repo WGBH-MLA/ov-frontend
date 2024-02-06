@@ -62,10 +62,9 @@ export function renderSidebar(pageType, sections){
     window.addEventListener('scroll', function() {
       let scrollTop = document.documentElement.scrollTop;
       if (scrollTop > initialSidebarTop) {
-        sidebarMenu.style.position = "fixed";
         sidebarMenu.style.top = "0";
       } else {
-        sidebarMenu.style.position = "static";
+        sidebarMenu.style.top = initialSidebarTop - scrollTop + "px";
       }
       lastScrollTop = scrollTop;
     });
