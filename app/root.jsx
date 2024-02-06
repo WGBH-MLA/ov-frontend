@@ -48,14 +48,21 @@ export default function App() {
   useEffect(() => {
     let lastScrollTop = 0;
     const mobileMenu = document.getElementById('mobile-menu');
+    const sidebarMenu = document.getElementsByClassName('page-sidebar')[0];
+    const initialSidebarTop = sidebarMenu?.offsetTop;
 
     window.addEventListener('scroll', function() {
       let scrollTop = document.documentElement.scrollTop;
       if (scrollTop > lastScrollTop && scrollTop > 50) {
         mobileMenu.style.top = "-7rem";
-
       } else {
         mobileMenu.style.top = "0";
+      }
+      if (scrollTop > initialSidebarTop) {
+        sidebarMenu.style.position = "fixed";
+        sidebarMenu.style.top = "0";
+      } else {
+        sidebarMenu.style.position = "static";
       }
       lastScrollTop = scrollTop;
     });

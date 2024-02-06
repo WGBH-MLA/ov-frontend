@@ -1,19 +1,15 @@
-export function MobileIcon() {
-  return (
-    <div id="mobile-menu-icon" onClick={toggleMobileMenu}>
+export const MenuIcon = (props) => (<div className="menu-icon" {...props}>
   <div></div>
   <div></div>
   <div></div>
-    </div>
-  );
-}
+    </div>)
 
 
-export function MobileMenu(props){
+export function MobileMenu(){
   return(
     <div id="mobile-menu" onClick={ toggleMobileMenu }>
       Open Vault
-      <MobileIcon />
+      <MenuIcon id="mobile-menu-icon" onClick={toggleMobileMenu} />
     </div>
   )
 }

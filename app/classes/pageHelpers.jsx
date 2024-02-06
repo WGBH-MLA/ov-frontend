@@ -1,5 +1,6 @@
 import { decode } from "html-entities"
-import { useLoaderData } from "@remix-run/react"
+import { MenuIcon } from "./mobileMenu"
+import React, { useState, useEffect } from 'react';
 
 export function renderAuthorBubble(author, boxAttach=false){
   let classes = "author-bubble"
@@ -51,11 +52,31 @@ export function renderPageLinks(pageType, pages){
 
 export function renderSidebar(pageType, sections){
   let pageTypeName = pageType === "exhibit" ? "Exhibit" : "Collection"
+  const [isOpen, setIsOpen] = useState(true);
+
+  useEffect(() => {
+    let lastScrollTop = 0;
+    const sidebarMenu = document.getElementsByClassName('page-sidebar')[0];
+    const initialSidebarTop = sidebarMenu?.offsetTop;
+
+    window.addEventListener('scroll', function() {
+      let scrollTop = document.documentElement.scrollTop;
+      if (scrollTop > initialSidebarTop) {
+        sidebarMenu.style.position = "fixed";
+        sidebarMenu.style.top = "0";
+      } else {
+        sidebarMenu.style.position = "static";
+      }
+      lastScrollTop = scrollTop;
+    });
+  }, []);
+
   
   return (
-    <div className="page-sidebar">
-      <div className="page-sidebar-title">In This { pageTypeName }</div>
-      { sections.map( (section, index) => { return renderSidebarSection(section, index) } ) }
+    <div className={ isOpen ? "page-sidebar sidebar-open" : "page-sidebar" } >
+      <MenuIcon id="sidebar-menu-icon" onClick={() => setIsOpen(!isOpen)} />
+      {<div className="page-sidebar-title mobile-hidden">In This { pageTypeName }</div> }
+      { isOpen && sections.map( (section, index) => { return renderSidebarSection(section, index) }) }
     </div>
   )
 }
