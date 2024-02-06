@@ -359,6 +359,11 @@ html[data-scroll='0'] div.page-sidebar {
   background-color: #ff0;
 }
 
+.page-sidebar-header {
+  display: flex;
+  align-items: center;
+}
+
 div.page-sidebar-border {
   border-right: 1px solid var(--black);
 }
@@ -368,7 +373,8 @@ a.page-sidebar-link {
   color: var(--blue);
   display: block;
   font-size: 1em;
-  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 4em;
 }
 
 #sidebar-menu-icon > div {
@@ -792,7 +798,6 @@ div.guids-block-title p {
 
 .menu-icon {
   padding: 1rem;
-  margin-right: 2rem;
 }
 
 .menu-icon > div {
@@ -805,6 +810,7 @@ div.guids-block-title p {
 
 #mobile-menu-icon {
   float: right;
+  margin-right: 2rem;
 }
 
 
@@ -993,6 +999,9 @@ div.guids-block-title p {
     margin-left: 2rem;
   }
 
+  a.page-sidebar-link {
+    margin-left: 2rem;
+  }
   div.content-relatedcontent a {
     display: block;
     width: 92vw;

@@ -74,8 +74,10 @@ export function renderSidebar(pageType, sections){
   
   return (
     <div className={ isOpen ? "page-sidebar sidebar-open" : "page-sidebar" } >
-      <MenuIcon id="sidebar-menu-icon" onClick={() => setIsOpen(!isOpen)} />
-      {<div className="page-sidebar-title mobile-hidden">In This { pageTypeName }</div> }
+      <div className="page-sidebar-header">
+        <MenuIcon id="sidebar-menu-icon" onClick={() => setIsOpen(!isOpen)} />
+        {<div className="page-sidebar-title mobile-hidden">In This { pageTypeName }</div> }
+      </div>
       { isOpen && sections.map( (section, index) => { return renderSidebarSection(section, index) }) }
     </div>
   )
