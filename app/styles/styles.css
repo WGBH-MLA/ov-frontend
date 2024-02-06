@@ -168,10 +168,6 @@ div.carousel-container {
   overflow: hidden;
 }
 
-div.top-bar-container {
-    /* just in case */
-}
-
 div.purple-bar-container {
   min-height: 3rem;
   padding-top: 1rem;
@@ -219,7 +215,6 @@ a.navigation-link div {
   padding-left: 1rem;
   padding-right: 1rem;
   text-align:  center;
-  /*background-color: #732487;*/
 }
 
 .affiliated-websites-menu {
