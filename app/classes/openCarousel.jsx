@@ -7,15 +7,11 @@ export class OpenCarousel extends Component {
     this.state = {}
   }
 
-  componentDidMount(){
-    this.setState({ov_host: window.ENV.OV_API_URL})
-  }
-
   render(){
     let slides
     if(this.props.slides && this.props.slides.length > 0){
       slides = this.props.slides.map( (slide) => {
-        return <Slide url={ `${ this.state.ov_host }/api/v2/${slide.id}` } image_url={ slide?.cover_image?.full_url } title={ slide.title } />
+        return <Slide url={ `/exhibits/${slide.id}` } image_url={ slide?.cover_image?.full_url } title={ slide.title } />
       })
     }
 
