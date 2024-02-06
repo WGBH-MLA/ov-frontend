@@ -346,7 +346,7 @@ div.page-sidebar {
   margin-right: 2rem;
   margin-top: 3rem;
   vertical-align: top;
-  /*background-color: #f4f4f4;*/
+  
   display: inline-block;
   width: 18%;
   font-size: 1.2em;
@@ -394,7 +394,7 @@ div.page-body-container {
 }
 
 div.page-body {
-  max-width: 750px;
+  max-width: 60vw;
   margin-left: 20vw;
 
 }
@@ -445,10 +445,11 @@ div.page-body h2 {
 }
 
 div.page-body p {
-  /*background-color: #f4f4f4;*/
   margin-left: 0;
   margin-right: 0;
   margin-top: 0;
+  white-space: normal;
+  word-break: break-all;
 }
 
 div.page-container a.page-nav-link {
