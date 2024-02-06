@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import Client from "@searchkit/instantsearch-client";
 import Searchkit from "searchkit";
 import { InstantSearch, SearchBox, Hits, RefinementList, Snippet, Highlight, Pagination, Configure, ToggleRefinement, CurrentRefinements, useInstantSearch } from "react-instantsearch";
-import { Error, AAPBResults, NoResults, NoResultsBoundary, Pager } from './searchUtils.js'
+import { Error, AAPBResults, NoResults, NoResultsBoundary, Pager } from './searchUtils'
 
 // Labels for refinements
 const ATTRIBUTES = { 'content_type': 'Type', 'featured': 'Featured' }
@@ -13,7 +13,7 @@ const CONTENT_TYPES = { 'exhibits.ExhibitPage': 'Exhibits', 'ov_collections.Coll
 
 const sk = new Searchkit({
   connection: {
-    host: "https://elastic.wgbh-mla.org",
+    host: "http://localhost:9200",
     // Base64 encoded id:api_key
     apiKey: "apikey"
   },
@@ -122,13 +122,6 @@ export class Search extends Component {
         </ NoResultsBoundary>
       </InstantSearch>
     )
-  }
-}
-
-function Error(){
-  const { error } = useInstantSearch({ catchError: true });
-  if (error) {
-    return <>Search error: {error.message}</>;
   }
 }
 

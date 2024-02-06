@@ -1,4 +1,4 @@
-@font-face {
+pa@font-face {
   font-family: 'Red Hat Display';
   src: url('public/fonts/RedHatDisplay-VariableFont_wght.ttf');
 }
@@ -20,7 +20,7 @@ body, h1, h2 {
   margin-inline-end: 0;
 }
 
-h1, h2 {
+h1, h2, div.static-subheading {
   font-family: 'Red Hat Display', sans-serif;
 }
 
@@ -463,7 +463,7 @@ h1.page-titlebar-title {
   text-align: center;
 }
 
-h1.page-titlebar-title h2.page-titlebar-subtitle{
+h1.page-titlebar-title div.page-titlebar-subtitle{
   font-size: 0.4em;
   font-weight: normal;
 }
@@ -476,7 +476,7 @@ div.page-body h1 {
   margin-bottom: 1em;
 }
 
-div.page-body h2 {
+div.page-body h2, div.page-body div.static-subheading {
   color: #404;
   font-size: 1.8em;
   display: block;

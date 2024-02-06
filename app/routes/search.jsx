@@ -1,8 +1,9 @@
 import { Link, useLoaderData } from "remix"
 import { renderAuthorBubble, renderPageLink, renderPageLinks, renderSidebar, renderSidebarSection, renderPageTitleBar } from "~/classes/pageHelpers"
+import { Search } from "~/classes/search"
 
-export default function Credits() {
-  let titleBar = renderPageTitleBar("Funders & Credits", "https://s3.amazonaws.com/openvault.wgbh.org/carousel/press-and-the-people-q-80.jpg", "Open Vault provides online access to unique and historically important content produced by GBH.")
+export default function SearchPage() {
+  let titleBar = renderPageTitleBar("Search Results", "https://s3.amazonaws.com/openvault.wgbh.org/carousel/press-and-the-people-q-80.jpg", "")
 
   return (
     <div>

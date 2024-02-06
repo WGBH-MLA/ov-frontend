@@ -14,7 +14,7 @@ export default function Credits() {
         <div className="page-body-container">
           <div className="page-body">
 
-            <h2>Digital Infrastructure Project</h2>
+            <div className="static-subheading">Digital Infrastructure Project</div>
 
             <div className="med-textline">
               The Digital Infrastructure Project has been made possible in part by a major grant from the National Endowment for the Humanities: Democracy demands wisdom. The National Endowment for the Humanities (NEH) issued a challenge grant to GBH Media Library and Archives in 2018 in support of the Digital Infrastructure Project to preserve and digitize the most at-risk items in the GBH archival collection, specifically 83,000 media resources. This effort will preserve the archive we have built and ensure that future media assets are properly preserved as they are created.
