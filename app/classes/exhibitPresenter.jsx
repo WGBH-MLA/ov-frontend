@@ -70,10 +70,10 @@ export function renderExhibit(exhibit){
     <div>
       <div className="page-container">
         { titleBar }
+        { exhibitAuthor }
         { sidebar }
 
         <div className="page-body-container">
-          { exhibitAuthor }
 
           <div className="page-body">
             { bodyContent }

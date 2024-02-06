@@ -379,8 +379,11 @@ a.page-sidebar-link {
 }
 
 div.page-authorbubble-container {
-  width: 30vw;
-  margin-bottom: 6vh;
+  margin-left: 20%;
+  margin-top: -1rem;
+  position: relative;
+  display: flex;
+  align-items: center;
 }
 
 div.page-authorbubble-container div.author-bubble {
@@ -389,10 +392,10 @@ div.page-authorbubble-container div.author-bubble {
 
 div.page-authorbubble-container div.author-byline {
   position: relative;
-  display: inline-block;
-  bottom: 4vh;
+  display: flex;
+  align-items: center;
   font-size: 1.2em;
-  margin-left: 2vw;
+  margin-left: 2rem;
 }
 
 div.page-body-container {
@@ -563,9 +566,9 @@ div.pagelink-subtitle {
 
 div.author-bubble {
   background-size: cover;
-  width: 6vw;
-  height: 6vw;
-  border-radius: 20vw;
+  width: 6rem;
+  height: 6rem;
+  border-radius: 6rem;
   border: 2px solid var(--white);
 }
 
@@ -960,8 +963,9 @@ div.guids-block-title p {
   }
 
   div.author-bubble {
-    width: 16vw;
-    height: 16vw;
+    width: 4rem;
+    height: 4rem;
+    min-width: 4rem;
   }
 
   div.author-bubble.box-attach {
@@ -1010,10 +1014,6 @@ div.guids-block-title p {
 
   div.bottom-bar-logos img {
     width: 30vw;
-  }
-
-  div.page-authorbubble-container {
-    margin-left: 4vw;
   }
 
   div.page-authorbubble-container div.author-byline {
