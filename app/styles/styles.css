@@ -79,6 +79,7 @@ div.series-summary {
 }
 
 div.series-group {
+  margin-bottom: 4vh;
 }
 
 div.series-group-letter {
@@ -98,8 +99,8 @@ a.series-link {
   font-size: 1em;
   font-weight: 500;
 
-  height: 2.3vh;
-
+  height: 4vh;
+  max-height: 2rem;
   margin-bottom: 1.6vh;
 }
 
@@ -209,12 +210,17 @@ img.ov-logo {
 a.navigation-link {
   overflow: visible;
   display: inline-block;
+  flex-grow: 1;
 }
 
 a.navigation-link div {
   padding-left: 1rem;
   padding-right: 1rem;
   text-align:  center;
+}
+
+a.navigation-spacer {
+  flex-grow: 2;
 }
 
 .affiliated-websites-menu {
@@ -232,7 +238,9 @@ a.navigation-link div {
 }
 
 .drawermenu-container {
+  text-align: center;
   display: inline-block;
+  flex-grow: 1;
 }
 
 .drawermenu-label {
@@ -342,14 +350,18 @@ div.page-container {
 
 div.page-sidebar {
   position: fixed;
-  margin-left: 3rem;
+  margin-left: 8rem;
   margin-right: 2rem;
   margin-top: 3rem;
   vertical-align: top;
-  
+
   display: inline-block;
   width: 18%;
   font-size: 1.2em;
+}
+
+html[data-scroll='0'] div.page-sidebar {
+  background-color: #ff0;
 }
 
 div.page-sidebar-border {
@@ -394,8 +406,8 @@ div.page-body-container {
 }
 
 div.page-body {
-  max-width: 60vw;
-  margin-left: 20vw;
+  max-width: 820px;
+  margin-left: clamp(14rem, 24vw, 44rem);
 
 }
 
@@ -664,18 +676,20 @@ a.content-aapbblock {
   background-color: var(--black);
   color: var(--dark-purple);
   font-weight: bold;
-  width: 30vw;
-  min-height: 22.5vw;
+  width: 27vw;
+  min-height: 20.25vw;
+  max-height: 20.25vw;
   text-align: center;
   display: inline-block;
   position: relative;
+  overflow: hidden;
 }
 
 iframe.aapb-record-video {
   padding: 0;
-  height: 22.5vw;
-  max-width: 30vw;
-  width: 30vw;
+  height: 20.25vw;
+  max-width: 27vw;
+  width: 27vw;
 }
 
 a.content-aapbblock div.shade-bar {
@@ -729,13 +743,7 @@ a.content-aapbblock div.blue-circle div {
 
 
 div.aapb-records {}
-/*
-iframe.aapb-record-video {
-  width: 100%;
-  min-height: 22.5vw;
-  height: 22.5vw;
-}
-*/
+  
 div.guids-block-title {
   font-size: 2vw;
   font-weight: bold;
@@ -780,6 +788,18 @@ div.guids-block-title p {
 @media only screen and (min-width: 601px){
   #mobile-menu {
     display: none;
+  }
+}
+
+@media only screen and (min-width: 1600px){
+  div.page-body {
+    margin-left: 28vw;
+    max-width: 1080px;
+  }
+
+  div.page-sidebar {
+    font-size: 1.6em;
+    margin-left: 20rem;
   }
 }
 
@@ -828,12 +848,6 @@ div.guids-block-title p {
     display: inherit;
   }
 
-  a.navigation-link, a.drawer-item, span.drawermenu-label, a.drawer-item div.drawer-title {
-    /* font-size: 3.6vw; */
-    /* position: relative;
-    display: block; */
-  }
-  
   .affiliated-websites-menu, .about-menu {
     display: block;
     right: initial;

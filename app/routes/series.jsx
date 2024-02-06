@@ -66,11 +66,13 @@ export default class Series extends Component {
         </div>
 
         <div className="page-body-container">
-          <h1 className="series-bigtitle">GBH Series</h1>
-          <div className="series-summary">
-            Browse by title and explore records on AAPB
+          <div className="page-body">
+            <h1 className="series-bigtitle">GBH Series</h1>
+            <div className="series-summary">
+              Browse by title and explore records on AAPB
+            </div>
+            { seriesAlphaGroups  }
           </div>
-          { seriesAlphaGroups  }          
         </div>
       </div>
     )
