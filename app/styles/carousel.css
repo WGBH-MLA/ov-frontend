@@ -1,0 +1,30 @@
+div.carousel-container {
+  overflow: hidden;
+}
+
+div.carousel-container .carousel .control-dots .dot {
+  width: 16px;
+  height: 16px;
+}
+
+div.carousel-container .carousel.carousel-slider button.control-arrow::before {
+  border: 0;
+}
+
+div.carousel-container
+  .carousel.carousel-slider
+  button.control-arrow.control-next::before {
+  content: '►';
+}
+
+div.carousel-container
+  .carousel.carousel-slider
+  button.control-arrow.control-prev::before {
+  content: '◄';
+}
+
+div.carousel-container .carousel .slide .legend {
+  margin-left: -18%;
+  width: 35%;
+  font-size: 2rem;
+}

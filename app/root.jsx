@@ -37,7 +37,8 @@ export async function loader() {
   // lift these env vars from process.env so they can be injected into window
   return json({
     ENV: {
-      AAPB_HOST: process.env.AAPB_HOST || "https://americanarchive.org"
+      AAPB_HOST: process.env.AAPB_HOST || "https://americanarchive.org",
+      OV_API_URL: process.env.OV_API_URL || "http://localhost:8000"
     }
   })
 }
