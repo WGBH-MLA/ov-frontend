@@ -1,32 +1,27 @@
 import {
   Links,
-  LiveReload,
   Meta,
   Outlet,
   Scripts,
   ScrollRestoration,
-  Link,
   useLoaderData
 } from "@remix-run/react"
 import { json } from "@remix-run/node"
 import { useEffect } from 'react';
 
 import { NavigationBar } from "./classes/navigationBar"
-import { Footer, FooterLink } from "./classes/footer"
-import { renderPageLinks } from "./classes/pageHelpers"
+import { Footer } from "./classes/footer"
 
-import styles from "~/styles/styles.css"
-import colors from "~/styles/colors.css"
+import "./styles/styles.css"
+import "./styles/colors.css"
+import "@fontsource/red-hat-display"
+import "@fontsource/red-hat-text"
 // use webpack css loader instead? v
-import carouselStyles from "~/../../node_modules/react-responsive-carousel/lib/styles/carousel.min.css"
 
-
+// Links to include in the header. Left empty in case we want to easily add some later.
+// Stylesheets are now bundled correctly, so we don't need to include them here.
 export function links() {
-  return [
-    { rel: "stylesheet", href: styles },
-    { rel: "stylesheet", href: colors },
-    { rel: "stylesheet", href: carouselStyles },
-  ]
+  return []
 }
 
 export function meta(){
@@ -84,7 +79,6 @@ export default function App() {
         <ScrollRestoration />
         <Scripts />
 
-        { process.env.NODE_ENV === "development" && <LiveReload />}
         <Footer />
       </body>
     </html>

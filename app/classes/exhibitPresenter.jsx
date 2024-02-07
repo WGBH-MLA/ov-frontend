@@ -1,7 +1,7 @@
 import { decode } from "html-entities"
 import { Link, useLoaderData } from "@remix-run/react"
-import { renderAuthorBubble, renderPageLink, renderPageLinks, renderSidebar, renderSidebarSection, renderPageTitleBar } from "~/classes/pageHelpers"
-import { renderBlocks, renderBlock, textContent, headingContent } from "~/classes/contentHelpers"
+import { renderAuthorBubble, renderPageLink, renderPageLinks, renderSidebar, renderSidebarSection, renderPageTitleBar } from "./pageHelpers"
+import { renderBlocks, renderBlock, textContent, headingContent } from "./contentHelpers"
 
 export function renderExhibit(exhibit){
   let sections

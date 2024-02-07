@@ -1,6 +1,6 @@
 import { decode } from "html-entities"
 import { MenuIcon } from "./mobileMenu"
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 export function renderAuthorBubble(author, boxAttach=false){
   let classes = "author-bubble"

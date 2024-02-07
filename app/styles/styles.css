@@ -1,14 +1,3 @@
-/* Fonts */
-@font-face {
-  font-family: 'Red Hat Display';
-  src: url('public/fonts/RedHatDisplay-VariableFont_wght.ttf');
-}
-
-@font-face {
-  font-family: 'Red Hat Text';
-  src: url('public/fonts/RedHatText-VariableFont_wght.ttf');
-}
-
 body, h1, h2 {
   margin:  0;
   font-family: 'Red Hat Text', sans-serif;

@@ -1,8 +1,8 @@
 import { Link, useLoaderData } from "@remix-run/react"
-import { getPreview } from "~/preview"
+import { getPreview } from "../preview"
 import { decode } from "html-entities"
-import { renderCollection } from "~/classes/collectionPresenter"
-import { renderExhibit } from "~/classes/exhibitPresenter"
+import { renderCollection } from "../classes/collectionPresenter"
+import { renderExhibit } from "../classes/exhibitPresenter"
 
 
 export const loader = async ( { request } ) => {
