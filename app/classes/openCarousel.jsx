@@ -17,7 +17,7 @@ export class OpenCarousel extends Component {
     }
 
     return (
-      <Carousel dynamicHeight={true} infiniteLoop={true} transitionTime={ 4 }>
+      <Carousel animationHandler={ "fade" } dynamicHeight={true} autoPlay={true} infiniteLoop={true} transitionTime={ 1200 }>
         { slides }
       </Carousel>
     )
