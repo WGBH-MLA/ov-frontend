@@ -63,6 +63,10 @@ p, li {
 /*  line-height: clamp(1.8em, 1.8em, 4em);*/
 }
 
+ul {
+  margin-block-start: 0;
+}
+
 ul.numbered-list {
   list-style: number;
 }
@@ -121,11 +125,12 @@ div.static-halfbox img {
 }
 
 div.static-halfbox {
+  margin-left: 2%;
   text-align: center;
   vertical-align: middle;
   display: inline-block;
   width: 48%;
-  font-size: 1.2em;
+  font-size: 1em;
   margin-bottom: 1.2em;
 }
 
@@ -596,7 +601,7 @@ div.med-textline {
 }
 
 .blockquote-text {
-  font-size: 1.2em;
+  font-size: 1em;
   line-height: 1.2em;
   margin-bottom: 1.2em;
 }
@@ -766,6 +771,7 @@ div.guids-block-title {
 div.org-logos img {
   width: 100%;
   margin-left: 4vw;
+  vertical-align: middle;
 }
 
 p.static-section {

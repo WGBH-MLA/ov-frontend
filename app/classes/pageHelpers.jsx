@@ -105,7 +105,7 @@ export function renderPageTitleBar(title, hero_image_url, subtitle=null){
   let subtitleContainer
   if(subtitle){
     subtitleContainer = (
-      <h2 className="page-titlebar-subtitle">{ subtitle }</h2>
+      <div className="page-titlebar-subtitle">{ subtitle }</div>
     )
   }
 
