@@ -11,8 +11,8 @@ export class OpenCarousel extends Component {
   render(){
     let slides
     if(this.props.slides && this.props.slides.length > 0){
-      slides = this.props.slides.map( (slide) => {
-        return <Slide url={ `/exhibits/${slide.id}` } image_url={ slide?.cover_image?.full_url } title={ slide.title } />
+      slides = this.props.slides.map( (slide,i) => {
+        return <Slide key={i} url={ `/exhibits/${slide.id}` } image_url={ slide?.cover_image?.full_url } title={ slide.title } />
       })
     }
 
