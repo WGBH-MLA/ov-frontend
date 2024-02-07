@@ -53,24 +53,26 @@ export default class Series extends Component {
     return (
       <div className="page-container">
         <div className="page-sidebar">
-          <div className="page-sidebar-title spaced">Search GBH Series</div>
+          <h4 className="page-sidebar-title spaced">Search GBH Series</h4>
           <div className="series-search-container">
             <input className="series-search" onKeyUp={ (e) => { this.setState({seriesSearch: e.target.value.toLowerCase() }) } } type="text" name="series-search" placeholder="Series Name" />
             <div className="series-search-button" />
           </div>
 
-          <div className="page-sidebar-title spaced">Jump To</div>
+          <h4 className="page-sidebar-title spaced">Jump To</h4>
           <div className="series-alphabet">
             { alphabetLinks }
           </div>
         </div>
 
         <div className="page-body-container">
-          <h1 className="series-bigtitle">GBH Series</h1>
-          <div className="series-summary">
-            Browse by title and explore records on AAPB
+          <div className="page-body">
+            <h1 className="series-bigtitle">GBH Series</h1>
+            <div className="series-summary">
+              Browse by title and explore records on AAPB
+            </div>
+            { seriesAlphaGroups  }
           </div>
-          { seriesAlphaGroups  }          
         </div>
       </div>
     )

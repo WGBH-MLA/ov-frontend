@@ -26,7 +26,7 @@ export default function About() {
 
             <hr className="spaced-hr" />
 
-            <a className="static-link">American Archive of Public Broadcasting</a>
+            <h2 className="static-link">American Archive of Public Broadcasting</h2>
 
 
             <p className="static-section">
@@ -37,7 +37,7 @@ export default function About() {
 
             <hr className="spaced-hr" />
 
-            <a className="static-link">GBH Stock Sales</a>
+            <h3 className="static-link">GBH Stock Sales</h3>
             <p className="static-section">
               For professional licensing requests, please visit the GBH Stock Sales website or call 617-300-3939.
             </p>

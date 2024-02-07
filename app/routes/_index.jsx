@@ -1,6 +1,6 @@
 import { Link } from "@remix-run/react"
 import { useLoaderData } from "@remix-run/react"
-import { Carousel } from "react-responsive-carousel"
+import { OpenCarousel } from "../classes/openCarousel"
 import { renderPageLinks } from "../classes/pageHelpers"
 import { getExhibits } from "../exhibit"
 
@@ -11,8 +11,9 @@ export const loader = async () => {
 export default function Index() {
   let exhibits = useLoaderData()
 
+  let carousel
   let exhibitLinksContainer
-    console.log( 'duh ex', exhibits )
+
   if(exhibits && exhibits.items && exhibits.items.length > 0){
     let exhibitLinks = renderPageLinks("exhibits", exhibits.items)
     exhibitLinksContainer = (
@@ -32,34 +33,17 @@ export default function Index() {
         { exhibitLinks }
       </div>
     )
+
+    carousel = <OpenCarousel slides={ exhibits.items } />
   }
 
   return (
     <div className="home-container">
       <div className="carousel-container">
-        <Carousel dynamicHeight={true} infiniteLoop={true} transitionTime={ 4 }>
-          <a href="/guitar-thing">
-            <div>
-              <img src="/carousel/guitar.jpg" />
-              <p className="legend">A Guitar</p>
-            </div>
-          </a>
-          <a href="/vietnam-thing">
-            <div>
-              <img src="/carousel/vietnam.jpg" />
-              <p className="legend">Vietnam</p>
-            </div>
-          </a>
-          <a href="/march-thing">
-            <div>
-              <img src="/carousel/march.jpg" />
-              <p className="legend">March</p>
-            </div>
-          </a>
-        </Carousel>
+        { carousel }
       </div>
 
       { exhibitLinksContainer }
     </div>
-  );
+  )
 }

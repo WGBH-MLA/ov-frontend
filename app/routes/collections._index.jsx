@@ -11,13 +11,11 @@ export default function Collections() {
 
   // actually get from api
   specs = useLoaderData()
-
-  console.log( 'specky wecky', specs )
   let collectionLinks = renderPageLinks('collections', specs.items)
 
   return (
     <div className="pagelinks-container">
       { collectionLinks }
     </div>
-  );
+  )
 }

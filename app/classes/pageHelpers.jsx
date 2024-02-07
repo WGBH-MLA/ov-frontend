@@ -1,5 +1,6 @@
 import { decode } from "html-entities"
-import { useLoaderData } from "@remix-run/react"
+import { MenuIcon } from "./mobileMenu"
+import React, { useState, useEffect } from 'react';
 
 export function renderAuthorBubble(author, boxAttach=false){
   let classes = "author-bubble"
@@ -24,15 +25,15 @@ export function renderPageLink(pageType, page, key){
       authorBubble = renderAuthorBubble(author, true)
     }
     authorLink = (
-      <div key={ key } className="pagelink-subtitle">By { author.name }</div>
+      <div className="pagelink-subtitle">By { author.name }</div>
     )
   }
 
   return (
-    <div className="pagelink">
+    <div key={key} className="pagelink">
       <a href={ "/" + pageType + "/" + page.id }>
         <div className="pagelink-image" style={{ backgroundImage: page.cover_image ? "url(" + page.cover_image.full_url + ")" : null }}></div>
-        <div className="pagelink-title">{ page.title }</div>
+        <h4 className="pagelink-title">{ page.title }</h4>
         { authorBubble }
         { authorLink }
       </a>
@@ -51,11 +52,32 @@ export function renderPageLinks(pageType, pages){
 
 export function renderSidebar(pageType, sections){
   let pageTypeName = pageType === "exhibit" ? "Exhibit" : "Collection"
+  const [isOpen, setIsOpen] = useState(true);
+
+  useEffect(() => {
+    let lastScrollTop = 0;
+    const sidebarMenu = document.getElementsByClassName('page-sidebar')[0];
+    const initialSidebarTop = sidebarMenu?.offsetTop;
+
+    window.addEventListener('scroll', function() {
+      let scrollTop = document.documentElement.scrollTop;
+      if (scrollTop > initialSidebarTop) {
+        sidebarMenu.style.top = "0";
+      } else {
+        sidebarMenu.style.top = initialSidebarTop - scrollTop + "px";
+      }
+      lastScrollTop = scrollTop;
+    });
+  }, []);
+
   
   return (
-    <div className="page-sidebar">
-      <div className="page-sidebar-title">In This { pageTypeName }</div>
-      { sections.map( (section, index) => { return renderSidebarSection(section, index) } ) }
+    <div className={ isOpen ? "page-sidebar sidebar-open" : "page-sidebar" } >
+      <div className="page-sidebar-header">
+        <MenuIcon id="sidebar-menu-icon" onClick={() => setIsOpen(!isOpen)} />
+        {<div className="page-sidebar-title mobile-hidden">In This { pageTypeName }</div> }
+      </div>
+      { isOpen && sections.map( (section, index) => { return renderSidebarSection(section, index) }) }
     </div>
   )
 }
@@ -83,7 +105,7 @@ export function renderPageTitleBar(title, hero_image_url, subtitle=null){
   let subtitleContainer
   if(subtitle){
     subtitleContainer = (
-      <h2 className="page-titlebar-subtitle">{ subtitle }</h2>
+      <div className="page-titlebar-subtitle">{ subtitle }</div>
     )
   }
 
