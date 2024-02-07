@@ -5,8 +5,8 @@
   "license": "",
   "type": "module",
   "scripts": {
-    "dev": "remix vite:dev",
-    "build": "remix vite:build",
+    "dev": "vite",
+    "build": "vite build",
     "start": "remix-serve ./build/index.js"
   },
   "dependencies": {
