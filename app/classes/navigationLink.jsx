@@ -7,3 +7,7 @@ export function NavigationLink(props){
     </a>
   )
 }
+
+export function NavigationSpacer(){
+  return <a className="navigation-spacer" />
+}

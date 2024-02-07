@@ -19,6 +19,8 @@ export function renderBlock(block, key){
     return aapbRecordsBlock(block, key)
   } else if(block.type == "heading"){
     return headingContent(block, key)
+  } else if(block.type == "subheading"){
+    return subHeadingContent(block, key)
   } else if(block.type == "image"){
     return imageContent(block, key)
   } else if(block.type == "related_content"){
@@ -49,10 +51,15 @@ export function textContent(block){
 
 export function headingContent(block){
   return (
-    <div id={ block.id } key={ block.id } className="content-block content-heading" dangerouslySetInnerHTML={{ __html: decode(block.value) }} />
+    <h3 id={ block.id } key={ block.id } className="content-block content-heading" dangerouslySetInnerHTML={{ __html: decode(block.value) }} />
   )
 }
 
+export function subHeadingContent(block) {
+  return (
+    <h4 id={ block.id } key={ block.id } className="content-block content-subheading" dangerouslySetInnerHTML={{ __html: decode(block.value) }} />
+  )
+}
 export function imageContent(block){
   return (
     <div id={ block.id } key={ block.id } className="content-block content-image">

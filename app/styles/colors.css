@@ -1,0 +1,36 @@
+/* GBH Brand colors */
+
+:root {
+  /* Primary Colors */
+
+  --x-light-purple: #f2cfff;
+  --light-purple: #cc8fdf;
+  --purple: #772b8d;
+  --dark-purple: #590e6e;
+  --x-dark-purple: #3f0051;
+  --accent-purple: #bc27c7;
+
+  /* Supporting Colors */
+
+  --x-light-gray: #e2e5e6;
+  --light-gray: #c3c6c9;
+  --gray: #9da0a3;
+  --dark-gray: #6a6d70;
+  --x-dark-gray: #38393b;
+
+  /* Secondary Colors */
+
+  /* Blues */
+
+  --x-light-blue: #cfe4ff;
+  --light-blue: #7eaefc;
+  --blue: #2b72f6;
+  --dark-blue: #005dd1;
+  --x-dark-blue: #072d80;
+  --accent-blue: #00b7fa;
+
+  /* Generic Colors */
+
+  --black: #000;
+  --white: #fff;
+}
