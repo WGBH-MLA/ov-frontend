@@ -1,7 +1,15 @@
-export function MobileMenu(props){
+export const MenuIcon = (props) => (<div className="menu-icon" {...props}>
+  <div></div>
+  <div></div>
+  <div></div>
+    </div>)
+
+
+export function MobileMenu(){
   return(
-    <div id="mobile-menu-icon" onClick={ toggleMobileMenu }>
+    <div id="mobile-menu" onClick={ toggleMobileMenu }>
       Open Vault
+      <MenuIcon id="mobile-menu-icon" onClick={toggleMobileMenu} />
     </div>
   )
 }
@@ -13,4 +21,5 @@ function toggleMobileMenu(e){
   } else {
     navBar.classList.add("mobile-hidden")
   }
+  e.stopPropagation()
 }

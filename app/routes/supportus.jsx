@@ -29,10 +29,12 @@ export default function SupportUs() {
               A gift in support of Open Vault, leveraged by the NEH Challenge grant currently underway, directly enables us to:
             </div>
 
-            <div className="med-textline">Digitize critical programs that are currently deteriorating on obsolete formats</div>
-            <div className="med-textline">Add newly digitized content to Open Vault</div>
-            <div className="med-textline">Improve our website with new features and improve functionality and discoverability of the collection</div>
-            <div className="med-textline">Sustain Open Vault technical infrastructure so that we can continue to provide online access to the collection</div>
+            <ul>
+              <li>Digitize critical programs that are currently deteriorating on obsolete formats</li>
+              <li>Add newly digitized content to Open Vault</li>
+              <li>Improve our website with new features and improve functionality and discoverability of the collection</li>
+              <li>Sustain Open Vault technical infrastructure so that we can continue to provide online access to the collection</li>
+            </ul>
 
             <div className="static-link blockquote-text bold">Read the entire case for support <a href="https://s3.amazonaws.com/openvault.wgbh.org/resources/case_for_support.pdf">here.</a></div>
 

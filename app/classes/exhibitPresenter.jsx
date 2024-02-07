@@ -1,7 +1,7 @@
 import { decode } from "html-entities"
 import { Link, useLoaderData } from "@remix-run/react"
 import { renderAuthorBubble, renderPageLink, renderPageLinks, renderSidebar, renderSidebarSection, renderPageTitleBar } from "~/classes/pageHelpers"
-import { renderBlocks, renderBlock, textContent, interviewsContent, archivalFootageContent, photographsContent, originalFootageContent, relatedContentContent, creditsContent, headingContent, imageContent } from "~/classes/contentHelpers"
+import { renderBlocks, renderBlock, textContent, headingContent } from "~/classes/contentHelpers"
 
 export function renderExhibit(exhibit){
   let sections
@@ -10,7 +10,7 @@ export function renderExhibit(exhibit){
   } else {
     sections = []
   }
-  let sidebar = renderSidebar("exhibitss", exhibit.body.filter( (block) => block.type == "heading") )
+  let sidebar = renderSidebar("exhibit", exhibit.body.filter( (block) => block.type == "heading") )
 
   let titleBar
   if(exhibit.title){
@@ -70,10 +70,10 @@ export function renderExhibit(exhibit){
     <div>
       <div className="page-container">
         { titleBar }
+        { exhibitAuthor }
         { sidebar }
 
         <div className="page-body-container">
-          { exhibitAuthor }
 
           <div className="page-body">
             { bodyContent }

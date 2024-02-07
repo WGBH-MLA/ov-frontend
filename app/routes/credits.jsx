@@ -1,4 +1,4 @@
-import { Link, useLoaderData } from "remix"
+import { Link, useLoaderData } from "@remix-run/react"
 import { renderAuthorBubble, renderPageLink, renderPageLinks, renderSidebar, renderSidebarSection, renderPageTitleBar } from "~/classes/pageHelpers"
 
 export default function Credits() {
@@ -37,19 +37,27 @@ export default function Credits() {
                 The initial creation of Open Vault was made possible in part by the <b>Institute of Museum and Library Services (IMLS)</b> (IMLS Grant Log Number LG-05-05-0220-05). IMLS further funded the development of Open Vault in 2008 by supporting the Vietnam Collection. The views, findings, conclusions or recommendations expressed in this website do not necessarily represent those of the Institute of Museum and Library Services. IMLS further funded the development of Open Vault in 2008 by supporting the Vietnam Collection. 
 
               </div>
+            </div>
+            <div className="static-halfbox small-text spaced org-logos">
+              <img src="/imls.jpg" />
+            </div>
 
+            <div className="static-halfbox small-text">
               <div className="med-textline">
                 The prototype website was funded in part by <b>The John D. and Catherine T. MacArthur Foundation</b>. 
               </div>
+            </div>
+            <div className="static-halfbox small-text spaced org-logos">
+              <img src="/macfound.jpg" />
+            </div>
 
+            <div className="static-halfbox small-text">
               <div className="med-textline">
                 The <b>Andrew W. Mellon Foundation</b> supported the further development of Open Vault through the Digital Library Initiative, funding the addition of new functionality and features such as a catalog, scholar exhibits, and digitization on demand. This site brings together materials from three previous web sites: New Television Workshop, Say Brother, Ten O’Clock News
               </div>
-
             </div>
-
-            <div className="static-halfbox small-text spaced">
-              org logos go here!
+            <div className="static-halfbox small-text spaced org-logos">
+              <img src="/mellon.png" />
             </div>
 
             <h2>Open Vault Credits</h2>
