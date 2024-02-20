@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { NavigationLink } from './navigationLink'
+import { NavigationLink, NavigationSpacer } from './navigationLink'
 import { DrawerMenu } from './drawerMenu'
 import { MobileMenu } from './mobileMenu'
 
@@ -62,6 +62,9 @@ export class NavigationBar extends Component {
             <NavigationLink href="/collections" text="Collections" />
 
             <DrawerMenu classes="about-menu" toggleDrawer={ this.toggleDrawer } label={ "About" } items={ aboutLinks } />
+            
+            <NavigationSpacer />
+
             <DrawerMenu classes="affiliated-websites-menu" toggleDrawer={ this.toggleDrawer } label={ "Visit our affiliated websites" } items={ affiliatedSites } />
           </div>
         </div>
