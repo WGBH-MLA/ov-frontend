@@ -2,20 +2,20 @@ import React from "react";
 import Client from "@searchkit/instantsearch-client";
 import Searchkit from "searchkit";
 import { InstantSearch, SearchBox, Hits, RefinementList, Snippet, Highlight, Configure, ToggleRefinement, CurrentRefinements } from "react-instantsearch";
-import { Error, AAPBResults, NoResults, NoResultsBoundary, Pager, HiddenClearRefinements } from './utils.js'
+import { Error, AAPBResults, NoResults, NoResultsBoundary, Pager, HiddenClearRefinements } from './utils'
 
 
 // Labels for refinements
-ATTRIBUTES = { 'content_type': 'Type', 'featured': 'Featured' }
+const ATTRIBUTES = { 'content_type': 'Type', 'featured': 'Featured' }
 
 // Labels for content types
-CONTENT_TYPES = { 'exhibits.ExhibitPage': 'Exhibits', 'ov_collections.Collection': 'Collections' }
+const CONTENT_TYPES = { 'exhibits.ExhibitPage': 'Exhibits', 'ov_collections.Collection': 'Collections' }
 
 const sk = new Searchkit({
   connection: {
     host: "https://elastic.wgbh-mla.org",
     // Base64 encoded id:api_key
-    apiKey: "apikey"
+    apiKey: "X3NoUXlJMEJZNE9yTDhJMHdMSEQ6N1RLcDQxYm9USEdCV1ByeXJ4MXFDUQ=="
   },
   search_settings: {
     search_attributes: [
