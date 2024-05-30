@@ -36,4 +36,5 @@ export default defineConfig({
   build: {
     emptyOutDir: true,
   },
+  publicDir: 'assets',
 })
