@@ -11,7 +11,6 @@ CMD npm run dev
 
 # Production
 FROM node:alpine AS production
-ENV PATH="${PATH}:/app/node_modules/.bin"
 
 COPY ./ .
 RUN npm i
