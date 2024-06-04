@@ -1,5 +1,5 @@
 import { decode } from "html-entities"
-import { handleAapbRecordGroup, AAPBRecord } from "~/classes/aapbRecordHelpers"
+import { handleAapbRecordGroup, AAPBRecord } from "./aapbRecordHelpers"
 
 export function renderBlocks(blocks){
   // jsx likes to be in an array to be concatted when rendered

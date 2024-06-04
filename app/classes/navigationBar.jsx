@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import { Component } from 'react'
 import { NavigationLink, NavigationSpacer } from './navigationLink'
 import { DrawerMenu } from './drawerMenu'
 import { MobileMenu } from './mobileMenu'
