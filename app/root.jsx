@@ -65,6 +65,10 @@ export default function App() {
         <Meta />
         <Links />
         <link rel="icon" href="../public/favicon.ico" />
+        <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/instantsearch.css@7/themes/satellite-min.css"
+    />
       </head>
       <body>
         <NavigationBar />
