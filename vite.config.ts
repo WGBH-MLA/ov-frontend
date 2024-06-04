@@ -8,14 +8,7 @@ import reactRefresh from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [
     reactRefresh(),
-    remix({
-      appDirectory: 'app',
-      buildDirectory: 'public/build',
-      publicPath: '/build/',
-      serverBuildFile: './build/index.js',
-      ignoredRouteFiles: ['.*'],
-      serverModuleFormat: 'esm',
-    }),
+    remix(),
   ],
   server: {
     port: 3000,
@@ -35,6 +28,8 @@ export default defineConfig({
   },
   build: {
     emptyOutDir: true,
+    outDir: 'dist',
   },
   publicDir: 'assets',
+
 })

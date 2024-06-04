@@ -1,20 +1,40 @@
+FROM node:alpine as base
+
 # Development
-FROM node AS dev
+FROM base AS dev
 WORKDIR /app
-ENV PATH="${PATH}:/app/node_modules/.bin"
-RUN npm install -g npm npm-upgrade
 
 COPY package*.json .
 RUN npm i
 
 CMD npm run dev
 
-# Production
-FROM node:alpine AS production
+## Build
+FROM dev as builder
+WORKDIR /app
 
-COPY ./ .
-RUN npm i
+COPY . .
 RUN npm run build
 
+## Production dependencies
+FROM dev AS prod-deps
+WORKDIR /app
+
+RUN npm i --omit=dev
+
+## Production
+FROM base as production
 ENV NODE_ENV=production
-CMD npm run start
+ENV PATH="${PATH}:/app/node_modules/.bin"
+WORKDIR /app 
+
+RUN addgroup --system --gid 1001 remix
+RUN adduser --system --uid 1001 remix
+USER remix
+
+COPY --from=prod-deps --chown=remix:remix /app/package*.json ./
+COPY --from=prod-deps --chown=remix:remix /app/node_modules ./node_modules
+COPY --from=builder --chown=remix:remix /app/build ./build
+COPY --from=builder --chown=remix:remix /app/public ./public
+
+CMD [ "remix-serve", "build/server/index.js"]
