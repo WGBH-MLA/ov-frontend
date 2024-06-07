@@ -4,7 +4,7 @@ export function Footer(props){
       <div className="bottom-bar-row">
         <div className="bottom-bar-column">
           <div className="bottom-bar-logos">
-            <img src="../public/MLA_logo_white.png" />
+            <img src="/MLA_logo_white.png" />
           </div>
         </div>
         <div className="bottom-bar-column">

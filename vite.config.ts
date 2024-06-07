@@ -23,13 +23,8 @@ export default defineConfig({
       localsConvention: 'camelCaseOnly',
     },
   },
-  // esbuild: {
-  //   jsxInject: `import React from 'react'`,
-  // },
   build: {
     emptyOutDir: true,
     outDir: 'dist',
   },
-  publicDir: 'assets',
-
 })

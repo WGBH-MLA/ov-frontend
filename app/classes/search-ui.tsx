@@ -209,7 +209,7 @@ export const Search = ({ serverState, serverUrl }: SearchProps) => (
             <Configure hitsPerPage={3} />
             <Hits hitComponent={SeriesHit} />
           </Index>
-          <Pagination className="flex self-center" />
+          <Pagination />
         </NoResultsBoundary>
       </ScrollTo>
     </InstantSearch>
