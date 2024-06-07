@@ -2,7 +2,6 @@ import { Component } from 'react'
 import { NavigationLink, NavigationSpacer } from './navigationLink'
 import { DrawerMenu } from './drawerMenu'
 import { MobileMenu } from './mobileMenu'
-import { Search } from './search-ui'
 
 export class NavigationBar extends Component {
   constructor(props){
@@ -63,11 +62,10 @@ export class NavigationBar extends Component {
             <NavigationLink href="/collections" text="Collections" />
 
             <DrawerMenu classes="about-menu" toggleDrawer={ this.toggleDrawer } label={ "About" } items={ aboutLinks } />
+
+            <NavigationLink href="/search" text="Search" />
             
             <NavigationSpacer />
-            <div className="search-bar">
-              <Search />
-            </div>
             <DrawerMenu classes="affiliated-websites-menu" toggleDrawer={ this.toggleDrawer } label={ "Visit our affiliated websites" } items={ affiliatedSites } />
           </div>
         </div>

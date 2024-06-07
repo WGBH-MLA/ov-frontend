@@ -11,6 +11,11 @@ import { useEffect } from 'react';
 
 import { NavigationBar } from "./classes/navigationBar"
 import { Footer } from "./classes/footer"
+import {
+  getServerState,
+} from 'react-instantsearch';
+import {Search} from "./classes/search-ssr"
+import { renderToString } from 'react-dom/server';
 
 import "./styles/styles.css"
 import "./styles/colors.css"
@@ -28,13 +33,16 @@ export function meta(){
   return [{ title: "GBH Open Vault" }]
 }
 
+// const serverUrl = 'https://elastic.wgbh-mla.org';
+
 export async function loader() {
   // lift these env vars from process.env so they can be injected into window
   return json({
     ENV: {
       AAPB_HOST: process.env.AAPB_HOST || "https://americanarchive.org",
       OV_API_URL: process.env.OV_API_URL || "http://localhost:8000"
-    }
+    },
+
   })
 }
 
@@ -65,10 +73,10 @@ export default function App() {
         <Meta />
         <Links />
         <link rel="icon" href="../public/favicon.ico" />
-        <link
+        {/* <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/instantsearch.css@7/themes/satellite-min.css"
-    />
+    /> */}
       </head>
       <body>
         <NavigationBar />
