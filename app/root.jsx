@@ -14,7 +14,6 @@ import { Footer } from "./classes/footer"
 import {
   getServerState,
 } from 'react-instantsearch';
-import {Search} from "./classes/search-ssr"
 import { renderToString } from 'react-dom/server';
 
 import "./styles/styles.css"
