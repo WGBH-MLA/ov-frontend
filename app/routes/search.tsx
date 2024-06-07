@@ -1,5 +1,5 @@
-import { renderToString } from 'react-dom/server';
-import algoliasearch from 'algoliasearch/lite.js';
+import { renderToString } from 'react-dom/server'
+import algoliasearch from 'algoliasearch/lite.js'
 import {
   DynamicWidgets,
   Hits,
@@ -10,19 +10,19 @@ import {
   SearchBox,
   useInstantSearch,
   getServerState,
-} from 'react-instantsearch';
-import { history } from 'instantsearch.js/cjs/lib/routers/index.js';
+} from 'react-instantsearch'
+import { history } from 'instantsearch.js/cjs/lib/routers/index.js'
 
-import type { LinksFunction, LoaderFunction } from '@remix-run/node';
-import { json } from '@remix-run/node';
-import { useLoaderData } from '@remix-run/react';
+import type { LinksFunction, LoaderFunction } from '@remix-run/node'
+import { json } from '@remix-run/node'
+import { useLoaderData } from '@remix-run/react'
 
-import { Hit } from '../components/Hit';
-import { Panel } from '../components/Panel';
-import { ScrollTo } from '../components/ScrollTo';
-import { NoResultsBoundary } from '../components/NoResultsBoundary';
-import { SearchErrorToast } from '../components/SearchErrorToast';
-import { searchClient, Search } from '../classes/search-ui';
+import { Hit } from '../components/Hit'
+import { Panel } from '../components/Panel'
+import { ScrollTo } from '../components/ScrollTo'
+import { NoResultsBoundary } from '../components/NoResultsBoundary'
+import { SearchErrorToast } from '../components/SearchErrorToast'
+import { searchClient, Search } from '../classes/search-ui'
 
 // const searchClient = algoliasearch(
 //   'latency',
@@ -32,21 +32,19 @@ import { searchClient, Search } from '../classes/search-ui';
 export const links: LinksFunction = () => [
   // { rel: 'stylesheet', href: '../node_modules/instantsearch.css/themes/satellite-min.css' },
   // { rel: 'stylesheet', href: '../app/styles/tailwind.css' },
-];
+]
 
 export const loader: LoaderFunction = async ({ request }) => {
-  const serverUrl = request.url;
+  const serverUrl = request.url
   const serverState = await getServerState(<Search serverUrl={serverUrl} />, {
     renderToString,
-  });
+  })
 
   return json({
     serverState,
     serverUrl,
-  });
-};
-
-
+  })
+}
 
 function SearchExample({ serverState, serverUrl }: SearchProps) {
   return (
@@ -58,14 +56,13 @@ function SearchExample({ serverState, serverUrl }: SearchProps) {
           router: history({
             getLocation() {
               if (typeof window === 'undefined') {
-                return new URL(serverUrl!) as unknown as Location;
+                return new URL(serverUrl!) as unknown as Location
               }
 
-              return window.location;
+              return window.location
             },
           }),
         }}
-        insights={true}
       >
         <SearchErrorToast />
 
@@ -90,7 +87,7 @@ function SearchExample({ serverState, serverUrl }: SearchProps) {
         </ScrollTo>
       </InstantSearch>
     </InstantSearchSSRProvider>
-  );
+  )
 }
 
 function FallbackComponent({ attribute }: { attribute: string }) {
@@ -98,11 +95,11 @@ function FallbackComponent({ attribute }: { attribute: string }) {
     <Panel header={attribute}>
       <RefinementList attribute={attribute} />
     </Panel>
-  );
+  )
 }
 
 function NoResults() {
-  const { indexUiState } = useInstantSearch();
+  const { indexUiState } = useInstantSearch()
 
   return (
     <div>
@@ -110,11 +107,11 @@ function NoResults() {
         No results for <q>{indexUiState.query}</q>.
       </p>
     </div>
-  );
+  )
 }
 
 export default function SearchPage() {
-  const { serverState, serverUrl } = useLoaderData();
-  console.log('serverState', serverState);
-  return <Search serverState={serverState} serverUrl={serverUrl} />;
+  const { serverState, serverUrl } = useLoaderData()
+  console.log('serverState', serverState)
+  return <Search serverState={serverState} serverUrl={serverUrl} />
 }

@@ -7,6 +7,7 @@ import {
   RefinementList,
   Snippet,
   Highlight,
+  Index,
   Configure,
   ToggleRefinement,
   InstantSearchSSRProvider,
@@ -93,7 +94,7 @@ function transformContentTypes(items) {
 }
 
 const HitView = props => {
-  console.log('hit', props)
+  // console.log('hit', props)
   return (
     <div>
       <h2>
@@ -110,6 +111,16 @@ const HitView = props => {
     </div>
   )
 }
+
+const SeriesHit = props => (
+  <div>
+    <div className="search-type"> GBH Series</div>
+    <h2>
+      <Highlight attribute="title" hit={props.hit} />
+    </h2>
+    {/* <Snippet attribute="description" hit={props.hit} /> */}
+  </div>
+)
 type SearchProps = {
   serverState?: InstantSearchServerState
   serverUrl?: string
@@ -122,7 +133,6 @@ console.log('searchClient', searchClient)
 export const Search = ({ serverState, serverUrl }: SearchProps) => (
   <InstantSearchSSRProvider {...serverState}>
     <InstantSearch
-      indexName="wagtail__wagtailcore_page"
       searchClient={searchClient}
       routing={{
         router: history({
@@ -139,7 +149,6 @@ export const Search = ({ serverState, serverUrl }: SearchProps) => (
     >
       <Error />
       <SearchErrorToast />
-      <Configure hitsPerPage={3} />
 
       <ScrollTo className="max-w-6xl p-4 flex gap-4 m-auto">
         <div className="search-bar">
@@ -180,6 +189,9 @@ export const Search = ({ serverState, serverUrl }: SearchProps) => (
           <AAPBResults />
         </div>
         <NoResultsBoundary fallback={<NoResults />}>
+          <Index indexName="wagtail__wagtailcore_page">
+            <Configure hitsPerPage={5} />
+
             <Hits
               hitComponent={HitView}
               classNames={{
@@ -192,8 +204,13 @@ export const Search = ({ serverState, serverUrl }: SearchProps) => (
               //   return meta.results.query ? items : []
               // }}
             />
-            <Pagination className="flex self-center" />
-          </NoResultsBoundary>
+          </Index>
+          <Index indexName="gbh-series">
+            <Configure hitsPerPage={3} />
+            <Hits hitComponent={SeriesHit} />
+          </Index>
+          <Pagination className="flex self-center" />
+        </NoResultsBoundary>
       </ScrollTo>
     </InstantSearch>
   </InstantSearchSSRProvider>
