@@ -1,5 +1,4 @@
 import { renderToString } from 'react-dom/server'
-import algoliasearch from 'algoliasearch/lite.js'
 import {
   DynamicWidgets,
   Hits,
@@ -24,11 +23,6 @@ import { ScrollTo } from '../components/ScrollTo'
 import { NoResultsBoundary } from '../components/NoResultsBoundary'
 import { SearchErrorToast } from '../components/SearchErrorToast'
 import { searchClient, Search } from '../classes/search-ui'
-
-// const searchClient = algoliasearch(
-//   'latency',
-//   '6be0576ff61c053d5f9a3225e2a90f76'
-// );
 
 export const links: LinksFunction = () => [
   { rel: 'stylesheet', href: '../node_modules/instantsearch.css/themes/satellite-min.css' },

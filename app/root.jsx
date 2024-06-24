@@ -11,16 +11,11 @@ import { useEffect } from 'react';
 
 import { NavigationBar } from "./classes/navigationBar"
 import { Footer } from "./classes/footer"
-import {
-  getServerState,
-} from 'react-instantsearch';
-import { renderToString } from 'react-dom/server';
 
 import "./styles/styles.css"
 import "./styles/colors.css"
 import "@fontsource/red-hat-display"
 import "@fontsource/red-hat-text"
-// use webpack css loader instead? v
 
 // Links to include in the header. Left empty in case we want to easily add some later.
 // Stylesheets are now bundled correctly, so we don't need to include them here.
@@ -88,10 +83,10 @@ export default function App() {
             )}`,
           }}
         />
+        <Footer />
+
         <ScrollRestoration />
         <Scripts />
-
-        <Footer />
       </body>
     </html>
   )
