@@ -31,8 +31,7 @@ import { searchClient, Search } from '../classes/search-ui'
 // );
 
 export const links: LinksFunction = () => [
-  // { rel: 'stylesheet', href: '../node_modules/instantsearch.css/themes/satellite-min.css' },
-  // { rel: 'stylesheet', href: '../app/styles/tailwind.css' },
+  { rel: 'stylesheet', href: '../node_modules/instantsearch.css/themes/satellite-min.css' },
 ]
 
 export const loader: LoaderFunction = async ({ request }) => {
