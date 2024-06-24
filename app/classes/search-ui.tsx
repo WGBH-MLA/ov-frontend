@@ -29,7 +29,7 @@ import { history } from 'instantsearch.js/cjs/lib/routers/index.js'
 import { ScrollTo } from '../components/ScrollTo'
 import { Hit } from '../components/Hit'
 import { Panel } from '../components/Panel'
-
+import { SeriesLink } from '../routes/series'
 // Labels for refinements
 const ATTRIBUTES = { content_type: 'Type', featured: 'Featured' }
 
@@ -93,13 +93,41 @@ function transformContentTypes(items) {
     })
 }
 
+const HitLink = props => {
+  let hit = props.hit
+  console.log('hit', hit)
+  let route
+  switch (true) {
+    case 'exhibits_exhibitpage__body_edgengrams' in hit:
+      route = '/exhibits/' + hit.objectID
+      break
+    case 'ov_collections_collection__introduction_edgengrams' in hit:
+      route = '/collections/' + hit.objectID
+      console.log('route', route)
+      break
+    case props._index === 'gbh-series':
+      route = `/catalog?f[series_titles][]=${hit.title}&q=+(contributing_organizations: WGBH(MA) OR producing_organizations: WGBH Educational Foundation)&f[access_types][]=all`
+    default:
+      console.log('no route')
+  }
+  console.log(hit.title, route)
+
+  return (
+    <>
+      <a href={route}>
+        <h2>
+          <Highlight attribute="title" hit={props.hit} />
+        </h2>
+      </a>
+    </>
+  )
+}
+
 const HitView = props => {
   // console.log('hit', props)
   return (
     <div>
-      <h2>
-        <Highlight attribute="title" hit={props.hit} />
-      </h2>
+      <HitLink hit={props.hit} />
       <Snippet
         attribute="exhibits_exhibitpage__body_edgengrams"
         hit={props.hit}
@@ -112,15 +140,6 @@ const HitView = props => {
   )
 }
 
-const SeriesHit = props => (
-  <div>
-    <div className="search-type"> GBH Series</div>
-    <h2>
-      <Highlight attribute="title" hit={props.hit} />
-    </h2>
-    {/* <Snippet attribute="description" hit={props.hit} /> */}
-  </div>
-)
 type SearchProps = {
   serverState?: InstantSearchServerState
   serverUrl?: string
@@ -130,88 +149,108 @@ const sk = new Searchkit(sk_options)
 export const searchClient = Client(sk, { debug: true })
 console.log('searchClient', searchClient)
 
-export const Search = ({ serverState, serverUrl }: SearchProps) => (
-  <InstantSearchSSRProvider {...serverState}>
-    <InstantSearch
-      searchClient={searchClient}
-      routing={{
-        router: history({
-          getLocation() {
-            if (typeof window === 'undefined') {
-              return new URL(serverUrl!) as unknown as Location
-            }
+export const Search = ({ serverState, serverUrl, aapb_host }: SearchProps) => {
+  const SeriesView = ({ hit }) => {
+    console.log('series hit', hit)
 
-            return window.location
-          },
-        }),
-      }}
-      insights={true}
-    >
-      <Error />
-      <SearchErrorToast />
+    return (
+      <>
+        <div className="search-type"> GBH Series</div>
+        <a
+          className="series-link"
+          href={`${aapb_host}catalog?f[series_titles][]=${hit.title}&q=+(contributing_organizations: WGBH(MA) OR producing_organizations: WGBH Educational Foundation)&f[access_types][]=all`}
+        >
+          <h2>
+            <Highlight attribute="title" hit={hit} />
+          </h2>
+        </a>
+        {/* <Snippet attribute="description" hit={props.hit} /> */}
+      </>
+    )
+  }
+  return (
+    <InstantSearchSSRProvider {...serverState}>
+      <InstantSearch
+        searchClient={searchClient}
+        routing={{
+          router: history({
+            getLocation() {
+              if (typeof window === 'undefined') {
+                return new URL(serverUrl!) as unknown as Location
+              }
 
-      <ScrollTo className="max-w-6xl p-4 flex gap-4 m-auto">
-        <div className="search-bar">
-          <SearchBox />
-        </div>
-        <CurrentRefinements
-          transformItems={
-            // transform refinement Labels
-            items =>
-              items.map(item => {
-                if (item.attribute in ATTRIBUTES) {
-                  // if this is an attribute we track, transform the label for each refinement
-                  item.refinements = item.refinements.map(refinement => {
-                    if (refinement.value in CONTENT_TYPES) {
-                      // Transform the refinement label
-                      return {
-                        ...refinement,
-                        label: CONTENT_TYPES[refinement.value],
+              return window.location
+            },
+          }),
+        }}
+        insights={false}
+      >
+        <Error />
+        <SearchErrorToast />
+
+        <ScrollTo className="max-w-6xl p-4 flex gap-4 m-auto">
+          <div className="search-bar">
+            <SearchBox />
+          </div>
+          <CurrentRefinements
+            transformItems={
+              // transform refinement Labels
+              items =>
+                items.map(item => {
+                  if (item.attribute in ATTRIBUTES) {
+                    // if this is an attribute we track, transform the label for each refinement
+                    item.refinements = item.refinements.map(refinement => {
+                      if (refinement.value in CONTENT_TYPES) {
+                        // Transform the refinement label
+                        return {
+                          ...refinement,
+                          label: CONTENT_TYPES[refinement.value],
+                        }
                       }
-                    }
-                    return refinement // return the original refinement if it's not in CONTENT_TYPES
-                  })
-                  return { ...item, label: ATTRIBUTES[item.attribute] }
-                }
-                return item // return the original item if its attribute is not in ATTRIBUTES
-              })
-          }
-        />
-        <HiddenClearRefinements />
-
-        <div className="refinements-panel">
-          <h3>Refinements</h3>
-          <ToggleRefinement attribute="featured" label="Featured" />
-          <RefinementList
-            attribute="content_type"
-            transformItems={transformContentTypes}
+                      return refinement // return the original refinement if it's not in CONTENT_TYPES
+                    })
+                    return { ...item, label: ATTRIBUTES[item.attribute] }
+                  }
+                  return item // return the original item if its attribute is not in ATTRIBUTES
+                })
+            }
           />
-          <AAPBResults />
-        </div>
-        <NoResultsBoundary fallback={<NoResults />}>
-          <Index indexName="wagtail__wagtailcore_page">
-            <Configure hitsPerPage={5} />
+          <HiddenClearRefinements />
 
-            <Hits
-              hitComponent={HitView}
-              classNames={{
-                list: 'grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4',
-                item: 'p-2 w-full',
-              }}
-              // transformItems={(items, meta) => {
-              //   // console.log('hit', items, meta)
-              //   // If no query, don't show any results
-              //   return meta.results.query ? items : []
-              // }}
+          <div className="refinements-panel">
+            <h3>Refinements</h3>
+            <ToggleRefinement attribute="featured" label="Featured" />
+            <RefinementList
+              attribute="content_type"
+              transformItems={transformContentTypes}
             />
-          </Index>
-          <Index indexName="gbh-series">
-            <Configure hitsPerPage={3} />
-            <Hits hitComponent={SeriesHit} />
-          </Index>
-          <Pagination />
-        </NoResultsBoundary>
-      </ScrollTo>
-    </InstantSearch>
-  </InstantSearchSSRProvider>
-)
+            <AAPBResults />
+          </div>
+          <NoResultsBoundary fallback={<NoResults />}>
+            <Index indexName="wagtail__wagtailcore_page">
+              <Configure hitsPerPage={5} />
+              <Hits
+                hitComponent={HitView}
+                classNames={{
+                  list: 'grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4',
+                  item: 'p-2 w-full',
+                }}
+                // transformItems={(items, meta) => {
+                //   // console.log('hit', items, meta)
+                //   // If no query, don't show any results
+                //   return meta.results.query ? items : []
+                // }}
+              />
+              <Pagination />
+            </Index>
+            <Index indexName="gbh-series">
+              <Configure hitsPerPage={3} />
+              <Hits hitComponent={SeriesView} />
+            <Pagination />
+            </Index>
+          </NoResultsBoundary>
+        </ScrollTo>
+      </InstantSearch>
+    </InstantSearchSSRProvider>
+  )
+}
