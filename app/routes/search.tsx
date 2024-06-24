@@ -8,9 +8,10 @@ import {
   Pagination,
   RefinementList,
   SearchBox,
-  useInstantSearch,
   getServerState,
 } from 'react-instantsearch'
+import { useInstantSearch } from 'react-instantsearch-core';
+
 import { history } from 'instantsearch.js/cjs/lib/routers/index.js'
 
 import type { LinksFunction, LoaderFunction } from '@remix-run/node'

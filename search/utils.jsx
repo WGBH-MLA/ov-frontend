@@ -1,4 +1,5 @@
-import { useInstantSearch, useSearchBox, Pagination, ClearRefinements } from 'react-instantsearch';
+import { useSearchBox, Pagination, ClearRefinements } from 'react-instantsearch';
+import { useInstantSearch } from 'react-instantsearch-core';
 import './spinner.css';
 import { useState, useEffect, useCallback } from 'react';
 import { debounce } from 'lodash';
