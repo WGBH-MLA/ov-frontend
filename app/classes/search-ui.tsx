@@ -105,8 +105,6 @@ const HitLink = props => {
       route = '/collections/' + hit.objectID
       console.log('route', route)
       break
-    case props._index === 'gbh-series':
-      route = `/catalog?f[series_titles][]=${hit.title}&q=+(contributing_organizations: WGBH(MA) OR producing_organizations: WGBH Educational Foundation)&f[access_types][]=all`
     default:
       console.log('no route')
   }
@@ -158,7 +156,7 @@ export const Search = ({ serverState, serverUrl, aapb_host }: SearchProps) => {
         <div className="search-type"> GBH Series</div>
         <a
           className="series-link"
-          href={`${aapb_host}catalog?f[series_titles][]=${hit.title}&q=+(contributing_organizations: WGBH(MA) OR producing_organizations: WGBH Educational Foundation)&f[access_types][]=all`}
+          href={`${aapb_host}/catalog?f[series_titles][]=${hit.title}&q=+(contributing_organizations: WGBH(MA) OR producing_organizations: WGBH Educational Foundation)&f[access_types][]=all`}
         >
           <h2>
             <Highlight attribute="title" hit={hit} />

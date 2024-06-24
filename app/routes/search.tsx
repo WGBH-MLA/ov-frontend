@@ -36,7 +36,7 @@ export const loader: LoaderFunction = async ({ request }) => {
   const serverState = await getServerState(<Search serverUrl={serverUrl} />, {
     renderToString,
   })
-  const aapb_host = process.env.AAPB_HOST || 'https://demo.aapb.wgbh-mla.org/'
+  const aapb_host = process.env.AAPB_HOST || 'https://demo.aapb.wgbh-mla.org'
 
   return json({
     serverState,
