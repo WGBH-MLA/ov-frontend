@@ -1,7 +1,7 @@
 import Client from '@searchkit/instantsearch-client'
 import Searchkit from 'searchkit'
+import { InstantSearch, useInstantSearch } from 'react-instantsearch-core'
 import {
-  InstantSearch,
   SearchBox,
   Hits,
   RefinementList,
@@ -14,6 +14,7 @@ import {
   CurrentRefinements,
   DynamicWidgets,
   Pagination,
+  HitsPerPage,
 } from 'react-instantsearch'
 import {
   Error,
@@ -28,7 +29,6 @@ import type { InstantSearchServerState } from 'react-instantsearch'
 import { history } from 'instantsearch.js/cjs/lib/routers/index.js'
 import { ScrollTo } from '../components/ScrollTo'
 import { Hit } from '../components/Hit'
-import { Panel } from '../components/Panel'
 import { SeriesLink } from '../routes/series'
 // Labels for refinements
 const ATTRIBUTES = { content_type: 'Type', featured: 'Featured' }
@@ -75,13 +75,13 @@ const sk_options = {
   },
 }
 
-function FallbackComponent({ attribute }: { attribute: string }) {
-  return (
-    <Panel header={attribute}>
-      <RefinementList attribute={attribute} />
-    </Panel>
-  )
-}
+// function FallbackComponent({ attribute }: { attribute: string }) {
+//   return (
+//     <Panel header={attribute}>
+//       <RefinementList attribute={attribute} />
+//     </Panel>
+//   )
+// }
 
 function transformContentTypes(items) {
   return items
@@ -122,7 +122,8 @@ const HitLink = props => {
 }
 
 const HitView = props => {
-  // console.log('hit', props)
+  console.log('hit', props)
+
   return (
     <div>
       <HitLink hit={props.hit} />
@@ -166,6 +167,7 @@ export const Search = ({ serverState, serverUrl, aapb_host }: SearchProps) => {
       </>
     )
   }
+
   return (
     <InstantSearchSSRProvider {...serverState}>
       <InstantSearch
@@ -216,7 +218,6 @@ export const Search = ({ serverState, serverUrl, aapb_host }: SearchProps) => {
           <HiddenClearRefinements />
 
           <div className="refinements-panel">
-            <h3>Refinements</h3>
             <ToggleRefinement attribute="featured" label="Featured" />
             <RefinementList
               attribute="content_type"
@@ -226,25 +227,37 @@ export const Search = ({ serverState, serverUrl, aapb_host }: SearchProps) => {
           </div>
           <NoResultsBoundary fallback={<NoResults />}>
             <Index indexName="wagtail__wagtailcore_page">
-              <Configure hitsPerPage={5} />
+              <HitsPerPage
+                items={[
+                  { value: 5, label: '5' },
+                  { value: 10, label: '10', default: true },
+                  { value: 20, label: '20' },
+                  { value: 50, label: '50' },
+                ]}
+              />
               <Hits
                 hitComponent={HitView}
                 classNames={{
                   list: 'grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4',
                   item: 'p-2 w-full',
                 }}
-                // transformItems={(items, meta) => {
-                //   // console.log('hit', items, meta)
-                //   // If no query, don't show any results
-                //   return meta.results.query ? items : []
-                // }}
+                transformItems={(items, { results }) => {
+                  // console.log('hit', items, meta)
+                  // If no query, don't show any results
+                  return results.query ? items : []
+                }}
               />
               <Pagination />
             </Index>
             <Index indexName="gbh-series">
               <Configure hitsPerPage={3} />
-              <Hits hitComponent={SeriesView} />
-            <Pagination />
+              <Hits
+                hitComponent={SeriesView}
+                transformItems={(items, { results }) => {
+                  return results.query ? items : []
+                }}
+              />
+              <Pagination />
             </Index>
           </NoResultsBoundary>
         </ScrollTo>

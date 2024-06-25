@@ -1,35 +1,14 @@
 import { renderToString } from 'react-dom/server'
-import {
-  DynamicWidgets,
-  Hits,
-  InstantSearch,
-  InstantSearchSSRProvider,
-  Pagination,
-  RefinementList,
-  SearchBox,
-  getServerState,
-} from 'react-instantsearch'
+import { RefinementList, getServerState } from 'react-instantsearch'
 import { useInstantSearch } from 'react-instantsearch-core'
-
-import { history } from 'instantsearch.js/cjs/lib/routers/index.js'
-
 import type { LinksFunction, LoaderFunction } from '@remix-run/node'
 import { json } from '@remix-run/node'
 import { useLoaderData } from '@remix-run/react'
-
-import { Hit } from '../components/Hit'
 import { Panel } from '../components/Panel'
-import { ScrollTo } from '../components/ScrollTo'
-import { NoResultsBoundary } from '../components/NoResultsBoundary'
-import { SearchErrorToast } from '../components/SearchErrorToast'
-import { searchClient, Search } from '../classes/search-ui'
+import { Search } from '../classes/search-ui'
+import 'instantsearch.css/themes/algolia-min.css'
 
-export const links: LinksFunction = () => [
-  {
-    rel: 'stylesheet',
-    href: '../node_modules/instantsearch.css/themes/satellite-min.css',
-  },
-]
+export const links: LinksFunction = () => []
 
 export const loader: LoaderFunction = async ({ request }) => {
   const serverUrl = request.url
