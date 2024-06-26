@@ -29,14 +29,14 @@ export function renderBlock(block, key){
     return creditsContent(block, key)
   } else {
     // return (<div key={ block.id }>I DONT FEEL LIKE IT</div>)
-    return contentBlock(block)
+    return contentBlock(block, key)
   }
 }
 
 export function aapbRecordsBlock(block, key){
   // here its an aapbrecordgroup
   return (
-    <div key={key}>
+    <div key={ key }>
       <div id={ block.id } className="guids-block-title" dangerouslySetInnerHTML={{ __html: decode(block.value.title) }} />
       { handleAapbRecordGroup(block) }
     </div>
@@ -45,24 +45,24 @@ export function aapbRecordsBlock(block, key){
 
 export function textContent(block, key){
   return (
-    <div id={ block.id } key={key} className="content-block idiot-block content-text" dangerouslySetInnerHTML={{ __html: decode(block.value) }} />  
+    <div id={ block.id } key={ key } className="content-block content-text" dangerouslySetInnerHTML={{ __html: decode(block.value) }} />  
   )
 }
 
 export function headingContent(block, key){
   return (
-    <h3 id={ block.id } key={key} className="content-block content-heading" dangerouslySetInnerHTML={{ __html: decode(block.value) }} />
+    <h3 id={ block.id } key={ key } className="content-block content-heading" dangerouslySetInnerHTML={{ __html: decode(block.value) }} />
   )
 }
 
 export function subHeadingContent(block, key) {
   return (
-    <h4 id={ block.id } key={key} className="content-block content-subheading" dangerouslySetInnerHTML={{ __html: decode(block.value) }} />
+    <h4 id={ block.id } key={ key } className="content-block content-subheading" dangerouslySetInnerHTML={{ __html: decode(block.value) }} />
   )
 }
 export function imageContent(block, key){
   return (
-    <div id={ block.id } key={key} className="content-block content-image">
+    <div id={ block.id } key={ key } className="content-block content-image">
       An Image! (id { block.value })
     </div>
   )
@@ -70,7 +70,7 @@ export function imageContent(block, key){
 
 export function creditsContent(block, key){
   return (
-    <div key={key} id={ block.id } className="content-block content-credits">
+    <div key={ key } id={ block.id } className="content-block content-credits">
       <h3>Credits</h3>
       <div className="content-block-body" dangerouslySetInnerHTML={{ __html: decode(block.value) }} />
     </div>
@@ -79,7 +79,7 @@ export function creditsContent(block, key){
 
 export function relatedcontentContent(block, key){
   return (
-    <div key={key} id={ block.id } className="content-block content-credits">
+    <div key={ key } id={ block.id } className="content-block content-credits">
       <h3>Related Content</h3>
       <div className="content-block-body" dangerouslySetInnerHTML={{ __html: decode(block.value) }} />
     </div>

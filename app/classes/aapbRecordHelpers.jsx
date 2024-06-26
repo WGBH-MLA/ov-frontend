@@ -1,6 +1,6 @@
 import { Component } from 'react'
 
-export function handleAapbRecordGroup(aapbRecordGroup){
+export function handleAapbRecordGroup(aapbRecordGroup, key){
    // this func is where we split by whitespace v
   var guids = parseAapbRecordGroup(aapbRecordGroup.value.guids)
 
@@ -8,7 +8,7 @@ export function handleAapbRecordGroup(aapbRecordGroup){
   var showThumbnail = aapbRecordGroup.value.show_thumbnail
   var showTitle = aapbRecordGroup.value.show_title
 
-  return <AAPBRecords guids={ guids } showThumbnail={ showThumbnail } showTitle={ showTitle } embedPlayer={ true } />
+  return <AAPBRecords guids={ guids } startTime={ aapbRecordGroup.value.start_time } endTime={ aapbRecordGroup.value.end_time } showThumbnail={ showThumbnail } showTitle={ showTitle } embedPlayer={ true } />
 }
 
 export function parseAapbRecordGroup(string){
@@ -32,7 +32,6 @@ export class AAPBRecord extends Component {
   async componentDidMount(){
     var hyphenGuid = this.props.guid.replace(/cpb-aacip./, "cpb-aacip-")
     var record = await retrieveAapbRecord(hyphenGuid)
-    console.log( 'record', record )
     this.setState({guid: hyphenGuid, pbcore: record})
   }
 
@@ -57,11 +56,15 @@ export class AAPBRecord extends Component {
     }
   }
 
-  embed(guid){
-    var url = `${window.ENV.AAPB_HOST}/openvault/${guid}`
+  embed(guid, startTime, endTime){
+    var times
+    if(startTime || endTime){
+      times = `?start=${startTime}&end=${endTime}`
+    }
+    var url = `${window.ENV.AAPB_HOST}/openvault/${guid}${times}`
     return (
       <a className="content-aapbblock" >
-        <iframe className="aapb-record-video" src={url} frameBorder="0" allowFullScreen="true" />
+        <iframe className="aapb-record-video" src={url} frameBorder="0" allowFullScreen={true} />
       </a>
     )
   }
@@ -88,7 +91,7 @@ export class AAPBRecord extends Component {
       }
 
       if(this.state.showEmbed){
-        recordBlock = this.embed(this.state.guid)
+        recordBlock = this.embed(this.state.guid, this.props.startTime, this.props.endTime)
       } else {
 
         if(this.props.embedPlayer){
@@ -118,7 +121,6 @@ export class AAPBRecords extends Component {
   constructor(props){
     super(props)
     this.state = {
-      guids: props.guids,
       embedPlayer: props.embedPlayer,
       showThumbnail: props.showThumbnail,
       showTitle: props.showTitle
@@ -126,8 +128,8 @@ export class AAPBRecords extends Component {
   }
 
   render(){
-    var aapbRecords = this.state.guids.slice(0,2).map( (guid) => {
-      return <AAPBRecord key={guid} guid={ guid } embedPlayer={ this.state.embedPlayer } showThumbnail={ this.state.showThumbnail } showTitle={ this.state.showTitle } />
+    var aapbRecords = this.props.guids.slice(0,2).map( (guid, index) => {
+      return <AAPBRecord key={ index } guid={ guid } embedPlayer={ this.state.embedPlayer } showThumbnail={ this.state.showThumbnail } showTitle={ this.state.showTitle } startTime={ this.props.startTime } endTime={ this.props.endTime } />
     })
 
     // TODO: how are we representing this set of records via a blacklight query/url on aapb?
@@ -137,7 +139,7 @@ export class AAPBRecords extends Component {
       <div className="aapb-records">
         { aapbRecords }
         <a className="aapb-records-seemore" href={ recordsSearchLink }>
-          View all { this.state.guids.length } on AAPB &gt;
+          View all { this.props.guids.length } on AAPB &gt;
         </a>
       </div>
     )
