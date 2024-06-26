@@ -19,6 +19,7 @@ import {
 import {
   Error,
   AAPBResults,
+  EmptyQueryBoundary,
   NoResults,
   NoResultsBoundary,
   Pager,
@@ -76,15 +77,14 @@ const sk_options = {
   },
 }
 
-function transformContentTypes(items) {
-  return items
+const transformContentTypes = items =>
+  items
     .filter(item => item.value in CONTENT_TYPES)
     .map(item => {
       if (item.label in CONTENT_TYPES) {
         return { ...item, label: CONTENT_TYPES[item.label] }
       }
     })
-}
 
 const HitLink = props => {
   let hit = props.hit
@@ -219,41 +219,33 @@ export const Search = ({ serverState, serverUrl, aapb_host }: SearchProps) => {
             />
             <AAPBResults />
           </div>
-          <NoResultsBoundary fallback={<NoResults />}>
-            <Index indexName="wagtail__wagtailcore_page">
-              <HitsPerPage
-                items={[
-                  { value: 5, label: '5' },
-                  { value: 10, label: '10', default: true },
-                  { value: 20, label: '20' },
-                  { value: 50, label: '50' },
-                ]}
-              />
-              <Hits
-                hitComponent={HitView}
-                classNames={{
-                  list: 'grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4',
-                  item: 'p-2 w-full',
-                }}
-                transformItems={(items, { results }) => {
-                  // console.log('hit', items, meta)
-                  // If no query, don't show any results
-                  return results.query ? items : []
-                }}
-              />
-              <Pagination />
-            </Index>
-            <Index indexName="gbh-series">
-              <Configure hitsPerPage={3} />
-              <Hits
-                hitComponent={SeriesView}
-                transformItems={(items, { results }) => {
-                  return results.query ? items : []
-                }}
-              />
-              <Pagination />
-            </Index>
-          </NoResultsBoundary>
+          <EmptyQueryBoundary fallback={null}>
+            <NoResultsBoundary fallback={<NoResults />}>
+              <Index indexName="wagtail__wagtailcore_page">
+                <HitsPerPage
+                  items={[
+                    { value: 5, label: '5' },
+                    { value: 10, label: '10', default: true },
+                    { value: 20, label: '20' },
+                    { value: 50, label: '50' },
+                  ]}
+                />
+                <Hits
+                  hitComponent={HitView}
+                  classNames={{
+                    list: 'grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4',
+                    item: 'p-2 w-full',
+                  }}
+                />
+                <Pagination />
+              </Index>
+              <Index indexName="gbh-series">
+                <Configure hitsPerPage={3} />
+                <Hits hitComponent={SeriesView} />
+                <Pagination />
+              </Index>
+            </NoResultsBoundary>
+          </EmptyQueryBoundary>
         </ScrollTo>
       </InstantSearch>
     </InstantSearchSSRProvider>

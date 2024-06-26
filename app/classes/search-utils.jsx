@@ -77,6 +77,21 @@ export function AAPBResults() {
   )
 }
 
+export const EmptyQueryBoundary = ({ children, fallback }) => {
+    const { indexUiState } = useInstantSearch();
+  
+    if (!indexUiState.query) {
+      return (
+        <>
+          {fallback}
+          <div hidden>{children}</div>
+        </>
+      );
+    }
+  
+    return children;
+  }
+
 export function NoResultsBoundary({ children, fallback }) {
   const { results } = useInstantSearch()
 
