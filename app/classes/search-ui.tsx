@@ -5,7 +5,6 @@ import {
   SearchBox,
   Hits,
   RefinementList,
-  Snippet,
   Highlight,
   Index,
   Configure,
@@ -85,46 +84,6 @@ const transformContentTypes = items =>
         return { ...item, label: CONTENT_TYPES[item.label] }
       }
     })
-
-const HitLink = props => {
-  let hit = props.hit
-  let route
-  switch (true) {
-    case 'exhibits_exhibitpage__body_edgengrams' in hit:
-      route = '/exhibits/' + hit.objectID
-      break
-    case 'ov_collections_collection__introduction_edgengrams' in hit:
-      route = '/collections/' + hit.objectID
-      break
-    default:
-  }
-
-  return (
-    <>
-      <a href={route}>
-        <h2>
-          <Highlight attribute="title" hit={props.hit} />
-        </h2>
-      </a>
-    </>
-  )
-}
-
-const HitView = props => {
-  return (
-    <div>
-      <HitLink hit={props.hit} />
-      <Snippet
-        attribute="exhibits_exhibitpage__body_edgengrams"
-        hit={props.hit}
-      />
-      <Snippet
-        attribute="ov_collections_collection__introduction_edgengrams"
-        hit={props.hit}
-      />
-    </div>
-  )
-}
 
 type SearchProps = {
   serverState?: InstantSearchServerState
@@ -219,6 +178,11 @@ export const Search = ({ serverState, serverUrl, aapb_host }: SearchProps) => {
             <AAPBResults />
           </div>
           <EmptyQueryBoundary fallback={null}>
+            <Index indexName="gbh-series">
+              <Configure hitsPerPage={3} />
+              <Hits hitComponent={SeriesView} />
+              <Pagination />
+            </Index>
             <Index indexName="wagtail__wagtailcore_page">
               <NoResultsBoundary fallback={<NoResults />}>
                 <HitsPerPage
@@ -230,7 +194,7 @@ export const Search = ({ serverState, serverUrl, aapb_host }: SearchProps) => {
                   ]}
                 />
                 <Hits
-                  hitComponent={HitView}
+                  hitComponent={Hit}
                   classNames={{
                     list: 'grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4',
                     item: 'p-2 w-full',
@@ -238,11 +202,6 @@ export const Search = ({ serverState, serverUrl, aapb_host }: SearchProps) => {
                 />
                 <Pagination />
               </NoResultsBoundary>
-            </Index>
-            <Index indexName="gbh-series">
-              <Configure hitsPerPage={3} />
-              <Hits hitComponent={SeriesView} />
-              <Pagination />
             </Index>
           </EmptyQueryBoundary>
         </ScrollTo>

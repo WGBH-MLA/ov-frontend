@@ -1,31 +1,49 @@
-import type { Hit as AlgoliaHit } from 'instantsearch.js';
-import { Highlight } from 'react-instantsearch';
+import type { Hit as AlgoliaHit } from 'instantsearch.js'
+import { Highlight, Snippet } from 'react-instantsearch'
 
 type HitProps = {
   hit: AlgoliaHit<{
-    name: string;
-    price: number;
-    image: string;
-    brand: string;
-  }>;
-};
+    objectID: number
+    title: string
+  }>
+}
 
-export function Hit({ hit }: HitProps) {
+const HitLink = props => {
+  let hit = props.hit
+  let route
+  switch (true) {
+    case 'exhibits_exhibitpage__body_edgengrams' in hit:
+      route = '/exhibits/' + hit.objectID
+      break
+    case 'ov_collections_collection__introduction_edgengrams' in hit:
+      route = '/collections/' + hit.objectID
+      break
+    default:
+  }
+
   return (
-    <div className="group relative">
-      <div className="flex justify-center overflow-hidden">
-        <img
-          src={hit.image}
-          alt={hit.name}
-          className="object-center object-cover"
-        />
-      </div>
-      <h3 className="mt-4 text-sm text-gray-700">
-        <span className="absolute inset-0" />
-        <Highlight hit={hit} attribute="name" />
-      </h3>
-      <p className="mt-1 text-sm text-gray-500">{hit.brand}</p>
-      <p className="mt-1 text-sm font-medium text-gray-900">${hit.price}</p>
+    <>
+      <a href={route}>
+        <h2>
+          <Highlight attribute="title" hit={props.hit} />
+        </h2>
+      </a>
+    </>
+  )
+}
+
+export const Hit = ({ hit }: HitProps) => {
+  return (
+    <div>
+      <HitLink hit={hit} />
+      <Snippet
+        attribute="exhibits_exhibitpage__body_edgengrams"
+        hit={hit}
+      />
+      <Snippet
+        attribute="ov_collections_collection__introduction_edgengrams"
+        hit={hit}
+      />
     </div>
-  );
+  )
 }
