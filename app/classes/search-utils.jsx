@@ -78,23 +78,22 @@ export function AAPBResults() {
 }
 
 export const EmptyQueryBoundary = ({ children, fallback }) => {
-    const { indexUiState } = useInstantSearch();
-  
-    if (!indexUiState.query) {
-      return (
-        <>
-          {fallback}
-          <div hidden>{children}</div>
-        </>
-      );
-    }
-  
-    return children;
+  const { indexUiState } = useInstantSearch()
+
+  if (!indexUiState.query) {
+    return (
+      <>
+        {fallback}
+        <div hidden>{children}</div>
+      </>
+    )
   }
+
+  return children
+}
 
 export function NoResultsBoundary({ children, fallback }) {
   const { results } = useInstantSearch()
-
   // The `__isArtificial` flag makes sure not to display the No Results message
   // when no hits have been returned.
   if (!results.__isArtificial && results.nbHits === 0) {
@@ -109,13 +108,12 @@ export function NoResultsBoundary({ children, fallback }) {
   return children
 }
 
-export function NoResults() {
-  const { indexUiState } = useInstantSearch()
-
+export const NoResults = () => {
+  const { results } = useInstantSearch()
   return (
     <>
       <h2>
-        No results for <i>{indexUiState.query}</i>
+        No results for <i>{results.query}</i>
       </h2>
       <p>Try using different keywords, or check your spelling.</p>
     </>

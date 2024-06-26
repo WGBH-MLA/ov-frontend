@@ -88,7 +88,6 @@ const transformContentTypes = items =>
 
 const HitLink = props => {
   let hit = props.hit
-  console.log('hit', hit)
   let route
   switch (true) {
     case 'exhibits_exhibitpage__body_edgengrams' in hit:
@@ -96,12 +95,9 @@ const HitLink = props => {
       break
     case 'ov_collections_collection__introduction_edgengrams' in hit:
       route = '/collections/' + hit.objectID
-      console.log('route', route)
       break
     default:
-      console.log('no route')
   }
-  console.log(hit.title, route)
 
   return (
     <>
@@ -115,8 +111,6 @@ const HitLink = props => {
 }
 
 const HitView = props => {
-  console.log('hit', props)
-
   return (
     <div>
       <HitLink hit={props.hit} />
@@ -143,8 +137,6 @@ console.log('searchClient', searchClient)
 
 export const Search = ({ serverState, serverUrl, aapb_host }: SearchProps) => {
   const SeriesView = ({ hit }) => {
-    console.log('series hit', hit)
-
     return (
       <>
         <div className="search-type"> GBH Series</div>
@@ -187,7 +179,6 @@ export const Search = ({ serverState, serverUrl, aapb_host }: SearchProps) => {
           <div className="search-bar">
             <SearchBox
               queryHook={(query, refine) => {
-                console.log('query hook', query)
                 clearTimeout(timerId)
                 timerId = setTimeout(() => refine(query), timeout)
               }}
@@ -228,8 +219,8 @@ export const Search = ({ serverState, serverUrl, aapb_host }: SearchProps) => {
             <AAPBResults />
           </div>
           <EmptyQueryBoundary fallback={null}>
-            <NoResultsBoundary fallback={<NoResults />}>
-              <Index indexName="wagtail__wagtailcore_page">
+            <Index indexName="wagtail__wagtailcore_page">
+              <NoResultsBoundary fallback={<NoResults />}>
                 <HitsPerPage
                   items={[
                     { value: 5, label: '5' },
@@ -246,13 +237,13 @@ export const Search = ({ serverState, serverUrl, aapb_host }: SearchProps) => {
                   }}
                 />
                 <Pagination />
-              </Index>
-              <Index indexName="gbh-series">
-                <Configure hitsPerPage={3} />
-                <Hits hitComponent={SeriesView} />
-                <Pagination />
-              </Index>
-            </NoResultsBoundary>
+              </NoResultsBoundary>
+            </Index>
+            <Index indexName="gbh-series">
+              <Configure hitsPerPage={3} />
+              <Hits hitComponent={SeriesView} />
+              <Pagination />
+            </Index>
           </EmptyQueryBoundary>
         </ScrollTo>
       </InstantSearch>
