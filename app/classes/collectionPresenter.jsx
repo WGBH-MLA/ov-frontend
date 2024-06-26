@@ -1,7 +1,7 @@
 import { decode } from "html-entities"
-import { renderAuthorBubble, renderPageLink, renderPageLinks, renderSidebar, renderSidebarSection, renderPageTitleBar } from "~/classes/pageHelpers"
-import { renderBlocks, renderBlock, textContent, interviewsContent, archivalFootageContent, photographsContent, originalFootageContent, relatedContentContent, creditsContent, headingContent, imageContent } from "~/classes/contentHelpers"
-import { handleAapbRecordGroup, AAPBRecord } from "~/classes/aapbRecordHelpers"
+import { renderAuthorBubble, renderPageLink, renderPageLinks, renderSidebar, renderSidebarSection, renderPageTitleBar } from "./pageHelpers"
+import { renderBlocks, renderBlock, textContent, interviewsContent, archivalFootageContent, photographsContent, originalFootageContent, relatedContentContent, creditsContent, headingContent, imageContent } from "./contentHelpers"
+import { handleAapbRecordGroup, AAPBRecord } from "./aapbRecordHelpers"
 
 export function renderCollection(collection){
   let sidebar
@@ -14,7 +14,7 @@ export function renderCollection(collection){
     if(collection.hero_image){
       hero = collection.hero_image.full_url
     } else {
-      hero = "/gbh-mural.jpeg"
+      hero = "/public/gbh-mural.jpg"
     }
 
     titleBar = renderPageTitleBar(collection.title, hero)

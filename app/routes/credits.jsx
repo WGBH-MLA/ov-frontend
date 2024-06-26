@@ -1,5 +1,4 @@
-import { Link, useLoaderData } from "@remix-run/react"
-import { renderAuthorBubble, renderPageLink, renderPageLinks, renderSidebar, renderSidebarSection, renderPageTitleBar } from "~/classes/pageHelpers"
+import { renderPageTitleBar } from "../classes/pageHelpers"
 
 export default function Credits() {
   let titleBar = renderPageTitleBar("Funders & Credits", "https://s3.amazonaws.com/openvault.wgbh.org/carousel/press-and-the-people-q-80.jpg")
@@ -39,7 +38,7 @@ export default function Credits() {
               </div>
             </div>
             <div className="static-halfbox small-text spaced org-logos">
-              <img src="/imls.jpg" />
+              <img src="/public/imls.jpg" />
             </div>
 
             <div className="static-halfbox small-text">
@@ -48,7 +47,7 @@ export default function Credits() {
               </div>
             </div>
             <div className="static-halfbox small-text spaced org-logos">
-              <img src="/macfound.jpg" />
+              <img src="/public/macfound.jpg" />
             </div>
 
             <div className="static-halfbox small-text">
@@ -57,7 +56,7 @@ export default function Credits() {
               </div>
             </div>
             <div className="static-halfbox small-text spaced org-logos">
-              <img src="/mellon.png" />
+              <img src="/public/mellon.png" />
             </div>
 
             <h2>Open Vault Credits</h2>

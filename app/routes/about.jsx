@@ -1,4 +1,4 @@
-import { renderAuthorBubble, renderPageLink, renderPageLinks, renderSidebar, renderSidebarSection, renderPageTitleBar } from "~/classes/pageHelpers"
+import { renderAuthorBubble, renderPageLink, renderPageLinks, renderSidebar, renderSidebarSection, renderPageTitleBar } from "../classes/pageHelpers"
 
 export default function About() {
   let titleBar = renderPageTitleBar("About Open Vault", "https://s3.amazonaws.com/openvault.wgbh.org/carousel/press-and-the-people-q-80.jpg", "Open Vault provides online access to unique and historically important content produced by GBH.")
@@ -30,7 +30,7 @@ export default function About() {
 
 
             <p className="static-section">
-              <img className="half-image right" src="/aapb.png" />
+              <img className="half-image right" src="/public/aapb.png" />
 
               In 2013, the Corporation for Public Broadcasting selected GBH and the Library of Congress as the permanent stewards of the American Archive of Public Broadcasting, an initiative seeking to identify, preserve and make accessible significant historical content created by public media, and to preserve at-risk public media before its content is lost to posterity. Approximately 40,000 hours of content comprising 68,000 programs, contributed by 100 stations across the country, have been digitized. We provide access to nearly 12,000 of these programs, which are available online at americanarchive.org.
             </p>
@@ -46,7 +46,7 @@ export default function About() {
 
             <a className="static-link">Boston TV News Digital Library</a>
             <p className="static-section">
-              <img className="half-image left" src="/tocn.png" />
+              <img className="half-image left" src="/public/tocn.png" />
 
               You can explore more of GBH's collection in the Boston TV News Digital Library. During this CLIR and IMLS-funded project, we worked with the Boston Public Library, Cambridge Community Television, and Northeast Historic Film to digitize and bring to life local news stories produced in and about Boston from 1960 to 2000. Nearly 2,000 news programs are available online at BostonLocalTV.org.
 

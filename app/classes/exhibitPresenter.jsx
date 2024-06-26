@@ -1,7 +1,7 @@
 import { decode } from "html-entities"
 import { Link, useLoaderData } from "@remix-run/react"
-import { renderAuthorBubble, renderPageLink, renderPageLinks, renderSidebar, renderSidebarSection, renderPageTitleBar } from "~/classes/pageHelpers"
-import { renderBlocks, renderBlock, textContent, headingContent } from "~/classes/contentHelpers"
+import { renderAuthorBubble, renderPageLink, renderPageLinks, renderSidebar, renderSidebarSection, renderPageTitleBar } from "./pageHelpers"
+import { renderBlocks, renderBlock, textContent, headingContent } from "./contentHelpers"
 
 export function renderExhibit(exhibit){
   let sections
@@ -19,7 +19,7 @@ export function renderExhibit(exhibit){
     if(exhibit.hero_image){
       hero = exhibit.hero_image.full_url
     } else {
-      hero = "/gbh-mural.jpeg"
+      hero = "/public/gbh-mural.jpg"
     }
 
     titleBar = renderPageTitleBar(exhibit.title, hero)

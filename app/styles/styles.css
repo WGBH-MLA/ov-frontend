@@ -1,14 +1,3 @@
-/* Fonts */
-@font-face {
-  font-family: 'Red Hat Display';
-  src: url('public/fonts/RedHatDisplay-VariableFont_wght.ttf');
-}
-
-@font-face {
-  font-family: 'Red Hat Text';
-  src: url('public/fonts/RedHatText-VariableFont_wght.ttf');
-}
-
 body, h1, h2 {
   margin:  0;
   font-family: 'Red Hat Text', sans-serif;
@@ -189,7 +178,7 @@ div.series-search-button {
   width:  3vw;
   height:  2vw;
   max-height: 2em;
-  background-image: url("/magnifying_glass.png");
+  background-image: url("/public/magnifying_glass.png");
   background-size: 40%;
   background-position: center;
   background-repeat: no-repeat;

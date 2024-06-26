@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import { Component } from 'react'
 import { NavigationLink, NavigationSpacer } from './navigationLink'
 import { DrawerMenu } from './drawerMenu'
 import { MobileMenu } from './mobileMenu'
@@ -50,7 +50,7 @@ export class NavigationBar extends Component {
 
         <div className="purple-bar-container">
           <a href="/" className="top-title">Open Vault</a>
-          <img src="/MLA_logo_white.png" className="ov-logo" />
+          <img src="/public/MLA_logo_white.png" className="ov-logo" />
         </div>
 
         <div className="navigation-bar-container">

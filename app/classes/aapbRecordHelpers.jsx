@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import { Component } from 'react'
 
 export function handleAapbRecordGroup(aapbRecordGroup, key){
    // this func is where we split by whitespace v
