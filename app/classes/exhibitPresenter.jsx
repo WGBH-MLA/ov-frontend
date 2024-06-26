@@ -4,12 +4,6 @@ import { renderAuthorBubble, renderPageLink, renderPageLinks, renderSidebar, ren
 import { renderBlocks, renderBlock, textContent, headingContent } from "./contentHelpers"
 
 export function renderExhibit(exhibit){
-  let sections
-  if(exhibit.sections){
-    sections = exhibit.sections
-  } else {
-    sections = []
-  }
   let sidebar = renderSidebar("exhibit", exhibit.body.filter( (block) => block.type == "heading") )
 
   let titleBar

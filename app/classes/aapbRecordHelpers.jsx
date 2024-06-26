@@ -1,6 +1,6 @@
 import { Component } from 'react'
 
-export function handleAapbRecordGroup(aapbRecordGroup, key){
+export function handleAapbRecordGroup(aapbRecordGroup){
    // this func is where we split by whitespace v
   var guids = parseAapbRecordGroup(aapbRecordGroup.value.guids)
 
@@ -61,7 +61,7 @@ export class AAPBRecord extends Component {
     var url = `${window.ENV.AAPB_HOST}/openvault/${guid}`
     return (
       <a className="content-aapbblock" >
-        <iframe className="aapb-record-video" src={url} frameBorder="0" allowfullscreen="true" />
+        <iframe className="aapb-record-video" src={url} frameBorder="0" allowFullScreen="true" />
       </a>
     )
   }
@@ -127,7 +127,7 @@ export class AAPBRecords extends Component {
 
   render(){
     var aapbRecords = this.state.guids.slice(0,2).map( (guid) => {
-      return <AAPBRecord guid={ guid } embedPlayer={ this.state.embedPlayer } showThumbnail={ this.state.showThumbnail } showTitle={ this.state.showTitle } />
+      return <AAPBRecord key={guid} guid={ guid } embedPlayer={ this.state.embedPlayer } showThumbnail={ this.state.showThumbnail } showTitle={ this.state.showTitle } />
     })
 
     // TODO: how are we representing this set of records via a blacklight query/url on aapb?
