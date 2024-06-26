@@ -160,6 +160,8 @@ export const Search = ({ serverState, serverUrl, aapb_host }: SearchProps) => {
       </>
     )
   }
+  let timerId
+  let timeout = 350
 
   return (
     <InstantSearchSSRProvider {...serverState}>
@@ -183,7 +185,13 @@ export const Search = ({ serverState, serverUrl, aapb_host }: SearchProps) => {
 
         <ScrollTo className="max-w-6xl p-4 flex gap-4 m-auto">
           <div className="search-bar">
-            <SearchBox />
+            <SearchBox
+              queryHook={(query, refine) => {
+                console.log('query hook', query)
+                clearTimeout(timerId)
+                timerId = setTimeout(() => refine(query), timeout)
+              }}
+            />
             <LoadingIndicator />
           </div>
           <CurrentRefinements
