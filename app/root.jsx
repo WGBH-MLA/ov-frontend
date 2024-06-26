@@ -4,18 +4,18 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
-  useLoaderData
-} from "@remix-run/react"
-import { json } from "@remix-run/node"
-import { useEffect } from 'react';
+  useLoaderData,
+} from '@remix-run/react'
+import { json } from '@remix-run/node'
+import { useEffect } from 'react'
 
-import { NavigationBar } from "./classes/navigationBar"
-import { Footer } from "./classes/footer"
+import { NavigationBar } from './classes/navigationBar'
+import { Footer } from './classes/footer'
 
-import "./styles/styles.css"
-import "./styles/colors.css"
-import "@fontsource/red-hat-display"
-import "@fontsource/red-hat-text"
+import './styles/styles.css'
+import './styles/colors.css'
+import '@fontsource/red-hat-display'
+import '@fontsource/red-hat-text'
 
 // Links to include in the header. Left empty in case we want to easily add some later.
 // Stylesheets are now bundled correctly, so we don't need to include them here.
@@ -23,8 +23,8 @@ export function links() {
   return []
 }
 
-export function meta(){
-  return [{ title: "GBH Open Vault" }]
+export function meta() {
+  return [{ title: 'GBH Open Vault' }]
 }
 
 // const serverUrl = 'https://elastic.wgbh-mla.org';
@@ -34,9 +34,8 @@ export async function loader() {
   return json({
     ENV: {
       AAPB_HOST: process.env.AAPB_HOST || 'https://demo.aapb.wgbh-mla.org',
-      OV_API_URL: process.env.OV_API_URL || 'http://localhost:8000'
+      OV_API_URL: process.env.OV_API_URL || 'http://localhost:8000',
     },
-
   })
 }
 
@@ -44,20 +43,19 @@ export default function App() {
   var data = useLoaderData()
 
   useEffect(() => {
-    let lastScrollTop = 0;
-    const mobileMenu = document.getElementById('mobile-menu');
+    let lastScrollTop = 0
+    const mobileMenu = document.getElementById('mobile-menu')
 
-    window.addEventListener('scroll', function() {
-      let scrollTop = document.documentElement.scrollTop;
+    window.addEventListener('scroll', function () {
+      let scrollTop = document.documentElement.scrollTop
       if (scrollTop > lastScrollTop && scrollTop > 50) {
-        mobileMenu.style.top = "-7rem";
+        mobileMenu.style.top = '-7rem'
       } else {
-        mobileMenu.style.top = "0";
+        mobileMenu.style.top = '0'
       }
-      lastScrollTop = scrollTop;
-    });
-  }, []); // Empty array means this effect runs once on component mount
-  
+      lastScrollTop = scrollTop
+    })
+  }, []) // Empty array means this effect runs once on component mount
 
   return (
     <html lang="en">
@@ -67,10 +65,6 @@ export default function App() {
         <Meta />
         <Links />
         <link rel="icon" href="/favicon.ico" />
-        {/* <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/instantsearch.css@7/themes/satellite-min.css"
-    /> */}
       </head>
       <body>
         <NavigationBar />
@@ -78,9 +72,7 @@ export default function App() {
 
         <script
           dangerouslySetInnerHTML={{
-            __html: `window.ENV = ${JSON.stringify(
-              data.ENV
-            )}`,
+            __html: `window.ENV = ${JSON.stringify(data.ENV)}`,
           }}
         />
         <Footer />

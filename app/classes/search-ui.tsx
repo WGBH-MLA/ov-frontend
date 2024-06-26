@@ -22,6 +22,7 @@ import {
   NoResults,
   NoResultsBoundary,
   Pager,
+  LoadingIndicator,
   HiddenClearRefinements,
 } from './search-utils'
 import { SearchErrorToast } from '../components/SearchErrorToast'
@@ -74,14 +75,6 @@ const sk_options = {
     ],
   },
 }
-
-// function FallbackComponent({ attribute }: { attribute: string }) {
-//   return (
-//     <Panel header={attribute}>
-//       <RefinementList attribute={attribute} />
-//     </Panel>
-//   )
-// }
 
 function transformContentTypes(items) {
   return items
@@ -191,6 +184,7 @@ export const Search = ({ serverState, serverUrl, aapb_host }: SearchProps) => {
         <ScrollTo className="max-w-6xl p-4 flex gap-4 m-auto">
           <div className="search-bar">
             <SearchBox />
+            <LoadingIndicator />
           </div>
           <CurrentRefinements
             transformItems={
