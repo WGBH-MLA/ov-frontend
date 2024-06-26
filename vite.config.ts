@@ -3,11 +3,9 @@
  */
 import { vitePlugin as remix } from '@remix-run/dev'
 import { defineConfig } from 'vite'
-import reactRefresh from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [
-    reactRefresh(),
     remix(),
   ],
   server: {
