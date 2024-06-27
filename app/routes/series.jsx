@@ -6,13 +6,14 @@ import { seriesData } from '../data/seriesData'
 //   return await getExhibits()
 // }
 
-export const SeriesLink = ({ title, host }) => (
+export const SeriesLink = ({ title, host }) => (<div>
   <a
     className="series-link"
     href={`${host}/catalog?f[series_titles][]=${title}&q=+(contributing_organizations: WGBH(MA) OR producing_organizations: WGBH Educational Foundation)&f[access_types][]=all`}
+    target="_blank"
   >
     {title}
-  </a>
+  </a></div>
 )
 
 export default class Series extends Component {

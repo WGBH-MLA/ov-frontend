@@ -7,6 +7,7 @@ import { useLoaderData } from '@remix-run/react'
 import { Panel } from '../components/Panel'
 import { Search } from '../classes/search-ui'
 import 'instantsearch.css/themes/algolia-min.css'
+import '../styles/search.css'
 
 export const links: LinksFunction = () => []
 

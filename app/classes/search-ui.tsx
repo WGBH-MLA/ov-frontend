@@ -5,7 +5,6 @@ import {
   SearchBox,
   Hits,
   RefinementList,
-  Highlight,
   Index,
   Configure,
   ToggleRefinement,
@@ -95,22 +94,13 @@ export const searchClient = Client(sk, { debug: true })
 console.log('searchClient', searchClient)
 
 export const Search = ({ serverState, serverUrl, aapb_host }: SearchProps) => {
-  const SeriesView = ({ hit }) => {
-    return (
-      <>
-        <div className="search-type"> GBH Series</div>
-        <a
-          className="series-link"
-          href={`${aapb_host}/catalog?f[series_titles][]=${hit.title}&q=+(contributing_organizations: WGBH(MA) OR producing_organizations: WGBH Educational Foundation)&f[access_types][]=all`}
-        >
-          <h2>
-            <Highlight attribute="title" hit={hit} />
-          </h2>
-        </a>
-        {/* <Snippet attribute="description" hit={props.hit} /> */}
-      </>
-    )
-  }
+  const SeriesView = ({ hit }) => (
+    <>
+    <div class="tag">GBH Series</div>
+    <SeriesLink host={aapb_host} title={hit.title} />
+    </>
+  )
+
   let timerId
   let timeout = 350
 
@@ -141,6 +131,7 @@ export const Search = ({ serverState, serverUrl, aapb_host }: SearchProps) => {
                 clearTimeout(timerId)
                 timerId = setTimeout(() => refine(query), timeout)
               }}
+              className="search-box"
             />
             <LoadingIndicator />
           </div>

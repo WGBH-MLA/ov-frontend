@@ -10,12 +10,14 @@ type HitProps = {
 
 const HitLink = props => {
   let hit = props.hit
-  let route
+  let route, label
   switch (true) {
     case 'exhibits_exhibitpage__body_edgengrams' in hit:
+      label = 'Scholar Exhibit'
       route = '/exhibits/' + hit.objectID
       break
     case 'ov_collections_collection__introduction_edgengrams' in hit:
+      label = 'Special Collection'
       route = '/collections/' + hit.objectID
       break
     default:
@@ -24,6 +26,7 @@ const HitLink = props => {
   return (
     <>
       <a href={route}>
+        <div class="tag">{label}</div>
         <h2>
           <Highlight attribute="title" hit={props.hit} />
         </h2>
@@ -36,10 +39,7 @@ export const Hit = ({ hit }: HitProps) => {
   return (
     <div>
       <HitLink hit={hit} />
-      <Snippet
-        attribute="exhibits_exhibitpage__body_edgengrams"
-        hit={hit}
-      />
+      <Snippet attribute="exhibits_exhibitpage__body_edgengrams" hit={hit} />
       <Snippet
         attribute="ov_collections_collection__introduction_edgengrams"
         hit={hit}
