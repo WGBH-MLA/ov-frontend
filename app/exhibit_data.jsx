@@ -24,7 +24,6 @@ exhibits = {
             type: 'authors.AuthorsOrderable',
           },
           name: 'Leslie Paris',
-          image: {
             url: '/media/original_images/paris.png',
             title: 'paris',
             width: 534,
