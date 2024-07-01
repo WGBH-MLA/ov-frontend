@@ -39,14 +39,14 @@ export function Pager() {
   return <>{query && <Pagination />}</>
 }
 
-export function AAPBResults() {
+export const AAPBResults = ({host}) => {
   const [results, setResults] = useState(null)
   const { query } = useSearchBox()
 
   const fetchResults = useCallback(
     debounce(currentQuery => {
       fetch(
-        `https://demo.aapb.wgbh-mla.org/api.json?q=${encodeURIComponent(
+        `https://${host}/api.json?q=${encodeURIComponent(
           currentQuery
         )}&rows=0`
       )

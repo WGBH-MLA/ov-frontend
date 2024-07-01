@@ -25,10 +25,30 @@
   transition: transform 500ms;
 }
 
+.exhibit-tag {
+  background: var(--dark-blue);
+}
+
+.exhibit-tag:after {
+  background: var(--light-blue);
+}
+
+.collection-tag {
+  background: var(--x-dark-blue);
+}
+
+.collection-tag:after {
+  background: var(--dark-blue);
+}
+
 .tag:hover {
   clip-path: polygon(0px 0px, 100% 0px, 100% 100%, 0% 100%, 0% 0px);
 }
 
 .tag:hover:after {
   transform: translate(-100%, -100%);
+}
+
+a span.ais-Snippet-nonHighlighted {
+  color: var(--black);
 }

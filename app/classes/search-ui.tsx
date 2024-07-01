@@ -96,7 +96,7 @@ console.log('searchClient', searchClient)
 export const Search = ({ serverState, serverUrl, aapb_host }: SearchProps) => {
   const SeriesView = ({ hit }) => (
     <>
-    <div class="tag">GBH Series</div>
+    <div className="tag">GBH Series</div>
     <SeriesLink host={aapb_host} title={hit.title} />
     </>
   )
@@ -166,23 +166,21 @@ export const Search = ({ serverState, serverUrl, aapb_host }: SearchProps) => {
               attribute="content_type"
               transformItems={transformContentTypes}
             />
-            <AAPBResults />
+            <AAPBResults host={aapb_host} />
           </div>
           <EmptyQueryBoundary fallback={null}>
-            <Index indexName="gbh-series">
-              <Configure hitsPerPage={3} />
-              <Hits hitComponent={SeriesView} />
-              <Pagination />
-            </Index>
+            <h3>Open Vault results</h3>
             <Index indexName="wagtail__wagtailcore_page">
               <NoResultsBoundary fallback={<NoResults />}>
+                Results per page
                 <HitsPerPage
                   items={[
                     { value: 5, label: '5' },
                     { value: 10, label: '10', default: true },
                     { value: 20, label: '20' },
                     { value: 50, label: '50' },
-                  ]}
+                  ]
+                }
                 />
                 <Hits
                   hitComponent={Hit}
@@ -193,6 +191,12 @@ export const Search = ({ serverState, serverUrl, aapb_host }: SearchProps) => {
                 />
                 <Pagination />
               </NoResultsBoundary>
+            </Index>
+            <Index indexName="gbh-series">
+            <h3>GBH Series results</h3>
+              <Configure hitsPerPage={3} />
+              <Hits hitComponent={SeriesView} />
+              <Pagination />
             </Index>
           </EmptyQueryBoundary>
         </ScrollTo>

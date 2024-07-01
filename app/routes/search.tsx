@@ -13,10 +13,10 @@ export const links: LinksFunction = () => []
 
 export const loader: LoaderFunction = async ({ request }) => {
   const serverUrl = request.url
-  const serverState = await getServerState(<Search serverUrl={serverUrl} />, {
-    renderToString,
-  })
   const aapb_host = process.env.AAPB_HOST || 'https://demo.aapb.wgbh-mla.org'
+  const serverState = await getServerState(<Search serverUrl={serverUrl} aapb_host={aapb_host} />, {
+  renderToString,
+  })
 
   return json({
     serverState,
