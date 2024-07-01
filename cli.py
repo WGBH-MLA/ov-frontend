@@ -3,7 +3,6 @@ from re import split
 from subprocess import run as sub_run
 
 from loguru import logger as log
-from trogon import Trogon
 from typer import Context, Option, Typer
 from typer.core import TyperGroup
 from typer.main import get_group
@@ -38,14 +37,14 @@ app = Typer(cls=AliasGroup, context_settings={'help_option_names': ['-h', '--hel
 @app.command('b | build')
 def build():
     """Build the docker image"""
-    run('docker build -t ov-front .')
+    run('docker build -t ov-front --target dev .')
 
 
 @app.command('d | dev')
 def coverage():
     """Run the dev server"""
     run(
-        'docker run --rm -it -v $PWD:/app -p 3000:3000 -e OV_API_URL="http://host.docker.internal:8000" -e SECRET="super secret" ov-front'
+        'docker run --rm -it -v $PWD:/app -p 3000:3000 -e OV_API_URL="http://host.docker.internal:8000" -e SECRET="super secret" ov-front sh'
     )
 
 
@@ -60,6 +59,11 @@ def production():
 @app.command('t | tui')
 def terminal_ui(ctx: Context):
     """Run an interactive TUI"""
+    try:
+        from trogon import Trogon
+    except ImportError:
+        log.error('Please install the `trogon` package to use the TUI.')
+        return
     Trogon(get_group(app), click_context=ctx).run()
 
 
