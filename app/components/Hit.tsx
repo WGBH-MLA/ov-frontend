@@ -27,9 +27,8 @@ export const Hit = ({ hit }: HitProps) => {
   return (
     <a href={route}>
       <div className={`tag ${type}`}>{label}</div>
-      <h2>
-        <Highlight attribute="title" hit={hit} />
-      </h2>
+      <Highlight attribute="title" hit={hit} />
+      <br />
       <Snippet attribute="exhibits_exhibitpage__body_edgengrams" hit={hit} />
       <Snippet
         attribute="ov_collections_collection__introduction_edgengrams"

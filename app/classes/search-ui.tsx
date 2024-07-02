@@ -102,7 +102,7 @@ export const Search = ({ serverState, serverUrl, aapb_host }: SearchProps) => {
       target="_blank"
     >
       <div className="tag">GBH Series</div>
-      <h3>{hit.title}</h3>
+      {hit.title}
     </a>
   )
 
@@ -140,6 +140,7 @@ export const Search = ({ serverState, serverUrl, aapb_host }: SearchProps) => {
             />
             <LoadingIndicator />
           </div>
+          <div className="search-results">
           <CurrentRefinements
             transformItems={
               // transform refinement Labels
@@ -203,6 +204,7 @@ export const Search = ({ serverState, serverUrl, aapb_host }: SearchProps) => {
               <Pagination />
             </Index>
           </EmptyQueryBoundary>
+          </div>
         </ScrollTo>
       </InstantSearch>
     </InstantSearchSSRProvider>

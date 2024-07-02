@@ -1,6 +1,6 @@
 .tag {
   position: relative;
-  display: inherit;
+  /* display: inherit; */
   border-radius: 6px;
   /* clip-path: polygon(20px 0px, 100% 0px, 100% 100%, 0% 100%, 0% 20px); */
   background: var(--purple);
@@ -49,6 +49,10 @@
   transform: translate(-100%, -100%);
 }
 
+span.ais-Highlight span {
+  font-size: 1.4rem;
+}
+
 a span.ais-Snippet-nonHighlighted {
   color: var(--black);
 }
@@ -61,4 +65,8 @@ input.ais-SearchBox-input {
 li.ais-Hits-item {
   min-width: 20rem;
   max-width: 25%;
+}
+
+div.search-results {
+  margin: 1rem;
 }
