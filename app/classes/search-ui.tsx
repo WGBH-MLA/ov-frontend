@@ -87,18 +87,23 @@ const transformContentTypes = items =>
 type SearchProps = {
   serverState?: InstantSearchServerState
   serverUrl?: string
+  aapb_host?: string
 }
 const sk = new Searchkit(sk_options)
 
-export const searchClient = Client(sk, { debug: true })
+export const searchClient = Client(sk)
 console.log('searchClient', searchClient)
 
 export const Search = ({ serverState, serverUrl, aapb_host }: SearchProps) => {
   const SeriesView = ({ hit }) => (
-    <>
+    <a
+      className="series-link"
+      href={`${aapb_host}/catalog?f[series_titles][]=${hit.title}&q=+(contributing_organizations: WGBH(MA) OR producing_organizations: WGBH Educational Foundation)&f[access_types][]=all`}
+      target="_blank"
+    >
       <div className="tag">GBH Series</div>
-      <SeriesLink host={aapb_host} title={hit.title} />
-    </>
+      <h3>{hit.title}</h3>
+    </a>
   )
 
   let timerId
