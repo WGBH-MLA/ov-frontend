@@ -172,6 +172,14 @@ export const Search = ({ serverState, serverUrl, aapb_host }: SearchProps) => {
             <h3>Open Vault results</h3>
             <Index indexName="wagtail__wagtailcore_page">
               <NoResultsBoundary fallback={<NoResults />}>
+                <Hits
+                  hitComponent={Hit}
+                  classNames={{
+                    list: 'grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4',
+                    item: 'p-2 w-full',
+                  }}
+                />
+                <Pagination />
                 Results per page
                 <HitsPerPage
                   items={[
@@ -182,14 +190,6 @@ export const Search = ({ serverState, serverUrl, aapb_host }: SearchProps) => {
                   ]
                 }
                 />
-                <Hits
-                  hitComponent={Hit}
-                  classNames={{
-                    list: 'grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4',
-                    item: 'p-2 w-full',
-                  }}
-                />
-                <Pagination />
               </NoResultsBoundary>
             </Index>
             <Index indexName="gbh-series">
