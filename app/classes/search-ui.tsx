@@ -96,8 +96,8 @@ console.log('searchClient', searchClient)
 export const Search = ({ serverState, serverUrl, aapb_host }: SearchProps) => {
   const SeriesView = ({ hit }) => (
     <>
-    <div className="tag">GBH Series</div>
-    <SeriesLink host={aapb_host} title={hit.title} />
+      <div className="tag">GBH Series</div>
+      <SeriesLink host={aapb_host} title={hit.title} />
     </>
   )
 
@@ -187,13 +187,12 @@ export const Search = ({ serverState, serverUrl, aapb_host }: SearchProps) => {
                     { value: 10, label: '10', default: true },
                     { value: 20, label: '20' },
                     { value: 50, label: '50' },
-                  ]
-                }
+                  ]}
                 />
               </NoResultsBoundary>
             </Index>
             <Index indexName="gbh-series">
-            <h3>GBH Series results</h3>
+              <h3>GBH Series results</h3>
               <Configure hitsPerPage={3} />
               <Hits hitComponent={SeriesView} />
               <Pagination />

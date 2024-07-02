@@ -58,3 +58,7 @@ input.ais-SearchBox-input {
   font-family: 'Red Hat Text';
 }
 
+li.ais-Hits-item {
+  min-width: 20rem;
+  max-width: 25%;
+}
