@@ -1,6 +1,6 @@
 body, h1, h2 {
   margin:  0;
-  font-family: 'Red Hat Text', sans-serif;
+  font-family: 'Red Hat Display', sans-serif;
 
   margin-block-start: 0;
   margin-block-end: 0;
@@ -588,6 +588,8 @@ div.pagelink-title {
 }
 
 div.pagelink-subtitle {
+  display: inline-block;
+  min-height: 10px;
   font-size: 1em;
 }
 
@@ -595,6 +597,7 @@ div.author-bubble {
   background-size: cover;
   width: 6rem;
   height: 6rem;
+  min-height: 6rem;
   border-radius: 6rem;
   border: 2px solid var(--white);
 }
@@ -656,9 +659,9 @@ div.content-heading {
   font-size: 1.8em;
 }
 
-div.content-subheading {
+h4.content-subheading {
   font-weight: bold;
-  font-size: 1.4em;
+  font-size: 1em;
 }
 
 div.content-image {
@@ -777,7 +780,7 @@ a.content-aapbblock div.blue-circle div {
 div.aapb-records {}
   
 div.guids-block-title {
-  font-size: 2vw;
+  font-size: 1em;
   font-weight: bold;
   margin-left: 1vw;
   margin-bottom: 1.2em;
@@ -979,6 +982,7 @@ div.guids-block-title p {
     width: 84vw;
     height: 70.5vw;
     margin: 0;
+    margin-bottom: 8em;
   }
 
   div.pagelink-image {
@@ -993,6 +997,7 @@ div.guids-block-title p {
   div.author-bubble {
     width: 4rem;
     height: 4rem;
+    min-height: 4rem;
     min-width: 4rem;
   }
 

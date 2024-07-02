@@ -42,12 +42,22 @@ export function renderExhibit(exhibit){
   }
 
   let exhibitAuthor
-  if(exhibit.authors && exhibit.authors.length > 0){
+  if(exhibit.authors && exhibit.authors.length > 0 && exhibit.authors[0].name){
+    // a blank (unspecified) author is currently valid
     let byline = (
       <div className="author-byline">
         By { exhibit.authors[0].name }
       </div>
     )
+    console.log( 'i like my authors', exhibit.authors )
+    let bio
+    if(exhibit.authors[0].bio){
+      bio = (
+        <div>
+          { exhibit.authors[0].bio }
+        </div>
+      )
+    }
     exhibitAuthor = (
       <div className="page-authorbubble-container">
         { renderAuthorBubble(exhibit.authors[0]) } { byline }

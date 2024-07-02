@@ -9,16 +9,19 @@ export function renderAuthorBubble(author, boxAttach=false){
     classes += " box-attach"
   }
 
-  return (
-    <div style={{ backgroundImage: author.image ? "url(" + author.image.full_url + ")" : "" }} className={ classes }>
-    </div>
-  )
+  if(author){
+    return (
+      <div style={{ backgroundImage: author.image ? "url(" + author.image.full_url + ")" : "" }} className={ classes }>
+      </div>
+    )
+  } 
+  
 }
 
 export function renderPageLink(pageType, page, key){
   let authorBubble, authorLink
   
-  if(page.authors && page.authors.length > 0){
+  if(page.authors && page.authors.length > 0 && page.authors[0].name){
     let author = page.authors[0]
     if(author.image){
       // can't really have authorbubblewithout an author image!
@@ -27,6 +30,9 @@ export function renderPageLink(pageType, page, key){
     authorLink = (
       <div className="pagelink-subtitle">By { author.name }</div>
     )
+  } else {
+    authorBubble = renderAuthorBubble(false, true)
+    authorLink = <div className="pagelink-subtitle" />
   }
 
   return (
