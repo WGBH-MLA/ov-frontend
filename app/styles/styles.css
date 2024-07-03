@@ -38,7 +38,31 @@ input {
 }
 
 a {
+  color: var(--purple);
   text-decoration: none;
+}
+
+/*any link*/
+:visited {
+  color: var(--purple);
+}
+
+/*nav link*/
+a:active.navigation-link {
+  color: var(--blue);
+}
+
+a:active {
+  /*  doesnt target without important */
+  color: var(--x-light-blue);
+}
+
+/*text selection colors*/
+::selection {
+  background: var(--x-light-blue); /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  background: var(--light-blue); /* Gecko Browsers */
 }
 
 a.series-alphabet-link {
@@ -362,6 +386,7 @@ a.bottom-bar-link {
 div.page-container {
   position: relative;
   width: 100%;
+  margin-top: 4em;
 }
 
 div.page-sidebar {
@@ -389,6 +414,7 @@ div.page-sidebar-border {
 }
 
 a.page-sidebar-link {
+  cursor: pointer;
   font-family: 'Red Hat Display', sans-serif;
   color: var(--blue);
   display: block;
@@ -417,12 +443,16 @@ div.page-authorbubble-container div.author-bubble {
   display: inline-block;
 }
 
-div.page-authorbubble-container div.author-byline {
+div.page-authorbubble-container div.author-extras {
   position: relative;
   display: flex;
   align-items: center;
   font-size: 1.2em;
   margin-left: 2rem;
+}
+
+div.author-bio, div.author-byline {
+  display: block;
 }
 
 div.page-body-container {
@@ -644,7 +674,6 @@ div.small-text {
 div.content-block {
   /* font-size: clamp(16px, 4rem, 18px); */
   padding: 1vw;
-  margin-bottom: 1.2em;
 }
 
 div.content-block div.content-block-body p {
@@ -932,7 +961,7 @@ div.guids-block-title p {
     padding-right: 0rem;
   }
 
-  div.drawermenu-container a.drawer-item, a.navigation-link {
+  div.drawermenu-container a.drawer-item {
     border: 1px solid white;
     color: var(--dark-purple);
   }
