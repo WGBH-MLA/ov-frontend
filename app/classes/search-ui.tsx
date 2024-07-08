@@ -28,6 +28,7 @@ import { history } from 'instantsearch.js/cjs/lib/routers/index.js'
 import { ScrollTo } from '../components/ScrollTo'
 import { Hit } from '../components/Hit'
 import { SeriesLink } from '../routes/series'
+import { Carousel } from '../components/Carousel'
 import { NoResults } from '../components/NoResults'
 
 // Labels for refinements
@@ -95,16 +96,6 @@ export const searchClient = Client(sk)
 console.log('searchClient', searchClient)
 
 export const Search = ({ serverState, serverUrl, aapb_host }: SearchProps) => {
-  const SeriesView = ({ hit }) => (
-    <a
-      className="series-link"
-      href={`${aapb_host}/catalog?f[series_titles][]=${hit.title}&q=+(contributing_organizations: WGBH(MA) OR producing_organizations: WGBH Educational Foundation)&f[access_types][]=all`}
-      target="_blank"
-    >
-      <div className="tag">GBH Series</div>
-      {hit.title}
-    </a>
-  )
 
   let timerId
   let timeout = 350
@@ -169,22 +160,22 @@ export const Search = ({ serverState, serverUrl, aapb_host }: SearchProps) => {
               attribute="content_type"
               transformItems={transformContentTypes}
             />
-            <LoadingIndicator />
-
             <AAPBResults host={aapb_host} />
           </div>
           <div className="search-results">
+            <LoadingIndicator />
             <EmptyQueryBoundary fallback={null}>
+              <Index indexName="gbh-series">
+                <NoResultsBoundary fallback={null}>
+                  <h3>GBH Series results</h3>
+                  <Configure hitsPerPage={null} />
+                  <Carousel aapb_host={aapb_host} />
+                </NoResultsBoundary>
+              </Index>
               <Index indexName="wagtail__wagtailcore_page">
                 <NoResultsBoundary fallback={<NoResults />}>
                   <h3>Open Vault results</h3>
-                  <Hits
-                    hitComponent={Hit}
-                    classNames={{
-                      list: 'grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4',
-                      item: 'p-2 w-full',
-                    }}
-                  />
+                  <Hits hitComponent={Hit} />
                   <Pagination />
                   Results per page
                   <HitsPerPage
@@ -195,14 +186,6 @@ export const Search = ({ serverState, serverUrl, aapb_host }: SearchProps) => {
                       { value: 50, label: '50' },
                     ]}
                   />
-                </NoResultsBoundary>
-              </Index>
-              <Index indexName="gbh-series">
-                <NoResultsBoundary fallback={null}>
-                  <h3>GBH Series results</h3>
-                  <Configure hitsPerPage={3} />
-                  <Hits hitComponent={SeriesView} />
-                  <Pagination />
                 </NoResultsBoundary>
               </Index>
             </EmptyQueryBoundary>

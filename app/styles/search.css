@@ -77,3 +77,15 @@ div.refinements {
 div.search-results {
   margin: 1rem;
 }
+
+div.series-carousel {
+  display: flex;
+  overflow: auto;
+}
+
+div.series-carousel-item {
+  border: 2px solid var(--light-purple);
+  margin: .5rem;
+  padding: .5rem;
+  min-width: 10rem;
+}
