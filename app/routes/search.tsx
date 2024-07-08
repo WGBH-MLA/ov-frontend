@@ -14,9 +14,12 @@ export const links: LinksFunction = () => []
 export const loader: LoaderFunction = async ({ request }) => {
   const serverUrl = request.url
   const aapb_host = process.env.AAPB_HOST || 'https://demo.aapb.wgbh-mla.org'
-  const serverState = await getServerState(<Search serverUrl={serverUrl} aapb_host={aapb_host} />, {
-  renderToString,
-  })
+  const serverState = await getServerState(
+    <Search serverUrl={serverUrl} aapb_host={aapb_host} />,
+    {
+      renderToString,
+    }
+  )
 
   return json({
     serverState,
@@ -30,18 +33,6 @@ function FallbackComponent({ attribute }: { attribute: string }) {
     <Panel header={attribute}>
       <RefinementList attribute={attribute} />
     </Panel>
-  )
-}
-
-function NoResults() {
-  const { indexUiState } = useInstantSearch()
-
-  return (
-    <div>
-      <p>
-        No results for <q>{indexUiState.query}</q>.
-      </p>
-    </div>
   )
 }
 

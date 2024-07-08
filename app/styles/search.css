@@ -72,3 +72,7 @@ li.ais-Hits-item {
 div.search-results {
   margin: 1rem;
 }
+
+div.no-results {
+  margin: 1rem;
+}
