@@ -431,9 +431,19 @@ a.page-sidebar-link {
   background-color: #fffd;
 }
 
+div.page-body h3.page-authors-title {
+  margin-bottom: 0;
+}
+
 div.page-authorbubble-container {
   margin-left: 20%;
-  margin-top: -1rem;
+  margin-top: -2rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+div.page-authorbubble-bottom-container {
   position: relative;
   display: flex;
   align-items: center;
@@ -445,14 +455,35 @@ div.page-authorbubble-container div.author-bubble {
 
 div.page-authorbubble-container div.author-extras {
   position: relative;
-  display: flex;
+  display: block;
   align-items: center;
   font-size: 1.2em;
   margin-left: 2rem;
+  margin-top: 3rem;
+
+  max-height: 4em;
+  height: 4em;
+}
+
+div.page-authorbubble-bottom-container div.author-extras-bottom {
+  position: relative;
+  display: block;
+  align-items: center;
+  font-size: 1.2em;
+  margin-left: 2rem;
+  margin-top: 2rem;
+
+  max-height: 4em;
+  height: 4em;
 }
 
 div.author-bio, div.author-byline {
   display: block;
+}
+
+div.author-bio {
+  font-size: 0.8em;
+  white-space: nowrap;
 }
 
 div.page-body-container {

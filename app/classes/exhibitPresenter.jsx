@@ -41,31 +41,42 @@ export function renderExhibit(exhibit){
     )
   }
 
-  let exhibitAuthor
+  let exhibitAuthor, authorBios
   if(exhibit.authors && exhibit.authors.length > 0 && exhibit.authors[0].name){
     // a blank (unspecified) author is currently valid
     
-    console.log( 'i like my authors', exhibit.authors )
-    let bio
-    if(exhibit.authors[0].bio){
-      bio = (
-        <div className="author-bio" dangerouslySetInnerHTML={{ __html: decode(exhibit.authors[0].bio) }} />
-      )
-    }
+    authorBios = exhibit.authors.map( (author, index) => {
+      let bio
+      if(author.bio){
+        bio = (
+          <div className="author-bio" dangerouslySetInnerHTML={{ __html: decode(author.bio) }} />
+        )
+      }
 
+      return (
+        <div key={ index } className="page-authorbubble-bottom-container">
+          { renderAuthorBubble(author) }
+          <div className="author-extras-bottom">
+            <div className="author-byline">
+              <div>{ author.name }</div>
+            </div>
+            { bio }
+          </div>
+        </div>
+      )
+    })
+    
     let byline = (
       <div className="author-byline">
-        <div>By { exhibit.authors[0].name }</div>
+        <div>By { exhibit.authors.map((author) => { return author.name }).join(", ") }</div>
       </div>
     )
 
     let extras = (
       <div className="author-extras">
         { byline }
-        { bio }
       </div>
     )
-
   
     exhibitAuthor = (
       <div className="page-authorbubble-container">
@@ -91,6 +102,9 @@ export function renderExhibit(exhibit){
 
           <div className="page-body">
             { bodyContent }
+
+            <h3 className="page-authors-title">{ exhibit.authors.length > 1 ? "Authors" : "Author" }</h3>
+            { authorBios }
           </div>
         </div>
 
