@@ -69,10 +69,11 @@ li.ais-Hits-item {
   overflow: hidden;
 }
 
-div.search-results {
-  margin: 1rem;
+div.refinements {
+  margin-top: 1rem;
+  margin-left: 1rem;
 }
 
-div.no-results {
+div.search-results {
   margin: 1rem;
 }

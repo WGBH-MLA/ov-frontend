@@ -130,17 +130,15 @@ export const Search = ({ serverState, serverUrl, aapb_host }: SearchProps) => {
         <SearchErrorToast />
 
         <ScrollTo className="max-w-6xl p-4 flex gap-4 m-auto">
-          <div className="search-bar">
-            <SearchBox
-              queryHook={(query, refine) => {
-                clearTimeout(timerId)
-                timerId = setTimeout(() => refine(query), timeout)
-              }}
-              className="search-box"
-            />
-            <LoadingIndicator />
-          </div>
-          <div className="search-results">
+          <SearchBox
+            queryHook={(query, refine) => {
+              // debounce the search input box
+              clearTimeout(timerId)
+              timerId = setTimeout(() => refine(query), timeout)
+            }}
+            className="search-box"
+          />
+          <div className="refinements">
             <CurrentRefinements
               transformItems={
                 // transform refinement Labels
@@ -166,14 +164,16 @@ export const Search = ({ serverState, serverUrl, aapb_host }: SearchProps) => {
             />
             <HiddenClearRefinements />
 
-            <div className="refinements-panel">
-              <ToggleRefinement attribute="featured" label="Featured" />
-              <RefinementList
-                attribute="content_type"
-                transformItems={transformContentTypes}
-              />
-              <AAPBResults host={aapb_host} />
-            </div>
+            <ToggleRefinement attribute="featured" label="Featured" />
+            <RefinementList
+              attribute="content_type"
+              transformItems={transformContentTypes}
+            />
+            <LoadingIndicator />
+
+            <AAPBResults host={aapb_host} />
+          </div>
+          <div className="search-results">
             <EmptyQueryBoundary fallback={null}>
               <Index indexName="wagtail__wagtailcore_page">
                 <NoResultsBoundary fallback={<NoResults />}>
