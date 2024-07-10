@@ -9,7 +9,6 @@ import {
   Configure,
   ToggleRefinement,
   InstantSearchSSRProvider,
-  CurrentRefinements,
   DynamicWidgets,
   Pagination,
   HitsPerPage,
@@ -30,6 +29,7 @@ import { SeriesLink } from '../routes/series'
 import { Carousel } from '../components/Carousel'
 import { NoResults } from '../components/NoResults'
 import { AAPBResults } from '../components/AAPBResults'
+import { Refinements } from '../components/Refinements'
 
 // Labels for refinements
 const ATTRIBUTES = { content_type: 'Type', featured: 'Featured' }
@@ -130,29 +130,7 @@ export const Search = ({ serverState, serverUrl, aapb_host }: SearchProps) => {
             className="search-box"
           />
           <div className="refinements">
-            <CurrentRefinements
-              transformItems={
-                // transform refinement Labels
-                items =>
-                  items.map(item => {
-                    if (item.attribute in ATTRIBUTES) {
-                      // if this is an attribute we track, transform the label for each refinement
-                      item.refinements = item.refinements.map(refinement => {
-                        if (refinement.value in CONTENT_TYPES) {
-                          // Transform the refinement label
-                          return {
-                            ...refinement,
-                            label: CONTENT_TYPES[refinement.value],
-                          }
-                        }
-                        return refinement // return the original refinement if it's not in CONTENT_TYPES
-                      })
-                      return { ...item, label: ATTRIBUTES[item.attribute] }
-                    }
-                    return item // return the original item if its attribute is not in ATTRIBUTES
-                  })
-              }
-            />
+            <Refinements />
             <HiddenClearRefinements />
 
             <ToggleRefinement attribute="featured" label="Featured" />
