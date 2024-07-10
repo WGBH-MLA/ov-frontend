@@ -33,6 +33,8 @@
   },
   "devDependencies": {
     "@remix-run/dev": "2.9.2",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
     "autoprefixer": "^10.4.19",
     "esbuild-plugin-css-modules": "^0.3.0",
     "postcss": "^8.4.33",
