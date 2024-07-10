@@ -16,7 +16,6 @@ import {
 } from 'react-instantsearch'
 import {
   Error,
-  AAPBResults,
   EmptyQueryBoundary,
   NoResultsBoundary,
   LoadingIndicator,
@@ -30,6 +29,7 @@ import { Hit } from '../components/Hit'
 import { SeriesLink } from '../routes/series'
 import { Carousel } from '../components/Carousel'
 import { NoResults } from '../components/NoResults'
+import { AAPBResults } from '../components/AAPBResults'
 
 // Labels for refinements
 const ATTRIBUTES = { content_type: 'Type', featured: 'Featured' }
