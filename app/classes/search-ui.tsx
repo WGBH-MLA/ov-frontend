@@ -85,18 +85,18 @@ const transformContentTypes = items =>
       }
     })
 
-type SearchProps = {
-  serverState?: InstantSearchServerState
-  serverUrl?: string
-  aapb_host?: string
-}
 const sk = new Searchkit(sk_options)
 
 export const searchClient = Client(sk)
 console.log('searchClient', searchClient)
 
-export const Search = ({ serverState, serverUrl, aapb_host }: SearchProps) => {
+type SearchProps = {
+  serverState?: InstantSearchServerState
+  serverUrl?: string
+  aapb_host?: string
+}
 
+export const Search = ({ serverState, serverUrl, aapb_host }: SearchProps) => {
   let timerId
   let timeout = 350
 
@@ -110,10 +110,29 @@ export const Search = ({ serverState, serverUrl, aapb_host }: SearchProps) => {
               if (typeof window === 'undefined') {
                 return new URL(serverUrl!) as unknown as Location
               }
-
               return window.location
             },
           }),
+          stateMapping: {
+            stateToRoute(uiState) {
+              // console.log('stateToRoute', uiState)
+              return {
+                q: uiState['']?.query,
+                p: uiState['wagtail__wagtailcore_page']?.page
+              }
+            },
+            routeToState(routeState) {
+              // console.log('routeToState', routeState)
+              return {
+                '': {
+                  query: routeState.q,
+                },
+                wagtail__wagtailcore_page: {
+                  page: routeState.p,
+                },
+              }
+            },
+          },
         }}
         insights={false}
       >
@@ -146,7 +165,6 @@ export const Search = ({ serverState, serverUrl, aapb_host }: SearchProps) => {
               <Index indexName="gbh-series">
                 <NoResultsBoundary fallback={null}>
                   <h3>GBH Series results</h3>
-                  <Configure hitsPerPage={null} />
                   <Carousel aapb_host={aapb_host} />
                 </NoResultsBoundary>
               </Index>
