@@ -71,5 +71,5 @@ div.search-results {
 .series-carousel .ais-Hits-item {
   border: 2px solid var(--light-purple);
   padding: .5rem;
-  min-width: 10rem;
+  min-width: 14rem;
 }

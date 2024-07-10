@@ -118,7 +118,7 @@ export const Search = ({ serverState, serverUrl, aapb_host }: SearchProps) => {
               // console.log('stateToRoute', uiState)
               return {
                 q: uiState['']?.query,
-                p: uiState['wagtail__wagtailcore_page']?.page
+                p: uiState['wagtail__wagtailcore_page']?.page,
               }
             },
             routeToState(routeState) {
@@ -142,6 +142,7 @@ export const Search = ({ serverState, serverUrl, aapb_host }: SearchProps) => {
         <ScrollTo className="max-w-6xl p-4 flex gap-4 m-auto">
           <SearchBox
             queryHook={(query, refine) => {
+              console.log('searchbox', query, refine)
               // debounce the search input box
               clearTimeout(timerId)
               timerId = setTimeout(() => refine(query), timeout)
@@ -157,17 +158,11 @@ export const Search = ({ serverState, serverUrl, aapb_host }: SearchProps) => {
               attribute="content_type"
               transformItems={transformContentTypes}
             />
-            <AAPBResults host={aapb_host} />
           </div>
           <div className="search-results">
             <LoadingIndicator />
+            <AAPBResults aapb_host={aapb_host} />
             <EmptyQueryBoundary fallback={null}>
-              <Index indexName="gbh-series">
-                <NoResultsBoundary fallback={null}>
-                  <h3>GBH Series results</h3>
-                  <Carousel aapb_host={aapb_host} />
-                </NoResultsBoundary>
-              </Index>
               <Index indexName="wagtail__wagtailcore_page">
                 <NoResultsBoundary fallback={<NoResults />}>
                   <h3>Open Vault results</h3>
@@ -182,6 +177,12 @@ export const Search = ({ serverState, serverUrl, aapb_host }: SearchProps) => {
                       { value: 50, label: '50' },
                     ]}
                   />
+                </NoResultsBoundary>
+              </Index>
+              <Index indexName="gbh-series">
+                <NoResultsBoundary fallback={null}>
+                  <h3>GBH Series results</h3>
+                  <Carousel aapb_host={aapb_host} />
                 </NoResultsBoundary>
               </Index>
             </EmptyQueryBoundary>

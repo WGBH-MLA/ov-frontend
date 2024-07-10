@@ -1,24 +1,28 @@
 import { useState, useEffect, useCallback } from 'react'
-import { useSearchBox } from 'react-instantsearch'
+import { useSearchBox, useInstantSearch } from 'react-instantsearch'
 import { Spinner } from '../classes/search-utils'
 import pkg from 'lodash'
 const { debounce } = pkg
 
-export const AAPBResults = ({ host }) => {
+export const AAPBResults = ({ aapb_host }) => {
   const [results, setResults] = useState(null)
-  const { query } = useSearchBox()
+  const { query, refine } = useSearchBox({
+    // queryHook: (query, refine) => {
+    //   console.log('queryhook', query, refine)
+    //   refine(query)
+    // },
+  })
+  const { status } = useInstantSearch()
 
-  const fetchResults = useCallback(
-    debounce(currentQuery => {
-      fetch(
-        `https://${host}/api.json?q=${encodeURIComponent(currentQuery)}&rows=0`
-      )
-        .then(response => response.json())
-        .then(data => setResults(data.response.numFound))
-        .catch(error => console.error(error))
-    }, 500),
-    []
-  )
+  console.log('aapb results', query, status)
+
+  const fetchResults = useCallback(currentQuery => {
+    console.log('fetching AAPB results for', currentQuery)
+    fetch(`${aapb_host}/api.json?q=${encodeURIComponent(currentQuery)}&rows=0`)
+      .then(response => response.json())
+      .then(data => setResults(data.response.numFound))
+      .catch(error => console.error(error))
+  }, [])
 
   useEffect(() => {
     if (query) {
@@ -30,11 +34,12 @@ export const AAPBResults = ({ host }) => {
   return (
     <>
       <a href="#">
-        Search AmericanArchive.org &#x21E8;
         <span className="ais-RefinementList-count">
           {/* If there's a query, show the spinner or results */}
-          {query ? results !== null ? results : <Spinner /> : null}
+          {/* {query ? results !== null ? results : <Spinner /> : null} */}
+          {results}
         </span>
+        matching records on AmericanArchive.org for "{query}"
       </a>
     </>
   )
