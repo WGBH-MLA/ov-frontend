@@ -1,6 +1,5 @@
 import { useLoaderData } from "@remix-run/react"
 import { Component } from "react"
-import { renderAuthorBubble, renderPageLink, renderPageLinks } from "../classes/pageHelpers"
 import { seriesData } from "../data/seriesData"
 
 // // commented out so we can use fake data

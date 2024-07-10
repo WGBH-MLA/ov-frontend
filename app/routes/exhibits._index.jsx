@@ -1,6 +1,6 @@
 import { Link, useLoaderData } from "@remix-run/react"
 import { getExhibits } from "../exhibit"
-import { renderAuthorBubble, renderPageLink, renderPageLinks } from "../classes/pageHelpers"
+import { renderPageLinks } from "../classes/pageHelpers"
 
 export const loader = async () => {
   return await getExhibits()

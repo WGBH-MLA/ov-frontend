@@ -78,9 +78,13 @@ export function renderExhibit(exhibit){
       </div>
     )
   
+    let bubbles
+    if(exhibit.authors){
+      bubbles = exhibit.authors.map((author) => renderAuthorBubble(author, "stack"))
+    }
     exhibitAuthor = (
-      <div className="page-authorbubble-container">
-        { renderAuthorBubble(exhibit.authors[0]) }
+      <div className="page-authorbubble-stacked">
+        { bubbles }
         { extras }
       </div>
     )

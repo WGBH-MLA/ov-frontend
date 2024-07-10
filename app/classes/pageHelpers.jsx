@@ -2,11 +2,13 @@ import { decode } from "html-entities"
 import { MenuIcon } from "./mobileMenu"
 import { useState, useEffect } from 'react';
 
-export function renderAuthorBubble(author, boxAttach=false){
+export function renderAuthorBubble(author, style){
   let classes = "author-bubble"
-  if(boxAttach){
+  if(style == "attach"){
     // this sticks to bottom right of parent box
-    classes += " box-attach"
+    classes += " attach"
+  } else if(style == "stack"){
+    classes += " stack"
   }
 
   if(author){
@@ -25,13 +27,13 @@ export function renderPageLink(pageType, page, key){
     let author = page.authors[0]
     if(author.image){
       // can't really have authorbubblewithout an author image!
-      authorBubble = renderAuthorBubble(author, true)
+      authorBubble = renderAuthorBubble(author, "attach")
     }
     authorLink = (
       <div className="pagelink-subtitle">By { author.name }</div>
     )
   } else {
-    authorBubble = renderAuthorBubble(false, true)
+    authorBubble = renderAuthorBubble(false, "attach")
     authorLink = <div className="pagelink-subtitle" />
   }
 
