@@ -16,7 +16,6 @@ import {
   DynamicWidgets,
   Pagination,
   HitsPerPage,
-  InstantSearchServerState,
 } from 'react-instantsearch'
 import {
   Error,
@@ -94,7 +93,6 @@ const sk = new Searchkit(sk_options)
 
 export const searchClient = Client(sk)
 console.log('searchClient', searchClient)
-
 
 export const Search = ({ serverState, serverUrl, aapb_host }: SearchProps) => {
   let timerId

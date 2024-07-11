@@ -29,10 +29,8 @@ export const AAPBResults = ({ aapb_host }) => {
   }, [fetchResults, indexUiState])
 
   return result_count && indexUiState.query ? (
-    <a href="#">
-      <span className="ais-RefinementList-count">
-        {result_count}
-      </span>
+    <a href={`${aapb_host}/catalog?q=${indexUiState.query}`} target="_blank">
+      <span className="ais-RefinementList-count">{result_count}</span>
       matching records on AmericanArchive.org for "{indexUiState.query}"
     </a>
   ) : null

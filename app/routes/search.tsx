@@ -1,6 +1,9 @@
 import { renderToString } from 'react-dom/server'
-import { RefinementList, getServerState } from 'react-instantsearch'
-import { useInstantSearch } from 'react-instantsearch-core'
+import {
+  RefinementList,
+  getServerState,
+  InstantSearchServerState,
+} from 'react-instantsearch'
 import type { LinksFunction, LoaderFunction } from '@remix-run/node'
 import { json } from '@remix-run/node'
 import { useLoaderData } from '@remix-run/react'
@@ -42,7 +45,7 @@ export type SearchProps = {
   aapb_host?: string
 }
 export default function SearchPage() {
-  const { serverState, serverUrl, aapb_host }:SearchProps = useLoaderData()
+  const { serverState, serverUrl, aapb_host }: SearchProps = useLoaderData()
   return (
     <Search
       serverState={serverState}
