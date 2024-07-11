@@ -1,6 +1,10 @@
 import Client from '@searchkit/instantsearch-client'
 import Searchkit from 'searchkit'
-import { InstantSearch, useInstantSearch } from 'react-instantsearch-core'
+import {
+  InstantSearch,
+  useInstantSearch,
+  useSearchBox,
+} from 'react-instantsearch-core'
 import {
   SearchBox,
   Hits,
@@ -12,6 +16,7 @@ import {
   DynamicWidgets,
   Pagination,
   HitsPerPage,
+  InstantSearchServerState,
 } from 'react-instantsearch'
 import {
   Error,
@@ -21,15 +26,15 @@ import {
   HiddenClearRefinements,
 } from './search-utils'
 import { SearchErrorToast } from '../components/SearchErrorToast'
-import type { InstantSearchServerState } from 'react-instantsearch'
 import { history } from 'instantsearch.js/cjs/lib/routers/index.js'
 import { ScrollTo } from '../components/ScrollTo'
 import { Hit } from '../components/Hit'
-import { SeriesLink } from '../routes/series'
 import { Carousel } from '../components/Carousel'
 import { NoResults } from '../components/NoResults'
 import { AAPBResults } from '../components/AAPBResults'
 import { Refinements } from '../components/Refinements'
+import { useEffect } from 'react'
+import { SearchProps } from '../routes/search'
 
 // Labels for refinements
 const ATTRIBUTES = { content_type: 'Type', featured: 'Featured' }
@@ -90,11 +95,6 @@ const sk = new Searchkit(sk_options)
 export const searchClient = Client(sk)
 console.log('searchClient', searchClient)
 
-type SearchProps = {
-  serverState?: InstantSearchServerState
-  serverUrl?: string
-  aapb_host?: string
-}
 
 export const Search = ({ serverState, serverUrl, aapb_host }: SearchProps) => {
   let timerId

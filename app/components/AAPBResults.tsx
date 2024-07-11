@@ -1,46 +1,39 @@
 import { useState, useEffect, useCallback } from 'react'
-import { useSearchBox, useInstantSearch } from 'react-instantsearch'
-import { Spinner } from '../classes/search-utils'
+import { useInstantSearch } from 'react-instantsearch'
 import pkg from 'lodash'
 const { debounce } = pkg
 
 export const AAPBResults = ({ aapb_host }) => {
-  const [results, setResults] = useState(null)
-  const { query, refine } = useSearchBox({
-    // queryHook: (query, refine) => {
-    //   console.log('queryhook', query, refine)
-    //   refine(query)
-    // },
-  })
-  const { status } = useInstantSearch()
+  const { indexUiState } = useInstantSearch()
 
-  console.log('aapb results', query, status)
+  const [result_count, setResults] = useState(null)
 
-  const fetchResults = useCallback(currentQuery => {
-    console.log('fetching AAPB results for', currentQuery)
-    fetch(`${aapb_host}/api.json?q=${encodeURIComponent(currentQuery)}&rows=0`)
-      .then(response => response.json())
-      .then(data => setResults(data.response.numFound))
-      .catch(error => console.error(error))
-  }, [])
+  const fetchResults = useCallback(
+    debounce(currentQuery => {
+      console.log('fetching AAPB results for', currentQuery)
+      fetch(
+        `${aapb_host}/api.json?q=${encodeURIComponent(currentQuery)}&rows=0`
+      )
+        .then(response => response.json())
+        .then(data => setResults(data.response.numFound))
+        .catch(error => console.error(error))
+    }, 200),
+    []
+  )
 
   useEffect(() => {
-    if (query) {
+    if (indexUiState.query) {
       setResults(null) // Set results to null when the query changes to show the spinner
-      fetchResults(query)
+      fetchResults(indexUiState.query)
     }
-  }, [fetchResults, query])
+  }, [fetchResults, indexUiState])
 
-  return (
-    <>
-      <a href="#">
-        <span className="ais-RefinementList-count">
-          {/* If there's a query, show the spinner or results */}
-          {/* {query ? results !== null ? results : <Spinner /> : null} */}
-          {results}
-        </span>
-        matching records on AmericanArchive.org for "{query}"
-      </a>
-    </>
-  )
+  return result_count && indexUiState.query ? (
+    <a href="#">
+      <span className="ais-RefinementList-count">
+        {result_count}
+      </span>
+      matching records on AmericanArchive.org for "{indexUiState.query}"
+    </a>
+  ) : null
 }
