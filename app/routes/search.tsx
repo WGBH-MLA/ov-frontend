@@ -41,8 +41,8 @@ function FallbackComponent({ attribute }: { attribute: string }) {
 
 export type SearchProps = {
   serverState?: InstantSearchServerState
-  serverUrl?: string
-  aapb_host?: string
+  serverUrl?: URL
+  aapb_host?: URL
 }
 export default function SearchPage() {
   const { serverState, serverUrl, aapb_host }: SearchProps = useLoaderData()

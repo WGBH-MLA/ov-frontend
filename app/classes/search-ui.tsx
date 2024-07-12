@@ -1,19 +1,12 @@
 import Client from '@searchkit/instantsearch-client'
 import Searchkit from 'searchkit'
+import searchkit_options from '../data/searchkit.json'
 import {
   InstantSearch,
-  useInstantSearch,
-  useSearchBox,
-} from 'react-instantsearch-core'
-import {
   SearchBox,
   Hits,
-  RefinementList,
   Index,
-  Configure,
-  ToggleRefinement,
   InstantSearchSSRProvider,
-  DynamicWidgets,
   Pagination,
   HitsPerPage,
 } from 'react-instantsearch'
@@ -22,8 +15,6 @@ import {
   EmptyQueryBoundary,
   NoResultsBoundary,
   LoadingIndicator,
-  HiddenClearRefinements,
-  Spinner,
 } from './search-utils'
 import { SearchErrorToast } from '../components/SearchErrorToast'
 import { ScrollTo } from '../components/ScrollTo'
@@ -32,65 +23,10 @@ import { Carousel } from '../components/Carousel'
 import { NoResults } from '../components/NoResults'
 import { AAPBResults } from '../components/AAPBResults'
 import { Refinements } from '../components/Refinements'
-import { useEffect } from 'react'
 import { SearchProps } from '../routes/search'
 import { Router, stateToRoute, routeToState } from '../components/Router'
 
-// Labels for refinements
-const ATTRIBUTES = { content_type: 'Type', featured: 'Featured' }
-
-// Labels for content types
-const CONTENT_TYPES = {
-  'exhibits.ExhibitPage': 'Exhibits',
-  'ov_collections.Collection': 'Collections',
-}
-
-const sk_options = {
-  connection: {
-    host: 'https://elastic.wgbh-mla.org',
-    // Base64 encoded id:api_key
-    apiKey: 'X3NoUXlJMEJZNE9yTDhJMHdMSEQ6N1RLcDQxYm9USEdCV1ByeXJ4MXFDUQ==',
-  },
-  search_settings: {
-    search_attributes: [
-      { field: 'title', weight: 3 },
-      'exhibits_exhibitpage__body_edgengrams',
-      'ov_collections_collection__introduction_edgengrams',
-      'featured',
-    ],
-    result_attributes: [
-      'title',
-      'exhibits_exhibitpage__body_edgengrams',
-      'ov_collections_collection__introduction_edgengrams',
-    ],
-    highlight_attributes: ['title'],
-    snippet_attributes: [
-      'exhibits_exhibitpage__body_edgengrams',
-      'ov_collections_collection__introduction_edgengrams',
-    ],
-    facet_attributes: [
-      { attribute: 'content_type', field: 'content_type', type: 'string' },
-    ],
-    filter_attributes: [
-      {
-        attribute: 'featured',
-        field: 'exhibits_exhibitpage__featured_filter',
-        type: 'string',
-      },
-    ],
-  },
-}
-
-const transformContentTypes = items =>
-  items
-    .filter(item => item.value in CONTENT_TYPES)
-    .map(item => {
-      if (item.label in CONTENT_TYPES) {
-        return { ...item, label: CONTENT_TYPES[item.label] }
-      }
-    })
-
-const sk = new Searchkit(sk_options)
+const sk = new Searchkit(searchkit_options)
 
 export const searchClient = Client(sk)
 console.log('searchClient', searchClient)
@@ -122,16 +58,6 @@ export const Search = ({ serverState, serverUrl, aapb_host }: SearchProps) => {
             }}
             className="search-box"
           />
-          <div className="refinements">
-            <Refinements />
-            <HiddenClearRefinements />
-
-            <ToggleRefinement attribute="featured" label="Featured" />
-            <RefinementList
-              attribute="content_type"
-              transformItems={transformContentTypes}
-            />
-          </div>
           <div className="search-results">
             <EmptyQueryBoundary fallback={null}>
               <AAPBResults aapb_host={aapb_host} />
@@ -139,6 +65,7 @@ export const Search = ({ serverState, serverUrl, aapb_host }: SearchProps) => {
               <Index indexName="wagtail__wagtailcore_page">
                 <NoResultsBoundary fallback={<NoResults />}>
                   <h3>Open Vault results</h3>
+                  <Refinements />
                   <Hits hitComponent={Hit} />
                   <Pagination />
                   Results per page

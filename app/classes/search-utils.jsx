@@ -1,6 +1,5 @@
-import { useSearchBox, Pagination, ClearRefinements } from 'react-instantsearch'
+import { useSearchBox, Pagination } from 'react-instantsearch'
 import { useInstantSearch } from 'react-instantsearch-core'
-import { Spinner } from '../components/Spinner'
 
 export function Error() {
   const { error } = useInstantSearch({ catchError: true })
@@ -70,12 +69,4 @@ export const NoResults = () => {
       <p>Try using different keywords, or check your spelling.</p>
     </>
   )
-}
-
-export function HiddenClearRefinements() {
-  const { indexUiState } = useInstantSearch()
-
-  if (indexUiState.refinementList) {
-    return <ClearRefinements />
-  }
 }
