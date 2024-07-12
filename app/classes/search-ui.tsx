@@ -15,6 +15,7 @@ import {
   EmptyQueryBoundary,
   NoResultsBoundary,
   LoadingIndicator,
+  EmptyQueryMessage,
 } from './search-utils'
 import { SearchErrorToast } from '../components/SearchErrorToast'
 import { ScrollTo } from '../components/ScrollTo'
@@ -59,12 +60,12 @@ export const Search = ({ serverState, serverUrl, aapb_host }: SearchProps) => {
             className="search-box"
           />
           <div className="search-results">
-            <EmptyQueryBoundary fallback={null}>
+            <EmptyQueryBoundary fallback={<EmptyQueryMessage />}>
               <AAPBResults aapb_host={aapb_host} />
               <LoadingIndicator />
               <Index indexName="wagtail__wagtailcore_page">
                 <NoResultsBoundary fallback={<NoResults />}>
-                  <h3>Open Vault results</h3>
+                  <h2>Open Vault results</h2>
                   <Refinements />
                   <Hits hitComponent={Hit} />
                   <Pagination />

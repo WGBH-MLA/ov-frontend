@@ -1,6 +1,10 @@
 import { useSearchBox, Pagination } from 'react-instantsearch'
 import { useInstantSearch } from 'react-instantsearch-core'
 
+export const EmptyQueryMessage = () => <>
+  <h2>Search Open Vault</h2>
+</>
+
 export function Error() {
   const { error } = useInstantSearch({ catchError: true })
 
