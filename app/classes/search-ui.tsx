@@ -23,9 +23,9 @@ import {
   NoResultsBoundary,
   LoadingIndicator,
   HiddenClearRefinements,
+  Spinner,
 } from './search-utils'
 import { SearchErrorToast } from '../components/SearchErrorToast'
-import { history } from 'instantsearch.js/cjs/lib/routers/index.js'
 import { ScrollTo } from '../components/ScrollTo'
 import { Hit } from '../components/Hit'
 import { Carousel } from '../components/Carousel'
@@ -34,6 +34,7 @@ import { AAPBResults } from '../components/AAPBResults'
 import { Refinements } from '../components/Refinements'
 import { useEffect } from 'react'
 import { SearchProps } from '../routes/search'
+import { Router, stateToRoute, routeToState } from '../components/Router'
 
 // Labels for refinements
 const ATTRIBUTES = { content_type: 'Type', featured: 'Featured' }
@@ -103,34 +104,8 @@ export const Search = ({ serverState, serverUrl, aapb_host }: SearchProps) => {
       <InstantSearch
         searchClient={searchClient}
         routing={{
-          router: history({
-            getLocation() {
-              if (typeof window === 'undefined') {
-                return new URL(serverUrl!) as unknown as Location
-              }
-              return window.location
-            },
-          }),
-          stateMapping: {
-            stateToRoute(uiState) {
-              // console.log('stateToRoute', uiState)
-              return {
-                q: uiState['']?.query,
-                p: uiState['wagtail__wagtailcore_page']?.page,
-              }
-            },
-            routeToState(routeState) {
-              // console.log('routeToState', routeState)
-              return {
-                '': {
-                  query: routeState.q,
-                },
-                wagtail__wagtailcore_page: {
-                  page: routeState.p,
-                },
-              }
-            },
-          },
+          router: Router(serverUrl),
+          stateMapping: { stateToRoute, routeToState },
         }}
         insights={false}
       >
@@ -140,7 +115,7 @@ export const Search = ({ serverState, serverUrl, aapb_host }: SearchProps) => {
         <ScrollTo className="max-w-6xl p-4 flex gap-4 m-auto">
           <SearchBox
             queryHook={(query, refine) => {
-              console.log('searchbox', query, refine)
+              // console.log('searchbox', query)
               // debounce the search input box
               clearTimeout(timerId)
               timerId = setTimeout(() => refine(query), timeout)
@@ -158,9 +133,9 @@ export const Search = ({ serverState, serverUrl, aapb_host }: SearchProps) => {
             />
           </div>
           <div className="search-results">
-            <LoadingIndicator />
-            <AAPBResults aapb_host={aapb_host} />
             <EmptyQueryBoundary fallback={null}>
+              <AAPBResults aapb_host={aapb_host} />
+              <LoadingIndicator />
               <Index indexName="wagtail__wagtailcore_page">
                 <NoResultsBoundary fallback={<NoResults />}>
                   <h3>Open Vault results</h3>

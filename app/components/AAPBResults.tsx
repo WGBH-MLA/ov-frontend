@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from 'react'
 import { useInstantSearch } from 'react-instantsearch'
 import pkg from 'lodash'
 const { debounce } = pkg
+import { Spinner } from './Spinner'
 
 export const AAPBResults = ({ aapb_host }) => {
   const { indexUiState } = useInstantSearch()
@@ -28,10 +29,12 @@ export const AAPBResults = ({ aapb_host }) => {
     }
   }, [fetchResults, indexUiState])
 
-  return result_count && indexUiState.query ? (
+  return (
     <a href={`${aapb_host}/catalog?q=${indexUiState.query}`} target="_blank">
-      <span className="ais-RefinementList-count">{result_count}</span>
+      <span className="ais-RefinementList-count">
+        {result_count || <Spinner />}
+      </span>
       matching records on AmericanArchive.org for "{indexUiState.query}"
     </a>
-  ) : null
+  )
 }

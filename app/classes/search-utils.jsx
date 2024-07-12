@@ -1,7 +1,6 @@
 import { useSearchBox, Pagination, ClearRefinements } from 'react-instantsearch'
 import { useInstantSearch } from 'react-instantsearch-core'
-
-import '../styles/spinner.css'
+import { Spinner } from '../components/Spinner'
 
 export function Error() {
   const { error } = useInstantSearch({ catchError: true })
@@ -14,21 +13,15 @@ export function Error() {
 export const LoadingIndicator = () => {
   const { status } = useInstantSearch()
 
-  if (status === 'loading' || status === 'stalled') {
-    return <p>Loading search results</p>
+  if (status === 'stalled') {
+    return (
+      <>
+        <p>Loading search results</p>
+      </>
+    )
   }
   return null
 }
-
-export const Spinner = () => (
-  <div className="spinner">
-    <div className="rect1"></div>
-    <div className="rect2"></div>
-    <div className="rect3"></div>
-    <div className="rect4"></div>
-    <div className="rect5"></div>
-  </div>
-)
 
 export function Pager() {
   const { query } = useSearchBox()
