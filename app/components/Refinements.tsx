@@ -50,21 +50,11 @@ export const HiddenClearRefinements = () => {
   }
 }
 
-export const RefinementCount = ({attribute}) => {
-  const search = useInstantSearch()
-  console.log('indexUiState', search)
-  // const count = indexUiState.refinementList?[attribute]?.length
-  // return count ? <span className="text-sm text-gray-500">({count})</span> : null
-}
-
-
 export const Refinements = () => (
   <>
     <CurrentRefinements transformItems={transformItems} />
     <HiddenClearRefinements />
     <ToggleRefinement attribute="featured" label="Featured" />
-    <RefinementCount attribute="featured" />
-    <RefinementList attribute='featured' transformItems={transformItems} />
     <RefinementList
       attribute="content_type"
       transformItems={transformContentTypes}
