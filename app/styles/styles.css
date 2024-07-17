@@ -686,7 +686,7 @@ div.pagelink-image {
   height: 15vw;
 }
 
-h4.pagelink-title {
+div.pagelink h4.pagelink-title {
   margin-top: 2vh;
   font-family: 'Red Hat Display', sans-serif;
   font-size: 1em;
@@ -700,6 +700,7 @@ div.pagelink-subtitle {
   display: inline-block;
   min-height: 10px;
   font-size: 1em;
+  color: #000;
 }
 
 div.author-bubble {
@@ -991,6 +992,19 @@ div.guids-block-title p {
   div.page-sidebar {
     font-size: 1.6em;
   }
+
+  div.pagelink h4.pagelink-title {
+    height: 4vh;
+    max-height: 4vh;
+  }
+
+
+  div.author-bubble.attach {
+    position: absolute;
+    bottom: 4vw;
+    right: -2vw;
+  }
+
 }
 
 
