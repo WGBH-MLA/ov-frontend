@@ -26,7 +26,10 @@ import { AAPBResults } from '../components/AAPBResults'
 import { Refinements } from '../components/Refinements'
 import { SearchProps } from '../routes/search'
 import { Router, stateToRoute, routeToState } from '../components/Router'
+import { Autocomplete } from '../components/Autocomplete'
 
+import pkg from '@algolia/autocomplete-js';
+const {getAlgoliaResults} = pkg;
 const sk = new Searchkit(searchkit_options)
 
 export const searchClient = Client(sk)
@@ -59,6 +62,31 @@ export const Search = ({ serverState, serverUrl, aapb_host }: SearchProps) => {
             }}
             className="search-box"
           />
+          <div id="autocomplete" className="p-4"></div>
+          <Autocomplete
+            openOnFocus={true}
+            getSources={({ query }) => [
+              {
+                sourceId: 'products',
+                getItems() {
+                  return getAlgoliaResults({
+                    searchClient,
+                    queries: [
+                      {
+                        indexName: 'instant_search',
+                        query,
+                      },
+                    ],
+                  })
+                },
+                templates: {
+                  item({ item, components }) {
+                    return <ProductItem hit={item} components={components} />
+                  },
+                },
+              },
+            ]}
+          />{' '}
           <div className="search-results">
             <EmptyQueryBoundary fallback={<EmptyQueryMessage />}>
               <AAPBResults aapb_host={aapb_host} />

@@ -13,9 +13,9 @@ export const stateToRoute = (uiState: UiState) => {
   let wagtail = uiState['wagtail__wagtailcore_page']
   return {
     q: uiState['']?.query,
-    p: uiState['wagtail__wagtailcore_page']?.page,
-    types: uiState['wagtail__wagtailcore_page']?.refinementList?.content_type,
-    featured: uiState['wagtail__wagtailcore_page']?.toggle?.featured,
+    p: wagtail?.page,
+    types: wagtail?.refinementList?.content_type,
+    featured: wagtail?.toggle?.featured,
   }
 }
 
