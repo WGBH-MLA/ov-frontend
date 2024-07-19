@@ -2,6 +2,7 @@ FROM node:alpine as base
 
 # Development
 FROM base AS dev
+ENV PATH="${PATH}:/app/node_modules/.bin"
 WORKDIR /app
 
 COPY package*.json .
