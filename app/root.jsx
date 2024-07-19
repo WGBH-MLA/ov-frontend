@@ -1,4 +1,5 @@
 import {
+  isRouteErrorResponse,
   Links,
   Meta,
   Outlet,
@@ -72,9 +73,7 @@ export default function App() {
 
         <script
           dangerouslySetInnerHTML={{
-            __html: `window.ENV = ${JSON.stringify(
-              data.ENV
-            )}`,
+            __html: `window.ENV = ${JSON.stringify(data.ENV)}`,
           }}
         />
         <ScrollRestoration />
@@ -88,7 +87,6 @@ export default function App() {
 
 export function ErrorBoundary() {
   const error = useRouteError()
-  console.error(error)
   return (
     <html lang="en">
       <head>
@@ -100,10 +98,15 @@ export function ErrorBoundary() {
       </head>
       <body>
         <NavigationBar />
-        <h1>Oh no!</h1>
-        <p>Something went wrong. Please try again later.</p>
+        {isRouteErrorResponse(error) ? (<>
+          <h1>{error.status} error</h1>
+          <h3>{error.statusText}</h3>
+          </>
+        ) : (
+          <h1>Oh no!</h1>
+        )}
+        <p>Oops! Something went wrong. Please try again later.</p>
         <Footer />
-
         <ScrollRestoration />
         <Scripts />
       </body>
