@@ -4,10 +4,11 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
-  useLoaderData
-} from "@remix-run/react"
-import { json } from "@remix-run/node"
-import { useEffect } from 'react';
+  useLoaderData,
+  useRouteError,
+} from '@remix-run/react'
+import { json } from '@remix-run/node'
+import { useEffect } from 'react'
 
 import { NavigationBar } from "./classes/navigationBar"
 import { Footer } from "./classes/footer"
@@ -80,6 +81,31 @@ export default function App() {
         <Scripts />
 
         <Footer />
+      </body>
+    </html>
+  )
+}
+
+export function ErrorBoundary() {
+  const error = useRouteError()
+  console.error(error)
+  return (
+    <html lang="en">
+      <head>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>Oh no!</title>
+        <Links />
+        <link rel="icon" href="/favicon.ico" />
+      </head>
+      <body>
+        <NavigationBar />
+        <h1>Oh no!</h1>
+        <p>Something went wrong. Please try again later.</p>
+        <Footer />
+
+        <ScrollRestoration />
+        <Scripts />
       </body>
     </html>
   )
