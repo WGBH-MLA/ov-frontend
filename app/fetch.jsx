@@ -13,18 +13,4 @@ export const fetch2 = async (url, options) => {
         statusText: res.statusText,
       })
     })
-    .catch(err => {
-      // Catch all errors, including the fetch error above.
-      console.error('error', err)
-      if (err.cause?.code === 'ECONNREFUSED') {
-        throw new Response('Failed to connect to the API', {
-          status: 500,
-          statusText: 'Failed to connect to the API',
-        })
-      }
-      throw new Response('Fetch failed', {
-        status: err.status,
-        statusText: err.statusText,
-      })
-    })
 }
