@@ -100,7 +100,7 @@ export function ErrorBoundary() {
         <NavigationBar />
         {isRouteErrorResponse(error) ? (<>
           <h1>{error.status} error</h1>
-          <h3>{error.statusText}</h3>
+          <h3>{error.data}</h3>
           </>
         ) : (
           <h1>Oh no!</h1>
