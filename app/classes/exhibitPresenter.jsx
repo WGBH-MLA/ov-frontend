@@ -4,7 +4,8 @@ import { renderAuthorBubble, renderPageLink, renderPageLinks, renderSidebar, ren
 import { renderBlocks, renderBlock, textContent, headingContent } from "./contentHelpers"
 
 export function renderExhibit(exhibit){
-  let sidebar = renderSidebar("exhibit", exhibit.body.filter( (block) => block.type == "heading") )
+  let showAuthors = exhibit.authors && exhibit.authors.length > 0 && exhibit.authors[0].name
+  let sidebar = renderSidebar("exhibit", exhibit.body.filter( (block) => block.type == "heading"), showAuthors)  
 
   let titleBar
   if(exhibit.title){
@@ -41,10 +42,11 @@ export function renderExhibit(exhibit){
     )
   }
 
-  let exhibitAuthor, authorBios
-  if(exhibit.authors && exhibit.authors.length > 0 && exhibit.authors[0].name){
+  let exhibitAuthor, authorBios, authorsTitle
+  if(showAuthors){
     // a blank (unspecified) author is currently valid
-    
+    authorsTitle = <h3 id="authors-section" className="page-authors-title">{ exhibit.authors.length > 1 ? "Authors" : "Author" }</h3>
+
     authorBios = exhibit.authors.map( (author, index) => {
       let bio
       if(author.bio){
@@ -107,7 +109,7 @@ export function renderExhibit(exhibit){
           <div className="page-body">
             { bodyContent }
 
-            <h3 className="page-authors-title">{ exhibit.authors.length > 1 ? "Authors" : "Author" }</h3>
+            { authorsTitle }
             { authorBios }
           </div>
         </div>

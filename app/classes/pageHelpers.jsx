@@ -58,7 +58,7 @@ export function renderPageLinks(pageType, pages){
   )
 }
 
-export function renderSidebar(pageType, sections){
+export function renderSidebar(pageType, sections, authors=false){
   let pageTypeName = pageType === "exhibit" ? "Exhibit" : "Collection"
   const [isOpen, setIsOpen] = useState(true);
 
@@ -78,6 +78,11 @@ export function renderSidebar(pageType, sections){
     });
   }, []);
 
+  let authorSectionLink
+  if(authors){
+    authorSectionLink = <a key={ sections.length } onClick={ () => { scrollSectionIntoView("authors-section")  } } className="page-sidebar-link">Authors</a>
+  }
+
   
   return (
     <div className={ isOpen ? "page-sidebar sidebar-open" : "page-sidebar" } >
@@ -86,6 +91,7 @@ export function renderSidebar(pageType, sections){
         {<div className="page-sidebar-title mobile-hidden">In This { pageTypeName }</div> }
       </div>
       { isOpen && sections.map( (section, index) => { return renderSidebarSection(section, index) }) }
+      { authorSectionLink }
     </div>
   )
 }
@@ -100,12 +106,12 @@ export function renderSidebarSection(section, key){
   }
 
   return (
-    <a key={ key } onClick={ () => { scrollSectionIntoView(section)  } } className="page-sidebar-link" dangerouslySetInnerHTML={{ __html: decode(title) }} />
+    <a key={ key } onClick={ () => { scrollSectionIntoView(section.id)  } } className="page-sidebar-link" dangerouslySetInnerHTML={{ __html: decode(title) }} />
   )
 }
 
-function scrollSectionIntoView(section){
-  let ele = document.getElementById(section.id)
+function scrollSectionIntoView(sectionId){
+  let ele = document.getElementById(sectionId)
   ele.scrollIntoView({behavior: "smooth", block: "start"})
 }
 

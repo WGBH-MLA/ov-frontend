@@ -976,6 +976,18 @@ div.guids-block-title p {
   margin-right: 2rem;
 }
 
+@media only screen and (orientation: portrait){
+  div.pagelink {
+    height: 22vh;
+    max-height: 22vh;
+  }
+
+  div.pagelink h4.pagelink-title {
+    max-height: 4vh;
+    height: 4vh;
+  }
+}
+
 
 @media only screen and (min-width: 601px){
   #mobile-menu {
