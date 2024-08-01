@@ -1,11 +1,13 @@
 import { decode } from "html-entities"
 import { Link, useLoaderData } from "@remix-run/react"
-import { renderAuthorBubble, renderPageLink, renderPageLinks, renderSidebar, renderSidebarSection, renderPageTitleBar } from "./pageHelpers"
+import { renderAuthorBubble, renderPageLink, renderPageLinks, renderSidebar, renderSidebarSection, renderPageTitleBar, renderFootnoteSection } from "./pageHelpers"
 import { renderBlocks, renderBlock, textContent, headingContent } from "./contentHelpers"
 
 export function renderExhibit(exhibit){
   let showAuthors = exhibit.authors && exhibit.authors.length > 0 && exhibit.authors[0].name
   let sidebar = renderSidebar("exhibit", exhibit.body.filter( (block) => block.type == "heading"), showAuthors)  
+
+  console.log( 'you know i exhibit that', exhibit )
 
   let titleBar
   if(exhibit.title){
@@ -82,7 +84,7 @@ export function renderExhibit(exhibit){
   
     let bubbles
     if(exhibit.authors){
-      bubbles = exhibit.authors.map((author) => renderAuthorBubble(author, "stack"))
+      bubbles = exhibit.authors.map((author, index) => renderAuthorBubble(author, "stack", index))
     }
     exhibitAuthor = (
       <div className="page-authorbubble-stacked">
@@ -97,6 +99,11 @@ export function renderExhibit(exhibit){
     bodyContent = renderBlocks(exhibit.body)
   }
 
+  let footnoteSection
+  if(exhibit.footnotes.length > 0){
+    footnoteSection = renderFootnoteSection(exhibit.footnotes)
+  }
+
   return (
     <div>
       <div className="page-container">
@@ -108,6 +115,8 @@ export function renderExhibit(exhibit){
 
           <div className="page-body">
             { bodyContent }
+
+            { footnoteSection }
 
             { authorsTitle }
             { authorBios }

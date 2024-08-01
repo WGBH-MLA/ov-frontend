@@ -2,7 +2,7 @@ import { decode } from "html-entities"
 import { MenuIcon } from "./mobileMenu"
 import { useState, useEffect } from 'react';
 
-export function renderAuthorBubble(author, style){
+export function renderAuthorBubble(author, style, key){
   let classes = "author-bubble"
   if(style == "attach"){
     // this sticks to bottom right of parent box
@@ -13,7 +13,7 @@ export function renderAuthorBubble(author, style){
 
   if(author){
     return (
-      <div style={{ backgroundImage: author.image ? "url(" + author.image.full_url + ")" : "" }} className={ classes }>
+      <div key={ key } style={{ backgroundImage: author.image ? "url(" + author.image.full_url + ")" : "" }} className={ classes }>
       </div>
     )
   } 
@@ -129,6 +129,21 @@ export function renderPageTitleBar(title, hero_image_url, subtitle=null){
         { title }
         { subtitleContainer }
       </h1>
+    </div>
+  )
+}
+
+export function renderFootnoteSection(footnotes){
+  var notes = footnotes.map( (footnote, index) => {
+    return (
+      <a key={ index } href={ `#footnote-${ index }` } id={ footnote.uuid } className="footnote-text" dangerouslySetInnerHTML={{ __html: decode(footnote.text) }}  />
+    )
+  })
+
+  return (
+    <div id="footnote-section">
+      <h3>Footnotes</h3> 
+      { notes }
     </div>
   )
 }

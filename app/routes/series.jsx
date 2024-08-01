@@ -29,20 +29,20 @@ export default class Series extends Component {
 
   render(){
 
-    let alphabetLinks = Object.keys(seriesData).map( (letter) => { return (<a className="series-alphabet-link" href={ "#series-"+letter.toLowerCase() } >{ letter }</a>) } )
+    let alphabetLinks = Object.keys(seriesData).map( (letter, index) => { return (<a key={index} className="series-alphabet-link" href={ "#series-"+letter.toLowerCase() } >{ letter }</a>) } )
 
-    let seriesAlphaGroups = Object.keys(seriesData).map( (letter) => {
+    let seriesAlphaGroups = Object.keys(seriesData).map( (letter, index) => {
       let seriesGroup = seriesData[letter]
       if(this.state.seriesSearch.length > 0){
         seriesGroup = seriesGroup.filter( (title) => title.toLowerCase().includes(this.state.seriesSearch) )
       }
       
-      seriesGroup = seriesGroup.map( (title) => { return <a className="series-link" href={ `${ this.state.aapb_host }/catalog?f[series_titles][]=${ title }&q=+(contributing_organizations: WGBH(MA) OR producing_organizations: WGBH Educational Foundation)&f[access_types][]=all` } >{ title }</a> })
+      seriesGroup = seriesGroup.map( (title, groupIndex) => { return <a key={groupIndex} className="series-link" href={ `${ this.state.aapb_host }/catalog?f[series_titles][]=${ title }&q=+(contributing_organizations: WGBH(MA) OR producing_organizations: WGBH Educational Foundation)&f[access_types][]=all` } >{ title }</a> })
 
       if(seriesGroup.length > 0)
       return(
-        <div className="series-group">
-          <div id={ "series-"+letter.toLowerCase() } className="series-group-letter">{ letter }</div>
+        <div key={index} className="series-group">
+          <div  id={ "series-"+letter.toLowerCase() } className="series-group-letter">{ letter }</div>
           { seriesGroup }
         </div>
       )
