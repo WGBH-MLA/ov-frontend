@@ -1,6 +1,7 @@
 import { decode } from "html-entities"
 import { MenuIcon } from "./mobileMenu"
 import { useState, useEffect } from 'react';
+import { renderToString } from 'react-dom/server'
 
 export function renderAuthorBubble(author, style, key){
   let classes = "author-bubble"
@@ -17,7 +18,6 @@ export function renderAuthorBubble(author, style, key){
       </div>
     )
   } 
-  
 }
 
 export function renderPageLink(pageType, page, key){
@@ -26,7 +26,7 @@ export function renderPageLink(pageType, page, key){
   if(page.authors && page.authors.length > 0 && page.authors[0].name){
     let author = page.authors[0]
     if(author.image){
-      // can't really have authorbubblewithout an author image!
+      // can't really have authorbubble without an author image!
       authorBubble = renderAuthorBubble(author, "attach")
     }
     authorLink = (
@@ -124,7 +124,7 @@ export function renderPageTitleBar(title, hero_image_url, subtitle=null){
   }
 
   return (
-    <div className="page-titlebar" style={{ backgroundImage: "url(" + hero_image_url + ")" }}>
+    <div className="page-titlebar" style={{ backgroundImage: `url(${ hero_image_url })` }}>
       <h1 className="page-titlebar-title">
         { title }
         { subtitleContainer }
@@ -133,17 +133,51 @@ export function renderPageTitleBar(title, hero_image_url, subtitle=null){
   )
 }
 
+export function renderFootnoteContent(footnote, index){
+  return (
+    <li key={ index }>
+      <a href={ `#footnote-${ index }` } id={  ovFootnoteSlug(footnote.uuid)  } className="footnote-text" dangerouslySetInnerHTML={{ __html: decode(footnote.text) }}  />
+    </li>
+  )
+}
+
 export function renderFootnoteSection(footnotes){
   var notes = footnotes.map( (footnote, index) => {
-    return (
-      <a key={ index } href={ `#footnote-${ index }` } id={ footnote.uuid } className="footnote-text" dangerouslySetInnerHTML={{ __html: decode(footnote.text) }}  />
-    )
+    return renderFootnoteContent(footnote, index)
   })
 
   return (
     <div id="footnote-section">
       <h3>Footnotes</h3> 
-      { notes }
+      <ul>
+        { notes }
+      </ul>
     </div>
+  )
+}
+
+export function ovFootnoteSlug(uuid){
+  // um wagtail pastes just the first six characters of uuid field as text in the <footnote> element
+  return uuid.slice(0,6)
+}
+
+export function renderFootnotesInBody(body, footnotes){
+  footnotes.map( (footnote, index) => {
+    body = body.map( (contentBlock) => {
+      if( contentBlock.value.includes( `<footnote id="${footnote.uuid}">[${ ovFootnoteSlug(footnote.uuid) }]<\/footnote>` ) ){
+        // this crazy right here
+        contentBlock.value = contentBlock.value.replace(`<footnote id="${footnote.uuid}">[${ ovFootnoteSlug(footnote.uuid) }]<\/footnote>`, renderToString(renderFootnoteLink(footnote, index)) )
+      }
+
+      return contentBlock
+    })
+  })
+
+  return body
+}
+
+export function renderFootnoteLink(footnote, number){
+  return (
+    <a className="footnote-link" id={ `footnote-${number}` } href={ `#${ ovFootnoteSlug(footnote.uuid) }` }>{ number }</a>
   )
 }

@@ -1,13 +1,13 @@
 import { decode } from "html-entities"
 import { Link, useLoaderData } from "@remix-run/react"
-import { renderAuthorBubble, renderPageLink, renderPageLinks, renderSidebar, renderSidebarSection, renderPageTitleBar, renderFootnoteSection } from "./pageHelpers"
+import { renderAuthorBubble, renderPageLink, renderPageLinks, renderSidebar, renderSidebarSection, renderPageTitleBar, renderFootnoteSection, renderFootnotesInBody } from "./pageHelpers"
 import { renderBlocks, renderBlock, textContent, headingContent } from "./contentHelpers"
 
 export function renderExhibit(exhibit){
   let showAuthors = exhibit.authors && exhibit.authors.length > 0 && exhibit.authors[0].name
   let sidebar = renderSidebar("exhibit", exhibit.body.filter( (block) => block.type == "heading"), showAuthors)  
 
-  console.log( 'you know i exhibit that', exhibit )
+  // console.log( 'you know i exhibit that', exhibit )
 
   let titleBar
   if(exhibit.title){
@@ -94,15 +94,19 @@ export function renderExhibit(exhibit){
     )
   }
 
+
+  let footnoteSection
+  if(exhibit.footnotes.length > 0){
+    footnoteSection = renderFootnoteSection(exhibit.footnotes)
+    exhibit.body = renderFootnotesInBody(exhibit.body, exhibit.footnotes)
+  }
+
+
   let bodyContent
   if(exhibit.body && exhibit.body.length > 0){
     bodyContent = renderBlocks(exhibit.body)
   }
 
-  let footnoteSection
-  if(exhibit.footnotes.length > 0){
-    footnoteSection = renderFootnoteSection(exhibit.footnotes)
-  }
 
   return (
     <div>
