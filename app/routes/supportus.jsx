@@ -1,7 +1,7 @@
 import { renderPageTitleBar } from "../classes/pageHelpers"
 
 export default function SupportUs() {
-  let titleBar = renderPageTitleBar("Support Us", "https://s3.amazonaws.com/openvault.wgbh.org/carousel/press-and-the-people-q-80.jpg", "Help us preserve and provide access to GBH's historic collection of programs for years to come!")
+  let titleBar = renderPageTitleBar("Support Us", "https://s3.amazonaws.com/openvault.wgbh.org/carousel/BB50th_DSC_0384Wide.jpg", "Help us preserve and provide access to GBH's historic collection of programs for years to come!")
 
   return (
     <div>

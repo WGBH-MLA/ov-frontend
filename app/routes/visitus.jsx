@@ -4,7 +4,7 @@ import { renderPageTitleBar } from "../classes/pageHelpers"
 
 
 export default function VisitUs() {
-  let titleBar = renderPageTitleBar("Visit Us", "https://s3.amazonaws.com/openvault.wgbh.org/carousel/press-and-the-people-q-80.jpg", "Members of the general public are welcome to access the GBH Archives' collections in the GBH offices in Brighton, MA.")
+  let titleBar = renderPageTitleBar("Visit Us", "https://s3.amazonaws.com/openvault.wgbh.org/carousel/boston-tv-news-q-80.jpg", "Members of the general public are welcome to access the GBH Archives' collections in the GBH offices in Brighton, MA.")
 
   return (
     <div>
@@ -24,7 +24,7 @@ export default function VisitUs() {
             <hr className="spaced-hr" />
 
             <div className="static-halfbox purple bold">
-              <img src="https://s3.amazonaws.com/openvault.wgbh.org/carousel/press-and-the-people-q-80.jpg" />
+              <img src="https://s3.amazonaws.com/openvault.wgbh.org/logos/GBH_Archives_rgb_color.png" />
             </div>
             <div className="static-halfbox purple bold">
               Please contact GBH Archives at archive_requests@wgbh.org and state the nature of your research interest and your academic or professional affiliation.
