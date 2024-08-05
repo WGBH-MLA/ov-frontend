@@ -135,8 +135,8 @@ export function renderPageTitleBar(title, hero_image_url, subtitle=null){
 
 export function renderFootnoteContent(footnote, index){
   return (
-    <li key={ index }>
-      <a href={ `#footnote-${ index }` } id={  ovFootnoteSlug(footnote.uuid)  } className="footnote-text" dangerouslySetInnerHTML={{ __html: decode(footnote.text) }}  />
+    <li className="footnote-content" key={ index }>
+      <a href={ `#footnote-${ index+1 }` } id={  ovFootnoteSlug(footnote.uuid)  } className="footnote-text" dangerouslySetInnerHTML={{ __html: decode(footnote.text) }}  />
     </li>
   )
 }
@@ -166,7 +166,7 @@ export function renderFootnotesInBody(body, footnotes){
     body = body.map( (contentBlock) => {
       if( contentBlock.value.includes( `<footnote id="${footnote.uuid}">[${ ovFootnoteSlug(footnote.uuid) }]<\/footnote>` ) ){
         // this crazy right here
-        contentBlock.value = contentBlock.value.replace(`<footnote id="${footnote.uuid}">[${ ovFootnoteSlug(footnote.uuid) }]<\/footnote>`, renderToString(renderFootnoteLink(footnote, index)) )
+        contentBlock.value = contentBlock.value.replace(`<footnote id="${footnote.uuid}">[${ ovFootnoteSlug(footnote.uuid) }]<\/footnote>`, renderToString(renderFootnoteLink(footnote, index+1)) )
       }
 
       return contentBlock

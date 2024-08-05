@@ -117,10 +117,6 @@ a.series-alphabet-link {
   padding-right: 0.6vw;
 }
 
-p, li {
-/*  line-height: clamp(1.8em, 1.8em, 4em);*/
-}
-
 ul {
   margin-block-start: 0;
 }
@@ -128,6 +124,7 @@ ul {
 ul.numbered-list {
   list-style: number;
 }
+
 
 div.carousel-container {
   overflow: hidden;
@@ -529,6 +526,21 @@ div.author-bio {
   font-size: 0.8em;
   white-space: nowrap;
 }
+
+
+/* footnotes  */
+a.footnote-link {
+  font-size: 0.6em;
+  top: 0.5em;
+  position: relative;
+  padding: 0.3em;
+}
+
+li.footnote-content {
+  list-style: number;
+}
+
+/* ex and spec pages */
 
 div.page-body-container {
   margin-top: 2rem;
@@ -1195,6 +1207,7 @@ div.guids-block-title p {
     display: block;
     width: 92vw;
   }
+
 
   /* footer */
   div.bottom-bar-container {
