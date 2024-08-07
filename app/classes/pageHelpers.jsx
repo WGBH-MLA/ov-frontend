@@ -76,11 +76,11 @@ export function renderSidebar(pageType, sections, authors=false){
         var sbLinks = document.getElementsByClassName("page-sidebar-link")
         if(sbLinks.length > 0){
           // there could be no sidebar elements if ex has no authors and no headings
-          
+
           var lastSbLink = sbLinks[ sbLinks.length - 1 ]
           var sbRect = lastSbLink.getBoundingClientRect()
           var clientTop = document.documentElement.clientTop || document.body.clientTop || 0;
-          var top = sbRect.top +  scrollTop - clientTop;
+          var top = sbRect.top + scrollTop - clientTop;
 
           var distanceFromBottom = document.body.scrollHeight - top + sbRect.height
 
@@ -108,7 +108,6 @@ export function renderSidebar(pageType, sections, authors=false){
   if(authors){
     authorSectionLink = <a key={ sections.length } onClick={ () => { scrollSectionIntoView("authors-section")  } } className="page-sidebar-link">Authors</a>
   }
-
   
   return (
     <div className={ isOpen ? "page-sidebar sidebar-open" : "page-sidebar" } >
