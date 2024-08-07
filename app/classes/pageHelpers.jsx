@@ -60,21 +60,47 @@ export function renderPageLinks(pageType, pages){
 
 export function renderSidebar(pageType, sections, authors=false){
   let pageTypeName = pageType === "exhibit" ? "Exhibit" : "Collection"
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(true)
 
   useEffect(() => {
-    let lastScrollTop = 0;
-    const sidebarMenu = document.getElementsByClassName('page-sidebar')[0];
-    const initialSidebarTop = sidebarMenu?.offsetTop;
+    const sidebarMenu = document.getElementsByClassName('page-sidebar')[0]
+    const initialSidebarTop = sidebarMenu?.offsetTop
+
 
     window.addEventListener('scroll', function() {
       let scrollTop = document.documentElement.scrollTop;
       if (scrollTop > initialSidebarTop) {
-        sidebarMenu.style.top = "0";
+        // bar is at top position
+
+        var distanceFromBottom
+        var sbLinks = document.getElementsByClassName("page-sidebar-link")
+        if(sbLinks.length > 0){
+          // there could be no sidebar elements if ex has no authors and no headings
+          
+          var lastSbLink = sbLinks[ sbLinks.length - 1 ]
+          var sbRect = lastSbLink.getBoundingClientRect()
+          var clientTop = document.documentElement.clientTop || document.body.clientTop || 0;
+          var top = sbRect.top +  scrollTop - clientTop;
+
+          var distanceFromBottom = document.body.scrollHeight - top + sbRect.height
+
+          if(distanceFromBottom/document.body.scrollHeight < 0.36){
+            // bar is close enough (36vh) to the footer, stop
+
+            sidebarMenu.style.position = "sticky"
+            // sidebarMenu.style.backgroundColor = "#f00"
+          } else {
+            sidebarMenu.style.top = "0"
+            // sidebarMenu.style.backgroundColor = "#0f0"
+          }
+        }
+        
       } else {
-        sidebarMenu.style.top = initialSidebarTop - scrollTop + "px";
+        // sidebar is in top position (page header showing)
+        sidebarMenu.style.top = initialSidebarTop - scrollTop + "px"
+        // sidebarMenu.style.backgroundColor = "#00f"
       }
-      lastScrollTop = scrollTop;
+
     });
   }, []);
 
@@ -164,7 +190,7 @@ export function ovFootnoteSlug(uuid){
 export function renderFootnotesInBody(body, footnotes){
   footnotes.map( (footnote, index) => {
     body = body.map( (contentBlock) => {
-      if( contentBlock.value.includes( `<footnote id="${footnote.uuid}">[${ ovFootnoteSlug(footnote.uuid) }]<\/footnote>` ) ){
+      if( contentBlock.type == "text" && contentBlock.value.includes( `<footnote id="${footnote.uuid}">[${ ovFootnoteSlug(footnote.uuid) }]<\/footnote>` ) ){
         // this crazy right here
         contentBlock.value = contentBlock.value.replace(`<footnote id="${footnote.uuid}">[${ ovFootnoteSlug(footnote.uuid) }]<\/footnote>`, renderToString(renderFootnoteLink(footnote, index+1)) )
       }
