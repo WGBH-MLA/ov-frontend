@@ -98,14 +98,15 @@ export function ErrorBoundary() {
       </head>
       <body>
         <NavigationBar />
-        {isRouteErrorResponse(error) ? (<>
-          <h1>{error.status} error</h1>
-          <h3>{error.data}</h3>
-          </>
+        {isRouteErrorResponse(error) ? (
+          <div className="error-box">
+            <h1>{error.status} error</h1>
+            <h3>{error.data}</h3>
+            <p>Oops! Something went wrong. Please try again later.</p>
+          </div>
         ) : (
           <h1>Oh no!</h1>
         )}
-        <p>Oops! Something went wrong. Please try again later.</p>
         <Footer />
         <ScrollRestoration />
         <Scripts />

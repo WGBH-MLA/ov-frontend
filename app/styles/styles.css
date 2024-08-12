@@ -60,6 +60,12 @@ ul.numbered-list {
   list-style: number;
 }
 
+
+div.error-box {
+  margin-left: 2rem;
+}
+
+/*carousel*/
 div.carousel-container {
   overflow: hidden;
 }
