@@ -3,8 +3,8 @@ import { getExhibit } from "../exhibit"
 import { renderExhibit } from "../classes/exhibitPresenter"
 
 export const loader = async ( { params } ) => {
-  console.log( 'exx id ', params )
-  return await getExhibit( params.exhibitId )
+  console.log( 'exx path ', params )
+  return await getExhibit( params.exhibitPath )
 }
 
 export default function Exhibits() {

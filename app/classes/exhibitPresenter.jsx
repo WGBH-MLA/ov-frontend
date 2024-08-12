@@ -94,19 +94,16 @@ export function renderExhibit(exhibit){
     )
   }
 
-
   let footnoteSection
   if(exhibit.footnotes.length > 0){
     footnoteSection = renderFootnoteSection(exhibit.footnotes)
     exhibit.body = renderFootnotesInBody(exhibit.body, exhibit.footnotes)
   }
 
-
   let bodyContent
   if(exhibit.body && exhibit.body.length > 0){
     bodyContent = renderBlocks(exhibit.body)
   }
-
 
   return (
     <div>

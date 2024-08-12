@@ -541,6 +541,31 @@ a.footnote-link {
 
 li.footnote-content {
   list-style: number;
+/*  display: block;
+  width: 20vw;*/
+}
+
+li.footnote-content a {
+  min-width: 20vw;
+  display: inline-block;
+}
+
+li.footnote-content a::before {
+  display: inline-block;
+  min-height: 1em;
+  height: 1em;
+  min-width: 1em;
+  width: 1em;
+  background-image: none;
+  background-size: cover;
+  object-fit: cover;
+  content: " ";
+  background-image: none;
+  float: right;
+}
+
+li.footnote-content:hover > a::before {
+  background-image: url("/public/backarrow.png");
 }
 
 /* ex and spec pages */
