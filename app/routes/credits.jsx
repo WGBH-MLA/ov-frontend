@@ -37,7 +37,7 @@ export default function Credits() {
               </div>
             </div>
             <div className="static-halfbox small-text spaced org-logos">
-              <img src="/public/imls.jpg" />
+              <img src="/imls.jpg" />
             </div>
 
             <div className="static-halfbox small-text">
@@ -46,7 +46,7 @@ export default function Credits() {
               </div>
             </div>
             <div className="static-halfbox small-text spaced org-logos">
-              <img src="/public/macfound.jpg" />
+              <img src="/macfound.jpg" />
             </div>
 
             <div className="static-halfbox small-text">
@@ -55,7 +55,7 @@ export default function Credits() {
               </div>
             </div>
             <div className="static-halfbox small-text spaced org-logos">
-              <img src="/public/mellon.png" />
+              <img src="/mellon.png" />
             </div>
 
             <h2>Open Vault Credits</h2>

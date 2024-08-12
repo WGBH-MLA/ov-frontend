@@ -126,6 +126,11 @@ ul.numbered-list {
 }
 
 
+div.error-box {
+  margin-left: 2rem;
+}
+
+/*carousel*/
 div.carousel-container {
   overflow: hidden;
 }
@@ -244,7 +249,7 @@ div.series-search-button {
   width:  3vw;
   height:  2vw;
   max-height: 2em;
-  background-image: url("/public/magnifying_glass.png");
+  background-image: url("/magnifying_glass.png");
   background-size: 40%;
   background-position: center;
   background-repeat: no-repeat;

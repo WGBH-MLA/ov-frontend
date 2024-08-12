@@ -22,4 +22,5 @@ export async function getExhibit(path) {
       return await fetch(`${process.env.OV_API_URL}/api/v2/exhibits/${ body.items[0].id }`)
     }
   }
+
 }

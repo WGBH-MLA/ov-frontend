@@ -14,7 +14,7 @@ export function renderCollection(collection){
     if(collection.hero_image){
       hero = collection.hero_image.full_url
     } else {
-      hero = "/public/gbh-mural.jpg"
+      hero = "/gbh-mural.jpg"
     }
 
     titleBar = renderPageTitleBar(collection.title, hero)

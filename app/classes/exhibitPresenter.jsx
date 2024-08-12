@@ -16,7 +16,7 @@ export function renderExhibit(exhibit){
     if(exhibit.hero_image){
       hero = exhibit.hero_image.full_url
     } else {
-      hero = "/public/gbh-mural.jpg"
+      hero = "/gbh-mural.jpg"
     }
 
     titleBar = renderPageTitleBar(exhibit.title, hero)
