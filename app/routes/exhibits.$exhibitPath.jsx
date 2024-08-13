@@ -1,18 +1,36 @@
-import { useLoaderData } from "@remix-run/react"
-import { getExhibit } from "../exhibit"
-import { renderExhibit } from "../classes/exhibitPresenter"
+import {
+  useLoaderData,
+  useRouteError,
+  isRouteErrorResponse,
+} from '@remix-run/react'
+import { getExhibit } from '../exhibit'
+import { renderExhibit } from '../classes/exhibitPresenter'
 
-export const loader = async ( { params } ) => {
-  console.log( 'exx path ', params )
-  return await getExhibit( params.exhibitPath )
+export const loader = async ({ params }) => {
+  console.log('exx path ', params)
+  let exhibit = await getExhibit(params.exhibitPath)
+  console.log('exhibit loader', exhibit)
+  return exhibit
 }
 
-export default function Exhibits() {
+export default function Exhibit() {
   const exhibit = useLoaderData()
-
-  if(!exhibit){
-    return <div className="page-body-container">Exhibit was not found!</div>
-  }
+  console.log('exhibit', exhibit)
 
   return renderExhibit(exhibit)
+}
+
+export function ErrorBoundary() {
+  const error = useRouteError()
+  if (isRouteErrorResponse(error)) {
+    console.error('exhibit error', error)
+    if (error.status !== 404) throw error
+    return (
+        <div className="page-body-container">
+          <h1>Exhibit not found</h1>
+          <h3>{error.data}</h3>
+          Check your spelling, or try another exhibit.
+        </div>
+    )
+  }
 }
