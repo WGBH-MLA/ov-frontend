@@ -1,6 +1,6 @@
-import { Link, useLoaderData } from "@remix-run/react"
-import { getCollections } from "../collection"
-import { renderPageLinks } from "../classes/pageHelpers"
+import { Link, useLoaderData } from '@remix-run/react'
+import { getCollections } from '../fetch'
+import { renderPageLinks } from '../classes/pageHelpers'
 
 export const loader = async () => {
   return await getCollections()
@@ -13,9 +13,5 @@ export default function Collections() {
   specs = useLoaderData()
   let collectionLinks = renderPageLinks('collections', specs.items)
 
-  return (
-    <div className="pagelinks-container">
-      { collectionLinks }
-    </div>
-  )
+  return <div className="pagelinks-container">{collectionLinks}</div>
 }
