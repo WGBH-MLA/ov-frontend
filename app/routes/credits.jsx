@@ -1,8 +1,7 @@
 import { renderPageTitleBar } from "../classes/pageHelpers"
 
 export default function Credits() {
-  let titleBar = renderPageTitleBar("Funders & Credits", "https://s3.amazonaws.com/openvault.wgbh.org/carousel/press-and-the-people-q-80.jpg")
-
+  let titleBar = renderPageTitleBar("Funders & Credits", "https://s3.amazonaws.com/openvault.wgbh.org/carousel/2mobile3.jpg")
   return (
     <div>
       <div className="page-container">

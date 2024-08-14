@@ -1,8 +1,8 @@
 import { Link, useLoaderData } from "@remix-run/react"
-import { renderAuthorBubble, renderPageLink, renderPageLinks, renderSidebar, renderSidebarSection, renderPageTitleBar } from "../classes/pageHelpers"
+import { renderPageTitleBar } from "../classes/pageHelpers"
 
 export default function Terms() {
-  let titleBar = renderPageTitleBar("Terms And Conditions", "https://s3.amazonaws.com/openvault.wgbh.org/carousel/press-and-the-people-q-80.jpg")
+  let titleBar = renderPageTitleBar("Terms And Conditions", "https://s3.amazonaws.com/openvault.wgbh.org/carousel/DickPleasantsWide.jpeg")
 
   return (
     <div>
