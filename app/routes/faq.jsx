@@ -1,4 +1,4 @@
-import { renderAuthorBubble, renderPageLink, renderPageLinks, renderSidebar, renderSidebarSection, renderPageTitleBar } from "../classes/pageHelpers"
+import { renderPageTitleBar } from "../classes/pageHelpers"
 
 export default function FAQ() {
   return (

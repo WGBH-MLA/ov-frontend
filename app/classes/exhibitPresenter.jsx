@@ -1,16 +1,13 @@
 import { decode } from "html-entities"
 import { Link, useLoaderData } from "@remix-run/react"
-import { renderAuthorBubble, renderPageLink, renderPageLinks, renderSidebar, renderSidebarSection, renderPageTitleBar } from "./pageHelpers"
+import { renderAuthorBubble, renderPageLink, renderPageLinks, renderSidebar, renderSidebarSection, renderPageTitleBar, renderFootnoteSection, renderFootnotesInBody } from "./pageHelpers"
 import { renderBlocks, renderBlock, textContent, headingContent } from "./contentHelpers"
 
 export function renderExhibit(exhibit){
-  let sections
-  if(exhibit.sections){
-    sections = exhibit.sections
-  } else {
-    sections = []
-  }
-  let sidebar = renderSidebar("exhibit", exhibit.body.filter( (block) => block.type == "heading") )
+  let showAuthors = exhibit.authors && exhibit.authors.length > 0 && exhibit.authors[0].name
+  let sidebar = renderSidebar("exhibit", exhibit.body.filter( (block) => block.type == "heading"), showAuthors)  
+
+  // console.log( 'you know i exhibit that', exhibit )
 
   let titleBar
   if(exhibit.title){
@@ -47,18 +44,60 @@ export function renderExhibit(exhibit){
     )
   }
 
-  let exhibitAuthor
-  if(exhibit.authors && exhibit.authors.length > 0){
+  let exhibitAuthor, authorBios, authorsTitle
+  if(showAuthors){
+    // a blank (unspecified) author is currently valid
+    authorsTitle = <h3 id="authors-section" className="page-authors-title">{ exhibit.authors.length > 1 ? "Authors" : "Author" }</h3>
+
+    authorBios = exhibit.authors.map( (author, index) => {
+      let bio
+      if(author.bio){
+        bio = (
+          <div className="author-bio" dangerouslySetInnerHTML={{ __html: decode(author.bio) }} />
+        )
+      }
+
+      return (
+        <div key={ index } className="page-authorbubble-bottom-container">
+          { renderAuthorBubble(author) }
+          <div className="author-extras-bottom">
+            <div className="author-byline">
+              <div>{ author.name }</div>
+            </div>
+            { bio }
+          </div>
+        </div>
+      )
+    })
+    
     let byline = (
       <div className="author-byline">
-        By { exhibit.authors[0].name }
+        <div>By { exhibit.authors.map((author) => { return author.name }).join(", ") }</div>
       </div>
     )
+
+    let extras = (
+      <div className="author-extras">
+        { byline }
+      </div>
+    )
+  
+    let bubbles
+    if(exhibit.authors){
+      bubbles = exhibit.authors.map((author, index) => renderAuthorBubble(author, "stack", index))
+    }
     exhibitAuthor = (
-      <div className="page-authorbubble-container">
-        { renderAuthorBubble(exhibit.authors[0]) } { byline }
+      <div className="page-authorbubble-stacked">
+        { bubbles }
+        { extras }
       </div>
     )
+  }
+
+  let footnoteSection
+  if(exhibit.footnotes.length > 0){
+    footnoteSection = renderFootnoteSection(exhibit.footnotes)
+    exhibit.body = renderFootnotesInBody(exhibit.body, exhibit.footnotes)
   }
 
   let bodyContent
@@ -77,6 +116,11 @@ export function renderExhibit(exhibit){
 
           <div className="page-body">
             { bodyContent }
+
+            { footnoteSection }
+
+            { authorsTitle }
+            { authorBios }
           </div>
         </div>
 
