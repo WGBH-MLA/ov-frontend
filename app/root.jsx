@@ -103,7 +103,8 @@ export function ErrorBoundary() {
           {isRouteErrorResponse(error) ? (
             <>
               <h1>{error.status} error</h1>
-              {error.data}
+              <h3>{error.data}</h3>
+              <p>{error.statusText}</p>
             </>
           ) : (
             <>

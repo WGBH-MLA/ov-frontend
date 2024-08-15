@@ -1,22 +1,50 @@
-import { useLoaderData, useRouteError } from '@remix-run/react'
-// import { ErrorBoundary } from './exhibits.$exhibitPath'
+import { useRouteError } from '@remix-run/react'
+import { redirectDocument } from '@remix-run/node'
 
 export const loader = async ({ params }) => {
-  return params.catalogId
+  let guid = await resolveCatalog(params.catalogId)
+  console.log(`Redirecting old OV id: ${params.catalogId} to AAPB guid: ${guid}`)
+
+  return redirectDocument(`https://americanarchive.org/catalog/${guid}`)
 }
 
-export default function Catalog() {
-  const id = useLoaderData()
-
-  if (!id) {
-    throw new Response('No ID provided', { status: 400 })
-  }
-
+export async function resolveCatalog(id) {
   if (!id.startsWith('A_') && !id.startsWith('V_')) {
-    throw new Response(`Invalid Open Vault Catalog ID: ${id}`, { status: 400, statusText: 'Open Vault Catalog IDs start with "A_" or "V_"' })
+    throw new Response(`Invalid Open Vault Catalog ID: ${id}`, {
+      status: 400,
+      statusText: 'Open Vault Catalog IDs start with "A_" or "V_"',
+    })
   }
+  console.log('checking OV id', id)
 
-  return id
+  // Check Organ for a matching OV catalog ID
+  const guid = await fetch(`${process.env.ORGAN_URL}/ov/get/${id}`).then(
+    res => {
+      if (res.status === 404) {
+        throw new Response(`Catalog ID not found: ${id}`, {
+          status: 404,
+          statusText: 'No matching GUID found for Open Vault Catalog ID',
+        })
+      }
+      if (res.status !== 200) {
+        throw new Response(`Error fetching catalog ID`, {
+          status: res.status,
+          statusText: res.statusText,
+        })
+      }
+      return res.json()
+    }
+  )
+  .catch(err => {
+    if (err instanceof Response) throw err
+    throw new Response(`Error fetching catalog ID`, {
+      status: 500,
+      statusText: 'An error occured while resolving this old Open Vault catalog ID. Please try again later.',
+    })
+  })
+  console.log('Resolved guid!', guid)
+  // It's an older code, sir, but it checks out. I was about to redirect them.
+  return guid.guid
 }
 
 export const ErrorBoundary = () => {
@@ -24,7 +52,11 @@ export const ErrorBoundary = () => {
   console.log('cat error', error)
   return (
     <div className="page-body-container">
-      <h1>Not found</h1>
+      {error.status === 404 ? (
+        <h1>Not found</h1>
+      ) : (
+        <h1>{error.status} Error</h1>
+      )}
       <h3>{error.data}</h3>
       <div>{error.statusText}</div>
     </div>
