@@ -1,10 +1,12 @@
 import {
+  isRouteErrorResponse,
   Links,
   Meta,
   Outlet,
   Scripts,
   ScrollRestoration,
   useLoaderData,
+  useRouteError,
 } from '@remix-run/react'
 import { json } from '@remix-run/node'
 import { useEffect } from 'react'
@@ -33,8 +35,9 @@ export async function loader() {
   // lift these env vars from process.env so they can be injected into window
   return json({
     ENV: {
-      AAPB_HOST: process.env.AAPB_HOST || 'https://demo.aapb.wgbh-mla.org',
+      AAPB_HOST: process.env.AAPB_HOST || 'https://americanarchive.org',
       OV_API_URL: process.env.OV_API_URL || 'http://localhost:8000',
+      ORGAN_URL: process.env.ORGAN_URL || 'http://localhost:9000',
     },
   })
 }
@@ -77,6 +80,42 @@ export default function App() {
         />
         <Footer />
 
+        <ScrollRestoration />
+        <Scripts />
+      </body>
+    </html>
+  )
+}
+
+export function ErrorBoundary() {
+  const error = useRouteError()
+  console.log('error', error)
+  return (
+    <html lang="en">
+      <head>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>Oh no!</title>
+        <Links />
+        <link rel="icon" href="/favicon.ico" />
+      </head>
+      <body>
+        <NavigationBar />
+        <div className="page-body-container">
+          {isRouteErrorResponse(error) ? (
+            <>
+              <h1>{error.status} error</h1>
+              <h3>{error.data}</h3>
+              <p>{error.statusText}</p>
+            </>
+          ) : (
+            <>
+              <h1>Oh no!</h1>
+              <p>Oops! Something went wrong. Please try again later.</p>
+            </>
+          )}
+        </div>
+        <Footer />
         <ScrollRestoration />
         <Scripts />
       </body>
