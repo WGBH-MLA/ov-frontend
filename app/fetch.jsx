@@ -19,7 +19,10 @@ export async function getPageBySlug(type, slug) {
     .then(res => res.json())
     .catch(err => {
       console.log('fetch error', err)
-      throw new Response(`Error fetching ${type}`, { status: 500 })
+      throw new Response(`Error fetching ${type}`, {
+        status: 500,
+        statusText: 'Something went wrong. Try again later.',
+      })
     })
   // console.log('exhibit body', body)
   if (body.meta && body.meta.total_count === 0) {
