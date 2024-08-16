@@ -1,5 +1,5 @@
-div.carousel-container {
-  overflow: hidden;
+div.carousel-container .carousel {
+  max-height: 50vh;
 }
 
 div.carousel-container .carousel .control-dots .dot {
@@ -23,8 +23,20 @@ div.carousel-container
   content: '◄';
 }
 
+.carousel .slide img {
+  width: 100vw;
+}
+
 div.carousel-container .carousel .slide .legend {
-  margin-left: -18%;
-  width: 35%;
   font-size: 2rem;
+  top: 0;
+  bottom: unset;
+}
+
+@media screen and (min-width: 768px) {
+  div.carousel-container .carousel .slide .legend {
+    max-width: 50%;
+    left: 25%;
+    margin-left: auto;
+  }
 }
