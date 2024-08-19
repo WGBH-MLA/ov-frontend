@@ -25,18 +25,24 @@ div.carousel-container
 
 .carousel .slide img {
   width: 100vw;
+  max-height: 441px;
+  object-fit: cover;
+
 }
 
 div.carousel-container .carousel .slide .legend {
   font-size: 2rem;
-  top: 0;
+  top: 40%;
   bottom: unset;
+  max-width: 50%;
+  left: 25%;
+  margin-left: auto;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (max-width: 1000px) {
   div.carousel-container .carousel .slide .legend {
-    max-width: 50%;
-    left: 25%;
-    margin-left: auto;
+    top: 0;
+    max-width: 70%;
+    left: 15%;
   }
 }
