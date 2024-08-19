@@ -43,8 +43,10 @@
   --index: 9;
 }
 
-body, h1, h2 {
-  margin:  0;
+body,
+h1,
+h2 {
+  margin: 0;
   font-family: 'Red Hat Display', sans-serif;
 
   margin-block-start: 0;
@@ -53,7 +55,8 @@ body, h1, h2 {
   margin-inline-end: 0;
 }
 
-h1, h2 {
+h1,
+h2 {
   font-family: 'Red Hat Display', sans-serif;
   color: var(--purple);
   font-weight: 500;
@@ -125,37 +128,8 @@ ul.numbered-list {
   list-style: number;
 }
 
-
 div.error-box {
   margin-left: 2rem;
-}
-
-/*carousel*/
-div.carousel-container {
-  overflow: hidden;
-}
-
-div.carousel-container .carousel .control-dots .dot {
-  width: 16px;
-  height: 16px;
-}
-
-div.carousel-container .carousel.carousel-slider button.control-arrow::before {
-  border: 0;
-}
-
-div.carousel-container .carousel.carousel-slider button.control-arrow.control-next::before {
-  content: "►";
-}
-
-div.carousel-container .carousel.carousel-slider button.control-arrow.control-prev::before  {
-  content: "◄";
-}
-
-div.carousel-container .carousel .slide .legend {
-  margin-left: -18%;
-  width: 35%;
-  font-size: 2rem;
 }
 
 h1.series-bigtitle {
@@ -166,7 +140,7 @@ h1.series-bigtitle {
 
 div.series-summary {
   font-size: 1.2em;
-  margin-bottom: 4rem 
+  margin-bottom: 4rem;
 }
 
 div.series-group {
@@ -202,10 +176,9 @@ a.static-link {
   display: inline-block;
   color: var(--blue);
   font-weight: bold;
-  padding:  1em;
+  padding: 1em;
   height: 2.3vh;
 }
-
 
 div.static-halfbox img {
   max-width: 100%;
@@ -231,7 +204,7 @@ hr.spaced-hr {
 }
 
 div.series-search-container input {
-  height:  4vh;
+  height: 4vh;
   max-height: 3em;
   width: 60%;
 }
@@ -246,10 +219,10 @@ div.series-search-button {
   display: inline-block;
   vertical-align: middle;
   background-color: var(--blue);
-  width:  3vw;
-  height:  2vw;
+  width: 3vw;
+  height: 2vw;
   max-height: 2em;
-  background-image: url("/magnifying_glass.png");
+  background-image: url('/magnifying_glass.png');
   background-size: 40%;
   background-position: center;
   background-repeat: no-repeat;
@@ -266,7 +239,7 @@ div.purple-bar-container {
 div.purple-bar-container a.top-title {
   font-family: 'Red Hat Display', sans-serif;
   font-size: 2em;
-  color:  var(--white);
+  color: var(--white);
   margin-left: 4vw;
 }
 
@@ -303,7 +276,7 @@ a.navigation-link {
 a.navigation-link div {
   padding-left: 1rem;
   padding-right: 1rem;
-  text-align:  center;
+  text-align: center;
 }
 
 a.navigation-spacer {
@@ -313,7 +286,7 @@ a.navigation-spacer {
 .affiliated-websites-menu {
   min-width: 200px;
   margin-right: 2rem;
-  right:  0;
+  right: 0;
   text-align: right;
 }
 
@@ -339,15 +312,15 @@ a.navigation-spacer {
 }
 
 .chevron {
-  border-right: .2rem solid; 
-  border-bottom: .2rem solid;
-  border-radius: .2rem;
-  height: .5rem;
-  width: .5rem;
+  border-right: 0.2rem solid;
+  border-bottom: 0.2rem solid;
+  border-radius: 0.2rem;
+  height: 0.5rem;
+  width: 0.5rem;
   transform: rotate(45deg);
   color: var(--purple);
   display: inline-block;
-  margin-left: .5rem;
+  margin-left: 0.5rem;
 }
 
 .drawermenu-items {
@@ -366,14 +339,13 @@ a.navigation-spacer {
 
 .drawer-item:hover {
   background-color: var(--light-gray);
-
 }
 
 .drawer-title {
   font-family: 'Red Hat Display', sans-serif;
   /* font-size: 1.2em; */
   font-weight: bold;
-  color: var(--purple)
+  color: var(--purple);
 }
 
 div.drawer-subtitle {
@@ -396,7 +368,6 @@ div.bottom-bar-container {
 }
 
 div.bottom-bar-row {
-
 }
 
 div.bottom-bar-column {
@@ -419,12 +390,13 @@ div.bottom-bar-doublecolumn {
   display: inline-block;
 }
 
-div.bottom-bar-logos, div.bottom-bar-logos img{
+div.bottom-bar-logos,
+div.bottom-bar-logos img {
   width: 10vw;
 }
 
 a.bottom-bar-link {
-  width:  20vw;
+  width: 20vw;
   font-size: 1.2em;
   color: var(--white);
   display: block;
@@ -526,7 +498,8 @@ div.page-authorbubble-bottom-container div.author-extras-bottom {
   height: 4em;
 }
 
-div.author-bio, div.author-byline {
+div.author-bio,
+div.author-byline {
   display: block;
 }
 
@@ -534,7 +507,6 @@ div.author-bio {
   font-size: 0.8em;
   white-space: nowrap;
 }
-
 
 /* footnotes  */
 a.footnote-link {
@@ -546,7 +518,7 @@ a.footnote-link {
 
 li.footnote-content {
   list-style: number;
-/*  display: block;
+  /*  display: block;
   width: 20vw;*/
 }
 
@@ -564,13 +536,13 @@ li.footnote-content a::before {
   background-image: none;
   background-size: cover;
   object-fit: cover;
-  content: " ";
+  content: ' ';
   background-image: none;
   float: right;
 }
 
 li.footnote-content:hover > a::before {
-  background-image: url("/public/backarrow.png");
+  background-image: url('/backarrow.png');
 }
 
 /* ex and spec pages */
@@ -590,11 +562,10 @@ div.page-body-container {
 div.page-body {
   max-width: 820px;
   margin-left: clamp(8rem, 24vw, 44rem);
-
 }
 
 div.page-titlebar {
-  height:  40vh;
+  height: 40vh;
   min-height: 22rem;
   position: relative;
   background-repeat: no-repeat;
@@ -616,7 +587,7 @@ h1.page-titlebar-title {
   text-align: center;
 }
 
-.page-titlebar-subtitle{
+.page-titlebar-subtitle {
   font-size: 1.2rem;
   font-weight: normal;
   color: var(--x-light-gray);
@@ -652,31 +623,30 @@ div.page-container a.page-nav-link {
 }
 
 div.pagelinks-allexhibits a.exhibit-viewall {
-
 }
 
 a.exhibit-index-link {
   display: inline-block;
   width: 20vw;
-  height:  18vw;
+  height: 18vw;
   margin-left: 3vw;
 
-  color:  var(--black);
+  color: var(--black);
   font-size: 1.2em;
   position: relative;
 }
 
 div.exhibit-index-link-title {
-  width:  100%;
+  width: 100%;
   text-align: center;
-  bottom:  0;
+  bottom: 0;
   position: absolute;
 }
 
 div.exhibit-index-coverimg {
   background-color: var(--x-light-gray);
   width: 20vw;
-  min-height:  15vw;
+  min-height: 15vw;
   background-size: cover;
 }
 
@@ -686,7 +656,6 @@ div.exhibit-bottom-graybar {
 
 div.pagelinks-container {
   margin-left: 8vw;
-  margin-top: 6vh;
   padding-bottom: 6vh;
 }
 
@@ -702,10 +671,6 @@ div.pagelinks-all {
   display: inline-block;
 }
 
-div.pagelinks-top {
-  padding-top: 6vh;
-}
-
 div.pagelinks {
   margin-top: 4vh;
 }
@@ -713,20 +678,20 @@ div.pagelinks {
 div.pagelink {
   position: relative;
   display: inline-block;
-  width:  20vw;
+  width: 20vw;
   height: 40vh;
   margin-right: 10vw;
   margin-bottom: 8vh;
 }
 
 div.exhibit-bottomlink a {
- color: var(--black);
+  color: var(--black);
 }
 
 div.pagelink-image {
   background-size: cover;
   background-position: center;
-  width:  100%;
+  width: 100%;
   height: 15vw;
 }
 
@@ -777,19 +742,18 @@ div.page-authorbubble-stacked div.author-bubble.stack {
 */
 
 div.page-authorbubble-stacked div.author-bubble.stack {
-  transform: translateX( calc(-3rem * var(--index)) );
+  transform: translateX(calc(-3rem * var(--index)));
 }
 
 div.page-authorbubble-stacked {
   overflow: visible;
 }
 /*first author*/
-div.page-authorbubble-stacked div.author-bubble.stack:first-child, div.page-authorbubble-stacked:hover {
+div.page-authorbubble-stacked div.author-bubble.stack:first-child,
+div.page-authorbubble-stacked:hover {
   transform: translateX(0);
   overflow: hidden;
 }
-
-
 
 div.med-heading {
   font-weight: bold;
@@ -834,7 +798,8 @@ div.content-block div.content-block-body p {
   padding: 0;
 }
 
-div.content-text {}
+div.content-text {
+}
 
 div.content-heading {
   font-weight: bold;
@@ -851,7 +816,8 @@ div.content-image {
   background-color: var(--x-dark-gray);
 }
 
-div.content-relatedcontent {}
+div.content-relatedcontent {
+}
 
 div.content-relatedcontent a {
   display: inline-block;
@@ -859,7 +825,8 @@ div.content-relatedcontent a {
   width: 50%;
 }
 
-div.content-credits p {}
+div.content-credits p {
+}
 
 div.content-interviews a.interview {
   color: var(--dark-purple);
@@ -874,7 +841,6 @@ div.content-interviews a.interview img {
 }
 
 div.content-programs a.program {
-  
 }
 
 a.aapb-records-seemore {
@@ -930,7 +896,6 @@ a.content-aapbblock div.shade-bar div {
   padding-left: 2vw;
 }
 
-
 a.content-aapbblock div.blue-circle {
   bottom: 1vw;
   right: 1vw;
@@ -943,7 +908,7 @@ a.content-aapbblock div.blue-circle {
   text-align: center;
   vertical-align: middle;
   color: var(--white);
-  font-size: 3vw;  
+  font-size: 3vw;
 }
 
 a.content-aapbblock div.blue-circle div {
@@ -951,16 +916,16 @@ a.content-aapbblock div.blue-circle div {
   bottom: -1vw;
   right: -1.32vw;
   position: relative;
-  width: 0; 
-  height: 0; 
+  width: 0;
+  height: 0;
   border-top: 1vw solid transparent;
   border-bottom: 1vw solid transparent;
   border-left: 1.68vw solid var(--white);
 }
 
+div.aapb-records {
+}
 
-div.aapb-records {}
-  
 div.guids-block-title {
   font-size: 1em;
   font-weight: bold;
@@ -975,7 +940,7 @@ div.org-logos img {
 }
 
 p.static-section {
-  margin-bottom: 1.2em;  
+  margin-bottom: 1.2em;
 }
 
 div.static-credits div div {
@@ -1020,7 +985,7 @@ div.guids-block-title p {
   margin-right: 2rem;
 }
 
-@media only screen and (orientation: portrait){
+@media only screen and (orientation: portrait) {
   div.pagelink {
     height: 22vh;
     max-height: 22vh;
@@ -1032,14 +997,13 @@ div.guids-block-title p {
   }
 }
 
-
-@media only screen and (min-width: 601px){
+@media only screen and (min-width: 601px) {
   #mobile-menu {
     display: none;
   }
 }
 
-@media only screen and (min-width: 1600px){
+@media only screen and (min-width: 1600px) {
   div.page-body {
     margin-left: 28vw;
     max-width: 1080px;
@@ -1054,18 +1018,15 @@ div.guids-block-title p {
     max-height: 4vh;
   }
 
-
   div.author-bubble.attach {
     position: absolute;
     bottom: 4vw;
     right: -2vw;
   }
-
 }
 
-
 @media only screen and (max-width: 600px) and (orientation: portrait) {
-/* navigation */
+  /* navigation */
   .mobile-hidden {
     display: none !important;
   }
@@ -1108,12 +1069,19 @@ div.guids-block-title p {
     display: inherit;
   }
 
-  .affiliated-websites-menu, .about-menu {
+  .affiliated-websites-menu,
+  .about-menu {
     display: block;
     right: initial;
   }
 
-  div.drawermenu-container, span.drawermenu-label, div.drawermenu-container div.drawermenu-items, div.affiliated-websites-menu a.drawer-item, a.navigation-link, div.about-menu a.drawer-item, span.drawermenu-label {
+  div.drawermenu-container,
+  span.drawermenu-label,
+  div.drawermenu-container div.drawermenu-items,
+  div.affiliated-websites-menu a.drawer-item,
+  a.navigation-link,
+  div.about-menu a.drawer-item,
+  span.drawermenu-label {
     min-width: 100%;
     display: block;
     width: 100%;
@@ -1128,10 +1096,11 @@ div.guids-block-title p {
   }
 
   div.page-titlebar {
-/*    display: none;*/
+    /*    display: none;*/
   }
 
-  div.drawermenu-container a.drawer-item, a.navigation-link div {
+  div.drawermenu-container a.drawer-item,
+  a.navigation-link div {
     width: 100%;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
@@ -1154,7 +1123,8 @@ div.guids-block-title p {
     display: none;
   }
 
-  div.drawermenu-items a.drawer-item, span.drawermenu-label {
+  div.drawermenu-items a.drawer-item,
+  span.drawermenu-label {
     border: 1px solid white;
     padding: 0;
   }
@@ -1218,7 +1188,10 @@ div.guids-block-title p {
     margin-top: auto;
   }
 
-  div.page-sidebar, div.page-body-container, div.page-titlebar, div.page-titlebar h1.page-titlebar-title {
+  div.page-sidebar,
+  div.page-body-container,
+  div.page-titlebar,
+  div.page-titlebar h1.page-titlebar-title {
     width: 100%;
     max-width: 100%;
     display: block;
@@ -1227,7 +1200,8 @@ div.guids-block-title p {
     font-size: 2.5rem;
   }
 
-  div.page-body-container div.page-body, div.page-sidebar {
+  div.page-body-container div.page-body,
+  div.page-sidebar {
     font-size: 1.4rem;
     line-height: 2.3rem;
     margin-left: 2rem;
@@ -1241,14 +1215,17 @@ div.guids-block-title p {
     width: 92vw;
   }
 
-
   /* footer */
   div.bottom-bar-container {
     display: block;
     height: inherit;
   }
 
-  div.bottom-bar-row, div.bottom-bar-column, a.bottom-bar-link, div.bottom-bar-logos, div.bottom-bar-doublecolumn {
+  div.bottom-bar-row,
+  div.bottom-bar-column,
+  a.bottom-bar-link,
+  div.bottom-bar-logos,
+  div.bottom-bar-doublecolumn {
     font-size: 4vw;
     margin: 0;
     text-align: center;
