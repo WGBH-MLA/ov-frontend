@@ -7,10 +7,16 @@ import { seriesData } from "../data/seriesData"
 //   return await getExhibits()
 // }
 
-function renderSeriesLink(series){
-  return (
-    <a href={ series.url } className="series-link">{ series.title }</a>
-  )
+export const meta = () => {
+  return [
+    {
+      title: `GBH Series | GBH Open Vault`,
+    },
+    {
+      name: 'description',
+      content: `Browse a list of GBH Series and explore records on the American Archive of Public Broadcasting.`,
+    },
+  ]
 }
 
 export default class Series extends Component {

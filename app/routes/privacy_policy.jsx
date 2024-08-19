@@ -1,5 +1,16 @@
-import { Link, useLoaderData } from "@remix-run/react"
 import { renderPageTitleBar } from "../classes/pageHelpers"
+
+export const meta = () => {
+  return [
+    {
+      title: `Privacy Policy | GBH Open Vault`,
+    },
+    {
+      name: 'description',
+      content: `Privacy Policy for GBH Open Vault.`,
+    },
+  ]
+}
 
 export default function Terms() {
   let titleBar = renderPageTitleBar("Terms And Conditions", "https://s3.amazonaws.com/openvault.wgbh.org/carousel/Camera+Frog+Pond+early.jpg")
