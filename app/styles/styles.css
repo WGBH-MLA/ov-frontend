@@ -43,8 +43,10 @@
   --index: 9;
 }
 
-body, h1, h2 {
-  margin:  0;
+body,
+h1,
+h2 {
+  margin: 0;
   font-family: 'Red Hat Display', sans-serif;
 
   margin-block-start: 0;
@@ -126,7 +128,6 @@ ul {
 ul.numbered-list {
   list-style: number;
 }
-
 
 div.error-box {
   margin-left: 2rem;
@@ -495,7 +496,8 @@ div.page-authorbubble-bottom-container div.author-extras-bottom {
   height: 4em;
 }
 
-div.author-bio, div.author-byline {
+div.author-bio,
+div.author-byline {
   display: block;
 }
 
@@ -503,7 +505,6 @@ div.author-bio {
   font-size: 0.8em;
   white-space: nowrap;
 }
-
 
 /* footnotes  */
 a.footnote-link {
@@ -515,7 +516,7 @@ a.footnote-link {
 
 li.footnote-content {
   list-style: number;
-/*  display: block;
+  /*  display: block;
   width: 20vw;*/
 }
 
@@ -533,13 +534,13 @@ li.footnote-content a::before {
   background-image: none;
   background-size: cover;
   object-fit: cover;
-  content: " ";
+  content: ' ';
   background-image: none;
   float: right;
 }
 
 li.footnote-content:hover > a::before {
-  background-image: url("/backarrow.png");
+  background-image: url('/backarrow.png');
 }
 
 /* ex and spec pages */
@@ -653,7 +654,6 @@ div.exhibit-bottom-graybar {
 
 div.pagelinks-container {
   margin-left: 8vw;
-  margin-top: 6vh;
   padding-bottom: 6vh;
 }
 
@@ -669,10 +669,6 @@ div.pagelinks-all {
   display: inline-block;
 }
 
-div.pagelinks-top {
-  padding-top: 6vh;
-}
-
 div.pagelinks {
   margin-top: 4vh;
 }
@@ -680,7 +676,7 @@ div.pagelinks {
 div.pagelink {
   position: relative;
   display: inline-block;
-  width:  20vw;
+  width: 20vw;
   height: 40vh;
   margin-right: 10vw;
   margin-bottom: 8vh;
@@ -744,19 +740,18 @@ div.page-authorbubble-stacked div.author-bubble.stack {
 */
 
 div.page-authorbubble-stacked div.author-bubble.stack {
-  transform: translateX( calc(-3rem * var(--index)) );
+  transform: translateX(calc(-3rem * var(--index)));
 }
 
 div.page-authorbubble-stacked {
   overflow: visible;
 }
 /*first author*/
-div.page-authorbubble-stacked div.author-bubble.stack:first-child, div.page-authorbubble-stacked:hover {
+div.page-authorbubble-stacked div.author-bubble.stack:first-child,
+div.page-authorbubble-stacked:hover {
   transform: translateX(0);
   overflow: hidden;
 }
-
-
 
 div.med-heading {
   font-weight: bold;
@@ -988,7 +983,7 @@ div.guids-block-title p {
   margin-right: 2rem;
 }
 
-@media only screen and (orientation: portrait){
+@media only screen and (orientation: portrait) {
   div.pagelink {
     height: 22vh;
     max-height: 22vh;
@@ -1033,13 +1028,11 @@ div.guids-block-title p {
     max-height: 4vh;
   }
 
-
   div.author-bubble.attach {
     position: absolute;
     bottom: 4vw;
     right: -2vw;
   }
-
 }
 
 @media only screen and (max-width: 600px) and (orientation: portrait) {
@@ -1232,7 +1225,6 @@ div.guids-block-title p {
     display: block;
     width: 92vw;
   }
-
 
   /* footer */
   div.bottom-bar-container {
