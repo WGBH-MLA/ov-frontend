@@ -13,6 +13,18 @@ export const loader = async ({ params }) => {
   return exhibit
 }
 
+export const meta = ({ data }) => {
+  return [
+    {
+      title: `${data.title} | GBH Open Vault Exhibit`,
+    },
+    {
+      name: 'description',
+      content: data.meta.search_description || 'GBH Open Vault Exhibit',
+    },
+  ]
+}
+
 export default function Exhibit() {
   const exhibit = useLoaderData()
   console.log('exhibit', exhibit)
