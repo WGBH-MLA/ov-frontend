@@ -25,9 +25,8 @@ div.carousel-container
 
 .carousel .slide img {
   width: 100vw;
-  max-height: 441px;
+  height: 441px;
   object-fit: cover;
-
 }
 
 div.carousel-container .carousel .slide .legend {
@@ -41,7 +40,7 @@ div.carousel-container .carousel .slide .legend {
 
 @media screen and (max-width: 1000px) {
   div.carousel-container .carousel .slide .legend {
-    top: 0;
+    top: 20%;
     max-width: 70%;
     left: 15%;
   }
