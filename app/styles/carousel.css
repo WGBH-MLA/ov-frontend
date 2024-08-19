@@ -45,3 +45,7 @@ div.carousel-container .carousel .slide .legend {
     left: 15%;
   }
 }
+
+li.slide.selected {
+  z-index: unset !important;
+}
