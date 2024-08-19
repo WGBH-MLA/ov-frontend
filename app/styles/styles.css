@@ -749,6 +749,7 @@ div.pagelink-subtitle {
 
 div.author-bubble {
   background-size: cover;
+  min-width: 6rem;
   width: 6rem;
   height: 6rem;
   min-height: 6rem;
@@ -770,11 +771,6 @@ div.page-authorbubble-stacked {
   display: flex;
   align-items: center;
 }
-/*
-div.page-authorbubble-stacked div.author-bubble.stack {
-  transform: translateX(-3rem);
-}
-*/
 
 div.page-authorbubble-stacked div.author-bubble.stack {
   transform: translateX( calc(-3rem * var(--index)) );

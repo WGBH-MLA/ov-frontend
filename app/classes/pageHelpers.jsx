@@ -88,11 +88,11 @@ export function renderSidebar(pageType, sections, authors=false){
             // bar is close enough (36vh) to the footer, stop
 
             sidebarMenu.style.position = "sticky"
-            // sidebarMenu.style.backgroundColor = "#f00"
+            sidebarMenu.style.backgroundColor = "#f00"
           } else {
             sidebarMenu.style.top = "0"
             sidebarMenu.style.position = "fixed"
-            // sidebarMenu.style.backgroundColor = "#0f0"
+            sidebarMenu.style.backgroundColor = "#0f0"
           }
         }
         
@@ -100,7 +100,7 @@ export function renderSidebar(pageType, sections, authors=false){
         // sidebar is in top position (page header showing)
         sidebarMenu.style.top = initialSidebarTop - scrollTop + "px"
         sidebarMenu.style.position = "fixed"
-        // sidebarMenu.style.backgroundColor = "#00f"
+        sidebarMenu.style.backgroundColor = "#00f"
       }
 
     });
