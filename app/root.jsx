@@ -43,6 +43,12 @@ export async function loader() {
 
 export default function App() {
   var data = useLoaderData()
+  let meta = import.meta
+  console.log('meta', meta)
+
+  if (meta.env && meta.env.LEGACY) {
+    console.log('legacy browser detected')
+  }
 
   useEffect(() => {
     let lastScrollTop = 0
@@ -68,6 +74,16 @@ export default function App() {
         <Links />
       </head>
       <body>
+        {meta.env && meta.env.LEGACY ? (
+          <div className="legacy-warning">
+            <h3>You are using an outdated browser.</h3>
+            <p>
+              Please upgrade to a modern browser to view all the features of
+              this site.
+            </p>
+            {/* TODO: Make this dismissable */}
+          </div>
+        ) : null}
         <NavigationBar />
         <Outlet />
 

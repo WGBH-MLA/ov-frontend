@@ -3,10 +3,15 @@
  */
 import { vitePlugin as remix } from '@remix-run/dev'
 import { defineConfig } from 'vite'
+import legacy from '@vitejs/plugin-legacy'
 
 export default defineConfig({
   plugins: [
     remix(),
+    legacy({
+      targets: ['defaults', 'not IE 11'],
+      // additionalLegacyPolyfills: ['regenerator-runtime/runtime'],
+    }),
   ],
   server: {
     port: 4000,

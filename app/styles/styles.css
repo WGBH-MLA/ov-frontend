@@ -85,6 +85,15 @@ input {
   padding: 0px;
 }
 
+.legacy-warning {
+  display: block;
+  /* background-color: var(--light-yellow); */
+  background-color: #fff6a3;
+  color: var(--black);
+  font-size: 1.2em;
+  padding: 1em;
+}
+
 a {
   color: var(--purple);
   text-decoration: none;
