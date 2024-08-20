@@ -441,12 +441,9 @@ div.page-sidebar {
   margin-bottom: 2rem;
   vertical-align: top;
 
-  display: inline-block;
   width: 18%;
   font-size: 1.2em;
   min-width: 12rem;
-
-  overflow: hidden;
 }
 
 html[data-scroll='0'] div.page-sidebar {

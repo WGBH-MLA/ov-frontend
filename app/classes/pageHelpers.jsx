@@ -66,7 +66,6 @@ export function renderSidebar(pageType, sections, authors=false){
     const sidebarMenu = document.getElementsByClassName('page-sidebar')[0]
     const initialSidebarTop = sidebarMenu?.offsetTop
 
-
     window.addEventListener('scroll', function() {
       let scrollTop = document.documentElement.scrollTop;
       if (scrollTop > initialSidebarTop) {
@@ -86,21 +85,14 @@ export function renderSidebar(pageType, sections, authors=false){
 
           if(distanceFromBottom/document.body.scrollHeight < 0.36){
             // bar is close enough (36vh) to the footer, stop
-
             sidebarMenu.style.position = "sticky"
-            sidebarMenu.style.backgroundColor = "#f00"
-          } else {
-            sidebarMenu.style.top = "0"
-            sidebarMenu.style.position = "fixed"
-            sidebarMenu.style.backgroundColor = "#0f0"
-          }
+          } 
         }
         
       } else {
         // sidebar is in top position (page header showing)
         sidebarMenu.style.top = initialSidebarTop - scrollTop + "px"
         sidebarMenu.style.position = "fixed"
-        sidebarMenu.style.backgroundColor = "#00f"
       }
 
     });
