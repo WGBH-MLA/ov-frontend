@@ -30,7 +30,8 @@ export function ErrorBoundary() {
       <div className="page-body-container">
         <h1>Not found</h1>
         <h3>{error.data}</h3>
-        Check your spelling, or try another route.
+        <div>{error.statusText}</div>
+        <div>Check your spelling, or try another route.</div>
       </div>
     )
   }

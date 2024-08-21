@@ -12,26 +12,26 @@
   "dependencies": {
     "@fontsource/red-hat-display": "^5.0.20",
     "@fontsource/red-hat-text": "^5.0.18",
-    "@remix-run/node": "^2.10.3",
-    "@remix-run/react": "^2.10.3",
-    "@remix-run/serve": "^2.10.3",
-    "@remix-run/server-runtime": "^2.10.3",
+    "@remix-run/node": "^2.11.2",
+    "@remix-run/react": "^2.11.2",
+    "@remix-run/serve": "^2.11.2",
+    "@remix-run/server-runtime": "^2.11.2",
     "@vitejs/plugin-react": "^4.3.1",
     "html-entities": "^2.5.2",
-    "isbot": "^5.1.13",
+    "isbot": "^5.1.16",
     "mysql": "^2.18.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-responsive-carousel": "^3.2.23"
   },
   "devDependencies": {
-    "@remix-run/dev": "^2.10.3",
-    "autoprefixer": "^10.4.19",
+    "@remix-run/dev": "^2.11.2",
+    "autoprefixer": "^10.4.20",
     "esbuild-plugin-css-modules": "^0.3.0",
     "postcss": "^8.4.39",
     "postcss-cli": "^11.0.0",
     "postcss-import": "^16.1.0",
-    "vite": "^5.3.4"
+    "vite": "^5.4.1"
   },
   "engines": {
     "node": ">=21"

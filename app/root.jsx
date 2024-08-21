@@ -36,6 +36,7 @@ export async function loader() {
     ENV: {
       AAPB_HOST: process.env.AAPB_HOST || 'https://americanarchive.org',
       OV_API_URL: process.env.OV_API_URL || 'http://localhost:8000',
+      ORGAN_URL: process.env.ORGAN_URL || 'http://localhost:9000',
     },
   })
 }
@@ -102,7 +103,8 @@ export function ErrorBoundary() {
           {isRouteErrorResponse(error) ? (
             <>
               <h1>{error.status} error</h1>
-              {error.data}
+              <h3>{error.data}</h3>
+              <p>{error.statusText}</p>
             </>
           ) : (
             <>
