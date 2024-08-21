@@ -43,6 +43,11 @@
   --index: 9;
 }
 
+html {
+  /* and smooth it out */
+  scroll-behavior: smooth;
+}
+
 body, h1, h2 {
   margin:  0;
   font-family: 'Red Hat Display', sans-serif;
@@ -536,7 +541,7 @@ div.author-bio {
 /* footnotes  */
 a.footnote-link {
   font-size: 0.6em;
-  top: 0.5em;
+  top: -0.5em;
   position: relative;
   padding: 0.3em;
 }
@@ -545,6 +550,12 @@ li.footnote-content {
   list-style: number;
 /*  display: block;
   width: 20vw;*/
+}
+
+li.footnote-content > * {
+  vertical-align: text-top;
+  position: relative;
+  top: -0.2em;
 }
 
 li.footnote-content a {
