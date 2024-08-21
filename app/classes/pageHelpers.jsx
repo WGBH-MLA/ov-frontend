@@ -1,6 +1,6 @@
 import { decode } from "html-entities"
 import { MenuIcon } from "./mobileMenu"
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react'
 import { renderToString } from 'react-dom/server'
 
 export function renderAuthorBubble(author, style, key){
