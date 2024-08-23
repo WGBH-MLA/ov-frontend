@@ -74,7 +74,7 @@ export default function App() {
         <Links />
       </head>
       <body>
-        {meta.env && meta.env.LEGACY ? (
+        {meta.env && meta.env.VITE_LEGACY ? (
           <div className="legacy-warning">
             <h3>You are using an outdated browser.</h3>
             <p>
