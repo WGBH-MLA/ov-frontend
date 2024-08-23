@@ -9,8 +9,7 @@ export default defineConfig({
   plugins: [
     remix(),
     legacy({
-      targets: ['defaults', 'not IE 11'],
-      // additionalLegacyPolyfills: ['regenerator-runtime/runtime'],
+      targets: ['>= 0%'],
     }),
   ],
   server: {
