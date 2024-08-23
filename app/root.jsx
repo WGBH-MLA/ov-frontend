@@ -18,7 +18,6 @@ import './styles/styles.css'
 import './styles/colors.css'
 import '@fontsource/red-hat-display'
 import '@fontsource/red-hat-text'
-// use webpack css loader instead? v
 
 // Links to include in the header. Left empty in case we want to easily add some later.
 // Stylesheets are now bundled correctly, so we don't need to include them here.
@@ -37,6 +36,8 @@ export const meta = () => {
     },
   ]
 }
+
+// const serverUrl = 'https://elastic.wgbh-mla.org';
 
 export async function loader() {
   // lift these env vars from process.env so they can be injected into window
@@ -74,6 +75,7 @@ export default function App() {
         <meta name="viewport" content="width=device-width,initial-scale=1" />
         <Meta />
         <Links />
+        <link rel="icon" href="/favicon.ico" />
       </head>
       <body>
         <NavigationBar />
@@ -84,10 +86,10 @@ export default function App() {
             __html: `window.ENV = ${JSON.stringify(data.ENV)}`,
           }}
         />
+        <Footer />
+
         <ScrollRestoration />
         <Scripts />
-
-        <Footer />
       </body>
     </html>
   )

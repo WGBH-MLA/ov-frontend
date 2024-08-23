@@ -1,6 +1,6 @@
 import { decode } from "html-entities"
 import { MenuIcon } from "./mobileMenu"
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react'
 import { renderToString } from 'react-dom/server'
 
 export function renderAuthorBubble(author, style, key){
@@ -58,7 +58,7 @@ export function renderPageLinks(pageType, pages){
   )
 }
 
-export function renderSidebar(pageType, sections, authors=false){
+export function renderSidebar(pageType, sections, authors=false, footnotes=false){
   let pageTypeName = pageType === "exhibit" ? "Exhibit" : "Collection"
   const [isOpen, setIsOpen] = useState(true)
 
@@ -66,49 +66,48 @@ export function renderSidebar(pageType, sections, authors=false){
     const sidebarMenu = document.getElementsByClassName('page-sidebar')[0]
     const initialSidebarTop = sidebarMenu?.offsetTop
 
+    window.addEventListener('scroll', () => {
+      let scrollTop = document.documentElement.scrollTop
 
-    window.addEventListener('scroll', function() {
-      let scrollTop = document.documentElement.scrollTop;
       if (scrollTop > initialSidebarTop) {
         // bar is at top position
 
         var distanceFromBottom
         var sbLinks = document.getElementsByClassName("page-sidebar-link")
         if(sbLinks.length > 0){
-          // there could be no sidebar elements if ex has no authors and no headings
+          // there could be no sidebar elements if ex has no authors and no headings and no footnotes
 
           var lastSbLink = sbLinks[ sbLinks.length - 1 ]
           var sbRect = lastSbLink.getBoundingClientRect()
-          var clientTop = document.documentElement.clientTop || document.body.clientTop || 0;
-          var top = sbRect.top + scrollTop - clientTop;
+          var clientTop = document.documentElement.clientTop || document.body.clientTop || 0
+          var top = sbRect.top + scrollTop - clientTop
 
           var distanceFromBottom = document.body.scrollHeight - top + sbRect.height
 
           if(distanceFromBottom/document.body.scrollHeight < 0.36){
             // bar is close enough (36vh) to the footer, stop
-
             sidebarMenu.style.position = "sticky"
-            // sidebarMenu.style.backgroundColor = "#f00"
-          } else {
-            sidebarMenu.style.top = "0"
-            sidebarMenu.style.position = "fixed"
-            // sidebarMenu.style.backgroundColor = "#0f0"
-          }
+          } 
         }
         
       } else {
+
         // sidebar is in top position (page header showing)
         sidebarMenu.style.top = initialSidebarTop - scrollTop + "px"
         sidebarMenu.style.position = "fixed"
-        // sidebarMenu.style.backgroundColor = "#00f"
       }
 
-    });
-  }, []);
+    })
+  }, [])
 
   let authorSectionLink
   if(authors){
     authorSectionLink = <a key={ sections.length } onClick={ () => { scrollSectionIntoView("authors-section")  } } className="page-sidebar-link">Authors</a>
+  }
+  
+  let footnoteSectionLink
+  if(footnotes){
+    footnoteSectionLink = <a key={ sections.length + 1 } onClick={ () => { scrollSectionIntoView("footnote-section")  } } className="page-sidebar-link">Footnotes</a>
   }
   
   return (
@@ -119,6 +118,7 @@ export function renderSidebar(pageType, sections, authors=false){
       </div>
       { isOpen && sections.map( (section, index) => { return renderSidebarSection(section, index) }) }
       { authorSectionLink }
+      { footnoteSectionLink }
     </div>
   )
 }
