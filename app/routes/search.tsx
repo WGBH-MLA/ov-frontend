@@ -4,7 +4,7 @@ import {
   getServerState,
   InstantSearchServerState,
 } from 'react-instantsearch'
-import type { LoaderFunction } from '@remix-run/node'
+import type { LoaderFunction, MetaFunction } from '@remix-run/node'
 import { json } from '@remix-run/node'
 import { useLoaderData } from '@remix-run/react'
 import { Panel } from '../components/Panel'
@@ -12,10 +12,13 @@ import { Search } from '../classes/search-ui'
 import 'instantsearch.css/themes/algolia-min.css'
 import '../styles/search.css'
 
-export const meta = ({ data }) => {
+export const meta: MetaFunction = ({ location }) => {
+  const query = new URLSearchParams(
+    location.search
+  ).get("q")
   return [
     {
-      title: `Search | GBH Open Vault`,
+      title: `${query ? query + ' | ' : '' }Search GBH Open Vault`,
     },
     {
       name: 'description',
