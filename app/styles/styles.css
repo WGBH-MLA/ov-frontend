@@ -43,6 +43,11 @@
   --index: 9;
 }
 
+
+html {
+  /* and smooth it out */
+  scroll-behavior: smooth;
+}
 body,
 h1,
 h2 {
@@ -411,12 +416,9 @@ div.page-sidebar {
   margin-bottom: 2rem;
   vertical-align: top;
 
-  display: inline-block;
   width: 18%;
   font-size: 1.2em;
   min-width: 12rem;
-
-  overflow: hidden;
 }
 
 html[data-scroll='0'] div.page-sidebar {
@@ -509,7 +511,7 @@ div.author-bio {
 /* footnotes  */
 a.footnote-link {
   font-size: 0.6em;
-  top: 0.5em;
+  top: -0.5em;
   position: relative;
   padding: 0.3em;
 }
@@ -518,6 +520,12 @@ li.footnote-content {
   list-style: number;
   /*  display: block;
   width: 20vw;*/
+}
+
+li.footnote-content > * {
+  vertical-align: text-top;
+  position: relative;
+  top: -0.2em;
 }
 
 li.footnote-content a {
@@ -712,6 +720,7 @@ div.pagelink-subtitle {
 
 div.author-bubble {
   background-size: cover;
+  min-width: 6rem;
   width: 6rem;
   height: 6rem;
   min-height: 6rem;
@@ -733,11 +742,6 @@ div.page-authorbubble-stacked {
   display: flex;
   align-items: center;
 }
-/*
-div.page-authorbubble-stacked div.author-bubble.stack {
-  transform: translateX(-3rem);
-}
-*/
 
 div.page-authorbubble-stacked div.author-bubble.stack {
   transform: translateX(calc(-3rem * var(--index)));
