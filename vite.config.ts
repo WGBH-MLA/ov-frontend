@@ -3,10 +3,14 @@
  */
 import { vitePlugin as remix } from '@remix-run/dev'
 import { defineConfig } from 'vite'
+import legacy from '@vitejs/plugin-legacy'
 
 export default defineConfig({
   plugins: [
     remix(),
+    legacy({
+      targets: ['>= 0%'],
+    }),
   ],
   server: {
     port: 4000,
