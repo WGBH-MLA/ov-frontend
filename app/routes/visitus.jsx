@@ -1,7 +1,17 @@
 import { Link, useLoaderData } from "@remix-run/react"
 import { renderPageTitleBar } from "../classes/pageHelpers"
 
-
+export const meta = () => {
+  return [
+    {
+      title: `Visit Us | GBH Open Vault`,
+    },
+    {
+      name: 'description',
+      content: `Members of the general public are welcome to access the GBH Archives' collections in the GBH offices in Brighton, MA.`,
+    },
+  ]
+}
 
 export default function VisitUs() {
   let titleBar = renderPageTitleBar("Visit Us", "https://s3.amazonaws.com/openvault.wgbh.org/carousel/boston-tv-news-q-80.jpg", "Members of the general public are welcome to access the GBH Archives' collections in the GBH offices in Brighton, MA.")

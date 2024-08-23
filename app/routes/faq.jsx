@@ -1,5 +1,17 @@
 import { renderPageTitleBar } from "../classes/pageHelpers"
 
+export const meta = () => {
+  return [
+    {
+      title: `FAQ | GBH Open Vault`,
+    },
+    {
+      name: 'description',
+      content: `Frequently Asked Questions about GBH Open Vault.`,
+    },
+  ]
+}
+
 export default function FAQ() {
   return (
     <div>

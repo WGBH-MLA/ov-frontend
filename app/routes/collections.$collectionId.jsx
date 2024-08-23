@@ -7,6 +7,18 @@ export const loader = async ({ params }) => {
   return await getPageBySlug('collections', params.collectionId)
 }
 
+export const meta = ({ data }) => {
+  return [
+    {
+      title: `${data.title} | GBH Open Vault`,
+    },
+    {
+      name: 'description',
+      content: data.meta.search_description || 'GBH Open Vault Collection',
+    },
+  ]
+}
+
 export default function Collections() {
   const spec = useLoaderData()
 
