@@ -4,7 +4,7 @@ import {
   getServerState,
   InstantSearchServerState,
 } from 'react-instantsearch'
-import type { LinksFunction, LoaderFunction } from '@remix-run/node'
+import type { LoaderFunction } from '@remix-run/node'
 import { json } from '@remix-run/node'
 import { useLoaderData } from '@remix-run/react'
 import { Panel } from '../components/Panel'
@@ -12,7 +12,18 @@ import { Search } from '../classes/search-ui'
 import 'instantsearch.css/themes/algolia-min.css'
 import '../styles/search.css'
 
-export const links: LinksFunction = () => []
+export const meta = ({ data }) => {
+  return [
+    {
+      title: `Search | GBH Open Vault`,
+    },
+    {
+      name: 'description',
+      content:
+        'Search the GBH Open Vault catalog, Scholar Exhibits and Special Collections.',
+    },
+  ]
+}
 
 export const loader: LoaderFunction = async ({ request }) => {
   const serverUrl = request.url
@@ -44,6 +55,7 @@ export type SearchProps = {
   serverUrl?: URL
   aapb_host?: URL
 }
+
 export default function SearchPage() {
   const { serverState, serverUrl, aapb_host }: SearchProps = useLoaderData()
   return (
