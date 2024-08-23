@@ -874,7 +874,6 @@ export const seriesData = {
         "Spanish Language Project",
         "Spanish Video Modules",
         "Spider's Web",
-        "Spider's Web",
         "The Sports Report",
         "Sports Weekly",
         "Stalin",

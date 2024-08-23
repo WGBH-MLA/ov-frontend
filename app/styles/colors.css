@@ -18,6 +18,10 @@
   --dark-gray: #6a6d70;
   --x-dark-gray: #38393b;
 
+  --light-yellow: #fff6a3;
+  --yellow: #fff368;
+  --dark-yellow: #ffef00;
+
   /* Secondary Colors */
 
   /* Blues */
@@ -27,7 +31,54 @@
   --blue: #2b72f6;
   --dark-blue: #005dd1;
   --x-dark-blue: #072d80;
+
   --accent-blue: #00b7fa;
+
+  /* Teals */
+
+  --x-light-teal: #cdf2f1;
+  --light-teal: #90dae0;
+  --teal: #00a0b3;
+  --dark-teal: #007789;
+  --x-dark-teal: #04454f;
+
+  --accent-teal: #00e1e6;
+
+  /* Oranges */
+  --x-light-orange: #fde6c5;
+  --light-orange: #fdba68;
+  --orange: #ed7615;
+  --dark-orange: #c65a00;
+  --x-dark-orange: #882d00;
+
+  --accent-orange: #ffc21b;
+
+  /* Reds */
+  --x-light-red: #ffdcd8;
+  --light-red: #f59e89;
+  --red: #eb4436;
+  --dark-red: #bb231c;
+  --x-dark-red: #800e08;
+
+  --accent-red: #f01802;
+
+  /* Berrys */
+  --x-light-berry: #ffdced;
+  --light-berry: #ffa4c6;
+  --berry: #e64887;
+  --dark-berry: #b70052;
+  --x-dark-berry: #7c003a;
+
+  --accent-berry: #fd188a;
+
+  /* Greens */
+  --x-light-green: #ccf8c6;
+  --light-green: #8ae078;
+  --green: #49a33c;
+  --dark-green: #2d7025;
+  --x-dark-green: #1f4a12;
+
+  --accent-green: #94de00;
 
   /* Generic Colors */
 

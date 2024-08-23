@@ -43,6 +43,11 @@
   --index: 9;
 }
 
+
+html {
+  /* and smooth it out */
+  scroll-behavior: smooth;
+}
 body,
 h1,
 h2 {
@@ -68,6 +73,7 @@ h1 {
 
 h2 {
   font-size: 2rem;
+  line-height: 3rem;
 }
 
 h3 {
@@ -154,6 +160,7 @@ div.series-summary {
 
 div.series-group {
   margin-bottom: 4vh;
+  columns: 2;
 }
 
 div.series-group-letter {
@@ -164,18 +171,10 @@ div.series-group-letter {
 }
 
 a.series-link {
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  width: 40%;
   display: inline-block;
-  color: var(--blue);
-  font-size: 1em;
+  font-size: 1.5rem;
   font-weight: 500;
-
-  height: 4vh;
-  max-height: 2rem;
-  margin-bottom: 1.6vh;
+  margin-bottom: 1.5rem;
 }
 
 a.static-link {
@@ -248,8 +247,12 @@ div.purple-bar-container {
 div.purple-bar-container a.top-title {
   font-family: 'Red Hat Display', sans-serif;
   font-size: 2em;
-  color: var(--white);
   margin-left: 4vw;
+  color: var(--white);
+}
+
+.search {
+  color: var(--white);
 }
 
 div.navigation-bar-container {
@@ -422,12 +425,9 @@ div.page-sidebar {
   margin-bottom: 2rem;
   vertical-align: top;
 
-  display: inline-block;
   width: 18%;
   font-size: 1.2em;
   min-width: 12rem;
-
-  overflow: hidden;
 }
 
 html[data-scroll='0'] div.page-sidebar {
@@ -520,7 +520,7 @@ div.author-bio {
 /* footnotes  */
 a.footnote-link {
   font-size: 0.6em;
-  top: 0.5em;
+  top: -0.5em;
   position: relative;
   padding: 0.3em;
 }
@@ -529,6 +529,12 @@ li.footnote-content {
   list-style: number;
   /*  display: block;
   width: 20vw;*/
+}
+
+li.footnote-content > * {
+  vertical-align: text-top;
+  position: relative;
+  top: -0.2em;
 }
 
 li.footnote-content a {
@@ -723,6 +729,7 @@ div.pagelink-subtitle {
 
 div.author-bubble {
   background-size: cover;
+  min-width: 6rem;
   width: 6rem;
   height: 6rem;
   min-height: 6rem;
@@ -744,11 +751,6 @@ div.page-authorbubble-stacked {
   display: flex;
   align-items: center;
 }
-/*
-div.page-authorbubble-stacked div.author-bubble.stack {
-  transform: translateX(-3rem);
-}
-*/
 
 div.page-authorbubble-stacked div.author-bubble.stack {
   transform: translateX(calc(-3rem * var(--index)));
@@ -1006,6 +1008,18 @@ div.guids-block-title p {
   }
 }
 
+@media only screen and (orientation: portrait){
+  div.pagelink {
+    height: 22vh;
+    max-height: 22vh;
+  }
+
+  div.pagelink h4.pagelink-title {
+    max-height: 4vh;
+    height: 4vh;
+  }
+}
+
 @media only screen and (min-width: 601px) {
   #mobile-menu {
     display: none;
@@ -1117,7 +1131,8 @@ div.guids-block-title p {
     padding-right: 0rem;
   }
 
-  div.drawermenu-container a.drawer-item {
+  div.drawermenu-container a.drawer-item,
+  a.navigation-link {
     border: 1px solid white;
     color: var(--dark-purple);
   }
