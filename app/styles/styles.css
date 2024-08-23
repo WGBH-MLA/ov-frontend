@@ -68,6 +68,7 @@ h1 {
 
 h2 {
   font-size: 2rem;
+  line-height: 3rem;
 }
 
 h3 {
@@ -145,6 +146,7 @@ div.series-summary {
 
 div.series-group {
   margin-bottom: 4vh;
+  columns: 2;
 }
 
 div.series-group-letter {
@@ -155,18 +157,10 @@ div.series-group-letter {
 }
 
 a.series-link {
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  width: 40%;
   display: inline-block;
-  color: var(--blue);
-  font-size: 1em;
+  font-size: 1.5rem;
   font-weight: 500;
-
-  height: 4vh;
-  max-height: 2rem;
-  margin-bottom: 1.6vh;
+  margin-bottom: 1.5rem;
 }
 
 a.static-link {
@@ -239,8 +233,12 @@ div.purple-bar-container {
 div.purple-bar-container a.top-title {
   font-family: 'Red Hat Display', sans-serif;
   font-size: 2em;
-  color: var(--white);
   margin-left: 4vw;
+  color: var(--white);
+}
+
+.search {
+  color: var(--white);
 }
 
 div.navigation-bar-container {
@@ -997,6 +995,18 @@ div.guids-block-title p {
   }
 }
 
+@media only screen and (orientation: portrait){
+  div.pagelink {
+    height: 22vh;
+    max-height: 22vh;
+  }
+
+  div.pagelink h4.pagelink-title {
+    max-height: 4vh;
+    height: 4vh;
+  }
+}
+
 @media only screen and (min-width: 601px) {
   #mobile-menu {
     display: none;
@@ -1108,7 +1118,8 @@ div.guids-block-title p {
     padding-right: 0rem;
   }
 
-  div.drawermenu-container a.drawer-item {
+  div.drawermenu-container a.drawer-item,
+  a.navigation-link {
     border: 1px solid white;
     color: var(--dark-purple);
   }

@@ -7,11 +7,15 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build && vite build --ssr",
-    "start": "remix-serve ./build/index.js"
+    "start": "remix-serve ./build/server/index.js"
   },
   "dependencies": {
-    "@fontsource/red-hat-display": "^5.0.20",
-    "@fontsource/red-hat-text": "^5.0.18",
+    "@fontsource/red-hat-display": "^5.0.21",
+    "@fontsource/red-hat-text": "^5.0.19",
+    "@radix-ui/react-toast": "^1.1.5",
+    "@searchkit/instantsearch-client": "^4.13.0",
+    "instantsearch.css": "^8.2.1",
+    "lodash": "^4.17.21",
     "@remix-run/node": "^2.11.2",
     "@remix-run/react": "^2.11.2",
     "@remix-run/serve": "^2.11.2",
@@ -22,10 +26,16 @@
     "mysql": "^2.18.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-responsive-carousel": "^3.2.23"
+    "react-instantsearch": "^7.11.2",
+    "react-instantsearch-core": "^7.11.2",
+    "react-responsive-carousel": "^3.2.23",
+    "searchkit": "^4.12.0"
   },
   "devDependencies": {
     "@remix-run/dev": "^2.11.2",
+    "@types/lodash": "^4.17.6",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
     "autoprefixer": "^10.4.20",
     "esbuild-plugin-css-modules": "^0.3.0",
     "postcss": "^8.4.39",
