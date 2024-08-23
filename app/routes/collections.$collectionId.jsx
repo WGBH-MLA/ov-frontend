@@ -10,7 +10,7 @@ export const loader = async ({ params }) => {
 export const meta = ({ data }) => {
   return [
     {
-      title: `${data.title} | GBH Open Vault Collection`,
+      title: `${data.title} | GBH Open Vault`,
     },
     {
       name: 'description',
