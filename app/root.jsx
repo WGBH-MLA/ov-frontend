@@ -25,8 +25,16 @@ export function links() {
   return []
 }
 
-export function meta() {
-  return [{ title: 'GBH Open Vault' }]
+export const meta = () => {
+  return [
+    {
+      title: `GBH Open Vault`,
+    },
+    {
+      name: 'description',
+      content: `Explore scholar exhibits and collections from the GBH Archives.`,
+    },
+  ]
 }
 
 // const serverUrl = 'https://elastic.wgbh-mla.org';

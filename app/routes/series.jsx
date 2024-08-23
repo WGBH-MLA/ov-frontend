@@ -6,6 +6,18 @@ import { seriesData } from '../data/seriesData'
 //   return await getExhibits()
 // }
 
+export const meta = () => {
+  return [
+    {
+      title: `GBH Series | GBH Open Vault`,
+    },
+    {
+      name: 'description',
+      content: `Browse a list of GBH Series and explore records on the American Archive of Public Broadcasting.`,
+    },
+  ]
+}
+
 export const SeriesLink = ({ title, host }) => (<div>
   <a
     className="series-link"
