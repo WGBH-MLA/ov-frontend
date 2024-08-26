@@ -6,6 +6,18 @@ export const loader = async () => {
   return await getCollections()
 }
 
+export const meta = () => {
+  return [
+    {
+      title: `Collections | GBH Open Vault`,
+    },
+    {
+      name: 'description',
+      content: `Explore Special Collections, curated from the GBH Archives.`,
+    },
+  ]
+}
+
 export default function Collections() {
   let specs
 

@@ -18,7 +18,6 @@ import './styles/styles.css'
 import './styles/colors.css'
 import '@fontsource/red-hat-display'
 import '@fontsource/red-hat-text'
-// use webpack css loader instead? v
 
 // Links to include in the header. Left empty in case we want to easily add some later.
 // Stylesheets are now bundled correctly, so we don't need to include them here.
@@ -26,9 +25,19 @@ export function links() {
   return []
 }
 
-export function meta() {
-  return [{ title: 'GBH Open Vault' }]
+export const meta = () => {
+  return [
+    {
+      title: `GBH Open Vault`,
+    },
+    {
+      name: 'description',
+      content: `Explore scholar exhibits and collections from the GBH Archives.`,
+    },
+  ]
 }
+
+// const serverUrl = 'https://elastic.wgbh-mla.org';
 
 export async function loader() {
   // lift these env vars from process.env so they can be injected into window
@@ -43,6 +52,12 @@ export async function loader() {
 
 export default function App() {
   var data = useLoaderData()
+  let meta = import.meta
+  console.log('meta', meta)
+
+  if (meta.env && meta.env.LEGACY) {
+    console.log('legacy browser detected')
+  }
 
   useEffect(() => {
     let lastScrollTop = 0
@@ -66,8 +81,19 @@ export default function App() {
         <meta name="viewport" content="width=device-width,initial-scale=1" />
         <Meta />
         <Links />
+        <link rel="icon" href="/favicon.ico" />
       </head>
       <body>
+        {meta.env && meta.env.LEGACY ? (
+          <div className="legacy-warning">
+            <h3>You are using an outdated browser.</h3>
+            <p>
+              Please upgrade to a modern browser to view all the features of
+              this site.
+            </p>
+            {/* TODO: Make this dismissable */}
+          </div>
+        ) : null}
         <NavigationBar />
         <Outlet />
 
@@ -76,10 +102,10 @@ export default function App() {
             __html: `window.ENV = ${JSON.stringify(data.ENV)}`,
           }}
         />
+        <Footer />
+
         <ScrollRestoration />
         <Scripts />
-
-        <Footer />
       </body>
     </html>
   )

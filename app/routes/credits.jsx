@@ -1,5 +1,17 @@
 import { renderPageTitleBar } from "../classes/pageHelpers"
 
+export const meta = () => {
+  return [
+    {
+      title: `Credits | GBH Open Vault`,
+    },
+    {
+      name: 'description',
+      content: `Funders and credits for the GBH Open Vault project.`,
+    },
+  ]
+}
+
 export default function Credits() {
   let titleBar = renderPageTitleBar("Funders & Credits", "https://s3.amazonaws.com/openvault.wgbh.org/carousel/2mobile3.jpg")
   return (

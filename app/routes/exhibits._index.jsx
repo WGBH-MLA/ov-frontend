@@ -6,6 +6,18 @@ export const loader = async () => {
   return await getExhibits()
 }
 
+export const meta = () => {
+  return [
+    {
+      title: `Scholar Exhibits | GBH Open Vault`,
+    },
+    {
+      name: 'description',
+      content: `Explore exhibits created by scholars from the GBH Archives.`,
+    },
+  ]
+}
+
 export default function Exhibits() {
   let exhibits = useLoaderData()
   let exhibitLinks
