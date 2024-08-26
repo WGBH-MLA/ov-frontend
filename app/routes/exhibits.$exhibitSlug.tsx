@@ -5,10 +5,11 @@ import {
 } from '@remix-run/react'
 import { getPageBySlug } from '../fetch'
 import { renderExhibit } from '../classes/exhibitPresenter'
+import { SEOHandle } from '@balavishnuvj/remix-seo'
 
 export const loader = async ({ params }) => {
   console.log('exx path ', params)
-  let exhibit = await getPageBySlug('exhibits', params.exhibitPath)
+  let exhibit = await getPageBySlug('exhibits', params.exhibitSlug)
   console.log('exhibit loader', exhibit)
   return exhibit
 }
@@ -47,4 +48,22 @@ export function ErrorBoundary() {
       </div>
     )
   }
+}
+
+export const handle: SEOHandle = {
+  getSitemapEntries: async request => {
+    const collections = await fetch(
+      process.env.OV_API_URL + '/api/v2/exhibits/'
+    ).then(res => {
+      return res.json()
+    })
+    return collections.items.map(c => {
+      return {
+        route: `/exhibits/${c.meta.slug}`,
+        priority: 0.7,
+        lastmod: c.meta.last_published_at,
+        changefreq: 'monthly',
+      }
+    })
+  },
 }

@@ -1,7 +1,7 @@
 import { useLoaderData } from '@remix-run/react'
 import { getPageBySlug } from '../fetch'
 import { renderCollection } from '../classes/collectionPresenter'
-import { ErrorBoundary } from './exhibits.$exhibitPath'
+import { ErrorBoundary } from './exhibits.$exhibitSlug'
 import { SEOHandle } from '@balavishnuvj/remix-seo'
 
 export const loader = async ({ params }) => {
