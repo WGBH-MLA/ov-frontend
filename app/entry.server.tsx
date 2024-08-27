@@ -6,6 +6,8 @@ import { createSitemapGenerator } from 'remix-sitemap'
 
 const { isSitemapUrl, sitemap } = createSitemapGenerator({
   siteUrl: 'https://openvault.wgbh.org',
+  changefreq: 'yearly',
+  autoLastmod: false,
 })
 
 export default async function handleRequest(
