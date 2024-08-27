@@ -8,6 +8,7 @@ const { isSitemapUrl, sitemap } = createSitemapGenerator({
   siteUrl: 'https://openvault.wgbh.org',
   changefreq: 'yearly',
   autoLastmod: false,
+  priority: 0.5,
 })
 
 export default async function handleRequest(

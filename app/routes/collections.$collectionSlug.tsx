@@ -42,7 +42,7 @@ export const sitemap: SitemapFunction = async ({ config, request }) => {
   return collections.items.map(collection => {
     return {
       loc: `/collections/${collection.meta.slug}`,
-      priority: 0.7,
+      priority: 0.8,
       lastmod: collection.meta.last_published_at,
       changefreq: 'monthly',
     }
