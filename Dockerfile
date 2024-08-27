@@ -6,7 +6,7 @@ ENV PATH="${PATH}:/app/node_modules/.bin"
 WORKDIR /app
 
 COPY package*.json .
-RUN npm i --legacy-peer-deps
+RUN npm i
 
 CMD npm run dev
 
@@ -21,7 +21,7 @@ RUN npm run build
 FROM dev AS prod-deps
 WORKDIR /app
 
-RUN npm i --omit=dev --legacy-peer-deps
+RUN npm i --omit=dev
 
 ## Production
 FROM base as production
