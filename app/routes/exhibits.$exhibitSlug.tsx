@@ -5,10 +5,11 @@ import {
 } from '@remix-run/react'
 import { getPageBySlug } from '../fetch'
 import { renderExhibit } from '../classes/exhibitPresenter'
+import type { SitemapFunction } from 'remix-sitemap'
 
 export const loader = async ({ params }) => {
   console.log('exx path ', params)
-  let exhibit = await getPageBySlug('exhibits', params.exhibitPath)
+  let exhibit = await getPageBySlug('exhibits', params.exhibitSlug)
   console.log('exhibit loader', exhibit)
   return exhibit
 }
@@ -47,4 +48,20 @@ export function ErrorBoundary() {
       </div>
     )
   }
+}
+
+export const sitemap: SitemapFunction = async ({ config, request }) => {
+  const exhibits = await fetch(
+    process.env.OV_API_URL + '/api/v2/exhibits/'
+  ).then(res => {
+    return res.json()
+  })
+  return exhibits.items.map(exhibit => {
+    return {
+      loc: `/exhibits/${exhibit.meta.slug}`,
+      priority: 0.8,
+      lastmod: exhibit.meta.last_published_at,
+      changefreq: 'monthly',
+    }
+  })
 }
