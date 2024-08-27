@@ -2,7 +2,11 @@ import React from 'react'
 import { renderToString } from 'react-dom/server'
 import { RemixServer } from '@remix-run/react'
 import type { EntryContext } from '@remix-run/node'
-import { otherRootRouteHandlers } from './sitemap'
+import { createSitemapGenerator } from 'remix-sitemap'
+
+const { isSitemapUrl, sitemap } = createSitemapGenerator({
+  siteUrl: 'https://openvault.wgbh.org',
+})
 
 export default async function handleRequest(
   request: Request,
@@ -10,10 +14,8 @@ export default async function handleRequest(
   responseHeaders: Headers,
   remixContext: EntryContext
 ) {
-  for (const handler of otherRootRouteHandlers) {
-    const otherRouteResponse = await handler(request, remixContext)
-    if (otherRouteResponse) return otherRouteResponse
-  }
+  if (isSitemapUrl(request)) return await sitemap(request, remixContext)
+
   const markup = renderToString(
     <RemixServer context={remixContext} url={request.url} />
   )
