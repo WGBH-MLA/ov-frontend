@@ -1,6 +1,6 @@
 import { Link, useLoaderData } from '@remix-run/react'
 import { getCollections } from '../fetch'
-import { renderPageLinks } from '../classes/pageHelpers'
+import { renderPageLink, renderPageLinks } from '../classes/pageHelpers'
 
 export const loader = async () => {
   return await getCollections()
@@ -19,11 +19,20 @@ export const meta = () => {
 }
 
 export default function Collections() {
-  let specs
+  const specs = useLoaderData()
+  const masterpiece = {
+    meta: {
+      slug: "masterpiece"
+    },
+    title: "Alistair Cookie Masterpiece Theater Collection",
+    cover_image: {
+      full_url: "https://s3.amazonaws.com/openvault.wgbh.org/treasuries/alistair.png"
+    },
+  }
 
-  // actually get from api
-  specs = useLoaderData()
+  // mix in masterpiece collection
+  specs.items.push( masterpiece )
+  
   let collectionLinks = renderPageLinks('collections', specs.items)
-
   return <div className="pagelinks-container">{collectionLinks}</div>
 }
