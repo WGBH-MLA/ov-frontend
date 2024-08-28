@@ -1,10 +1,11 @@
 import { useLoaderData } from '@remix-run/react'
 import { getPageBySlug } from '../fetch'
 import { renderCollection } from '../classes/collectionPresenter'
-import { ErrorBoundary } from './exhibits.$exhibitPath'
+import { ErrorBoundary } from './exhibits.$exhibitSlug'
+import type { SitemapFunction } from 'remix-sitemap'
 
 export const loader = async ({ params }) => {
-  return await getPageBySlug('collections', params.collectionId)
+  return await getPageBySlug('collections', params.collectionSlug)
 }
 
 export const meta = ({ data }) => {
@@ -30,3 +31,20 @@ export default function Collections() {
 }
 
 export { ErrorBoundary }
+
+
+export const sitemap: SitemapFunction = async ({ config, request }) => {
+  const collections = await fetch(
+    process.env.OV_API_URL + '/api/v2/collections/'
+  ).then(res => {
+    return res.json()
+  })
+  return collections.items.map(collection => {
+    return {
+      loc: `/collections/${collection.meta.slug}`,
+      priority: 0.8,
+      lastmod: collection.meta.last_published_at,
+      changefreq: 'monthly',
+    }
+  })
+}

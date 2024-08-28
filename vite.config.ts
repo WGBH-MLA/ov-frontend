@@ -13,7 +13,7 @@ export default defineConfig({
     }),
   ],
   server: {
-    port: 4000,
+    port: 3000,
     host: '0.0.0.0',
     fs: {
       strict: true,
@@ -24,9 +24,5 @@ export default defineConfig({
     modules: {
       localsConvention: 'camelCaseOnly',
     },
-  },
-  build: {
-    emptyOutDir: true,
-    outDir: 'dist',
   },
 })

@@ -13,13 +13,13 @@ export function Footer(props){
           <FooterLink link="/collections" text="Collections" />
         </div>
         <div className="bottom-bar-column">
-          <FooterLink link="/supportus" text="Support Us" />
-          <FooterLink link="/visitus" text="Visit Us" />
+          <FooterLink link="/support-us" text="Support Us" />
+          <FooterLink link="/visit-us" text="Visit Us" />
           <FooterLink link="/faq" text="Help" />
           <FooterLink link="/credits" text="Credits" />
         </div>
         <div className="bottom-bar-column">
-          <FooterLink link="/privacy_policy" text="Privacy Policy" />
+          <FooterLink link="/privacy-policy" text="Privacy Policy" />
           <FooterLink link="/terms" text="Terms & Conditions" />
         </div>
       </div>

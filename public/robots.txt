@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /catalog
+
+Sitemap: https://openvault.wgbh.org/sitemap.xml
