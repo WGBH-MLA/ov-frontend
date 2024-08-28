@@ -3,9 +3,9 @@ import {
   useRouteError,
   isRouteErrorResponse,
 } from '@remix-run/react'
+import { useState, useEffect } from 'react'
 
 import { getMasterpiece } from "../masterpiece"
-import { useState } from 'react'
 
 export const meta = () => {
   return [
@@ -60,7 +60,6 @@ export default function Masterpiece() {
   })
 
   const [isOpen, setIsOpen] = useState(true)
-
   useEffect(() => {
     const sidebarMenu = document.getElementsByClassName('page-sidebar')[0]
     const initialSidebarTop = sidebarMenu?.offsetTop
@@ -90,7 +89,6 @@ export default function Masterpiece() {
         }
         
       } else {
-
         // sidebar is in top position (page header showing)
         sidebarMenu.style.top = initialSidebarTop - scrollTop + "px"
         sidebarMenu.style.position = "fixed"
