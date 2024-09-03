@@ -217,7 +217,7 @@ div.series-group-letter {
 }
 
 a.series-link {
-  display: inline-block;
+  display: block;
   font-size: 1.5rem;
   font-weight: 500;
   margin-bottom: 1.5rem;
@@ -489,14 +489,23 @@ div.page-sidebar-border {
   border-right: 1px solid var(--black);
 }
 
-a.page-sidebar-link {
+
+div.page-sidebar-link {
+  margin-bottom: 1em;
+  margin-left: 4em;
+  display: block;
+}
+
+div.page-sidebar-link a {
+  display: inline-block;
   cursor: pointer;
   font-family: 'Red Hat Display', sans-serif;
   color: var(--blue);
-  display: block;
   font-size: 1em;
-  margin-bottom: 1em;
-  margin-left: 4em;
+}
+
+div.page-sidebar-link a p {
+  margin: 0;
 }
 
 #sidebar-menu-icon > div {
@@ -522,7 +531,6 @@ div.page-authorbubble-stacked {
 div.page-authorbubble-bottom-container {
   position: relative;
   display: flex;
-  align-items: center;
 }
 
 div.page-authorbubble-stacked div.author-bubble {
@@ -549,13 +557,12 @@ div.page-authorbubble-bottom-container div.author-extras-bottom {
   margin-left: 2rem;
   margin-top: 2rem;
 
-  max-height: 4em;
-  height: 4em;
 }
 
 div.author-bio,
 div.author-byline {
   display: block;
+  overflow: hidden;
 }
 
 div.author-bio {
@@ -572,6 +579,7 @@ a.footnote-link {
 }
 
 li.footnote-content {
+  position: relative;
   list-style: number;
   /*  display: block;
   width: 20vw;*/
@@ -604,6 +612,13 @@ li.footnote-content a::before {
 
 li.footnote-content:hover > a::before {
   background-image: url('/backarrow.png');
+}
+
+a.footnote-anchor {
+  position: absolute;
+  left: 0;
+  top: 10em;
+  height: 15em;
 }
 
 /* ex and spec pages */
@@ -774,6 +789,7 @@ div.pagelink-subtitle {
 }
 
 div.author-bubble {
+  vertical-align: top;
   background-size: cover;
   min-width: 6rem;
   width: 6rem;
@@ -1277,9 +1293,10 @@ div.guids-block-title p {
     margin-left: 2rem;
   }
 
-  a.page-sidebar-link {
+  div.page-sidebar-link {
     margin-left: 2rem;
   }
+
   div.content-relatedcontent a {
     display: block;
     width: 92vw;

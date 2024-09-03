@@ -3,14 +3,12 @@ import {
   useRouteError,
   isRouteErrorResponse,
 } from '@remix-run/react'
+import type { SitemapFunction } from 'remix-sitemap'
 import { getPageBySlug } from '../fetch'
 import { renderExhibit } from '../classes/exhibitPresenter'
-import type { SitemapFunction } from 'remix-sitemap'
 
 export const loader = async ({ params }) => {
-  console.log('exx path ', params)
   let exhibit = await getPageBySlug('exhibits', params.exhibitSlug)
-  console.log('exhibit loader', exhibit)
   return exhibit
 }
 
@@ -28,8 +26,6 @@ export const meta = ({ data }) => {
 
 export default function Exhibit() {
   const exhibit = useLoaderData()
-  console.log('exhibit', exhibit)
-
   return renderExhibit(exhibit)
 }
 

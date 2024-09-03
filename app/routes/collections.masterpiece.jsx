@@ -34,17 +34,19 @@ export default function Masterpiece() {
   const masterpieceData = data.masterpieceData
 
   const [masterpieceSearch, setMasterpieceSearch] = useState(true)
-  let seasonLinks = Object.keys(masterpieceData).map( (seasonNumber, index) => <a key={index} className="masterpiece-season-link" href={ "#season-"+seasonNumber } >Season { seasonNumber }</a> )
+  let seasonLinks = Object.keys(masterpieceData).map( (seasonNumber, index) => <a key={index} className="masterpiece-season-link page-sidebar-link" href={ "#season-"+seasonNumber } >Season { seasonNumber }</a> )
 
   let seasonGroups = Object.keys(masterpieceData).map( (seasonNumber, index) => {
-    let seasonGroup = masterpieceData[seasonNumber]
+    let seasonGroup
     
     if(masterpieceSearch.length > 0){
-    
-      let keysToRemove = Object.keys(seasonGroup).filter( (title) => !title.toLowerCase().includes(masterpieceSearch) )
-      keysToRemove.forEach( (key) => {
-        delete seasonGroup[key]  
+      seasonGroup = {}
+      var includeThese = Object.keys(masterpieceData[seasonNumber]).filter( (title) => title.toLowerCase().includes(masterpieceSearch) )
+      includeThese.forEach( (title) => {
+        seasonGroup[title] = masterpieceData[seasonNumber][title]
       })
+    } else {
+      seasonGroup = masterpieceData[seasonNumber]
     }
     
     seasonGroup = Object.keys(seasonGroup).map( (normalizedMiniseriesTitle, groupIndex) => <a key={groupIndex} className="masterpiece-link" href={ `${ data.AAPB_HOST }/catalog?f[series_titles][]=${ normalizedMiniseriesTitle }&f[access_types][]=all` } >{ seasonGroup[normalizedMiniseriesTitle].nice_title }</a> )
@@ -59,6 +61,7 @@ export default function Masterpiece() {
     )
   })
 
+  // duplicated from renderSidebar, because search etc on mp/series is too different to combine into one thing
   const [isOpen, setIsOpen] = useState(true)
   useEffect(() => {
     const sidebarMenu = document.getElementsByClassName('page-sidebar')[0]

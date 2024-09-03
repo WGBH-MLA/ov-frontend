@@ -17,7 +17,7 @@ export function renderCollection(collection) {
   let sidebar
   console.log('rendering collection', collection)
   sidebar = renderSidebar(
-    'collections',
+    "In This Collection",
     collection.content.filter(block => SIDEBAR_TYPES.includes(block.type))
   )
   console.log('sidebar', sidebar)

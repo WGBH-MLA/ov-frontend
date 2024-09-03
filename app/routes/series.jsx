@@ -3,7 +3,7 @@ import {
   useRouteError,
   isRouteErrorResponse,
 } from '@remix-run/react'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { getSeries } from "../series"
 
 export const loader = async () => {
@@ -39,6 +39,43 @@ export default function Series() {
     )
   })
 
+  const [isOpen, setIsOpen] = useState(true)
+  useEffect(() => {
+    const sidebarMenu = document.getElementsByClassName('page-sidebar')[0]
+    const initialSidebarTop = sidebarMenu?.offsetTop
+
+    window.addEventListener('scroll', () => {
+      let scrollTop = document.documentElement.scrollTop
+
+      if (scrollTop > initialSidebarTop) {
+        // bar is at top position
+
+        var distanceFromBottom
+        var sbLinks = document.getElementsByClassName("page-sidebar-link")
+        if(sbLinks.length > 0){
+          // there could be no sidebar elements if ex has no authors and no headings and no footnotes
+
+          var lastSbLink = sbLinks[ sbLinks.length - 1 ]
+          var sbRect = lastSbLink.getBoundingClientRect()
+          var clientTop = document.documentElement.clientTop || document.body.clientTop || 0
+          var top = sbRect.top + scrollTop - clientTop
+
+          var distanceFromBottom = document.body.scrollHeight - top + sbRect.height
+
+          if(distanceFromBottom/document.body.scrollHeight < 0.36){
+            // bar is close enough (36vh) to the footer, stop
+            sidebarMenu.style.position = "sticky"
+          }
+        }
+        
+      } else {
+        // sidebar is in top position (page header showing)
+        sidebarMenu.style.top = initialSidebarTop - scrollTop + "px"
+        sidebarMenu.style.position = "fixed"
+      }
+
+    })
+  }, [])
   // seriesAlphaGroups = seriesAlphaGroups.filter( (sG) => sG.length > 0  )
   return (
     <div className="page-container">

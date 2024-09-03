@@ -30,7 +30,6 @@ import { Router, stateToRoute, routeToState } from '../components/Router'
 const sk = new Searchkit(searchkit_options)
 
 export const searchClient = Client(sk)
-console.log('searchClient', searchClient)
 
 export const Search = ({ serverState, serverUrl, aapb_host }: SearchProps) => {
   let timerId

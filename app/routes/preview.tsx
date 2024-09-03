@@ -17,7 +17,6 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
 
 export default function Preview() {
   const preview = useLoaderData()
-  console.log('preview gon give it to ya', preview)
 
   if (!preview) {
     throw new Error('Not found!')

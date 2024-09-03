@@ -1,14 +1,13 @@
 import { decode } from "html-entities"
 import { Link, useLoaderData } from "@remix-run/react"
+import { useEffect } from 'react'
 import { renderAuthorBubble, renderPageLink, renderPageLinks, renderSidebar, renderSidebarSection, renderPageTitleBar, renderFootnoteSection, renderFootnotesInBody } from "./pageHelpers"
 import { renderBlocks, renderBlock, textContent, headingContent } from "./contentHelpers"
 
 export function renderExhibit(exhibit){
   let showAuthors = exhibit.authors && exhibit.authors.length > 0 && exhibit.authors[0].name
   let showFootnotes = exhibit.footnotes && exhibit.footnotes.length > 0
-  let sidebar = renderSidebar("exhibit", exhibit.body.filter( (block) => block.type == "heading"), showAuthors, showFootnotes)  
-
-  // console.log( 'you know i exhibit that', exhibit )
+  let sidebar = renderSidebar("In This Exhibit", exhibit.body.filter( (block) => block.type == "heading"), showAuthors, showFootnotes)  
 
   let titleBar
   if(exhibit.title){
@@ -70,7 +69,7 @@ export function renderExhibit(exhibit){
         </div>
       )
     })
-    
+
     let byline = (
       <div className="author-byline">
         <div>By { exhibit.authors.map((author) => { return author.name }).join(", ") }</div>
