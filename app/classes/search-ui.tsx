@@ -67,8 +67,8 @@ export const Search = ({ serverState, serverUrl, aapb_host }: SearchProps) => {
                 <NoResultsBoundary fallback={<NoResults />}>
                   <h2>Open Vault results</h2>
                   <Refinements />
-                  <Hits hitComponent={Hit} />
-                  <Pagination />
+                  {/* <Hits hitComponent={Hit} /> */}
+                  {/* <Pagination /> */}
                   Results per page
                   <HitsPerPage
                     items={[
@@ -83,7 +83,7 @@ export const Search = ({ serverState, serverUrl, aapb_host }: SearchProps) => {
               <Index indexName="gbh-series">
                 <NoResultsBoundary fallback={null}>
                   <h3>GBH Series results</h3>
-                  <Carousel aapb_host={aapb_host} />
+                  {/* <Carousel aapb_host={aapb_host} /> */}
                 </NoResultsBoundary>
               </Index>
             </EmptyQueryBoundary>
