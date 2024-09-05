@@ -10,6 +10,7 @@ import {
   HitsPerPage,
 } from 'react-instantsearch'
 import {
+  Error,
   EmptyQueryBoundary,
   NoResultsBoundary,
   LoadingIndicator,
@@ -52,6 +53,7 @@ export const Search = ({ serverUrl, aapb_host }: SearchProps) => {
           }}
           className="search-box"
         />
+        <Error />
         <div className="search-results">
           <EmptyQueryBoundary fallback={<EmptyQueryMessage />}>
             <AAPBResults aapb_host={aapb_host} />
