@@ -1,17 +1,7 @@
 import { decode } from 'html-entities'
 import { renderSidebar, renderPageTitleBar } from './pageHelpers'
 import { renderBlocks } from './contentHelpers'
-
-export const SIDEBAR_TYPES = [
-  'heading',
-  'interviews',
-  'archival_footage',
-  'photographs',
-  'original_footage',
-  'programs',
-  'related_content',
-  'credits',
-]
+import { SIDEBAR_TYPES } from '../data/sidebarTypes'
 
 export function renderCollection(collection) {
   let sidebar
@@ -20,7 +10,6 @@ export function renderCollection(collection) {
     "In This Collection",
     collection.content.filter(block => SIDEBAR_TYPES.includes(block.type))
   )
-  console.log('sidebar', sidebar)
 
   let titleBar
   if (collection.title) {

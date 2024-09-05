@@ -2,6 +2,7 @@ import {
   useLoaderData,
   useRouteError,
   isRouteErrorResponse,
+  Link,
 } from '@remix-run/react'
 import { useEffect, useState } from 'react'
 import { getSeries } from "../series"
@@ -21,7 +22,7 @@ export default function Series() {
   const seriesData = data.seriesData
   const [seriesSearch, setSeriesSearch] = useState(true)
 
-  let alphabetLinks = Object.keys(seriesData).map( (letter, index) => <a key={index} className="series-alphabet-link" href={ "#series-"+letter.toLowerCase() } >{ letter }</a> )
+  let alphabetLinks = Object.keys(seriesData).map( (letter, index) => <Link key={index} className="series-alphabet-link" to={ "#series-"+letter.toLowerCase() } >{ letter }</Link> )
 
   let seriesAlphaGroups = Object.keys(seriesData).map( (letter, index) => {
     let seriesGroup = seriesData[letter]
@@ -29,7 +30,7 @@ export default function Series() {
       seriesGroup = seriesGroup.filter( (title) => title.toLowerCase().includes(seriesSearch) )
     }
     
-    seriesGroup = seriesGroup.map( (title, groupIndex) => <a key={groupIndex} className="series-link" href={ `${ data.AAPB_HOST }/catalog?f[series_titles][]=${ title }&q=+(contributing_organizations: WGBH(MA) OR producing_organizations: WGBH Educational Foundation)&f[access_types][]=all` } >{ title }</a> )
+    seriesGroup = seriesGroup.map( (title, groupIndex) => <Link key={groupIndex} className="series-link" to={ `${ data.AAPB_HOST }/catalog?f[series_titles][]=${ title }&q=+(contributing_organizations: WGBH(MA) OR producing_organizations: WGBH Educational Foundation)&f[access_types][]=all` } >{ title }</Link> )
 
     return(
       <div key={index} className="series-group">

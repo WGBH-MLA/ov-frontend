@@ -516,6 +516,10 @@ div.page-sidebar-link a p {
   background-color: #fffd;
 }
 
+h3#authors-section {
+  margin-bottom: 2vh;
+}
+
 div.page-body h3.page-authors-title {
   margin-bottom: 0;
 }

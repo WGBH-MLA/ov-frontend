@@ -2,6 +2,7 @@ import {
   useLoaderData,
   useRouteError,
   isRouteErrorResponse,
+  Link,
 } from '@remix-run/react'
 import { useState, useEffect } from 'react'
 
@@ -34,7 +35,8 @@ export default function Masterpiece() {
   const masterpieceData = data.masterpieceData
 
   const [masterpieceSearch, setMasterpieceSearch] = useState(true)
-  let seasonLinks = Object.keys(masterpieceData).map( (seasonNumber, index) => <a key={index} className="masterpiece-season-link page-sidebar-link" href={ "#season-"+seasonNumber } >Season { seasonNumber }</a> )
+  // let seasonLinks = Object.keys(masterpieceData).map( (seasonNumber, index) => <a key={index} className="masterpiece-season-link page-sidebar-link" href={ "#season-"+seasonNumber } >Season { seasonNumber }</a> )
+  let seasonLinks = Object.keys(masterpieceData).map( (seasonNumber, index) => <Link key={index} className="masterpiece-season-link page-sidebar-link" to={ "#season-"+seasonNumber } >Season { seasonNumber }</Link> )
 
   let seasonGroups = Object.keys(masterpieceData).map( (seasonNumber, index) => {
     let seasonGroup
@@ -62,7 +64,7 @@ export default function Masterpiece() {
   })
 
   // duplicated from renderSidebar, because search etc on mp/series is too different to combine into one thing
-  const [isOpen, setIsOpen] = useState(true)
+  // const [isOpen, setIsOpen] = useState(true)
   useEffect(() => {
     const sidebarMenu = document.getElementsByClassName('page-sidebar')[0]
     const initialSidebarTop = sidebarMenu?.offsetTop
