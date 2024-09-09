@@ -6,12 +6,14 @@
   "search_settings": {
     "search_attributes": [
       { "field": "title", "weight": 3 },
+      "slug",
       "exhibits_exhibitpage__body_edgengrams",
       "ov_collections_collection__introduction_edgengrams",
       "featured"
     ],
     "result_attributes": [
       "title",
+      "slug",
       "exhibits_exhibitpage__body_edgengrams",
       "ov_collections_collection__introduction_edgengrams"
     ],

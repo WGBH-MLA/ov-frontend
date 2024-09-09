@@ -5,6 +5,7 @@ type HitProps = {
   hit: AlgoliaHit<{
     objectID: number
     title: string
+    slug: string
   }>
 }
 
@@ -13,12 +14,12 @@ export const Hit = ({ hit }: HitProps) => {
   switch (true) {
     case 'exhibits_exhibitpage__body_edgengrams' in hit:
       label = 'Scholar Exhibit'
-      route = '/exhibits/' + hit.objectID
+      route = '/exhibits/' + hit.slug
       type = 'exhibit-tag'
       break
     case 'ov_collections_collection__introduction_edgengrams' in hit:
       label = 'Special Collection'
-      route = '/collections/' + hit.objectID
+      route = '/collections/' + hit.slug
       type = 'collection-tag'
       break
     default:
