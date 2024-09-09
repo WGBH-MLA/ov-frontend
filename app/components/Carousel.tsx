@@ -1,8 +1,6 @@
-import { useInstantSearch } from 'react-instantsearch-core'
 import { Highlight, Hits } from 'react-instantsearch'
 
 export const Carousel = ({ aapb_host }) => {
-  const { results } = useInstantSearch()
   const aapb_link = (title) => `${aapb_host}/catalog?f[series_titles][]=${title}&q=+(contributing_organizations: WGBH(MA) OR producing_organizations: WGBH Educational Foundation)&f[access_types][]=all`
 
   const SeriesHit = ({ hit }) => {
