@@ -3,32 +3,58 @@ import {
   useRouteError,
   isRouteErrorResponse,
 } from '@remix-run/react'
+import type { LoaderFunction, MetaFunction } from '@remix-run/node'
+import { json } from '@remix-run/node'
 import { getPageBySlug } from '../fetch'
 import { renderExhibit } from '../classes/exhibitPresenter'
 import type { SitemapFunction } from 'remix-sitemap'
 
-export const loader = async ({ params }) => {
-  console.log('exx path ', params)
+export const loader: LoaderFunction = async ({ params, request }) => {
+  let server_url = request.url
+  // console.log('exx path ', params)
   let exhibit = await getPageBySlug('exhibits', params.exhibitSlug)
-  console.log('exhibit loader', exhibit)
-  return exhibit
+  // console.log('exhibit loader', exhibit)
+  return json({exhibit, server_url})
 }
 
-export const meta = ({ data }) => {
+export const meta: MetaFunction = ({ data, location }) => {
+  // console.log('exhibit meta', data)
+  let exhibit = data.exhibit
   return [
     {
-      title: `${data.title} | GBH Open Vault`,
+      title: `${exhibit.title} | GBH Open Vault`,
     },
     {
       name: 'description',
-      content: data.meta.search_description || 'GBH Open Vault Exhibit',
+      content: exhibit.meta.search_description || 'GBH Open Vault Exhibit',
     },
+    {
+      name: 'og:url',
+      content: data.server_url,
+    },
+    {
+      name: 'og:type',
+      content: 'article',
+    },
+    {
+      name: 'og:title',
+      content: exhibit.title,
+    },
+    {
+      name: 'og:description',
+      content: exhibit.meta.search_description || 'GBH Open Vault Exhibit',
+    },
+    {
+      name: 'og:image',
+      content: exhibit.cover_image.url,
+    },
+
   ]
 }
 
 export default function Exhibit() {
-  const exhibit = useLoaderData()
-  console.log('exhibit', exhibit)
+  const {exhibit} = useLoaderData()
+  // console.log('exhibit', exhibit)
 
   return renderExhibit(exhibit)
 }

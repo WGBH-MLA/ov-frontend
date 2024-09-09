@@ -53,7 +53,7 @@ export async function loader() {
 export default function App() {
   var data = useLoaderData()
   let meta = import.meta
-  console.log('meta', meta)
+  // console.log('meta', meta)
 
   if (meta.env && meta.env.LEGACY) {
     console.log('legacy browser detected')
