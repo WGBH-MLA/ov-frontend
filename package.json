@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@fontsource/red-hat-display": "^5.0.21",
-    "@fontsource/red-hat-text": "^5.0.19",
+    "@fontsource/red-hat-text": "^5.0.20",
     "@radix-ui/react-toast": "^1.1.5",
     "@remix-run/node": "^2.11.2",
     "@remix-run/react": "^2.11.2",
