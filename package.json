@@ -40,7 +40,7 @@
     "@types/react-dom": "^18.3.0",
     "autoprefixer": "^10.4.20",
     "esbuild-plugin-css-modules": "^0.3.0",
-    "postcss": "^8.4.39",
+    "postcss": "^8.4.45",
     "postcss-cli": "^11.0.0",
     "postcss-import": "^16.1.0",
     "terser": "^5.31.6",
