@@ -3,57 +3,45 @@ import {
   useRouteError,
   isRouteErrorResponse,
 } from '@remix-run/react'
-import type { LoaderFunction, MetaFunction } from '@remix-run/node'
+import type {
+  LoaderFunction,
+  MetaFunction,
+  LoaderFunctionArgs,
+} from '@remix-run/node'
 import { json } from '@remix-run/node'
 import { getPageBySlug } from '../fetch'
 import { renderExhibit } from '../classes/exhibitPresenter'
 import type { SitemapFunction } from 'remix-sitemap'
+import { extractMeta } from '../classes/meta'
 
-export const loader: LoaderFunction = async ({ params, request }) => {
+export const loader: LoaderFunction = async ({
+  params,
+  request,
+}: LoaderFunctionArgs) => {
   let server_url = request.url
   // console.log('exx path ', params)
   let exhibit = await getPageBySlug('exhibits', params.exhibitSlug)
   // console.log('exhibit loader', exhibit)
-  return json({exhibit, server_url})
+  return json({ exhibit, server_url })
 }
 
-export const meta: MetaFunction = ({ data, location }) => {
+export const meta: MetaFunction<typeof loader> = ({ data }) => {
   // console.log('exhibit meta', data)
   let exhibit = data.exhibit
   return [
-    {
-      title: `${exhibit.title} | GBH Open Vault`,
-    },
+    { title: `${exhibit.title} | GBH Open Vault` },
     {
       name: 'description',
-      content: exhibit.meta.search_description || 'GBH Open Vault Exhibit',
+      content:
+        exhibit.meta.search_description ||
+        'Scholar Exhibit from GBH Open Vault',
     },
-    {
-      name: 'og:url',
-      content: data.server_url,
-    },
-    {
-      name: 'og:type',
-      content: 'article',
-    },
-    {
-      name: 'og:title',
-      content: exhibit.title,
-    },
-    {
-      name: 'og:description',
-      content: exhibit.meta.search_description || 'GBH Open Vault Exhibit',
-    },
-    {
-      name: 'og:image',
-      content: exhibit.cover_image.url,
-    },
-
+    ...extractMeta(data.server_url, exhibit),
   ]
 }
 
 export default function Exhibit() {
-  const {exhibit} = useLoaderData()
+  const { exhibit } = useLoaderData()
   // console.log('exhibit', exhibit)
 
   return renderExhibit(exhibit)

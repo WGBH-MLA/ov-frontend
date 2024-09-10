@@ -37,8 +37,6 @@ export const meta = () => {
   ]
 }
 
-// const serverUrl = 'https://elastic.wgbh-mla.org';
-
 export async function loader() {
   // lift these env vars from process.env so they can be injected into window
   return json({
