@@ -10,6 +10,7 @@ import {
 } from '@remix-run/react'
 import { json } from '@remix-run/node'
 import { useEffect } from 'react'
+import { HomeMeta } from './classes/meta'
 
 import { NavigationBar } from './classes/navigationBar'
 import { Footer } from './classes/footer'
@@ -27,13 +28,12 @@ export function links() {
 
 export const meta = () => {
   return [
-    {
-      title: `GBH Open Vault`,
-    },
+    { title: `GBH Open Vault` },
     {
       name: 'description',
       content: `Explore scholar exhibits and collections from the GBH Archives.`,
     },
+    ...HomeMeta,
   ]
 }
 
