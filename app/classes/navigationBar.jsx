@@ -10,11 +10,11 @@ let aboutLinks = [
   },
   {
     label: 'Support Us',
-    url: '/supportus',
+    url: '/support-us',
   },
   {
     label: 'Visit Us',
-    url: '/visitus',
+    url: '/visit-us',
   },
   {
     label: 'FAQ',

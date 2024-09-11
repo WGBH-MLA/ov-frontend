@@ -1,10 +1,6 @@
 import { Component } from 'react'
 import { seriesData } from '../data/seriesData'
-
-// // commented out so we can use fake data
-// export const loader = async () => {
-//   return await getExhibits()
-// }
+import { Meta } from '../classes/meta'
 
 export const meta = () => {
   return [
@@ -15,17 +11,20 @@ export const meta = () => {
       name: 'description',
       content: `Browse a list of GBH Series and explore records on the American Archive of Public Broadcasting.`,
     },
+    ...Meta,
   ]
 }
 
-export const SeriesLink = ({ title, host }) => (<div>
-  <a
-    className="series-link"
-    href={`${host}/catalog?f[series_titles][]=${title}&q=+(contributing_organizations: WGBH(MA) OR producing_organizations: WGBH Educational Foundation)&f[access_types][]=all`}
-    target="_blank"
-  >
-    {title}
-  </a></div>
+export const SeriesLink = ({ title, host }) => (
+  <div>
+    <a
+      className="series-link"
+      href={`${host}/catalog?f[series_titles][]=${title}&q=+(contributing_organizations: WGBH(MA) OR producing_organizations: WGBH Educational Foundation)&f[access_types][]=all`}
+      target="_blank"
+    >
+      {title}
+    </a>
+  </div>
 )
 
 export default class Series extends Component {
@@ -42,25 +41,51 @@ export default class Series extends Component {
     this.setState({ aapb_host: window.ENV.AAPB_HOST })
   }
 
-  render(){
-
-    let alphabetLinks = Object.keys(seriesData).map( (letter, index) => { return (<a key={index} className="series-alphabet-link" href={ "#series-"+letter.toLowerCase() } >{ letter }</a>) } )
-
-    let seriesAlphaGroups = Object.keys(seriesData).map( (letter, index) => {
-      let seriesGroup = seriesData[letter]
-      if(this.state.seriesSearch.length > 0){
-        seriesGroup = seriesGroup.filter( (title) => title.toLowerCase().includes(this.state.seriesSearch) )
-      }
-      
-      seriesGroup = seriesGroup.map( (title, groupIndex) => { return <a key={groupIndex} className="series-link" href={ `${ this.state.aapb_host }/catalog?f[series_titles][]=${ title }&q=+(contributing_organizations: WGBH(MA) OR producing_organizations: WGBH Educational Foundation)&f[access_types][]=all` } >{ title }</a> })
-
-      if(seriesGroup.length > 0)
-      return(
-        <div key={index} className="series-group">
-          <div id={ "series-"+letter.toLowerCase() } className="series-group-letter">{ letter }</div>
-          { seriesGroup }
-        </div>
+  render() {
+    let alphabetLinks = Object.keys(seriesData).map((letter, index) => {
+      return (
+        <a
+          key={index}
+          className="series-alphabet-link"
+          href={'#series-' + letter.toLowerCase()}
+        >
+          {letter}
+        </a>
       )
+    })
+
+    let seriesAlphaGroups = Object.keys(seriesData).map((letter, index) => {
+      let seriesGroup = seriesData[letter]
+      if (this.state.seriesSearch.length > 0) {
+        seriesGroup = seriesGroup.filter(title =>
+          title.toLowerCase().includes(this.state.seriesSearch)
+        )
+      }
+
+      seriesGroup = seriesGroup.map((title, groupIndex) => {
+        return (
+          <a
+            key={groupIndex}
+            className="series-link"
+            href={`${this.state.aapb_host}/catalog?f[series_titles][]=${title}&q=+(contributing_organizations: WGBH(MA) OR producing_organizations: WGBH Educational Foundation)&f[access_types][]=all`}
+          >
+            {title}
+          </a>
+        )
+      })
+
+      if (seriesGroup.length > 0)
+        return (
+          <div key={index} className="series-group">
+            <div
+              id={'series-' + letter.toLowerCase()}
+              className="series-group-letter"
+            >
+              {letter}
+            </div>
+            {seriesGroup}
+          </div>
+        )
     })
 
     // seriesAlphaGroups = seriesAlphaGroups.filter( (sG) => sG.length > 0  )
