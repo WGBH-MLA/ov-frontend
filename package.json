@@ -10,7 +10,7 @@
     "start": "remix-serve ./build/server/index.js"
   },
   "dependencies": {
-    "@fontsource/red-hat-display": "^5.0.21",
+    "@fontsource/red-hat-display": "^5.0.22",
     "@fontsource/red-hat-text": "^5.0.20",
     "@radix-ui/react-toast": "^1.1.5",
     "@remix-run/node": "^2.11.2",
@@ -21,11 +21,11 @@
     "@vitejs/plugin-legacy": "^5.4.2",
     "@vitejs/plugin-react": "^4.3.1",
     "html-entities": "^2.5.2",
-    "instantsearch.css": "^8.2.1",
+    "instantsearch.css": "^8.5.1",
     "lodash": "^4.17.21",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-instantsearch": "^7.11.2",
+    "react-instantsearch": "^7.13.1",
     "react-instantsearch-core": "^7.11.2",
     "react-responsive-carousel": "^3.2.23",
     "remix-sitemap": "^3.2.0",
