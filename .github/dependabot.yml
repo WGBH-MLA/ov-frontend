@@ -18,9 +18,33 @@ updates:
     directory: /
     schedule:
       interval: weekly
-      time: '06:00'
+      day: wednesday
+      time: '03:00'
       timezone: US/Eastern
     commit-message:
       prefix: ⬆
     labels:
       - maintenance 🔧
+    groups:
+      # Group production dependencies together
+      # Combine all minor and patch updates into one PR
+      # Ignore all Remix dependencies: they are updated separately
+      production-dependencies:
+        dependency-type: production
+        exclude-patterns:
+          - '@remix-run/*'
+        update-types:
+          - minor
+          - patch
+      # Group development dependencies together
+      development-dependencies:
+        dependency-type: development
+        exclude-patterns:
+          - '@remix-run/*'
+        update-types:
+          - minor
+          - patch
+      # Group Remix dependencies together
+      remix-dependencies:
+        patterns:
+          - '@remix-run/*'

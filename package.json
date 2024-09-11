@@ -10,29 +10,29 @@
     "start": "remix-serve ./build/server/index.js"
   },
   "dependencies": {
-    "@fontsource/red-hat-display": "^5.0.21",
+    "@fontsource/red-hat-display": "^5.0.22",
     "@fontsource/red-hat-text": "^5.0.20",
     "@radix-ui/react-toast": "^1.1.5",
-    "@remix-run/node": "^2.11.2",
-    "@remix-run/react": "^2.11.2",
-    "@remix-run/serve": "^2.11.2",
-    "@remix-run/server-runtime": "^2.11.2",
+    "@remix-run/node": "^2.12.0",
+    "@remix-run/react": "^2.12.0",
+    "@remix-run/serve": "^2.12.0",
+    "@remix-run/server-runtime": "^2.12.0",
     "@searchkit/instantsearch-client": "^4.13.0",
     "@vitejs/plugin-legacy": "^5.4.2",
     "@vitejs/plugin-react": "^4.3.1",
     "html-entities": "^2.5.2",
-    "instantsearch.css": "^8.2.1",
+    "instantsearch.css": "^8.5.1",
     "lodash": "^4.17.21",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-instantsearch": "^7.11.2",
+    "react-instantsearch": "^7.13.1",
     "react-instantsearch-core": "^7.11.2",
     "react-responsive-carousel": "^3.2.23",
     "remix-sitemap": "^3.2.0",
     "searchkit": "^4.12.0"
   },
   "devDependencies": {
-    "@remix-run/dev": "^2.11.2",
+    "@remix-run/dev": "^2.12.0",
     "@types/lodash": "^4.17.6",
     "@types/react": "^18.3.5",
     "@types/react-dom": "^18.3.0",
@@ -41,8 +41,8 @@
     "postcss": "^8.4.45",
     "postcss-cli": "^11.0.0",
     "postcss-import": "^16.1.0",
-    "terser": "^5.31.6",
-    "vite": "^5.4.3"
+    "terser": "^5.32.0",
+    "vite": "^5.4.4"
   },
   "engines": {
     "node": ">=21"

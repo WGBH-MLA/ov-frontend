@@ -31,5 +31,5 @@ export async function getPageBySlug(type, slug) {
   }
   return await fetch(
     `${process.env.OV_API_URL}/api/v2/${type}/${body.items[0].id}`
-  )
+  ).then(res => res.json())
 }

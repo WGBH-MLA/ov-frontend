@@ -6,6 +6,7 @@ import { Panel } from '../components/Panel'
 import { Search } from '../classes/search-ui'
 import 'instantsearch.css/themes/algolia-min.css'
 import '../styles/search.css'
+import { Meta } from '../classes/meta'
 
 export const meta: MetaFunction = ({ location }) => {
   const query = new URLSearchParams(location.search).get('q')
@@ -18,6 +19,7 @@ export const meta: MetaFunction = ({ location }) => {
       content:
         'Search the GBH Open Vault catalog, Scholar Exhibits and Special Collections.',
     },
+    ...Meta,
   ]
 }
 
@@ -46,12 +48,7 @@ export type SearchProps = {
 
 export default function SearchPage() {
   const { serverUrl, aapb_host }: SearchProps = useLoaderData()
-  return (
-    <Search
-      serverUrl={serverUrl}
-      aapb_host={aapb_host}
-    />
-  )
+  return <Search serverUrl={serverUrl} aapb_host={aapb_host} />
 }
 
 export function ErrorBoundary() {

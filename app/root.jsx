@@ -10,6 +10,7 @@ import {
 } from '@remix-run/react'
 import { json } from '@remix-run/node'
 import { useEffect } from 'react'
+import { HomeMeta } from './classes/meta'
 
 import { NavigationBar } from './classes/navigationBar'
 import { Footer } from './classes/footer'
@@ -22,31 +23,19 @@ import '@fontsource/red-hat-text'
 // Links to include in the header. Left empty in case we want to easily add some later.
 // Stylesheets are now bundled correctly, so we don't need to include them here.
 export function links() {
-  return [
-    { rel: "icon", href: "/favicon.ico", type: "image/png" }
-  ]
+  return [{ rel: 'icon', href: '/favicon.ico', type: 'image/png' }]
 }
 
 export const meta = () => {
   return [
-    {
-      title: `GBH Open Vault`,
-    },
+    { title: `GBH Open Vault` },
     {
       name: 'description',
       content: `Explore scholar exhibits and collections from the GBH Archives.`,
     },
-    {
-      charSet: "utf-8"
-    },
-    {
-      name: "viewport",
-      content: "width=device-width,initial-scale=1"
-    }
+    ...HomeMeta,
   ]
 }
-
-// const serverUrl = 'https://elastic.wgbh-mla.org';
 
 export async function loader() {
   // lift these env vars from process.env so they can be injected into window
@@ -84,7 +73,8 @@ export default function App() {
   return (
     <html lang="en">
       <head>
-
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
         <Meta />
         <Links />
       </head>
