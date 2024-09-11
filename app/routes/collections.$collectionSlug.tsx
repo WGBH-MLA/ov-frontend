@@ -1,37 +1,49 @@
 import { useLoaderData } from '@remix-run/react'
+import type {
+  LoaderFunction,
+  MetaFunction,
+  LoaderFunctionArgs,
+} from '@remix-run/node'
 import { getPageBySlug } from '../fetch'
 import { renderCollection } from '../classes/collectionPresenter'
 import { ErrorBoundary } from './exhibits.$exhibitSlug'
 import type { SitemapFunction } from 'remix-sitemap'
+import { json } from '@remix-run/node'
+import { extractMeta } from '../classes/meta'
 
-export const loader = async ({ params }) => {
-  return await getPageBySlug('collections', params.collectionSlug)
+export const loader: LoaderFunction = async ({
+  params,
+  request,
+}: LoaderFunctionArgs) => {
+  let collection = await getPageBySlug('collections', params.collectionSlug)
+  let server_url = request.url
+  return json({ collection, server_url })
 }
 
-export const meta = ({ data }) => {
+export const meta: MetaFunction<typeof loader> = ({ data }) => {
+  let collection = data.collection
   return [
-    {
-      title: `${data.title} | GBH Open Vault`,
-    },
+    { title: `${collection.title} | GBH Open Vault` },
     {
       name: 'description',
-      content: data.meta.search_description || 'GBH Open Vault Collection',
+      content:
+        collection.meta.search_description || 'GBH Open Vault Collection',
     },
+    ...extractMeta(data.server_url, collection),
   ]
 }
 
 export default function Collections() {
-  const spec = useLoaderData()
+  const { collection } = useLoaderData()
 
-  if (!spec.content) {
+  if (!collection.content) {
     return <div className="page-body-container">Collection was not found!</div>
   }
 
-  return renderCollection(spec)
+  return renderCollection(collection)
 }
 
 export { ErrorBoundary }
-
 
 export const sitemap: SitemapFunction = async ({ config, request }) => {
   const collections = await fetch(
