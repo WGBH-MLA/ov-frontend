@@ -9,7 +9,7 @@
     "searchkit": "^4.11.0"
   },
   "devDependencies": {
-    "vite": "^5.1.3"
+    "vite": "^5.4.6"
   },
   "version": "0.0.1",
   "description": "Open Vault Search",
