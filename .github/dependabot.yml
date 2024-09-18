@@ -19,7 +19,7 @@ updates:
     schedule:
       interval: weekly
       day: wednesday
-      time: '03:00'
+      time: '06:00'
       timezone: US/Eastern
     commit-message:
       prefix: ⬆
@@ -28,11 +28,12 @@ updates:
     groups:
       # Group production dependencies together
       # Combine all minor and patch updates into one PR
-      # Ignore all Remix dependencies: they are updated separately
+      # Ignore all Remix / React dependencies: they are updated separately
       production-dependencies:
         dependency-type: production
         exclude-patterns:
           - '@remix-run/*'
+          - react*
         update-types:
           - minor
           - patch
@@ -41,6 +42,7 @@ updates:
         dependency-type: development
         exclude-patterns:
           - '@remix-run/*'
+          - react*
         update-types:
           - minor
           - patch
@@ -48,3 +50,7 @@ updates:
       remix-dependencies:
         patterns:
           - '@remix-run/*'
+      # React dependencies
+      react-dependencies:
+        patterns:
+          - react*
