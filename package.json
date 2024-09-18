@@ -10,8 +10,8 @@
     "start": "remix-serve ./build/server/index.js"
   },
   "dependencies": {
-    "@fontsource/red-hat-display": "^5.0.22",
-    "@fontsource/red-hat-text": "^5.0.20",
+    "@fontsource/red-hat-display": "^5.1.0",
+    "@fontsource/red-hat-text": "^5.1.0",
     "@radix-ui/react-toast": "^1.1.5",
     "@remix-run/node": "^2.12.0",
     "@remix-run/react": "^2.12.0",
