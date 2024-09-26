@@ -525,6 +525,7 @@ div.page-body h3.page-authors-title {
 }
 
 div.page-authorbubble-stacked {
+  z-index: 1000;
   margin-left: 20%;
   margin-top: -2rem;
   position: relative;
@@ -1057,6 +1058,10 @@ div.guids-block-title p {
   border-radius: 5px;
 }
 
+#sidebar-menu-icon {
+  background-color: #fff;
+}
+
 #mobile-menu-icon {
   float: right;
   margin-right: 2rem;
@@ -1299,6 +1304,15 @@ div.guids-block-title p {
 
   div.page-sidebar-link {
     margin-left: 2rem;
+  }
+
+  div.page-sidebar {
+    margin-left: 0;
+    top: 40vh;
+  }
+
+  div.page-titlebar {
+/*    background-color: #ff0;*/
   }
 
   div.content-relatedcontent a {

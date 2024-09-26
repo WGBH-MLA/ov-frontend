@@ -139,6 +139,9 @@ function scrollSectionIntoView(sectionId){
 }
 
 function scrollToAnchor(anchorId){
+  // erase backbutton entry for anchor click
+  // location.replace(document.referrer)
+  
   let ele = document.getElementById(anchorId)
 
   // where we goin

@@ -19,14 +19,11 @@ export const loader: LoaderFunction = async ({
   request,
 }: LoaderFunctionArgs) => {
   let server_url = request.url
-  // console.log('exx path ', params)
   let exhibit = await getPageBySlug('exhibits', params.exhibitSlug)
-  // console.log('exhibit loader', exhibit)
   return json({ exhibit, server_url })
 }
 
 export const meta: MetaFunction<typeof loader> = ({ data }) => {
-  // console.log('exhibit meta', data)
   let exhibit = data.exhibit
   return [
     { title: `${exhibit.title} | GBH Open Vault` },
@@ -42,8 +39,6 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
 
 export default function Exhibit() {
   const { exhibit } = useLoaderData()
-  // console.log('exhibit', exhibit)
-
   return renderExhibit(exhibit)
 }
 
@@ -51,7 +46,6 @@ export function ErrorBoundary() {
   // This is also the error boundary for the /collections route
   const error = useRouteError()
   if (isRouteErrorResponse(error)) {
-    console.error('exhibit error', error)
     if (error.status !== 404) throw error
     return (
       <div className="page-body-container">
@@ -70,7 +64,7 @@ export const sitemap: SitemapFunction = async ({ config, request }) => {
   ).then(res => {
     return res.json()
   })
-  return exhibits.items.map(exhibit => {
+  return exhibits.items.map(exhibit,index => {
     return {
       loc: `/exhibits/${exhibit.meta.slug}`,
       priority: 0.8,

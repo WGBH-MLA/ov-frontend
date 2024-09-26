@@ -16,6 +16,7 @@ export function handleAapbRecordGroup(aapbRecordGroup, key) {
       showThumbnail={showThumbnail}
       showTitle={showTitle}
       embedPlayer={true}
+      specialCollections={aapbRecordGroup.value.special_collections ? aapbRecordGroup.value.special_collections : null  }
     />
   )
 }
@@ -157,7 +158,24 @@ export class AAPBRecords extends Component {
       embedPlayer: props.embedPlayer,
       showThumbnail: props.showThumbnail,
       showTitle: props.showTitle,
+      numRecords: props.guids.length
     }
+  }
+
+  async componentDidMount(){
+    if(this.props.specialCollections){
+      // fetch actual number of records from this special collection search
+      var data = await fetch(
+        // this endpoint takes BARE SOLR QUERY within each filter option (q, fq, etc.), NOT BLACKLIGHT URL PARAMS
+      `${window.ENV.AAPB_HOST}/api.json?fq=special_collections:${this.props.specialCollections} AND access_types:online&sort=title+asc&rows=0`
+      )
+      .then(response => response.json())
+      .catch(error => console.error(error))
+      if(data){
+        this.setState({numRecords: parseInt(data["response"]["numFound"]) })
+      }
+    }
+    
   }
 
   render() {
@@ -171,18 +189,20 @@ export class AAPBRecords extends Component {
           showTitle={this.state.showTitle}
           startTime={this.props.startTime}
           endTime={this.props.endTime}
+          specialCollections={this.props.specialCollections}
         />
       )
     })
 
-    // TODO: how are we representing this set of records via a blacklight query/url on aapb?
-    var recordsSearchLink = 'https://americanarchive.org'
-
+    var recordsSearchLink = `https://americanarchive.org/catalog`
+    if(this.props.specialCollections){
+      recordsSearchLink += `?f[special_collections][]=${this.props.specialCollections}&sort=title+asc&f[access_types][]=online`
+    }
     return (
       <div className="aapb-records">
         {aapbRecords}
         <a className="aapb-records-seemore" href={recordsSearchLink}>
-          View all {this.props.guids.length} on AAPB &gt;
+          View all {this.state.numRecords} on AAPB &gt;
         </a>
       </div>
     )

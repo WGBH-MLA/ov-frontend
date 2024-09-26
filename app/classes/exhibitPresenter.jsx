@@ -6,11 +6,10 @@ import { renderBlocks, renderBlock, textContent, headingContent } from "./conten
 import { SIDEBAR_TYPES } from '../data/sidebarTypes'
 
 export function renderExhibit(exhibit){
+  // console.log( 'da ex', exhibit )
   let showAuthors = exhibit.authors && exhibit.authors.length > 0 && exhibit.authors[0].name
   let showFootnotes = exhibit.footnotes && exhibit.footnotes.length > 0
 
-  // previously only targeted heading for exhibit sidebars, but changed to match collections
-  // let sidebar = renderSidebar("In This Exhibit", exhibit.body.filter( (block) => block.type == "heading"), showAuthors, showFootnotes)  
   let sidebar = renderSidebar("In This Exhibit", exhibit.body.filter( (block) => SIDEBAR_TYPES.includes(block.type)), showAuthors, showFootnotes)  
 
   let titleBar

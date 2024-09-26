@@ -51,7 +51,7 @@ export default function Masterpiece() {
       seasonGroup = masterpieceData[seasonNumber]
     }
     
-    seasonGroup = Object.keys(seasonGroup).map( (normalizedMiniseriesTitle, groupIndex) => <a key={groupIndex} className="masterpiece-link" href={ `${ data.AAPB_HOST }/catalog?f[series_titles][]=${ normalizedMiniseriesTitle }&f[access_types][]=all` } >{ seasonGroup[normalizedMiniseriesTitle].nice_title }</a> )
+    seasonGroup = Object.keys(seasonGroup).map( (normalizedMiniseriesTitle, groupIndex) => <a key={groupIndex} className="masterpiece-link" href={ `${ data.AAPB_HOST }/catalog?f[special_collections][]=${ normalizedMiniseriesTitle }&f[access_types][]=all` } target="_blank">{ seasonGroup[normalizedMiniseriesTitle].nice_title }</a> )
 
     return(
       <div key={index} className="season-group">
