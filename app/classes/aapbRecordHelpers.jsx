@@ -47,6 +47,17 @@ export class AAPBRecord extends Component {
     this.setState({ guid: hyphenGuid, pbcore: record })
   }
 
+  mediaType(pbcore){
+    if(pbcore.pbcoreDescriptionDocument && pbcore.pbcoreDescriptionDocument.pbcoreInstantiation && pbcore.pbcoreDescriptionDocument.pbcoreInstantiation.length > 0){
+      
+      if(pbcore.pbcoreDescriptionDocument.pbcoreInstantiation.some((instantiation) => instantiation.instantiationMediaType == "Moving Image")){
+        return "Moving Image"
+      } else if(pbcore.pbcoreDescriptionDocument.pbcoreInstantiation.some((instantiation) => instantiation.instantiationMediaType == "Sound")) {
+        return "Sound"
+      }
+    } 
+  }
+
   aapbThumbnailURL(guid) {
     const S3_BASE = 'https://s3.amazonaws.com/americanarchive.org'
     return `${S3_BASE}/thumbnail/${guid}.jpg`
@@ -93,6 +104,7 @@ export class AAPBRecord extends Component {
   render() {
     let recordBlock
     if (this.state.pbcore) {
+
       let titleBar
       if (this.props.showTitle) {
         titleBar = (
@@ -104,9 +116,18 @@ export class AAPBRecord extends Component {
 
       let thumbnail
       if (this.props.showThumbnail) {
-        thumbnail = {
-          backgroundImage: `url(${this.aapbThumbnailURL(this.state.guid)})`,
+        if( this.mediaType(this.state.pbcore) == "Moving Image" ){
+          // check here for digitized? if not show VIDEO THUMB
+          thumbnail = {
+            backgroundImage: `url(${this.aapbThumbnailURL(this.state.guid)})`,
+          }
+        } else {
+          // AUDIO THUMB
+          thumbnail = {
+            backgroundImage: `url(/AUDIO_SMALL.png)`,
+          }
         }
+
       }
 
       if (this.state.showEmbed) {
@@ -166,7 +187,7 @@ export class AAPBRecords extends Component {
     if(this.props.specialCollections){
       // fetch actual number of records from this special collection search
       var data = await fetch(
-        // this endpoint takes BARE SOLR QUERY within each filter option (q, fq, etc.), NOT BLACKLIGHT URL PARAMS
+        // this endpoint takes a bare solr query within each filter option (q, fq, etc.), NOT BLACKLIGHT URL PARAMS
       `${window.ENV.AAPB_HOST}/api.json?fq=special_collections:${this.props.specialCollections} AND access_types:online&sort=title+asc&rows=0`
       )
       .then(response => response.json())

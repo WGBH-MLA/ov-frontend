@@ -933,6 +933,7 @@ a.aapb-records-seemore {
 
 a.content-aapbblock {
   background-size: contain;
+  background-position: center;
   margin-right: 1vw;
   background-color: var(--black);
   color: var(--dark-purple);
