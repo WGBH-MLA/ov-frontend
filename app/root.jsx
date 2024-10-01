@@ -75,8 +75,7 @@ export default function App() {
       <head>
         
         <script dangerouslySetInnerHTML={{__html:
-        `<!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-H82X285XCF"></script>
+        `<script async src="https://www.googletagmanager.com/gtag/js?id=G-H82X285XCF"></script>
         <script>
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
