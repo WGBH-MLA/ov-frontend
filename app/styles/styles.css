@@ -513,7 +513,7 @@ div.page-sidebar-link a p {
   padding: 0rem;
 }
 .sidebar-open {
-  background-color: #fffd;
+  background-color: #fff;
 }
 
 h3#authors-section {
@@ -577,6 +577,7 @@ div.author-bio {
 
 /* footnotes  */
 a.footnote-link {
+  z-index: -1;
   font-size: 0.6em;
   top: -0.5em;
   position: relative;
@@ -954,6 +955,13 @@ iframe.aapb-record-video {
   width: 27vw;
 }
 
+iframe.aapb-record-video-wide {
+  padding: 0;
+  height: 15.1875vw;
+  max-width: 27vw;
+  width: 27vw;
+}
+
 a.content-aapbblock div.shade-bar {
   vertical-align: middle;
   font-size: 1vw;
@@ -1188,6 +1196,14 @@ div.guids-block-title p {
     text-align: center;
     background-color: var(--x-light-gray);
     color: var(--gray);
+  }
+
+  .sidebar-open {
+    background-color: #cfe4ff;
+  }
+  
+  #sidebar-menu-icon {
+    background-color: #cfe4ff;
   }
 
   div.page-titlebar {

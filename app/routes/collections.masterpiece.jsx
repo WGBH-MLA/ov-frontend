@@ -35,7 +35,6 @@ export default function Masterpiece() {
   const masterpieceData = data.masterpieceData
 
   const [masterpieceSearch, setMasterpieceSearch] = useState(true)
-  // let seasonLinks = Object.keys(masterpieceData).map( (seasonNumber, index) => <a key={index} className="masterpiece-season-link page-sidebar-link" href={ "#season-"+seasonNumber } >Season { seasonNumber }</a> )
   let seasonLinks = Object.keys(masterpieceData).map( (seasonNumber, index) => <Link key={index} className="masterpiece-season-link page-sidebar-link" to={ "#season-"+seasonNumber } >Season { seasonNumber }</Link> )
 
   let seasonGroups = Object.keys(masterpieceData).map( (seasonNumber, index) => {

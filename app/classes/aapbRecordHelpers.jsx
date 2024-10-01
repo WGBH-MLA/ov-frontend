@@ -44,7 +44,18 @@ export class AAPBRecord extends Component {
   async componentDidMount() {
     var hyphenGuid = this.props.guid.replace(/cpb-aacip./, 'cpb-aacip-')
     var record = await retrieveAapbRecord(hyphenGuid)
-    this.setState({ guid: hyphenGuid, pbcore: record })
+    console.log( 'duh!@!!!!', record )
+
+    // TODO: add essencetracks to aapb api
+    let isWide = false
+    // if(record){
+    //   let inst = record.pbcoreDescriptionDocument.pbcoreInstantiation.find( (i) => i.instantiationGenerations.text == "Proxy" )
+    //   if(inst){
+    //     let et = inst.essenceTrack.find( (et) => et.essenceTrackAspectRatio)
+    //     isWide = et.essenceTrackAspectRatio == "16:9"
+    //   }
+    // }
+    this.setState({ guid: hyphenGuid, pbcore: record, wide: isWide })
   }
 
   mediaType(pbcore){
@@ -83,16 +94,17 @@ export class AAPBRecord extends Component {
     }
   }
 
-  embed(guid, startTime, endTime) {
+  embed(guid, startTime, endTime, wide) {
     var times
     if (startTime || endTime) {
       times = `?start=${startTime}&end=${endTime}`
     }
-    var url = `${window.ENV.AAPB_HOST}/openvault/${guid}${times || ''}`
+    var url = `${this.state.aapb_host}/openvault/${guid}${times || ''}`
+    var classes = wide ? "aapb-record-video-wide" : "aapb-record-video"
     return (
       <a className="content-aapbblock">
         <iframe
-          className="aapb-record-video"
+          className={ classes }
           src={url}
           frameBorder="0"
           allowFullScreen={true}
@@ -118,9 +130,19 @@ export class AAPBRecord extends Component {
       if (this.props.showThumbnail) {
         if( this.mediaType(this.state.pbcore) == "Moving Image" ){
           // check here for digitized? if not show VIDEO THUMB
-          thumbnail = {
-            backgroundImage: `url(${this.aapbThumbnailURL(this.state.guid)})`,
+          var ci_pbi = this.state.pbcore.pbcoreDescriptionDocument.pbcoreIdentifier.find((pbi) => pbi.source == "Sony Ci")
+          if(ci_pbi && ci_pbi.text){
+
+            thumbnail = {
+              backgroundImage: `url(${this.aapbThumbnailURL(this.state.guid)})`,
+            }            
+          } else {
+            // video THUMB
+            thumbnail = {
+              backgroundImage: `url(/VIDEO_SMALL.png)`,
+            }
           }
+
         } else {
           // AUDIO THUMB
           thumbnail = {
@@ -134,7 +156,8 @@ export class AAPBRecord extends Component {
         recordBlock = this.embed(
           this.state.guid,
           this.props.startTime,
-          this.props.endTime
+          this.props.endTime,
+          this.state.wide
         )
       } else {
         if (this.props.embedPlayer) {
@@ -184,18 +207,21 @@ export class AAPBRecords extends Component {
   }
 
   async componentDidMount(){
-    if(this.props.specialCollections){
-      // fetch actual number of records from this special collection search
-      var data = await fetch(
-        // this endpoint takes a bare solr query within each filter option (q, fq, etc.), NOT BLACKLIGHT URL PARAMS
-      `${window.ENV.AAPB_HOST}/api.json?fq=special_collections:${this.props.specialCollections} AND access_types:online&sort=title+asc&rows=0`
-      )
-      .then(response => response.json())
-      .catch(error => console.error(error))
-      if(data){
-        this.setState({numRecords: parseInt(data["response"]["numFound"]) })
+    this.setState({aapb_host: window.ENV.AAPB_HOST}, async () => {
+
+      if(this.props.specialCollections){
+        // fetch actual number of records from this special collection search
+        var data = await fetch(
+          // this endpoint takes a bare solr query within each filter option (q, fq, etc.), NOT BLACKLIGHT URL PARAMS
+        `${this.state.aapb_host}/api.json?fq=special_collections:${this.props.specialCollections} AND access_types:online&sort=title+asc&rows=0`
+        )
+        .then(response => response.json())
+        .catch(error => console.error(error))
+        if(data){
+          this.setState({numRecords: parseInt(data["response"]["numFound"]) })
+        }
       }
-    }
+    })
     
   }
 
@@ -215,7 +241,7 @@ export class AAPBRecords extends Component {
       )
     })
 
-    var recordsSearchLink = `https://americanarchive.org/catalog`
+    var recordsSearchLink = `${this.state.aapb_host}/catalog`
     if(this.props.specialCollections){
       recordsSearchLink += `?f[special_collections][]=${this.props.specialCollections}&sort=title+asc&f[access_types][]=online`
     }
