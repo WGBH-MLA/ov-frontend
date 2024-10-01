@@ -75,13 +75,15 @@ export default function App() {
       <head>
         
         <script dangerouslySetInnerHTML={{__html:
-        `<!-- Google Tag Manager -->
-          <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-          })(window,document,'script','dataLayer','GTM-TF2JZC3R');</script>
-          <!-- End Google Tag Manager -->`
+        `<!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-H82X285XCF"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-H82X285XCF');
+        </script>`
 
         }} />
 
@@ -91,12 +93,6 @@ export default function App() {
         <Links />
       </head>
       <body>
-        
-        <noscript  dangerouslySetInnerHTML={{ __html:
-          `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TF2JZC3R"
-height="0" width="0" style="display:none;visibility:hidden"></iframe>`
-        }}/>
-
         {meta.env && meta.env.LEGACY ? (
           <div className="legacy-warning">
             <h3>You are using an outdated browser.</h3>
