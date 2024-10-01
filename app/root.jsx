@@ -73,22 +73,19 @@ export default function App() {
   return (
     <html lang="en">
       <head>
-        <script dangerouslySetInnerHTML={{__html:
-        `<script src="https://www.googletagmanager.com/gtag/js?id=G-H82X285XCF"></script>
-        <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-
-          gtag('config', 'G-H82X285XCF');
-        </script>`
-
-        }} />
-
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
         <Meta />
         <Links />
+
+
+        { <script src="https://www.googletagmanager.com/gtag/js?id=G-H82X285XCF"></script> }
+        <script dangerouslySetInnerHTML={{__html:
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-H82X285XCF');
+        }} />
       </head>
       <body>
         {meta.env && meta.env.LEGACY ? (
