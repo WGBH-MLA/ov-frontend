@@ -66,6 +66,7 @@ export const sitemap: SitemapFunction = async ({ config, request }) => {
   })
   return exhibits.items.map(exhibit,index => {
     return {
+      key: index,
       loc: `/exhibits/${exhibit.meta.slug}`,
       priority: 0.8,
       lastmod: exhibit.meta.last_published_at,

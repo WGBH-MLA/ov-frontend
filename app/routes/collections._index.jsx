@@ -32,7 +32,7 @@ export default function Collections() {
   }
 
   // mix in masterpiece collection
-  specs.items.push(masterpiece)
+  specs.items.unshift(masterpiece)
 
   let collectionLinks = renderPageLinks('collections', specs.items)
   return <div className="pagelinks-container">{collectionLinks}</div>

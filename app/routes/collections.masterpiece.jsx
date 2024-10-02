@@ -30,6 +30,10 @@ function renderSeriesLink(series){
   )
 }
 
+function safeDate(seasonGroup){
+  return seasonGroup && seasonGroup.ids && seasonGroup.ids[0] && seasonGroup.ids[0].broadcast_date && new Date(seasonGroup.ids[0].broadcast_date)
+}
+
 export default function Masterpiece() {
   const data = useLoaderData()
   const masterpieceData = data.masterpieceData
@@ -50,7 +54,7 @@ export default function Masterpiece() {
       seasonGroup = masterpieceData[seasonNumber]
     }
     
-    seasonGroup = Object.keys(seasonGroup).map( (normalizedMiniseriesTitle, groupIndex) => <a key={groupIndex} className="masterpiece-link" href={ `${ data.AAPB_HOST }/catalog?f[special_collections][]=${ normalizedMiniseriesTitle }&f[access_types][]=all` } target="_blank">{ seasonGroup[normalizedMiniseriesTitle].nice_title }</a> )
+    seasonGroup = Object.keys(seasonGroup).map( (normalizedMiniseriesTitle, groupIndex) => <a key={groupIndex} className="masterpiece-link" href={ `${ data.AAPB_HOST }/catalog?f[special_collections][]=${ normalizedMiniseriesTitle }&f[access_types][]=all` } target="_blank">{ seasonGroup[normalizedMiniseriesTitle].nice_title }</a> ).sort( (sg1, sg2) =>  safeDate(sg1) > safeDate(sg2))
 
     return(
       <div key={index} className="season-group">
