@@ -81,10 +81,10 @@ export default function App() {
 
         { <script src="https://www.googletagmanager.com/gtag/js?id=G-H82X285XCF"></script> }
         <script dangerouslySetInnerHTML={{__html:
-          window.dataLayer = window.dataLayer || [];
+          `window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-          gtag('config', 'G-H82X285XCF');
+          gtag('config', 'G-H82X285XCF');`
         }} />
       </head>
       <body>
