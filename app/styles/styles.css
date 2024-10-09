@@ -128,6 +128,52 @@ a:active {
   background: var(--light-blue); /* Gecko Browsers */
 }
 
+div.masterpiece-intro {
+  vertical-align: middle;
+  margin-bottom: 4rem;
+  
+}
+
+div.masterpiece-summary {
+  font-size: 0.9em;
+  margin-right: 2vw;
+  text-align: left;
+}
+
+h1.masterpiece-bigtitle {
+  font-size: 2rem;
+  margin-bottom: 3rem;
+  margin-top: 2rem;
+  line-height: 5rem;
+}
+
+a.masterpiece-link {
+  display: inline-block;
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  margin-right: 1em;
+  width: 100%;
+}
+
+a.masterpiece-season-link {
+  display: block;
+  font-size: 1em;
+}
+
+div.season-group-content {
+  columns: 2;
+}
+
+div.season-group-number {
+  font-size: 2em;
+  font-weight: bold;
+  color: var(--dark-purple);
+  margin-bottom: 1.6vh;
+  display: block;
+  width: 100%;
+}
+
 a.series-alphabet-link {
   width: 4vw;
   display: inline-block;
@@ -171,7 +217,7 @@ div.series-group-letter {
 }
 
 a.series-link {
-  display: inline-block;
+  display: block;
   font-size: 1.5rem;
   font-weight: 500;
   margin-bottom: 1.5rem;
@@ -443,14 +489,23 @@ div.page-sidebar-border {
   border-right: 1px solid var(--black);
 }
 
-a.page-sidebar-link {
+
+div.page-sidebar-link {
+  margin-bottom: 1em;
+  margin-left: 4em;
+  display: block;
+}
+
+div.page-sidebar-link a {
+  display: inline-block;
   cursor: pointer;
   font-family: 'Red Hat Display', sans-serif;
   color: var(--blue);
-  display: block;
   font-size: 1em;
-  margin-bottom: 1em;
-  margin-left: 4em;
+}
+
+div.page-sidebar-link a p {
+  margin: 0;
 }
 
 #sidebar-menu-icon > div {
@@ -458,7 +513,11 @@ a.page-sidebar-link {
   padding: 0rem;
 }
 .sidebar-open {
-  background-color: #fffd;
+  background-color: #fff;
+}
+
+h3#authors-section {
+  margin-bottom: 2vh;
 }
 
 div.page-body h3.page-authors-title {
@@ -466,6 +525,7 @@ div.page-body h3.page-authors-title {
 }
 
 div.page-authorbubble-stacked {
+  z-index: 1000;
   margin-left: 20%;
   margin-top: -2rem;
   position: relative;
@@ -476,7 +536,6 @@ div.page-authorbubble-stacked {
 div.page-authorbubble-bottom-container {
   position: relative;
   display: flex;
-  align-items: center;
 }
 
 div.page-authorbubble-stacked div.author-bubble {
@@ -503,13 +562,12 @@ div.page-authorbubble-bottom-container div.author-extras-bottom {
   margin-left: 2rem;
   margin-top: 2rem;
 
-  max-height: 4em;
-  height: 4em;
 }
 
 div.author-bio,
 div.author-byline {
   display: block;
+  overflow: hidden;
 }
 
 div.author-bio {
@@ -519,6 +577,7 @@ div.author-bio {
 
 /* footnotes  */
 a.footnote-link {
+  z-index: -1;
   font-size: 0.6em;
   top: -0.5em;
   position: relative;
@@ -526,6 +585,7 @@ a.footnote-link {
 }
 
 li.footnote-content {
+  position: relative;
   list-style: number;
   /*  display: block;
   width: 20vw;*/
@@ -558,6 +618,13 @@ li.footnote-content a::before {
 
 li.footnote-content:hover > a::before {
   background-image: url('/backarrow.png');
+}
+
+a.footnote-anchor {
+  position: absolute;
+  left: 0;
+  top: 10em;
+  height: 15em;
 }
 
 /* ex and spec pages */
@@ -728,6 +795,7 @@ div.pagelink-subtitle {
 }
 
 div.author-bubble {
+  vertical-align: top;
   background-size: cover;
   min-width: 6rem;
   width: 6rem;
@@ -866,6 +934,7 @@ a.aapb-records-seemore {
 
 a.content-aapbblock {
   background-size: contain;
+  background-position: center;
   margin-right: 1vw;
   background-color: var(--black);
   color: var(--dark-purple);
@@ -882,6 +951,13 @@ a.content-aapbblock {
 iframe.aapb-record-video {
   padding: 0;
   height: 20.25vw;
+  max-width: 27vw;
+  width: 27vw;
+}
+
+iframe.aapb-record-video-wide {
+  padding: 0;
+  height: 15.1875vw;
   max-width: 27vw;
   width: 27vw;
 }
@@ -989,6 +1065,10 @@ div.guids-block-title p {
   background-color: var(--x-light-gray);
   margin: 6px 0;
   border-radius: 5px;
+}
+
+#sidebar-menu-icon {
+  background-color: #fff;
 }
 
 #mobile-menu-icon {
@@ -1118,6 +1198,14 @@ div.guids-block-title p {
     color: var(--gray);
   }
 
+  .sidebar-open {
+    background-color: #cfe4ff;
+  }
+  
+  #sidebar-menu-icon {
+    background-color: #cfe4ff;
+  }
+
   div.page-titlebar {
     /*    display: none;*/
   }
@@ -1231,9 +1319,19 @@ div.guids-block-title p {
     margin-left: 2rem;
   }
 
-  a.page-sidebar-link {
+  div.page-sidebar-link {
     margin-left: 2rem;
   }
+
+  div.page-sidebar {
+    margin-left: 0;
+    top: 40vh;
+  }
+
+  div.page-titlebar {
+/*    background-color: #ff0;*/
+  }
+
   div.content-relatedcontent a {
     display: block;
     width: 92vw;

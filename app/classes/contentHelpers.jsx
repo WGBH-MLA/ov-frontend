@@ -1,5 +1,6 @@
 import { decode } from "html-entities"
 import { handleAapbRecordGroup, AAPBRecord } from "./aapbRecordHelpers"
+import { AAPB_BLOCK_TYPES } from '../data/aapbBlockTypes'
 
 export function renderBlocks(blocks){
   // jsx likes to be in an array to be concatted when rendered
@@ -15,7 +16,7 @@ export function renderBlock(block, key){
 
   if(block.type == "text"){
     return textContent(block, key)
-  } else if(block.type == "interviews" || block.type == "archival_footage" || block.type == "photographs" || block.type == "original_footage" || block.type == "programs") {
+  } else if(AAPB_BLOCK_TYPES.some((bt) => bt == block.type)){
     return aapbRecordsBlock(block, key)
   } else if(block.type == "heading"){
     return headingContent(block, key)
@@ -23,8 +24,6 @@ export function renderBlock(block, key){
     return subHeadingContent(block, key)
   } else if(block.type == "image"){
     return imageContent(block, key)
-  } else if(block.type == "related_content"){
-    return relatedcontentContent(block, key)
   } else if(block.type == "credits"){
     return creditsContent(block, key)
   } else {
@@ -72,15 +71,6 @@ export function creditsContent(block, key){
   return (
     <div key={ key } id={ block.id } className="content-block content-credits">
       <h3>Credits</h3>
-      <div className="content-block-body" dangerouslySetInnerHTML={{ __html: decode(block.value) }} />
-    </div>
-  )
-}
-
-export function relatedcontentContent(block, key){
-  return (
-    <div key={ key } id={ block.id } className="content-block content-credits">
-      <h3>Related Content</h3>
       <div className="content-block-body" dangerouslySetInnerHTML={{ __html: decode(block.value) }} />
     </div>
   )

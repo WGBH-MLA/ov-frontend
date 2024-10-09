@@ -58,8 +58,7 @@ export function renderPageLinks(pageType, pages){
   )
 }
 
-export function renderSidebar(pageType, sections, authors=false, footnotes=false){
-  let pageTypeName = pageType === "exhibit" ? "Exhibit" : "Collection"
+export function renderSidebar(sidebarTitle, sections, authors=false, footnotes=false){
   const [isOpen, setIsOpen] = useState(true)
 
   useEffect(() => {
@@ -76,7 +75,6 @@ export function renderSidebar(pageType, sections, authors=false, footnotes=false
         var sbLinks = document.getElementsByClassName("page-sidebar-link")
         if(sbLinks.length > 0){
           // there could be no sidebar elements if ex has no authors and no headings and no footnotes
-
           var lastSbLink = sbLinks[ sbLinks.length - 1 ]
           var sbRect = lastSbLink.getBoundingClientRect()
           var clientTop = document.documentElement.clientTop || document.body.clientTop || 0
@@ -87,9 +85,9 @@ export function renderSidebar(pageType, sections, authors=false, footnotes=false
           if(distanceFromBottom/document.body.scrollHeight < 0.36){
             // bar is close enough (36vh) to the footer, stop
             sidebarMenu.style.position = "sticky"
-          } 
+          }
         }
-        
+
       } else {
 
         // sidebar is in top position (page header showing)
@@ -102,44 +100,63 @@ export function renderSidebar(pageType, sections, authors=false, footnotes=false
 
   let authorSectionLink
   if(authors){
-    authorSectionLink = <a key={ sections.length } onClick={ () => { scrollSectionIntoView("authors-section")  } } className="page-sidebar-link">Authors</a>
+    authorSectionLink = <div className="page-sidebar-link"><a key={ sections.length } onClick={ () => { scrollSectionIntoView("authors-section")  } } className="">Authors</a></div>
   }
   
   let footnoteSectionLink
   if(footnotes){
-    footnoteSectionLink = <a key={ sections.length + 1 } onClick={ () => { scrollSectionIntoView("footnote-section")  } } className="page-sidebar-link">Footnotes</a>
+    footnoteSectionLink = <div className="page-sidebar-link"><a key={ sections.length + 1 } onClick={ () => { scrollSectionIntoView("footnote-section")  } } className="">Footnotes</a></div>
   }
   
+  var sidebarSections = sections.map( (section, index) => {
+    // aapb data has title nested likea so
+    var title = section.type == "heading" ? section.value : section.value.title
+    return renderSidebarSection(title, section.id, index)
+  })
+
+  sidebarSections.push(authorSectionLink, footnoteSectionLink)
+
   return (
     <div className={ isOpen ? "page-sidebar sidebar-open" : "page-sidebar" } >
       <div className="page-sidebar-header">
         <MenuIcon id="sidebar-menu-icon" onClick={() => setIsOpen(!isOpen)} />
-        {<div className="page-sidebar-title mobile-hidden">In This { pageTypeName }</div> }
+        {<div className="page-sidebar-title mobile-hidden">{ sidebarTitle }</div> }
       </div>
-      { isOpen && sections.map( (section, index) => { return renderSidebarSection(section, index) }) }
-      { authorSectionLink }
-      { footnoteSectionLink }
+      { isOpen && sidebarSections }
     </div>
   )
 }
 
-export function renderSidebarSection(section, key){
-  var title
-  if(section.type == "heading"){
-    title = section.value
-  } else {
-    // aapb blocks have-a the nested title
-    title = section.value.title
-  }
-
+export function renderSidebarSection(title, id, key){
   return (
-    <a key={ key } onClick={ () => { scrollSectionIntoView(section.id)  } } className="page-sidebar-link" dangerouslySetInnerHTML={{ __html: decode(title) }} />
+    <div className="page-sidebar-link"><a key={ key } onClick={ () => { scrollSectionIntoView(id)  } } dangerouslySetInnerHTML={{ __html: decode(title) }} /></div>
   )
 }
 
 function scrollSectionIntoView(sectionId){
   let ele = document.getElementById(sectionId)
-  ele.scrollIntoView({behavior: "smooth", block: "start"})
+  ele.scrollIntoView({behavior: "smooth", block: "center", inline: "nearest"})
+}
+
+function scrollToAnchor(anchorId){
+  // erase backbutton entry for anchor click
+  // location.replace(document.referrer)
+  
+  let ele = document.getElementById(anchorId)
+
+  // where we goin
+  var destination = ele.getBoundingClientRect().y
+  // where ah we
+  var currentScrollPosition = window.scrollY
+
+  // just a little extra
+  var offset = -96
+
+  // alright bye bye
+  window.scrollTo({
+    top: destination + currentScrollPosition + offset,
+    behavior: "smooth",
+  })
 }
 
 export function renderPageTitleBar(title, hero_image_url, subtitle=null){
@@ -163,7 +180,7 @@ export function renderPageTitleBar(title, hero_image_url, subtitle=null){
 export function renderFootnoteContent(footnote, index){
   return (
     <li className="footnote-content" key={ index }>
-      <a href={ `#footnote-${ index+1 }` } id={  ovFootnoteSlug(footnote.uuid)  } className="footnote-text" dangerouslySetInnerHTML={{ __html: decode(footnote.text) }}  />
+      <a id={  ovFootnoteSlug(footnote.uuid)  } className="footnote-text" dangerouslySetInnerHTML={{ __html: decode(footnote.text) }}  />
     </li>
   )
 }
@@ -189,6 +206,28 @@ export function ovFootnoteSlug(uuid){
 }
 
 export function renderFootnotesInBody(body, footnotes){
+  useEffect(() => {
+    var ftts = document.querySelectorAll("a.footnote-text")
+     Array.prototype.slice.call(ftts).map((ele, index) => {
+
+      ele.addEventListener('click', (e) => {
+        // +1 because they start at 1 not 0
+        scrollToAnchor(`footnote-${index+1}`)
+      })
+    })
+
+    var ftls = document.querySelectorAll("a.footnote-link")
+    // sort the footnote links by their number, since they might be created out of order
+    Array.prototype.slice.call(ftls).sort( ({innerHTML: a}, {innerHTML: b}) => {return parseInt(a) - parseInt(b) }).map((ele, index) => {
+
+      ele.addEventListener('click', (e) => {
+        scrollToAnchor(ovFootnoteSlug(footnotes[index].uuid))
+      })
+    })
+     
+  }, [])
+
+
   footnotes.map( (footnote, index) => {
     body = body.map( (contentBlock) => {
       if( contentBlock.type == "text" && contentBlock.value.includes( `<footnote id="${footnote.uuid}">[${ ovFootnoteSlug(footnote.uuid) }]<\/footnote>` ) ){
@@ -205,6 +244,9 @@ export function renderFootnotesInBody(body, footnotes){
 
 export function renderFootnoteLink(footnote, number){
   return (
-    <a className="footnote-link" id={ `footnote-${number}` } href={ `#${ ovFootnoteSlug(footnote.uuid) }` }>{ number }</a>
+    // <a onClick={ (e) => scrollSectionIntoView( ovFootnoteSlug(footnote.uuid) ) } className="footnote-link">
+    <a id={ `footnote-${number}` } className="footnote-link">
+      { number }
+    </a>
   )
 }
