@@ -13,7 +13,7 @@ export function Footer(props){
           <FooterLink link="/collections" text="Collections" />
         </div>
         <div className="bottom-bar-column">
-          <FooterLink link="/support-us" text="Support Us" />
+          <FooterLink link="https://gbharchivesopenvault.donorsupport.co/page/general-fundraising" text="Support Us" />
           <FooterLink link="/visit-us" text="Visit Us" />
           <FooterLink link="/faq" text="Help" />
           <FooterLink link="/credits" text="Credits" />

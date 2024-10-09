@@ -10,7 +10,7 @@ let aboutLinks = [
   },
   {
     label: 'Support Us',
-    url: '/support-us',
+    url: 'https://gbharchivesopenvault.donorsupport.co/page/general-fundraising',
   },
   {
     label: 'Visit Us',
