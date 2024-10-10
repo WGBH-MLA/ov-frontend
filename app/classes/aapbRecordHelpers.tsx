@@ -1,4 +1,6 @@
 import { Component } from 'react'
+import { AAPBRecordProps, AAPBRecordState } from '~/types/aapb'
+import { Guid, PBCore } from '~/types/pbcore'
 
 export function handleAapbRecordGroup(aapbRecordGroup, key) {
   // this func is where we split by whitespace v
@@ -16,23 +18,27 @@ export function handleAapbRecordGroup(aapbRecordGroup, key) {
       showThumbnail={showThumbnail}
       showTitle={showTitle}
       embedPlayer={true}
-      specialCollections={aapbRecordGroup.value.special_collections ? aapbRecordGroup.value.special_collections : null  }
+      specialCollections={
+        aapbRecordGroup.value.special_collections
+          ? aapbRecordGroup.value.special_collections
+          : null
+      }
     />
   )
 }
 
-export function parseAapbRecordGroup(string) {
+export function parseAapbRecordGroup(string: string) {
   return string.split(/\s+/)
 }
 
 async function retrieveAapbRecord(guid) {
-  return await fetch(window.ENV.AAPB_HOST + '/api/' + guid + '.json')
+  return await fetch(window.ENV.AAPB_HOST + 'api/' + guid + '.json')
     .then(response => response.json())
     .catch(e => console.log(`Error retrieving record from AAPB: ${e}`))
 }
 
-export class AAPBRecord extends Component {
-  constructor(props) {
+export class AAPBRecord extends Component<AAPBRecordProps> {
+  constructor(props: AAPBRecordProps) {
     super(props)
     this.state = {
       embedPlayer: true,
@@ -44,7 +50,7 @@ export class AAPBRecord extends Component {
   async componentDidMount() {
     var hyphenGuid = this.props.guid.replace(/cpb-aacip./, 'cpb-aacip-')
     var record = await retrieveAapbRecord(hyphenGuid)
-    console.log( 'duh!@!!!!', record )
+    console.log('duh!@!!!!', record)
 
     // TODO: add essencetracks to aapb api
     let isWide = false
@@ -58,27 +64,36 @@ export class AAPBRecord extends Component {
     this.setState({ guid: hyphenGuid, pbcore: record, wide: isWide })
   }
 
-  mediaType(pbcore){
-    if(pbcore.pbcoreDescriptionDocument && pbcore.pbcoreDescriptionDocument.pbcoreInstantiation && pbcore.pbcoreDescriptionDocument.pbcoreInstantiation.length > 0){
-      
-      if(pbcore.pbcoreDescriptionDocument.pbcoreInstantiation.some((instantiation) => instantiation.instantiationMediaType == "Moving Image")){
-        return "Moving Image"
-      } else if(pbcore.pbcoreDescriptionDocument.pbcoreInstantiation.some((instantiation) => instantiation.instantiationMediaType == "Sound")) {
-        return "Sound"
-      }
-    } 
+  mediaType(pbcore: PBCore) {
+    let pb = pbcore.pbcoreDescriptionDocument
+    if (!pb) {
+      return
+    }
+    if (
+      pb.pbcoreInstantiation.some(
+        instantiation => instantiation.instantiationMediaType == 'Moving Image'
+      )
+    ) {
+      return 'Moving Image'
+    } else if (
+      pb.pbcoreInstantiation.some(
+        instantiation => instantiation.instantiationMediaType == 'Sound'
+      )
+    ) {
+      return 'Sound'
+    }
   }
 
-  aapbThumbnailURL(guid) {
+  aapbThumbnailURL(guid: Guid) {
     const S3_BASE = 'https://s3.amazonaws.com/americanarchive.org'
     return `${S3_BASE}/thumbnail/${guid}.jpg`
   }
 
-  aapbCatalogURL(guid) {
+  aapbCatalogURL(guid: Guid) {
     return `${window.ENV.AAPB_HOST}/catalog/${guid}`
   }
 
-  aapbTitle(pbcore) {
+  aapbTitle(pbcore: PBCore) {
     if (pbcore?.pbcoreDescriptionDocument?.pbcoreTitle?.text) {
       // there is one title
       return pbcore.pbcoreDescriptionDocument.pbcoreTitle.text
@@ -94,17 +109,17 @@ export class AAPBRecord extends Component {
     }
   }
 
-  embed(guid, startTime, endTime, wide) {
+  embed(guid: Guid, startTime, endTime, wide) {
     var times
     if (startTime || endTime) {
       times = `?start=${startTime}&end=${endTime}`
     }
-    var url = `${this.state.aapb_host}/openvault/${guid}${times || ''}`
-    var classes = wide ? "aapb-record-video-wide" : "aapb-record-video"
+    var url = `${window.ENV.AAPB_HOST}/openvault/${guid}${times || ''}`
+    var classes = wide ? 'aapb-record-video-wide' : 'aapb-record-video'
     return (
       <a className="content-aapbblock">
         <iframe
-          className={ classes }
+          className={classes}
           src={url}
           frameBorder="0"
           allowFullScreen={true}
@@ -116,7 +131,7 @@ export class AAPBRecord extends Component {
   render() {
     let recordBlock
     if (this.state.pbcore) {
-
+      console.log('rendering aapb record', this.state.pbcore)
       let titleBar
       if (this.props.showTitle) {
         titleBar = (
@@ -128,28 +143,28 @@ export class AAPBRecord extends Component {
 
       let thumbnail
       if (this.props.showThumbnail) {
-        if( this.mediaType(this.state.pbcore) == "Moving Image" ){
+        if (this.mediaType(this.state.pbcore) == 'Moving Image') {
           // check here for digitized? if not show VIDEO THUMB
-          var ci_pbi = this.state.pbcore.pbcoreDescriptionDocument.pbcoreIdentifier.find((pbi) => pbi.source == "Sony Ci")
-          if(ci_pbi && ci_pbi.text){
-
+          var ci_pbi =
+            this.state.pbcore.pbcoreDescriptionDocument.pbcoreIdentifier.find(
+              pbi => pbi.source == 'Sony Ci'
+            )
+          if (ci_pbi && ci_pbi.text) {
             thumbnail = {
               backgroundImage: `url(${this.aapbThumbnailURL(this.state.guid)})`,
-            }            
+            }
           } else {
             // video THUMB
             thumbnail = {
               backgroundImage: `url(/VIDEO_SMALL.png)`,
             }
           }
-
         } else {
           // AUDIO THUMB
           thumbnail = {
             backgroundImage: `url(/AUDIO_SMALL.png)`,
           }
         }
-
       }
 
       if (this.state.showEmbed) {
@@ -196,33 +211,31 @@ export class AAPBRecord extends Component {
 }
 
 export class AAPBRecords extends Component {
-  constructor(props) {
+  constructor(props: AAPBRecordProps) {
     super(props)
     this.state = {
       embedPlayer: props.embedPlayer,
       showThumbnail: props.showThumbnail,
       showTitle: props.showTitle,
-      numRecords: props.guids.length
+      numRecords: props.guids.length,
     }
   }
 
-  async componentDidMount(){
-    this.setState({aapb_host: window.ENV.AAPB_HOST}, async () => {
-
-      if(this.props.specialCollections){
+  async componentDidMount() {
+    this.setState({ aapb_host: window.ENV.AAPB_HOST }, async () => {
+      if (this.props.specialCollections) {
         // fetch actual number of records from this special collection search
         var data = await fetch(
           // this endpoint takes a bare solr query within each filter option (q, fq, etc.), NOT BLACKLIGHT URL PARAMS
-        `${this.state.aapb_host}/api.json?fq=special_collections:${this.props.specialCollections} AND access_types:online&sort=title+asc&rows=0`
+          `${this.state.aapb_host}/api.json?fq=special_collections:${this.props.specialCollections} AND access_types:online&sort=title+asc&rows=0`
         )
-        .then(response => response.json())
-        .catch(error => console.error(error))
-        if(data){
-          this.setState({numRecords: parseInt(data["response"]["numFound"]) })
+          .then(response => response.json())
+          .catch(error => console.error(error))
+        if (data) {
+          this.setState({ numRecords: parseInt(data['response']['numFound']) })
         }
       }
     })
-    
   }
 
   render() {
@@ -242,7 +255,7 @@ export class AAPBRecords extends Component {
     })
 
     var recordsSearchLink = `${this.state.aapb_host}/catalog`
-    if(this.props.specialCollections){
+    if (this.props.specialCollections) {
       recordsSearchLink += `?f[special_collections][]=${this.props.specialCollections}&sort=title+asc&f[access_types][]=online`
     }
     return (
