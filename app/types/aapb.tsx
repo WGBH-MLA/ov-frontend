@@ -5,7 +5,6 @@ export type AAPBRecordProps = {
   showThumbnail: boolean
   showTitle: boolean
   embedPlayer: boolean
-  guids: Guid[]
 }
 
 export type AAPBRecordState = {
@@ -16,4 +15,15 @@ export type AAPBRecordState = {
   guid: Guid
   pbcore: PBCore
   wide: boolean
+}
+
+export interface AAPBRecordBlockProps extends AAPBRecordProps {
+  guids: Guid[]
+}
+
+export interface AAPBRecordBlockState {
+  embedPlayer: boolean
+  showThumbnail: boolean
+  showTitle: boolean
+  numRecords: number
 }

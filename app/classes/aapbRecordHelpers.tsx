@@ -1,5 +1,10 @@
 import { Component } from 'react'
-import { AAPBRecordProps, AAPBRecordState } from '~/types/aapb'
+import {
+  AAPBRecordProps,
+  AAPBRecordState,
+  AAPBRecordBlockProps,
+  AAPBRecordBlockState,
+} from '~/types/aapb'
 import { Guid, PBCore, PBCoreInstantiation } from '~/types/pbcore'
 
 export function handleAapbRecordGroup(aapbRecordGroup, key) {
@@ -31,7 +36,10 @@ export function parseAapbRecordGroup(string: string) {
   return string.split(/\s+/)
 }
 
-async function retrieveAapbRecord(guid) {
+export const normalizeGuid = (guid: Guid) =>
+  guid.replace(/^cpb-aacip./, 'cpb-aacip-')
+
+async function retrieveAapbRecord(guid: Guid) {
   return await fetch(window.ENV.AAPB_HOST + '/api/' + guid + '.json')
     .then(response => response.json())
     .catch(e => console.log(`Error retrieving record from AAPB: ${e}`))
@@ -44,11 +52,11 @@ export class AAPBRecord extends Component<AAPBRecordProps> {
       embedPlayer: true,
       showThumbnail: props.showThumbnail,
       showTitle: props.showTitle,
-    }
+    } as AAPBRecordState
   }
 
   async componentDidMount() {
-    var hyphenGuid = this.props.guid.replace(/cpb-aacip./, 'cpb-aacip-')
+    var hyphenGuid: Guid = normalizeGuid(this.props.guid)
     var record = await retrieveAapbRecord(hyphenGuid)
     console.log('duh!@!!!!', record)
 
@@ -79,7 +87,8 @@ export class AAPBRecord extends Component<AAPBRecordProps> {
       )
     ) {
       return 'Moving Image'
-    } else if (
+    }
+    if (
       inst.some((i: PBCoreInstantiation) => i.instantiationMediaType == 'Sound')
     ) {
       return 'Sound'
@@ -212,15 +221,15 @@ export class AAPBRecord extends Component<AAPBRecordProps> {
   }
 }
 
-export class AAPBRecords extends Component {
-  constructor(props: AAPBRecordProps) {
+export class AAPBRecords extends Component<AAPBRecordBlockProps> {
+  constructor(props: AAPBRecordBlockProps) {
     super(props)
     this.state = {
       embedPlayer: props.embedPlayer,
       showThumbnail: props.showThumbnail,
       showTitle: props.showTitle,
       numRecords: props.guids.length,
-    }
+    } as AAPBRecordBlockState
   }
 
   async componentDidMount() {
@@ -229,7 +238,7 @@ export class AAPBRecords extends Component {
         // fetch actual number of records from this special collection search
         var data = await fetch(
           // this endpoint takes a bare solr query within each filter option (q, fq, etc.), NOT BLACKLIGHT URL PARAMS
-          `${this.state.aapb_host}/api.json?fq=special_collections:${this.props.specialCollections} AND access_types:online&sort=title+asc&rows=0`
+          `${window.ENV.AAPB_HOST}/api.json?fq=special_collections:${this.props.specialCollections} AND access_types:online&sort=title+asc&rows=0`
         )
           .then(response => response.json())
           .catch(error => console.error(error))

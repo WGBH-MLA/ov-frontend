@@ -1,6 +1,6 @@
 export type MediaType = 'Moving Image' | 'Sound'
 
-export type Guid = `cpb-aacip-${string}`
+export type Guid = `cpb-aacip${'-' | '_' | '/'}${string}`
 
 export type PBCore = {
   pbcoreDescriptionDocument: PBCoreDescriptionDocument

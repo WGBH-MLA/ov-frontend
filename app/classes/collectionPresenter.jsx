@@ -5,9 +5,9 @@ import { SIDEBAR_TYPES } from '../data/sidebarTypes'
 
 export function renderCollection(collection) {
   let sidebar
-  console.log('rendering collection', collection)
+  // console.log('rendering collection', collection)
   sidebar = renderSidebar(
-    "In This Collection",
+    'In This Collection',
     collection.content.filter(block => SIDEBAR_TYPES.includes(block.type))
   )
 
