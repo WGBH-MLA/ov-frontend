@@ -1,6 +1,6 @@
 import { Component } from 'react'
 import { AAPBRecordProps, AAPBRecordState } from '~/types/aapb'
-import { Guid, PBCore } from '~/types/pbcore'
+import { Guid, PBCore, PBCoreInstantiation } from '~/types/pbcore'
 
 export function handleAapbRecordGroup(aapbRecordGroup, key) {
   // this func is where we split by whitespace v
@@ -65,20 +65,22 @@ export class AAPBRecord extends Component<AAPBRecordProps> {
   }
 
   mediaType(pbcore: PBCore) {
-    let pb = pbcore.pbcoreDescriptionDocument
-    if (!pb) {
+    let inst: PBCoreInstantiation | PBCoreInstantiation[] =
+      pbcore.pbcoreDescriptionDocument?.pbcoreInstantiation
+    if (!inst) {
       return
     }
+    if (!(inst instanceof Array)) {
+      inst = [inst]
+    }
     if (
-      pb.pbcoreInstantiation.some(
-        instantiation => instantiation.instantiationMediaType == 'Moving Image'
+      inst.some(
+        (i: PBCoreInstantiation) => i.instantiationMediaType == 'Moving Image'
       )
     ) {
       return 'Moving Image'
     } else if (
-      pb.pbcoreInstantiation.some(
-        instantiation => instantiation.instantiationMediaType == 'Sound'
-      )
+      inst.some((i: PBCoreInstantiation) => i.instantiationMediaType == 'Sound')
     ) {
       return 'Sound'
     }
