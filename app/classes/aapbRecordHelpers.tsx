@@ -32,7 +32,7 @@ export function parseAapbRecordGroup(string: string) {
 }
 
 async function retrieveAapbRecord(guid) {
-  return await fetch(window.ENV.AAPB_HOST + 'api/' + guid + '.json')
+  return await fetch(window.ENV.AAPB_HOST + '/api/' + guid + '.json')
     .then(response => response.json())
     .catch(e => console.log(`Error retrieving record from AAPB: ${e}`))
 }
