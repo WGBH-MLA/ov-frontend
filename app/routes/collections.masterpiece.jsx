@@ -186,20 +186,3 @@ export default function Masterpiece() {
     </div>
   )
 }
-
-export function ErrorBoundary() {
-  // This is also the error boundary for the /collections route
-  const error = useRouteError()
-  if (isRouteErrorResponse(error)) {
-    console.error('series error', error)
-    if (error.status !== 404) throw error
-    return (
-      <div className="page-body-container">
-        <h1>Not found</h1>
-        <h3>{error.data}</h3>
-        <div>{error.statusText}</div>
-        <div>Check your spelling, or try another route.</div>
-      </div>
-    )
-  }
-}
