@@ -5,6 +5,8 @@ export type AAPBRecordProps = {
   showThumbnail: boolean
   showTitle: boolean
   embedPlayer: boolean
+  startTime: string
+  endTime: string
 }
 
 export type AAPBRecordState = {
@@ -19,6 +21,7 @@ export type AAPBRecordState = {
 
 export interface AAPBRecordBlockProps extends AAPBRecordProps {
   guids: Guid[]
+  specialCollections: string
 }
 
 export interface AAPBRecordBlockState {

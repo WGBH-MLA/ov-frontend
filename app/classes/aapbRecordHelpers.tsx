@@ -5,7 +5,7 @@ import {
   AAPBRecordBlockProps,
   AAPBRecordBlockState,
 } from '~/types/aapb'
-import { Guid, PBCore, PBCoreInstantiation } from '~/types/pbcore'
+import { Guid, PBCore, PBCoreInstantiation, PBCoreTitle } from '~/types/pbcore'
 
 export function handleAapbRecordGroup(aapbRecordGroup, key) {
   // this func is where we split by whitespace v
@@ -105,22 +105,20 @@ export class AAPBRecord extends Component<AAPBRecordProps> {
   }
 
   aapbTitle(pbcore: PBCore) {
-    if (pbcore?.pbcoreDescriptionDocument?.pbcoreTitle?.text) {
+    let pb = pbcore?.pbcoreDescriptionDocument
+    if (!Array.isArray(pb.pbcoreTitle)) {
       // there is one title
-      return pbcore.pbcoreDescriptionDocument.pbcoreTitle.text
-    } else if (pbcore?.pbcoreDescriptionDocument?.pbcoreTitle?.length > 0) {
+      return pb.pbcoreTitle.text
+    }
+    if (pb.pbcoreTitle?.length > 0) {
       // there are multiple titles
-      return pbcore.pbcoreDescriptionDocument.pbcoreTitle
-        .map(titleObj => {
-          return titleObj.text
-        })
-        .join('; ')
+      return pb.pbcoreTitle.map((title: PBCoreTitle) => title.text).join('; ')
     } else {
       return 'Untitled Record'
     }
   }
 
-  embed(guid: Guid, startTime, endTime, wide) {
+  embed(guid: Guid, startTime: string, endTime: string, wide: boolean) {
     var times
     if (startTime || endTime) {
       times = `?start=${startTime}&end=${endTime}`

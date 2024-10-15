@@ -9,7 +9,7 @@ export type PBCoreDescriptionDocument = {
   pbcoreInstantiation: PBCoreInstantiation | PBCoreInstantiation[]
   'xsi:schemaLocation': string
   pbcoreIdentifier: PBCoreIdentifier[]
-  pbcoreTitle: PBCoreTitle[]
+  pbcoreTitle: PBCoreTitle | PBCoreTitle[]
   pbcoreDescription: string | PBCoreDescription[]
   pbcoreAnnotation: PBCoreAnnotation[]
   pbcoreCreator: PBCoreCreator[]
