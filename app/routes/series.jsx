@@ -1,12 +1,7 @@
-import {
-  useLoaderData,
-  useRouteError,
-  isRouteErrorResponse,
-  Link,
-} from '@remix-run/react'
+import { useLoaderData, Link } from '@remix-run/react'
 import { useEffect, useState } from 'react'
-import { getSeries } from '../series'
 import { Meta } from '../classes/meta'
+import { seriesData } from '../data/seriesData'
 
 export const meta = () => {
   return [
@@ -22,7 +17,10 @@ export const meta = () => {
 }
 
 export const loader = async () => {
-  return await getSeries()
+  return {
+    seriesData: seriesData,
+    AAPB_HOST: process.env.AAPB_HOST,
+  }
 }
 
 function renderSeriesLink(series) {
@@ -151,21 +149,4 @@ export default function Series() {
       </div>
     </div>
   )
-}
-
-export function ErrorBoundary() {
-  // This is also the error boundary for the /collections route
-  const error = useRouteError()
-  if (isRouteErrorResponse(error)) {
-    console.error('series error', error)
-    if (error.status !== 404) throw error
-    return (
-      <div className="page-body-container">
-        <h1>Not found</h1>
-        <h3>{error.data}</h3>
-        <div>{error.statusText}</div>
-        <div>Check your spelling, or try another route.</div>
-      </div>
-    )
-  }
 }

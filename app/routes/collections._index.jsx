@@ -1,5 +1,5 @@
 import { useLoaderData } from '@remix-run/react'
-import { getCollections } from '../fetch'
+import { getCollections } from '../utils/fetch'
 import { renderPageLinks } from '../classes/pageHelpers'
 import { Meta } from '../classes/meta'
 

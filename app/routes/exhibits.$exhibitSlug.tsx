@@ -9,7 +9,7 @@ import type {
   LoaderFunctionArgs,
 } from '@remix-run/node'
 import { json } from '@remix-run/node'
-import { getPageBySlug } from '../fetch'
+import { getPageBySlug } from '../utils/fetch'
 import { renderExhibit } from '../classes/exhibitPresenter'
 import type { SitemapFunction } from 'remix-sitemap'
 import { extractMeta } from '../classes/meta'
@@ -64,7 +64,7 @@ export const sitemap: SitemapFunction = async ({ config, request }) => {
   ).then(res => {
     return res.json()
   })
-  return exhibits.items.map(exhibit,index => {
+  return exhibits.items.map(exhibit, index => {
     return {
       key: index,
       loc: `/exhibits/${exhibit.meta.slug}`,
