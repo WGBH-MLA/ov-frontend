@@ -4,7 +4,7 @@ import type {
   MetaFunction,
   LoaderFunctionArgs,
 } from '@remix-run/node'
-import { getPageBySlug } from '../fetch'
+import { getPageBySlug } from '../utils/fetch'
 import { renderCollection } from '../classes/collectionPresenter'
 import { ErrorBoundary } from './exhibits.$exhibitSlug'
 import type { SitemapFunction } from 'remix-sitemap'

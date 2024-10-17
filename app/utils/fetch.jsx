@@ -24,7 +24,6 @@ export async function getPageBySlug(type, slug) {
         statusText: 'Something went wrong. Try again later.',
       })
     })
-  // console.log('exhibit body', body)
   if (body.meta && body.meta.total_count === 0) {
     console.log(`Page not found by slug`)
     throw new Response(`No ${type} called: ${slug}`, { status: 404 })

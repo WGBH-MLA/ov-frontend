@@ -1,12 +1,30 @@
 import { useLoaderData } from '@remix-run/react'
 import { LoaderFunctionArgs } from '@remix-run/server-runtime'
-import { getPreview } from '../preview'
+import { getPreview } from '../utils/preview'
 import { renderCollection } from '../classes/collectionPresenter'
 import { renderExhibit } from '../classes/exhibitPresenter'
 import type { SitemapFunction } from 'remix-sitemap'
+import { getPageBySlug } from '../utils/fetch'
 
 export const loader = async ({ request }: LoaderFunctionArgs) => {
   var params = new URLSearchParams(request.url.replace(/.*\?/, ''))
+  // if(params.has("slug") && params.has("token") && params.has("content_type")){
+
+  //   var slug = params.get("slug")
+  //   var token = params.get("token")
+  //   var content_type = params.get("content_type")
+  //   var page_type = content_type == "exhibits.exhibitpage" ? "exhibits" : "collections"
+  //   const resp = await getPageBySlug(page_type, slug)
+  //   const data = await resp.json()
+
+  //   console.log( 'herse hte data though', data )
+  //   if(data && data.id && token && content_type){
+  //     console.log( 'using these values', data.id, content_type, token )
+  //     return await getPreview(data.id, content_type, token)
+  //   }
+  // }
+
+  // leaving existing lookup by id, since current preview link provides only it
   if (params.has('content_type') && params.has('token')) {
     var id = params.get('token').split(':')[0].replace(/id=/g, '')
     return await getPreview(id, params.get('content_type'), params.get('token'))
@@ -17,9 +35,8 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
 
 export default function Preview() {
   const preview = useLoaderData()
-  console.log('preview gon give it to ya', preview)
 
-  if (!preview) {
+  if (!(preview && preview.meta)) {
     throw new Error('Not found!')
   }
 
