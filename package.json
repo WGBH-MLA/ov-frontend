@@ -13,10 +13,10 @@
     "@fontsource/red-hat-display": "^5.1.0",
     "@fontsource/red-hat-text": "^5.1.0",
     "@radix-ui/react-toast": "^1.2.2",
-    "@remix-run/node": "^2.12.1",
-    "@remix-run/react": "^2.12.1",
-    "@remix-run/serve": "^2.12.1",
-    "@remix-run/server-runtime": "^2.12.1",
+    "@remix-run/node": "^2.13.1",
+    "@remix-run/react": "^2.13.1",
+    "@remix-run/serve": "^2.13.1",
+    "@remix-run/server-runtime": "^2.13.1",
     "@searchkit/instantsearch-client": "^4.13.0",
     "@vitejs/plugin-legacy": "^5.4.2",
     "@vitejs/plugin-react": "^4.3.2",
@@ -32,7 +32,7 @@
     "searchkit": "^4.12.0"
   },
   "devDependencies": {
-    "@remix-run/dev": "^2.12.1",
+    "@remix-run/dev": "^2.13.1",
     "@types/lodash": "^4.17.10",
     "@types/react": "^18.3.11",
     "@types/react-dom": "^18.3.1",
