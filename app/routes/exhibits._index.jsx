@@ -1,5 +1,5 @@
 import { Link, useLoaderData } from '@remix-run/react'
-import { getExhibits } from '../fetch'
+import { getExhibits } from '../utils/fetch'
 import { renderPageLinks } from '../classes/pageHelpers'
 import { Meta } from '../classes/meta'
 
