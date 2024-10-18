@@ -1,46 +1,82 @@
-import React, { useState } from 'react'
 import Client from '@searchkit/instantsearch-client'
 import Searchkit from 'searchkit'
 import searchkit_options from '~/data/searchkit.json'
 import {
+  RefinementList,
   InstantSearch,
   SearchBox,
-  Hits,
   Index,
   Pagination,
   HitsPerPage,
+  Hits,
 } from 'react-instantsearch'
-import {
-  Error,
-  EmptyQueryBoundary,
-  NoResultsBoundary,
-  LoadingIndicator,
-  EmptyQueryMessage,
-} from './search-utils'
-import { ScrollTo } from '~/components/ScrollTo'
-import { Hit } from '~/components/Hit'
-import { Carousel } from '~/components/Carousel'
-import { NoResults } from '~/components/NoResults'
-import { AAPBResults } from '~/components/AAPBResults'
-import { Refinements } from '~/components/Refinements'
-import { SearchProps } from '~/routes/search'
-import { Router, stateToRoute, routeToState } from '~/components/Router'
-import { Tabs, Tab } from '@mui/material'
-
+import type { LoaderFunction, MetaFunction } from '@remix-run/node'
+import { json } from '@remix-run/node'
 import { useLoaderData, useRouteError } from '@remix-run/react'
+import { Panel } from '~/components/Panel'
+import { Carousel } from '~/components/Carousel'
+import 'instantsearch.css/themes/algolia-min.css'
+import '~/styles/search.css'
+import { Meta } from '../classes/meta'
+import { ScrollTo } from '~/components/ScrollTo'
+import React, { useState } from 'react'
+import Tabs from '@mui/material/Tabs'
+import Tab from '@mui/material/Tab'
+import { NoResults, NoResultsBoundary } from '~/classes/search-utils'
+import { Refinements } from '~/components/Refinements'
+import { Router, stateToRoute, routeToState } from '~/components/Router'
+import { Hit } from '~/components/Hit'
+
+export const meta: MetaFunction = ({ location }) => {
+  const query = new URLSearchParams(location.search).get('q')
+  return [
+    {
+      title: `${query ? query + ' | ' : ''}Search GBH Open Vault`,
+    },
+    {
+      name: 'description',
+      content:
+        'Search the GBH Open Vault catalog, Scholar Exhibits and Special Collections.',
+    },
+    ...Meta,
+  ]
+}
+
+export const loader: LoaderFunction = async ({ request }) => {
+  const serverUrl = request.url
+  const aapb_host = process.env.AAPB_HOST
+
+  return json({
+    serverUrl,
+    aapb_host,
+  })
+}
+
+function FallbackComponent({ attribute }: { attribute: string }) {
+  return (
+    <Panel header={attribute}>
+      <RefinementList attribute={attribute} />
+    </Panel>
+  )
+}
+
+export type SearchProps = {
+  serverUrl?: string
+  aapb_host?: string
+}
 
 const sk = new Searchkit(searchkit_options)
 
 export const searchClient = Client(sk)
 
-export const Search = () => {
+const SearchUI = () => {
   const { serverUrl, aapb_host }: SearchProps = useLoaderData()
   const [activeTab, setActiveTab] = useState(0)
-  let timerId: NodeJS.Timeout
-  let timeout: number = 350
+
   const handleTabChange = (event: React.ChangeEvent<{}>, newValue: number) => {
     setActiveTab(newValue)
   }
+
   return (
     <InstantSearch
       searchClient={searchClient}
@@ -53,25 +89,18 @@ export const Search = () => {
       <ScrollTo className="max-w-6xl p-4 flex gap-4 m-auto">
         <SearchBox
           queryHook={(query, refine) => {
-            // console.log('searchbox', query)
-            // debounce the search input box
             clearTimeout(timerId)
             timerId = setTimeout(() => refine(query), timeout)
           }}
           className="search-box"
         />
-        <Error />
+        {/* <Error /> */}
         <div className="search-results">
-          <EmptyQueryBoundary fallback={<EmptyQueryMessage />}>
-            <LoadingIndicator />
-          </EmptyQueryBoundary>
-
           <Tabs value={activeTab} onChange={handleTabChange}>
             <Tab label="Open Vault" />
             <Tab label="GBH Series" />
-            <Tab label="American Archive" />
-            <Tab label="Settings" />
           </Tabs>
+
           {activeTab === 0 && (
             <Index indexName="wagtail__wagtailcore_page">
               <NoResultsBoundary fallback={<NoResults />}>
@@ -91,6 +120,7 @@ export const Search = () => {
               </NoResultsBoundary>
             </Index>
           )}
+
           {activeTab === 1 && (
             <Index indexName="gbh-series">
               <NoResultsBoundary fallback={null}>
@@ -99,10 +129,22 @@ export const Search = () => {
               </NoResultsBoundary>
             </Index>
           )}
-          {activeTab === 2 && <AAPBResults aapb_host={aapb_host} />}
-          {activeTab === 3 && <div>Settings</div>}
         </div>
       </ScrollTo>
     </InstantSearch>
+  )
+}
+
+export default SearchUI
+
+export function ErrorBoundary() {
+  const error = useRouteError()
+  console.log('search error', error)
+  return (
+    <div>
+      <h1>Search Error</h1>
+      <h4>We're sorry! Search appears to be broken!</h4>
+      <pre>{error.message}</pre>
+    </div>
   )
 }
