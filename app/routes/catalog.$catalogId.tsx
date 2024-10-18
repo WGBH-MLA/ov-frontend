@@ -1,14 +1,20 @@
 import { useRouteError } from '@remix-run/react'
 import { redirectDocument } from '@remix-run/node'
+import type { LoaderFunction, LoaderFunctionArgs } from '@remix-run/node'
+import type { Guid } from '~/types/pbcore'
 
-export const loader = async ({ params }) => {
-  let guid = await resolveCatalog(params.catalogId)
-  console.log(`Redirecting old OV id: ${params.catalogId} to AAPB guid: ${guid}`)
+export const loader: LoaderFunction = async ({
+  params,
+}: LoaderFunctionArgs) => {
+  let guid: Guid = await resolveCatalog(params.catalogId)
+  console.log(
+    `Redirecting old OV id: ${params.catalogId} to AAPB guid: ${guid}`
+  )
 
   return redirectDocument(`https://americanarchive.org/catalog/${guid}`)
 }
 
-export async function resolveCatalog(id) {
+export async function resolveCatalog(id: string): Promise<Guid> {
   if (!id.startsWith('A_') && !id.startsWith('V_')) {
     throw new Response(`Invalid Open Vault Catalog ID: ${id}`, {
       status: 400,
@@ -18,8 +24,8 @@ export async function resolveCatalog(id) {
   console.log('checking OV id', id)
 
   // Check Organ for a matching OV catalog ID
-  const guid = await fetch(`${process.env.ORGAN_URL}/ov/get/${id}`).then(
-    res => {
+  const results = await fetch(`${process.env.ORGAN_URL}/ov/${id}`)
+    .then(res => {
       if (res.status === 404) {
         throw new Response(`Catalog ID not found: ${id}`, {
           status: 404,
@@ -33,18 +39,18 @@ export async function resolveCatalog(id) {
         })
       }
       return res.json()
-    }
-  )
-  .catch(err => {
-    if (err instanceof Response) throw err
-    throw new Response(`Error fetching catalog ID`, {
-      status: 500,
-      statusText: 'An error occured while resolving this old Open Vault catalog ID. Please try again later.',
     })
-  })
-  console.log('Resolved guid!', guid)
+    .catch(err => {
+      if (err instanceof Response) throw err
+      throw new Response(`Error fetching catalog ID`, {
+        status: 500,
+        statusText:
+          'An error occured while resolving this old Open Vault catalog ID. Please try again later.',
+      })
+    })
+  console.log('Resolved guid!', results)
   // It's an older code, sir, but it checks out. I was about to redirect them.
-  return guid.guid
+  return results.guid
 }
 
 export const ErrorBoundary = () => {
