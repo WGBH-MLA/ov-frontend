@@ -4,12 +4,12 @@ import type {
   MetaFunction,
   LoaderFunctionArgs,
 } from '@remix-run/node'
-import { getPageBySlug } from '../utils/fetch'
-import { renderCollection } from '../classes/collectionPresenter'
+import { getPageBySlug } from '~/utils/fetch'
+import { renderCollection } from '~/classes/collectionPresenter'
 import { ErrorBoundary } from './exhibits.$exhibitSlug'
 import type { SitemapFunction } from 'remix-sitemap'
 import { json } from '@remix-run/node'
-import { extractMeta } from '../classes/meta'
+import { extractMeta } from '~/classes/meta'
 
 export const loader: LoaderFunction = async ({
   params,
