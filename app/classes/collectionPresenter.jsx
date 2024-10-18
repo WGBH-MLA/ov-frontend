@@ -1,7 +1,7 @@
 import { decode } from 'html-entities'
 import { renderSidebar, renderPageTitleBar } from './pageHelpers'
 import { renderBlocks } from './contentHelpers'
-import { SIDEBAR_TYPES } from '../data/sidebarTypes'
+import { SIDEBAR_TYPES } from '~/data/sidebarTypes'
 
 export function renderCollection(collection) {
   let sidebar

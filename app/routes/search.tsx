@@ -2,11 +2,11 @@ import { RefinementList, InstantSearchServerState } from 'react-instantsearch'
 import type { LoaderFunction, MetaFunction } from '@remix-run/node'
 import { json } from '@remix-run/node'
 import { useLoaderData, useRouteError } from '@remix-run/react'
-import { Panel } from '../components/Panel'
-import { Search } from '../classes/search-ui'
+import { Panel } from '~/components/Panel'
+import { Search } from '~/classes/search-ui'
 import 'instantsearch.css/themes/algolia-min.css'
-import '../styles/search.css'
-import { Meta } from '../classes/meta'
+import '~/styles/search.css'
+import { Meta } from '~/classes/meta'
 
 export const meta: MetaFunction = ({ location }) => {
   const query = new URLSearchParams(location.search).get('q')
@@ -42,8 +42,8 @@ function FallbackComponent({ attribute }: { attribute: string }) {
 }
 
 export type SearchProps = {
-  serverUrl?: URL
-  aapb_host?: URL
+  serverUrl?: string
+  aapb_host?: string
 }
 
 export default function SearchPage() {

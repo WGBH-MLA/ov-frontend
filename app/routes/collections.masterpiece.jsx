@@ -6,7 +6,7 @@ import {
 } from '@remix-run/react'
 import { useState, useEffect } from 'react'
 
-import { getMasterpiece } from '../utils/masterpiece'
+import { getMasterpiece } from '~/utils/masterpiece'
 
 export const meta = () => {
   return [

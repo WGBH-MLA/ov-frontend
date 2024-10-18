@@ -1,10 +1,10 @@
 import { useLoaderData } from '@remix-run/react'
 import { LoaderFunctionArgs } from '@remix-run/server-runtime'
-import { getPreview } from '../utils/preview'
-import { renderCollection } from '../classes/collectionPresenter'
-import { renderExhibit } from '../classes/exhibitPresenter'
+import { getPreview } from '~/utils/preview'
+import { renderCollection } from '~/classes/collectionPresenter'
+import { renderExhibit } from '~/classes/exhibitPresenter'
 import type { SitemapFunction } from 'remix-sitemap'
-import { getPageBySlug } from '../utils/fetch'
+import { getPageBySlug } from '~/utils/fetch'
 
 export const loader = async ({ request }: LoaderFunctionArgs) => {
   var params = new URLSearchParams(request.url.replace(/.*\?/, ''))

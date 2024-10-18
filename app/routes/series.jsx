@@ -1,7 +1,7 @@
 import { useLoaderData, Link } from '@remix-run/react'
 import { useEffect, useState } from 'react'
-import { Meta } from '../classes/meta'
-import { seriesData } from '../data/seriesData'
+import { Meta } from '~/classes/meta'
+import { seriesData } from '~/data/seriesData'
 
 export const meta = () => {
   return [

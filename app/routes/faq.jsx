@@ -1,4 +1,4 @@
-import { Meta } from '../classes/meta'
+import { Meta } from '~/classes/meta'
 
 export const meta = () => {
   return [
