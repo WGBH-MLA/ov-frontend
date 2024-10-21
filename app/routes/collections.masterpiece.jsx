@@ -177,7 +177,7 @@ export default function Masterpiece() {
               </div>
             </div>
             <div className="static-halfbox">
-              <img src="https://s3.amazonaws.com/openvault.wgbh.org/treasuries/alistair.png" />
+              <img src="https://s3.amazonaws.com/openvault.wgbh.org/treasuries/alistair_cooke_collection.jpg" />
             </div>
           </div>
           {seasonGroups}

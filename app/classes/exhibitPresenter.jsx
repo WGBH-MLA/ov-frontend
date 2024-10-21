@@ -10,7 +10,7 @@ export function renderExhibit(exhibit){
   let showAuthors = exhibit.authors && exhibit.authors.length > 0 && exhibit.authors[0].name
   let showFootnotes = exhibit.footnotes && exhibit.footnotes.length > 0
 
-  let sidebar = renderSidebar("In This Exhibit", exhibit.body.filter( (block) => SIDEBAR_TYPES.includes(block.type)), showAuthors, showFootnotes)  
+  let sidebar = renderSidebar("In This Exhibit", exhibit.body.filter( (block) => ( SIDEBAR_TYPES.includes(block.type)) && block?.value?.show_sidebar ), showAuthors, showFootnotes)  
 
   let titleBar
   if(exhibit.title){

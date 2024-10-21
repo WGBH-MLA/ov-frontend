@@ -24,10 +24,10 @@ export default function Collections() {
     meta: {
       slug: 'masterpiece',
     },
-    title: 'Alistair Cookie Masterpiece Theater Collection',
+    title: 'Alistair Cooke Masterpiece Theatre Collection',
     cover_image: {
       full_url:
-        'https://s3.amazonaws.com/openvault.wgbh.org/treasuries/alistair.png',
+        'https://s3.amazonaws.com/openvault.wgbh.org/treasuries/alistair_cooke_collection.jpg',
     },
   }
 

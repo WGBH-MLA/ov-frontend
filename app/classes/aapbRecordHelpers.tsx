@@ -40,9 +40,17 @@ export const normalizeGuid = (guid: Guid) =>
   guid.replace(/^cpb-aacip./, 'cpb-aacip-')
 
 async function retrieveAapbRecord(guid: Guid) {
-  return await fetch(window.ENV.AAPB_HOST + '/api/' + guid + '.json')
-    .then(response => response.json())
-    .catch(e => console.log(`Error retrieving record from AAPB: ${e}`))
+  try{
+    var resp = await fetch(window.ENV.AAPB_HOST + '/api/' + guid + '.json')
+    if(resp.status == 200){
+      return await resp.json()  
+    } else {
+      return false
+    }
+  } catch(error){
+    return false
+  }
+  
 }
 
 export class AAPBRecord extends Component<AAPBRecordProps> {
@@ -58,17 +66,15 @@ export class AAPBRecord extends Component<AAPBRecordProps> {
   async componentDidMount() {
     var hyphenGuid: Guid = normalizeGuid(this.props.guid)
     var record = await retrieveAapbRecord(hyphenGuid)
-    console.log('duh!@!!!!', record)
 
-    // TODO: add essencetracks to aapb api
     let isWide = false
-    // if(record){
-    //   let inst = record.pbcoreDescriptionDocument.pbcoreInstantiation.find( (i) => i.instantiationGenerations.text == "Proxy" )
-    //   if(inst){
-    //     let et = inst.essenceTrack.find( (et) => et.essenceTrackAspectRatio)
-    //     isWide = et.essenceTrackAspectRatio == "16:9"
-    //   }
-    // }
+    if(record?.pbcoreDescriptionDocument?.pbcoreInstantiation){
+      let inst = record.pbcoreDescriptionDocument.pbcoreInstantiation.find( (i) => i.instantiationGenerations == "Proxy" )
+      if(inst){
+        let et = inst.instantiationEssenceTrack.find( (et) => et.essenceTrackAspectRatio)
+        isWide = et.essenceTrackAspectRatio == "16:9" || et.essenceTrackAspectRatio == "1.778"
+      }
+    }
     this.setState({ guid: hyphenGuid, pbcore: record, wide: isWide })
   }
 
@@ -105,14 +111,14 @@ export class AAPBRecord extends Component<AAPBRecordProps> {
   }
 
   aapbTitle(pbcore: PBCore) {
-    let pb = pbcore?.pbcoreDescriptionDocument
-    if (!Array.isArray(pb.pbcoreTitle)) {
+    let pbt = pbcore?.pbcoreDescriptionDocument?.pbcoreTitle
+    if (pbt && !Array.isArray(pbt)) {
       // there is one title
-      return pb.pbcoreTitle.text
+      return pbt.text
     }
-    if (pb.pbcoreTitle?.length > 0) {
+    if (pbt?.length > 0) {
       // there are multiple titles
-      return pb.pbcoreTitle.map((title: PBCoreTitle) => title.text).join('; ')
+      return pbt.map((title: PBCoreTitle) => title.text).join('; ')
     } else {
       return 'Untitled Record'
     }
@@ -124,11 +130,18 @@ export class AAPBRecord extends Component<AAPBRecordProps> {
       times = `?start=${startTime}&end=${endTime}`
     }
     var url = `${window.ENV.AAPB_HOST}/openvault/${guid}${times || ''}`
-    var classes = wide ? 'aapb-record-video-wide' : 'aapb-record-video'
+
+
+    var iframeClasses = "aapb-record-video"
+    var containerClasses = "content-aapbblock"
+    if(wide){
+      iframeClasses += " wide"
+      containerClasses += " wide"
+    }
     return (
-      <a className="content-aapbblock">
+      <a className={containerClasses} >
         <iframe
-          className={classes}
+          className={iframeClasses}
           src={url}
           frameBorder="0"
           allowFullScreen={true}
@@ -140,7 +153,7 @@ export class AAPBRecord extends Component<AAPBRecordProps> {
   render() {
     let recordBlock
     if (this.state.pbcore) {
-      console.log('rendering aapb record', this.state.pbcore)
+      // console.log('rendering aapb record', this.state.pbcore)
       let titleBar
       if (this.props.showTitle) {
         titleBar = (
