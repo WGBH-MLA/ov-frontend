@@ -40,17 +40,17 @@ export const normalizeGuid = (guid: Guid) =>
   guid.replace(/^cpb-aacip./, 'cpb-aacip-')
 
 async function retrieveAapbRecord(guid: Guid) {
-  try{
+  try {
     var resp = await fetch(window.ENV.AAPB_HOST + '/api/' + guid + '.json')
-    if(resp.status == 200){
-      return await resp.json()  
+    if (resp.status == 200) {
+      return await resp.json()
     } else {
       return false
     }
-  } catch(error){
+  } catch (error) {
+    console.error(`Error retrieving record from AAPB: ${error}`)
     return false
   }
-  
 }
 
 export class AAPBRecord extends Component<AAPBRecordProps> {
@@ -68,11 +68,17 @@ export class AAPBRecord extends Component<AAPBRecordProps> {
     var record = await retrieveAapbRecord(hyphenGuid)
 
     let isWide = false
-    if(record?.pbcoreDescriptionDocument?.pbcoreInstantiation){
-      let inst = record.pbcoreDescriptionDocument.pbcoreInstantiation.find( (i) => i.instantiationGenerations == "Proxy" )
-      if(inst){
-        let et = inst.instantiationEssenceTrack.find( (et) => et.essenceTrackAspectRatio)
-        isWide = et.essenceTrackAspectRatio == "16:9" || et.essenceTrackAspectRatio == "1.778"
+    if (record?.pbcoreDescriptionDocument?.pbcoreInstantiation) {
+      let inst = record.pbcoreDescriptionDocument.pbcoreInstantiation.find(
+        i => i.instantiationGenerations == 'Proxy'
+      )
+      if (inst) {
+        let et = inst.instantiationEssenceTrack.find(
+          et => et.essenceTrackAspectRatio
+        )
+        isWide =
+          et.essenceTrackAspectRatio == '16:9' ||
+          et.essenceTrackAspectRatio == '1.778'
       }
     }
     this.setState({ guid: hyphenGuid, pbcore: record, wide: isWide })
@@ -131,15 +137,14 @@ export class AAPBRecord extends Component<AAPBRecordProps> {
     }
     var url = `${window.ENV.AAPB_HOST}/openvault/${guid}${times || ''}`
 
-
-    var iframeClasses = "aapb-record-video"
-    var containerClasses = "content-aapbblock"
-    if(wide){
-      iframeClasses += " wide"
-      containerClasses += " wide"
+    var iframeClasses = 'aapb-record-video'
+    var containerClasses = 'content-aapbblock'
+    if (wide) {
+      iframeClasses += ' wide'
+      containerClasses += ' wide'
     }
     return (
-      <a className={containerClasses} >
+      <a className={containerClasses}>
         <iframe
           className={iframeClasses}
           src={url}
