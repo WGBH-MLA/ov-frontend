@@ -69,19 +69,35 @@ export class AAPBRecord extends Component<AAPBRecordProps> {
 
     let isWide = false
     if (record?.pbcoreDescriptionDocument?.pbcoreInstantiation) {
-      let inst = record.pbcoreDescriptionDocument.pbcoreInstantiation.find(
-        i => i.instantiationGenerations == 'Proxy'
-      )
-      if (inst) {
-        let et = inst.instantiationEssenceTrack.find(
-          et => et.essenceTrackAspectRatio
-        )
-        isWide =
-          et.essenceTrackAspectRatio == '16:9' ||
-          et.essenceTrackAspectRatio == '1.778'
+      let inst = record.pbcoreDescriptionDocument.pbcoreInstantiation
+      if (!(inst instanceof Array)) {
+        inst = [inst]
       }
+      // Find all proxies
+      let proxies = inst.find(i => i.instantiationGenerations == 'Proxy')
+      if (proxies) {
+        // proxytome proxytome proxytome proxytome
+        if (!(proxies instanceof Array)) {
+          proxies = [proxies]
+        }
+        // Get the aspect ratio of the essence tracks
+        let ets = proxies.map(proxy =>
+          proxy.instantiationEssenceTrack.map(
+            track => track.essenceTrackAspectRatio
+          )
+        )
+        for (let aspect of ets) {
+          // A-S-P-E-C-T
+          // Find out if it's 4:3
+          if (aspect.includes('16:9') || aspect.includes('1.778')) {
+            // Just a little bit!
+            isWide = true
+            break
+          }
+        }
+      }
+      this.setState({ guid: hyphenGuid, pbcore: record, wide: isWide })
     }
-    this.setState({ guid: hyphenGuid, pbcore: record, wide: isWide })
   }
 
   mediaType(pbcore: PBCore) {
