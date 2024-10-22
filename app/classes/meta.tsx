@@ -1,8 +1,4 @@
-type Article = {
-  title: string
-  cover_image: { url: string }
-  meta: { search_description: string }
-}
+import type { Article } from '~/types/openvault'
 
 export const extractMeta = (server_url: URL, article: Article) => [
   { property: 'og:url', content: server_url },

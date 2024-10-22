@@ -9,10 +9,10 @@ import type {
   LoaderFunctionArgs,
 } from '@remix-run/node'
 import { json } from '@remix-run/node'
-import { getPageBySlug } from '../utils/fetch'
-import { renderExhibit } from '../classes/exhibitPresenter'
+import { getPageBySlug } from '~/utils/fetch'
+import { renderExhibit } from '~/classes/exhibitPresenter'
 import type { SitemapFunction } from 'remix-sitemap'
-import { extractMeta } from '../classes/meta'
+import { extractMeta } from '~/classes/meta'
 
 export const loader: LoaderFunction = async ({
   params,

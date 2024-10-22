@@ -1,7 +1,7 @@
 import { useLoaderData } from '@remix-run/react'
-import { getCollections } from '../utils/fetch'
-import { renderPageLinks } from '../classes/pageHelpers'
-import { Meta } from '../classes/meta'
+import { getCollections } from '~/utils/fetch'
+import { renderPageLinks } from '~/classes/pageHelpers'
+import { Meta } from '~/classes/meta'
 
 export const loader = async () => {
   return await getCollections()

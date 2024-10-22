@@ -1,5 +1,5 @@
 // separate file so we dont include this in every loader
-import { masterpieceData } from '../data/masterpieceData'
+import { masterpieceData } from '~/data/masterpieceData'
 
 export async function getMasterpiece() {
   return {
