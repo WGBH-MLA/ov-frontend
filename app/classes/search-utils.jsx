@@ -1,20 +1,45 @@
 import { useSearchBox, Pagination } from 'react-instantsearch'
 import { useInstantSearch } from 'react-instantsearch-core'
 
-export const EmptyQueryMessage = () => (
-  <>
-    <h2>Search Open Vault</h2>
-    <p>Search articles, titles, and GBH Series on Open Vault</p>
-    <br></br>
-    <h4>Suggestions</h4>
-    <ul>
-      <li>
-        {' '}
-        <a href="/search?q=Julia%20Child">Julia Child</a>
-      </li>
-    </ul>
-  </>
-)
+const default_suggestions = [
+  'Julia Child',
+  'Louis Lyons',
+  'Boston',
+  'Arthur',
+  'NOVA',
+]
+
+export const EmptyQueryMessage = () => {
+  const { refine } = useSearchBox()
+
+  function setQuery(newQuery) {
+    refine(newQuery)
+  }
+  return (
+    <>
+      <h2>Search Open Vault</h2>
+      <p>Search articles, titles, and GBH Series on Open Vault</p>
+      <Suggestions queries={default_suggestions} />
+    </>
+  )
+}
+
+export const Suggestions = ({ queries, ...props }) => {
+  const { refine } = useSearchBox(props)
+
+  return (
+    <>
+      <h4>Suggestions</h4>
+      <ul>
+        {queries.map(query => (
+          <li>
+            <a onClick={() => refine(query)}>{query}</a>
+          </li>
+        ))}
+      </ul>
+    </>
+  )
+}
 
 export function Error() {
   const { error } = useInstantSearch({ catchError: true })

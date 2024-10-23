@@ -37,7 +37,7 @@ export const Search = () => {
   const { serverUrl, aapb_host }: SearchProps = useLoaderData()
   const [activeTab, setActiveTab] = useState(0)
   let timerId: NodeJS.Timeout
-  let timeout: number = 350
+  let timeout: number = 300
   const handleTabChange = (event: React.ChangeEvent<{}>, newValue: number) => {
     setActiveTab(newValue)
   }
@@ -49,19 +49,24 @@ export const Search = () => {
         stateMapping: { stateToRoute, routeToState },
       }}
       insights={false}
+      future={{
+        preserveSharedStateOnUnmount: true,
+      }}
     >
       <ScrollTo className="max-w-6xl p-4 flex gap-4 m-auto">
-        <SearchBox
-          queryHook={(query, refine) => {
-            // console.log('searchbox', query)
-            // debounce the search input box
-            clearTimeout(timerId)
-            timerId = setTimeout(() => refine(query), timeout)
-          }}
-          className="search-box"
-        />
-        <Error />
         <div className="search-results">
+          <SearchBox
+            autoFocus
+            placeholder="Search exhibits, collections, and Series from GBH"
+            // queryHook={(query, refine) => {
+            //   // console.log('searchbox', query)
+            //   // debounce the search input box
+            //   clearTimeout(timerId)
+            //   timerId = setTimeout(() => refine(query), timeout)
+            // }}
+            className="search-box"
+          />
+          <Error />
           <EmptyQueryBoundary fallback={<EmptyQueryMessage />}>
             <LoadingIndicator />
           </EmptyQueryBoundary>
