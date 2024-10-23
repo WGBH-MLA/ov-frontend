@@ -100,12 +100,12 @@ export function renderSidebar(sidebarTitle, sections, authors=false, footnotes=f
 
   let authorSectionLink
   if(authors){
-    authorSectionLink = <div className="page-sidebar-link"><a key={ sections.length } onClick={ () => { scrollSectionIntoView("authors-section")  } } className="">Authors</a></div>
+    authorSectionLink = <div key={ sections.length } className="page-sidebar-link"><a onClick={ () => { scrollSectionIntoView("authors-section")  } } className="">Authors</a></div>
   }
   
   let footnoteSectionLink
   if(footnotes){
-    footnoteSectionLink = <div className="page-sidebar-link"><a key={ sections.length + 1 } onClick={ () => { scrollSectionIntoView("footnote-section")  } } className="">Footnotes</a></div>
+    footnoteSectionLink = <div key={ sections.length + 1 } className="page-sidebar-link"><a onClick={ () => { scrollSectionIntoView("footnote-section")  } } className="">Footnotes</a></div>
   }
   
   var sidebarSections = sections.map( (section, index) => {
@@ -120,7 +120,7 @@ export function renderSidebar(sidebarTitle, sections, authors=false, footnotes=f
     <div className={ isOpen ? "page-sidebar sidebar-open" : "page-sidebar" } >
       <div className="page-sidebar-header">
         <MenuIcon id="sidebar-menu-icon" onClick={() => setIsOpen(!isOpen)} />
-        {<div className="page-sidebar-title mobile-hidden">{ sidebarTitle }</div> }
+        <div className="page-sidebar-title mobile-hidden">{ sidebarTitle }</div>
       </div>
       { isOpen && sidebarSections }
     </div>
@@ -129,7 +129,9 @@ export function renderSidebar(sidebarTitle, sections, authors=false, footnotes=f
 
 export function renderSidebarSection(title, id, key){
   return (
-    <div key={ key } className="page-sidebar-link"><a onClick={ () => { scrollSectionIntoView(id)  } } dangerouslySetInnerHTML={{ __html: decode(title) }} /></div>
+    <div key={ key } className="page-sidebar-link">
+      <a onClick={ () => { scrollSectionIntoView(id)  } } dangerouslySetInnerHTML={{ __html: decode(title) }} />
+    </div>
   )
 }
 
