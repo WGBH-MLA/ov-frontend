@@ -33,7 +33,7 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
   ]
 }
 
-export default function Collections() {
+export default function Collection() {
   const { collection } = useLoaderData()
 
   if (!collection.content) {
