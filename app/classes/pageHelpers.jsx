@@ -129,7 +129,7 @@ export function renderSidebar(sidebarTitle, sections, authors=false, footnotes=f
 
 export function renderSidebarSection(title, id, key){
   return (
-    <div className="page-sidebar-link"><a key={ key } onClick={ () => { scrollSectionIntoView(id)  } } dangerouslySetInnerHTML={{ __html: decode(title) }} /></div>
+    <div key={ key } className="page-sidebar-link"><a onClick={ () => { scrollSectionIntoView(id)  } } dangerouslySetInnerHTML={{ __html: decode(title) }} /></div>
   )
 }
 
