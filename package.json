@@ -25,7 +25,7 @@
     "lodash": "^4.17.21",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-instantsearch": "^7.13.4",
+    "react-instantsearch": "^7.13.5",
     "react-instantsearch-core": "^7.11.2",
     "react-responsive-carousel": "^3.2.23",
     "remix-sitemap": "^3.2.0",
