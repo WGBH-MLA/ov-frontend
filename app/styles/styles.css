@@ -948,14 +948,23 @@ a.content-aapbblock {
   overflow: hidden;
 }
 
+a.content-aapbblock.wide {
+  height: 15.1875vw;
+  max-height: 15.1875vw;
+  min-height: 15.1875vw;
+  max-width: 27vw;
+  width: 27vw;
+}
+
 iframe.aapb-record-video {
   padding: 0;
+
   height: 20.25vw;
   max-width: 27vw;
   width: 27vw;
 }
 
-iframe.aapb-record-video-wide {
+iframe.aapb-record-video.wide {
   padding: 0;
   height: 15.1875vw;
   max-width: 27vw;

@@ -117,4 +117,5 @@ export type PBCoreEssenceTrack = {
   essenceTrackBitDepth: string
   essenceTrackTimeStart: string
   essenceTrackDuration: string
+  essenceTrackAspectRatio: string
 }
