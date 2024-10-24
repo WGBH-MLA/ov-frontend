@@ -742,7 +742,7 @@ div.pagelinks-top {
 
 div.pagelinks-container {
   margin-left: 8vw;
-  padding-bottom: 6vh;
+  margin-bottom: 8vh;
 }
 
 div.pagelinks-also {
@@ -767,7 +767,6 @@ div.pagelink {
   width: 20vw;
   height: 40vh;
   margin-right: 10vw;
-  margin-bottom: 8vh;
 }
 
 div.exhibit-bottomlink a {
