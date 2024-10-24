@@ -35,5 +35,14 @@ export default function Collections() {
   specs.items.unshift(masterpiece)
 
   let collectionLinks = renderPageLinks('collections', specs.items)
-  return <div className="pagelinks-container">{collectionLinks}</div>
+  return (
+    <div className="pagelinks-container">
+      <h1>Special Collections</h1>
+      <h4>
+        Explore selected topics and digitized programs of historical
+        significance curated by GBH Mellon Scholars.
+      </h4>
+      {collectionLinks}
+    </div>
+  )
 }
