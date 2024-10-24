@@ -2,20 +2,20 @@ import { Link } from '@remix-run/react'
 import { useLoaderData } from '@remix-run/react'
 import { OpenCarousel } from '~/classes/openCarousel'
 import { renderPageLinks } from '~/classes/pageHelpers'
-import { getExhibits } from '~/utils/fetch'
+import { getHomepage } from '~/utils/fetch'
 
 export const loader = async () => {
-  return await getExhibits()
+  return await getHomepage()
 }
 
 export default function Index() {
-  let exhibits = useLoaderData()
+  let data = useLoaderData()
 
   let carousel
-  let exhibitLinksContainer
+  let exhibitLinksContainer, collectionLinksContainer
 
-  if (exhibits && exhibits.items && exhibits.items.length > 0) {
-    let exhibitLinks = renderPageLinks('exhibits', exhibits.items)
+  if (data?.exhibits?.items && data.exhibits.items.length > 0) {
+    let exhibitLinks = renderPageLinks('exhibits', data.exhibits.items)
     exhibitLinksContainer = (
       <div className="pagelinks-container">
         <hr />
@@ -30,11 +30,32 @@ export default function Index() {
           </div>
         </div>
 
-        {exhibitLinks}
+        { exhibitLinks }
       </div>
     )
 
-    carousel = <OpenCarousel slides={exhibits.items} />
+    carousel = <OpenCarousel slides={ data?.exhibits?.items.concat(data?.collections?.items) } />
+  }
+
+  if (data?.collections?.items && data.collections.items.length > 0) {
+    let collectionLinks = renderPageLinks('collections', data.collections.items)
+    collectionLinksContainer = (
+      <div className="pagelinks-container">
+        <hr />
+
+        <div className="pagelinks-top">
+          <div className="pagelinks-also">Special Collections</div>
+
+          <div className="pagelinks-all">
+            <Link className="exhibit-viewall" to="/collections">
+              View All
+            </Link>
+          </div>
+        </div>
+
+        { collectionLinks }
+      </div>
+    )
   }
 
   return (
@@ -42,6 +63,7 @@ export default function Index() {
       <div className="carousel-container">{carousel}</div>
 
       {exhibitLinksContainer}
+      {collectionLinksContainer}
     </div>
   )
 }

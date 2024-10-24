@@ -736,6 +736,10 @@ div.exhibit-bottom-graybar {
   background-color: var(--x-light-gray);
 }
 
+div.pagelinks-top {
+  margin-top: 2vh;
+}
+
 div.pagelinks-container {
   margin-left: 8vw;
   padding-bottom: 6vh;

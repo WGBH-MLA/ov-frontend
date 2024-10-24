@@ -8,6 +8,17 @@ export async function getCollections() {
   return await fetch(process.env.OV_API_URL + '/api/v2/collections/')
 }
 
+export async function getHomepage() {
+  var cr = await fetch(process.env.OV_API_URL + '/api/v2/collections/?order=random&limit=3')
+  var collections = await cr.json()
+  var er = await fetch(process.env.OV_API_URL + '/api/v2/exhibits/?order=random&limit=3')
+  var exhibits = await er.json()
+  return {
+    collections: collections,
+    exhibits: exhibits
+  }
+}
+
 export async function getPageBySlug(type, slug) {
   // Search for a Wagtail page by slug
   // Then fetch the full exhibit or collection data
