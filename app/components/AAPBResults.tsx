@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from 'react'
 import { useInstantSearch } from 'react-instantsearch'
-import pkg from 'lodash'
-const { debounce } = pkg
+
+import debounce from 'lodash/debounce'
 import { Spinner } from './Spinner'
 
 export const AAPBResults = ({ aapb_host }) => {
