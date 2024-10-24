@@ -58,11 +58,11 @@ export const Search = () => {
           <SearchBox
             autoFocus
             placeholder="Search exhibits, collections, and Series from GBH"
-            // queryHook={(query, refine) => {
-            //   // console.log('searchbox', query)
+            // queryHook={(query, search) => {
+            //   // console.log('searchbox', search)
             //   // debounce the search input box
             //   clearTimeout(timerId)
-            //   timerId = setTimeout(() => refine(query), timeout)
+            //   timerId = setTimeout(() => search(query), timeout)
             // }}
             className="search-box"
           />

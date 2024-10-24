@@ -1,12 +1,19 @@
 import { useSearchBox, Pagination } from 'react-instantsearch'
 import { useInstantSearch } from 'react-instantsearch-core'
 
+import sampleSize from 'lodash/sampleSize'
+
 const default_suggestions = [
   'Julia Child',
   'Louis Lyons',
   'Boston',
   'Arthur',
   'NOVA',
+  'Civil Rights',
+  'Vietnam',
+  'WGBH',
+  'Cooking',
+  'Music',
 ]
 
 export const EmptyQueryMessage = () => {
@@ -19,7 +26,7 @@ export const EmptyQueryMessage = () => {
     <>
       <h2>Search Open Vault</h2>
       <p>Search articles, titles, and GBH Series on Open Vault</p>
-      <Suggestions queries={default_suggestions} />
+      <Suggestions queries={sampleSize(default_suggestions, 4)} />
     </>
   )
 }
