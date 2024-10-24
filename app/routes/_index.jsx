@@ -3,26 +3,30 @@ import { useLoaderData } from '@remix-run/react'
 import { OpenCarousel } from '~/classes/openCarousel'
 import { renderPageLinks } from '~/classes/pageHelpers'
 import { getHomepage } from '~/utils/fetch'
+import shuffle from 'lodash/shuffle'
 
 export const loader = async () => {
   return await getHomepage()
 }
 
 export default function Index() {
-  let data = useLoaderData()
+  let { exhibits, collections } = useLoaderData()
 
   let carousel
   let exhibitLinksContainer, collectionLinksContainer
 
-  if (data?.exhibits?.items && data.exhibits.items.length > 0) {
-    let exhibitLinks = renderPageLinks('exhibits', data.exhibits.items)
+  if (exhibits?.items && exhibits.items.length > 0) {
+    let exhibitLinks = renderPageLinks('exhibits', exhibits.items)
     exhibitLinksContainer = (
       <div className="pagelinks-container">
         <hr />
 
         <div className="pagelinks-top">
           <div className="pagelinks-also">Scholar Exhibits</div>
-          <h4>Check out collections of significant GBH productions, including unique full-length interviews.</h4>
+          <h4>
+            Check out collections of significant GBH productions, including
+            unique full-length interviews.
+          </h4>
 
           <div className="pagelinks-all">
             <Link className="exhibit-viewall" to="/exhibits">
@@ -31,23 +35,30 @@ export default function Index() {
           </div>
         </div>
 
-        { exhibitLinks }
+        {exhibitLinks}
       </div>
     )
 
-    carousel = <OpenCarousel slides={ data?.exhibits?.items.concat(data?.collections?.items) } />
+    carousel = (
+      <OpenCarousel
+        slides={shuffle(exhibits.items.concat(collections?.items))}
+      />
+    )
   }
 
-  if (data?.collections?.items && data.collections.items.length > 0) {
-    let collectionLinks = renderPageLinks('collections', data.collections.items)
+  if (collections?.items && collections.items.length > 0) {
+    let collectionLinks = renderPageLinks('collections', collections.items)
     collectionLinksContainer = (
       <div className="pagelinks-container">
         <hr />
 
         <div className="pagelinks-top">
           <div className="pagelinks-also">Special Collections</div>
-          <h4>Explore selected topics and digitized programs of historical significance curated by GBH Mellon Scholars.</h4>
-          
+          <h4>
+            Explore selected topics and digitized programs of historical
+            significance curated by GBH Mellon Scholars.
+          </h4>
+
           <div className="pagelinks-all">
             <Link className="exhibit-viewall" to="/collections">
               View All
@@ -55,7 +66,7 @@ export default function Index() {
           </div>
         </div>
 
-        { collectionLinks }
+        {collectionLinks}
       </div>
     )
   }
