@@ -248,9 +248,25 @@ div.static-halfbox {
   margin-bottom: 1.2em;
 }
 
+div.big-blue-link {
+  float: right;
+  display: inline-block;
+  color: var(--blue);
+  font-size: 0.5em;
+}
+
 div.big-blue-button {
+  font-size: 2em;
+  margin-left: 1vw;
+  display: inline-block;
   border-radius: 30px;
   background-color: var(--blue);
+  width: 3vw;
+  height: 3vw;
+  vertical-align: middle;
+  text-align: center;
+  line-height: 3vw;
+  color: #fff;
 }
 
 hr.spaced-hr {
