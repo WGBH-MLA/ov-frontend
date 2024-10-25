@@ -21,8 +21,14 @@ export default function Index() {
         <hr />
 
         <div className="pagelinks-top">
-          <div className="pagelinks-also">Scholar Exhibits</div>
-          <h4>Check out collections of significant GBH productions, including unique full-length interviews.</h4>
+          <div className="pagelinks-also">
+            Scholar Exhibits
+            <a href="/exhibits" className="big-blue-link">
+              View All
+              <div className="big-blue-button">&gt;</div>
+            </a>
+          </div>
+          <h4>Explore selected topics and digitized programs of historical significance curated by GBH Mellon Scholars.</h4>
 
           <div className="pagelinks-all">
             <Link className="exhibit-viewall" to="/exhibits">
@@ -45,8 +51,14 @@ export default function Index() {
         <hr />
 
         <div className="pagelinks-top">
-          <div className="pagelinks-also">Special Collections</div>
-          <h4>Explore selected topics and digitized programs of historical significance curated by GBH Mellon Scholars.</h4>
+          <div className="pagelinks-also">
+            Special Collections
+            <a href="/collections" className="big-blue-link">
+              View All
+              <div className="big-blue-button">&gt;</div>
+            </a>
+          </div>
+          <h4>Check out collections of significant GBH productions, including unique full-length interviews.</h4>
           
           <div className="pagelinks-all">
             <Link className="exhibit-viewall" to="/collections">
