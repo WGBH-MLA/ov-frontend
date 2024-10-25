@@ -9,13 +9,17 @@ export async function getCollections() {
 }
 
 export async function getHomepage() {
-  var cr = await fetch(process.env.OV_API_URL + '/api/v2/collections/?order=random&limit=3')
+  var cr = await fetch(
+    process.env.OV_API_URL + '/api/v2/collections/?order=random&limit=3'
+  )
   var collections = await cr.json()
-  var er = await fetch(process.env.OV_API_URL + '/api/v2/exhibits/?order=random&limit=3')
+  var er = await fetch(
+    process.env.OV_API_URL + '/api/v2/exhibits/?order=random&limit=3'
+  )
   var exhibits = await er.json()
   return {
     collections: collections,
-    exhibits: exhibits
+    exhibits: exhibits,
   }
 }
 

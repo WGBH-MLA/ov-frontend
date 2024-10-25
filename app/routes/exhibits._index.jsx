@@ -25,5 +25,14 @@ export default function Exhibits() {
     exhibitLinks = renderPageLinks('exhibits', exhibits.items)
   }
 
-  return <div className="pagelinks-container">{exhibitLinks}</div>
+  return (
+    <div className="pagelinks-container">
+      <h1>Scholar Exhibits</h1>
+      <h4>
+        Check out collections of significant GBH productions, including unique
+        full-length interviews.
+      </h4>
+      {exhibitLinks}
+    </div>
+  )
 }
