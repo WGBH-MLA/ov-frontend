@@ -1,6 +1,6 @@
 import Client from '@searchkit/instantsearch-client'
 import Searchkit from 'searchkit'
-import searchkit_options from '../data/searchkit.json'
+import searchkit_options from '~/data/searchkit.json'
 import {
   InstantSearch,
   SearchBox,
@@ -16,23 +16,22 @@ import {
   LoadingIndicator,
   EmptyQueryMessage,
 } from './search-utils'
-import { ScrollTo } from '../components/ScrollTo'
-import { Hit } from '../components/Hit'
-import { Carousel } from '../components/Carousel'
-import { NoResults } from '../components/NoResults'
-import { AAPBResults } from '../components/AAPBResults'
-import { Refinements } from '../components/Refinements'
-import { SearchProps } from '../routes/search'
-import { Router, stateToRoute, routeToState } from '../components/Router'
+import { ScrollTo } from '~/components/ScrollTo'
+import { Hit } from '~/components/Hit'
+import { Carousel } from '~/components/Carousel'
+import { NoResults } from '~/components/NoResults'
+import { AAPBResults } from '~/components/AAPBResults'
+import { Refinements } from '~/components/Refinements'
+import { SearchProps } from '~/routes/search'
+import { Router, stateToRoute, routeToState } from '~/components/Router'
 
 const sk = new Searchkit(searchkit_options)
 
 export const searchClient = Client(sk)
-console.log('searchClient', searchClient)
 
 export const Search = ({ serverUrl, aapb_host }: SearchProps) => {
-  let timerId
-  let timeout = 350
+  let timerId: NodeJS.Timeout
+  let timeout: number = 350
 
   return (
     <InstantSearch

@@ -1,26 +1,15 @@
 import { decode } from 'html-entities'
 import { renderSidebar, renderPageTitleBar } from './pageHelpers'
 import { renderBlocks } from './contentHelpers'
-
-export const SIDEBAR_TYPES = [
-  'heading',
-  'interviews',
-  'archival_footage',
-  'photographs',
-  'original_footage',
-  'programs',
-  'related_content',
-  'credits',
-]
+import { SIDEBAR_TYPES } from '~/data/sidebarTypes'
 
 export function renderCollection(collection) {
   let sidebar
-  console.log('rendering collection', collection)
+  // console.log('rendering collection', collection)
   sidebar = renderSidebar(
-    'collections',
-    collection.content.filter(block => SIDEBAR_TYPES.includes(block.type))
+    'In This Collection',
+    collection.content.filter(block => ( SIDEBAR_TYPES.includes(block.type) && block?.value?.show_sidebar ) )
   )
-  console.log('sidebar', sidebar)
 
   let titleBar
   if (collection.title) {

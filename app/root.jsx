@@ -23,7 +23,7 @@ import '@fontsource/red-hat-text'
 // Links to include in the header. Left empty in case we want to easily add some later.
 // Stylesheets are now bundled correctly, so we don't need to include them here.
 export function links() {
-  return []
+  return [{ rel: 'icon', href: '/favicon.ico', type: 'image/png' }]
 }
 
 export const meta = () => {
@@ -51,8 +51,6 @@ export async function loader() {
 export default function App() {
   var data = useLoaderData()
   let meta = import.meta
-  // console.log('meta', meta)
-
   if (meta.env && meta.env.LEGACY) {
     console.log('legacy browser detected')
   }
@@ -79,7 +77,15 @@ export default function App() {
         <meta name="viewport" content="width=device-width,initial-scale=1" />
         <Meta />
         <Links />
-        <link rel="icon" href="/favicon.ico" />
+
+
+        { <script src="https://www.googletagmanager.com/gtag/js?id=G-H82X285XCF"></script> }
+        <script dangerouslySetInnerHTML={{__html:
+          `window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-H82X285XCF');`
+        }} />
       </head>
       <body>
         {meta.env && meta.env.LEGACY ? (
@@ -118,8 +124,6 @@ export function ErrorBoundary() {
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
         <title>Oh no!</title>
-        <Links />
-        <link rel="icon" href="/favicon.ico" />
       </head>
       <body>
         <NavigationBar />

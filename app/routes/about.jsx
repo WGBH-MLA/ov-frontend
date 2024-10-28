@@ -1,5 +1,5 @@
-import { renderPageTitleBar } from '../classes/pageHelpers'
-import { Meta } from '../classes/meta'
+import { renderPageTitleBar } from '~/classes/pageHelpers'
+import { Meta } from '~/classes/meta'
 
 export const meta = () => {
   return [

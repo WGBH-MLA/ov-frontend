@@ -1,28 +1,40 @@
 import { decode } from 'html-entities'
-import { Link } from '@remix-run/react'
+import { Link, useLoaderData } from '@remix-run/react'
+import { useEffect } from 'react'
 import {
   renderAuthorBubble,
+  renderPageLink,
   renderPageLinks,
   renderSidebar,
+  renderSidebarSection,
   renderPageTitleBar,
   renderFootnoteSection,
   renderFootnotesInBody,
 } from './pageHelpers'
-import { renderBlocks } from './contentHelpers'
+
+import {
+  renderBlocks,
+  renderBlock,
+  textContent,
+  headingContent,
+} from './contentHelpers'
+import { SIDEBAR_TYPES } from '~/data/sidebarTypes'
 import { Share } from '../classes/share'
 
 export function renderExhibit(exhibit) {
+  // console.log( 'da ex', exhibit )
   let showAuthors =
     exhibit.authors && exhibit.authors.length > 0 && exhibit.authors[0].name
   let showFootnotes = exhibit.footnotes && exhibit.footnotes.length > 0
+
   let sidebar = renderSidebar(
-    'exhibit',
-    exhibit.body.filter(block => block.type == 'heading'),
+    'In This Exhibit',
+    exhibit.body.filter(
+      block => SIDEBAR_TYPES.includes(block.type) && block?.value?.show_sidebar
+    ),
     showAuthors,
     showFootnotes
   )
-
-  // console.log( 'you know i exhibit that', exhibit )
 
   let titleBar
   if (exhibit.title) {
