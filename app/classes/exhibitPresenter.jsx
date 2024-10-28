@@ -127,6 +127,7 @@ export function renderExhibit(exhibit) {
       <div className="page-authorbubble-stacked">
         {bubbles}
         {extras}
+        <Share url={exhibit.url} />
       </div>
     )
   }
@@ -147,7 +148,8 @@ export function renderExhibit(exhibit) {
       <div className="page-container">
         {titleBar}
         {exhibitAuthor}
-        <Share url={exhibit.url} />
+        
+
         {sidebar}
 
         <div className="page-body-container">

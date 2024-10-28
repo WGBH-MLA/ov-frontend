@@ -568,6 +568,8 @@ div.page-authorbubble-stacked div.author-extras {
 
   max-height: 4em;
   height: 4em;
+
+  min-width: 40vw;
 }
 
 div.page-authorbubble-bottom-container div.author-extras-bottom {
@@ -851,6 +853,24 @@ div.page-authorbubble-stacked div.author-bubble.stack:first-child,
 div.page-authorbubble-stacked:hover {
   transform: translateX(0);
   overflow: hidden;
+}
+
+div.share-container {
+  padding: 0.8em;
+  border: 1px solid #ccc;
+  margin-left: 4vw;
+  display: flex;
+  width: 6vw;
+  height: 1.6em;
+  max-height: 1.6em;
+  line-height: 1.6em;
+  overflow: hidden;
+  font-size: 0.9em;
+}
+
+div.share-container button svg {
+  height: 1.6em;
+  max-height: 1.6em;
 }
 
 div.med-heading {

@@ -11,8 +11,8 @@ export const FacebookShare = () => {
 }
 
 export const Share = () => (
-  <>
-    Share this page:
+  <div className="share-container">
+    Share
     <FacebookShare />
-  </>
+  </div>
 )
