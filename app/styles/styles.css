@@ -259,7 +259,7 @@ div.big-blue-button {
   font-size: 2em;
   margin-left: 1vw;
   display: inline-block;
-  border-radius: 30px;
+  border-radius: 4em;
   background-color: var(--blue);
   width: 3vw;
   height: 3vw;
