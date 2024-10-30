@@ -9,6 +9,7 @@ import {
   Index,
   Pagination,
   HitsPerPage,
+  Configure,
 } from 'react-instantsearch'
 import {
   Error,
@@ -31,7 +32,18 @@ import { useLoaderData, useRouteError } from '@remix-run/react'
 
 const sk = new Searchkit(searchkit_options)
 
-export const searchClient = Client(sk)
+export const searchClient = Client(sk, {
+  getQuery: (query, search_attributes) => {
+    console.log('search query', query, search_attributes)
+    return [
+      {
+        query_string: {
+          query,
+        },
+      },
+    ]
+  },
+})
 
 export const Search = () => {
   const { serverUrl, aapb_host }: SearchProps = useLoaderData()
@@ -61,6 +73,7 @@ export const Search = () => {
             // queryHook={(query, search) => {
             //   // console.log('searchbox', search)
             //   // debounce the search input box
+
             //   clearTimeout(timerId)
             //   timerId = setTimeout(() => search(query), timeout)
             // }}
