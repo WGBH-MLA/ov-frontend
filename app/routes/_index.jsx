@@ -24,10 +24,10 @@ export default function Index() {
         <div className="pagelinks-top">
           <div className="pagelinks-also">
             Scholar Exhibits
-            <div className="big-blue-link">
+            <a href="exhibits/" className="big-blue-link">
               View All
               <div className="big-blue-button">&gt;</div>
-            </div>
+            </a>
           </div>
           <h4>Explore selected topics and digitized programs of historical significance curated by GBH Mellon Scholars.</h4>
 
@@ -58,10 +58,10 @@ export default function Index() {
         <div className="pagelinks-top">
           <div className="pagelinks-also">
             Special Collections
-            <div className="big-blue-link">
+            <a href="collections/" className="big-blue-link">
               View All
               <div className="big-blue-button">&gt;</div>
-            </div>
+            </a>
           </div>
           <h4>Check out collections of significant GBH productions, including unique full-length interviews.</h4>
           

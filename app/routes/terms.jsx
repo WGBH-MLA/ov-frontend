@@ -16,7 +16,7 @@ export const meta = () => {
 
 export default function Terms() {
   let titleBar = renderPageTitleBar(
-    'Terms And Conditions',
+    'Terms <i>and</i> Conditions',
     'https://s3.amazonaws.com/openvault.wgbh.org/carousel/DickPleasantsWide.jpeg'
   )
 
@@ -29,7 +29,6 @@ export default function Terms() {
 
         <div className="page-body-container">
           <div className="page-body">
-            <h2>Terms and Conditions</h2>
             <p>
               THE FOLLOWING TERMS AND CONDITIONS GOVERN YOUR USE OF THE SITE.
               PLEASE READ THESE TERMS OF USE CAREFULLY BEFORE USING THIS SITE.

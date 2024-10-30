@@ -14,10 +14,10 @@ export const meta = () => {
   ]
 }
 
-export default function Terms() {
+export default function PrivacyPolicy() {
   let titleBar = renderPageTitleBar(
-    'Terms And Conditions',
-    'https://s3.amazonaws.com/openvault.wgbh.org/carousel/Camera+Frog+Pond+early.jpg'
+    'Privacy Policy',
+    'https://s3.amazonaws.com/openvault.wgbh.org/carousel/CameraFrogPondearlyWide.jpg'
   )
 
   return (
@@ -29,7 +29,6 @@ export default function Terms() {
 
         <div className="page-body-container">
           <div className="page-body">
-            <h2>Privacy Policy</h2>
             <p>
               Thank you for visiting openvault.wgbh.org. Open Vault provides
               educational resources for teachers and students for individual and

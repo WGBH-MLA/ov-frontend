@@ -24,6 +24,10 @@ let aboutLinks = [
     label: 'Credits',
     url: '/credits',
   },
+  {
+    label: 'Contact Us',
+    url: '/contact-us',
+  },  
 ]
 
 let affiliatedSites = [

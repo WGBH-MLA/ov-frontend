@@ -757,6 +757,7 @@ div.pagelinks-top {
 }
 
 div.pagelinks-container {
+  margin-top: 4vh;
   margin-left: 8vw;
   margin-bottom: 8vh;
 }
