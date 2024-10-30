@@ -19,7 +19,7 @@ export default function Index() {
     let exhibitLinks = renderPageLinks('exhibits', exhibits.items)
     exhibitLinksContainer = (
       <div className="pagelinks-container">
-        <hr />
+        <hr className="spaced-hr" />
 
         <div className="pagelinks-top">
           <div className="pagelinks-also">
@@ -53,7 +53,7 @@ export default function Index() {
     let collectionLinks = renderPageLinks('collections', collections.items)
     collectionLinksContainer = (
       <div className="pagelinks-container">
-        <hr />
+        <hr className="spaced-hr" />
 
         <div className="pagelinks-top">
           <div className="pagelinks-also">

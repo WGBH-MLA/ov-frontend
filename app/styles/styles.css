@@ -248,7 +248,7 @@ div.static-halfbox {
   margin-bottom: 1.2em;
 }
 
-div.big-blue-link {
+a.big-blue-link {
   float: right;
   display: inline-block;
   color: var(--blue);
@@ -261,11 +261,11 @@ div.big-blue-button {
   display: inline-block;
   border-radius: 4em;
   background-color: var(--blue);
-  width: 3vw;
-  height: 3vw;
+  width: 1.4em;
+  height: 1.4em;
   vertical-align: middle;
   text-align: center;
-  line-height: 3vw;
+  line-height: 1.4em;
   color: #fff;
 }
 
@@ -1291,7 +1291,7 @@ div.guids-block-title p {
 
   /*  index pages */
   div.pagelinks-container {
-    margin-bottom: 8vh;
+    margin-bottom: 28vh;
   }
 
   div.pagelink {
@@ -1390,5 +1390,24 @@ div.guids-block-title p {
   div.page-authorbubble-stacked div.author-byline {
     bottom: 0;
     display: block;
+  }
+
+  .chevron {
+    display: none;
+  }
+
+  a.big-blue-link {
+    display: block;
+    font-size: 0.55em;
+  }
+
+  div.big-blue-button {
+    width: 1em;
+    height: 1em;
+    line-height: 1em;
+  }
+
+  div.pagelinks-also {
+    font-size: 1.6em;
   }
 }

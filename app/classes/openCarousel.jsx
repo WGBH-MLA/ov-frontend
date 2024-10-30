@@ -13,10 +13,12 @@ export class OpenCarousel extends Component {
     let slides
     if (this.props.slides && this.props.slides.length > 0) {
       slides = this.props.slides.map((slide, i) => {
+
+        let pageType = slide.meta.type == "exhibits.ExhibitPage" ? "collections" : "exhibits"
         return (
           <Slide
             key={i}
-            url={`/exhibits/${slide.meta.slug}`}
+            url={`/${pageType}/${slide.meta.slug}`}
             image_url={
               slide && slide.hero_image
                 ? slide.hero_image.full_url

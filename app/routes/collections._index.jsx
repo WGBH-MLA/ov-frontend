@@ -42,7 +42,7 @@ export default function Collections() {
         Explore selected topics and digitized programs of historical
         significance curated by GBH Mellon Scholars.
       </h4>
-      {collectionLinks}
+      { collectionLinks }
     </div>
   )
 }
