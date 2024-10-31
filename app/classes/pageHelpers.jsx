@@ -146,7 +146,15 @@ export function renderSidebar(
 
   var sidebarSections = sections.map((section, index) => {
     // aapb data has title nested likea so
-    var title = section.type == 'heading' ? section.value : section.value.title
+    let title
+    if(section.type == "heading"){
+      title = section.value
+    } else if(section.type == "credits"){
+      title = "Credits"
+    } else {
+      title = section.value.title
+    }
+
     return renderSidebarSection(title, section.id, index)
   })
 
