@@ -39,12 +39,25 @@ export const Suggestions = ({ queries, ...props }) => {
       <h4>Suggestions</h4>
       <ul>
         {queries.map(query => (
-          <li>
-            <a onClick={() => refine(query)}>{query}</a>
-          </li>
+          <li>{SearchLink(query)}</li>
         ))}
       </ul>
     </>
+  )
+}
+
+export const SearchLink = query => {
+  const { refine } = useSearchBox()
+
+  return (
+    <a
+      onClick={event => {
+        event.preventDefault()
+        refine(query)
+      }}
+    >
+      {query}
+    </a>
   )
 }
 

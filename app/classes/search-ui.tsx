@@ -24,6 +24,7 @@ import { Carousel } from '~/components/Carousel'
 import { NoResults } from '~/components/NoResults'
 import { AAPBResults } from '~/components/AAPBResults'
 import { Refinements } from '~/components/Refinements'
+import Help from '~/components/Help'
 import { SearchProps } from '~/routes/search'
 import { Router, stateToRoute, routeToState } from '~/components/Router'
 import { Tabs, Tab } from '@mui/material'
@@ -118,7 +119,14 @@ export const Search = () => {
             </Index>
           )}
           {activeTab === 2 && <AAPBResults aapb_host={aapb_host} />}
-          {activeTab === 3 && <div>Settings</div>}
+          {activeTab === 3 && (
+            <>
+              <h2>Settings</h2>
+              <h4>Fuzzyness</h4>
+              <input type="range" />
+              <Help />
+            </>
+          )}
         </div>
       </ScrollTo>
     </InstantSearch>
