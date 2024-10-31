@@ -40,12 +40,30 @@ export default () => (
       <li>{SearchLink('"Julia Child"')}</li>
     </ul>
     <h3>~</h3>
+    Including a tilde <code>~</code> after a word (without a number) will match
+    similar words.
+    <ul>
+      <li>{SearchLink('Vietnam~')} will match "Vietnam" and "Vietnamese"</li>
+    </ul>
+    A tilde <code>~</code> with a number will match similar words within a
+    certain distance. The number is the "fuzzyness" factor.
+    <ul>
+      <li>{SearchLink('America~0')} will match "America" and "American"</li>
+      <li>
+        {SearchLink('America~1')} will also include "Americanized" and
+        "Americanizing"
+      </li>
+      <li>
+        {SearchLink('America~2')} will include "African American" and even
+        unrelated words like "medical"
+      </li>
+    </ul>
     When searching a phrase with quotes, including a tilde <code>~</code> with a
     number will match phrases separated by that number of words.
     <ul>
       <li>
-        <code>{SearchLink('"Vietnam war"~3')}</code> will match "Vietnam war"
-        and "war in Vietnam"
+        {SearchLink('"Vietnam war"~3')} will match "Vietnam war" and "war in
+        Vietnam"
       </li>
     </ul>
     <h3>*</h3>
