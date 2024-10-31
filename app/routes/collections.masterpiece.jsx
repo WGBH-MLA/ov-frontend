@@ -53,7 +53,7 @@ export default function Masterpiece() {
       className="masterpiece-season-link page-sidebar-link"
       to={'#season-' + seasonNumber}
     >
-      Season {seasonNumber}
+      {seasonNumber}
     </Link>
   ))
 
@@ -151,7 +151,7 @@ export default function Masterpiece() {
           <div className="series-search-button" />
         </div>
 
-        <h4 className="page-sidebar-title spaced">Jump To</h4>
+        <h4 className="page-sidebar-title spaced">Jump To Season</h4>
         <div className="masterpiece-season">{seasonLinks}</div>
       </div>
 

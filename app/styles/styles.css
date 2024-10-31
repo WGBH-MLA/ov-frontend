@@ -48,11 +48,18 @@ html {
   /* and smooth it out */
   scroll-behavior: smooth;
 }
+
+body {
+  font-family: 'Red Hat Text', sans-serif;
+}
+h1,
+h2 {
+  font-family: 'Red Hat Display', sans-serif;
+}
 body,
 h1,
 h2 {
   margin: 0;
-  font-family: 'Red Hat Display', sans-serif;
 
   margin-block-start: 0;
   margin-block-end: 0;
@@ -84,7 +91,7 @@ h3 {
 h4 {
   color: var(--black);
   font-size: 1rem;
-  font-weight: 700;
+  font-weight: bold;
 }
 
 input {
@@ -136,33 +143,35 @@ div.masterpiece-intro {
 
 div.masterpiece-summary {
   font-size: 0.9em;
+  line-height: 1.8em;
   margin-right: 2vw;
   text-align: left;
 }
 
-h1.masterpiece-bigtitle {
-  font-size: 2rem;
-  margin-bottom: 3rem;
-  margin-top: 2rem;
-  line-height: 5rem;
+div.page-body h1.masterpiece-bigtitle {
+  font-size: 3rem;
+  line-height: 4rem;
 }
 
 a.masterpiece-link {
+  color: var(--blue);
   display: inline-block;
-  font-size: 1.5rem;
-  font-weight: 500;
-  margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+  font-weight: bold;
   margin-right: 1em;
   width: 100%;
 }
 
 a.masterpiece-season-link {
-  display: block;
+  display: inline-block;
+  color: var(--blue);
   font-size: 1em;
+  padding: 0.2em;
 }
 
 div.season-group-content {
   columns: 2;
+  margin-bottom: 4vh;
 }
 
 div.season-group-number {
@@ -217,9 +226,11 @@ div.series-group-letter {
 }
 
 a.series-link {
+  color: var(--blue);
   display: block;
-  font-size: 1.5rem;
-  font-weight: 500;
+  font-size: 1.3rem;
+  line-height: 1.3rem;
+  font-weight: bold;
   margin-bottom: 1.5rem;
 }
 
@@ -276,7 +287,7 @@ hr.spaced-hr {
 div.series-search-container input {
   height: 4vh;
   max-height: 3em;
-  width: 60%;
+  width: 80%;
 }
 
 div.series-search-container input.series-search {
@@ -342,6 +353,7 @@ img.ov-logo {
 }
 
 a.navigation-link {
+  font-family: 'Red Hat Display', sans-serif;
   overflow: visible;
   display: inline-block;
   flex-grow: 1;
