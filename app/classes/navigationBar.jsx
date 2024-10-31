@@ -1,3 +1,4 @@
+import { useLocation } from '@remix-run/react'
 import { Component } from 'react'
 import { NavigationLink, NavigationSpacer } from './navigationLink'
 import { DrawerMenu } from './drawerMenu'
@@ -42,48 +43,40 @@ let affiliatedSites = [
     url: 'http://www.wgbhstocksales.org/',
   },
 ]
-export class NavigationBar extends Component {
-  constructor(props) {
-    super(props)
-  }
+export function NavigationBar(props) {
+  return (
+    <div className="top-bar-container">
+      <div className="purple-bar-container">
+        <a href="/" className="top-title">
+          Open Vault
+        </a>
+        <img src="/MLA_logo_white.png" className="ov-logo" />
+      </div>
 
-  render() {
-    return (
-      <div className="top-bar-container">
-        <div className="purple-bar-container">
-          <a href="/" className="top-title">
-            Open Vault
-          </a>
-          <img src="/MLA_logo_white.png" className="ov-logo" />
-        </div>
+      <div className="navigation-bar-container">
+        <MobileMenu />
 
-        <div className="navigation-bar-container">
-          <MobileMenu />
+        <div id="navigation-bar" className="navigation-bar mobile-hidden">
+          <NavigationLink highlight={ useLocation().pathname.startsWith("/exhibits") } href="/exhibits" text="Scholar Exhibits" />
+          <NavigationLink highlight={ useLocation().pathname.startsWith("/collections") } href="/collections" text="Special Collections" />
+          <NavigationLink highlight={ useLocation().pathname.startsWith("/series") } href="/series" text="GBH Series" />
 
-          <div id="navigation-bar" className="navigation-bar mobile-hidden">
-            <NavigationLink href="/exhibits" text="Scholar Exhibits" />
-            <NavigationLink href="/collections" text="Special Collections" />
-            <NavigationLink href="/series" text="GBH Series" />
+          <DrawerMenu
+            classes="about-menu"
+            label={'About'}
+            items={aboutLinks}
+          />
 
-            <DrawerMenu
-              classes="about-menu"
-              toggleDrawer={this.toggleDrawer}
-              label={'About'}
-              items={aboutLinks}
-            />
+          <NavigationLink highlight={ useLocation().pathname.startsWith("/search") } href="/search" text="Search" />
 
-            <NavigationLink href="/search" text="Search" />
-
-            <NavigationSpacer />
-            <DrawerMenu
-              classes="affiliated-websites-menu"
-              toggleDrawer={this.toggleDrawer}
-              label={'Visit our affiliated websites'}
-              items={affiliatedSites}
-            />
-          </div>
+          <NavigationSpacer />
+          <DrawerMenu
+            classes="affiliated-websites-menu"
+            label={'Visit our affiliated websites'}
+            items={affiliatedSites}
+          />
         </div>
       </div>
-    )
-  }
+    </div>
+  )
 }
