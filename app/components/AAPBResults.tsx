@@ -5,7 +5,7 @@ import debounce from 'lodash/debounce'
 import { Spinner } from './Spinner'
 
 const gbh_query =
-  '+(contributing_organizations:%20WGBH(MA)%20OR%20producing_organizations:%20WGBH%20Educational%20Foundation)&'
+  '+AND+(contributing_organizations:%20WGBH(MA)%20OR%20producing_organizations:%20WGBH%20Educational%20Foundation)&f[access_types][]=online'
 
 export const AAPBResults = ({ aapb_host }) => {
   const { indexUiState } = useInstantSearch()
@@ -16,9 +16,7 @@ export const AAPBResults = ({ aapb_host }) => {
     debounce(currentQuery => {
       console.log('fetching AAPB results for', currentQuery)
       fetch(
-        `${aapb_host}/api.json?q=${encodeURIComponent(
-          currentQuery
-        )}${gbh_query}&rows=0`
+        `${aapb_host}/api.json?q=${encodeURIComponent(currentQuery)}&rows=0`
       )
         .then(response => response.json())
         .then(data => setResults(data.response.numFound))
@@ -39,7 +37,6 @@ export const AAPBResults = ({ aapb_host }) => {
       href={`${aapb_host}/catalog?q=${indexUiState.query}${gbh_query}`}
       target="_blank"
     >
-      View
       <span className="ais-RefinementList-count">
         {result_count || <Spinner />}
       </span>

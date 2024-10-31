@@ -37,7 +37,7 @@ export const searchClient = Client(sk, {
     console.log('search query', query, search_attributes)
     return [
       {
-        query_string: {
+        simple_query_string: {
           query,
         },
       },
