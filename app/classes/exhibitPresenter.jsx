@@ -28,7 +28,7 @@ export function renderExhibit(exhibit) {
   let sidebar = renderSidebar(
     'In This Exhibit',
     exhibit.body.filter(
-      block => SIDEBAR_TYPES.includes(block.type) && block?.value?.show_sidebar
+      block => SIDEBAR_TYPES.includes(block.type) && (block.type == "heading" || block.type == "credits" || block?.value?.show_sidebar)
     ),
     showAuthors,
     showFootnotes

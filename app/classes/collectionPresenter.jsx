@@ -8,7 +8,7 @@ export function renderCollection(collection) {
   // console.log('rendering collection', collection)
   sidebar = renderSidebar(
     'In This Collection',
-    collection.content.filter(block => ( SIDEBAR_TYPES.includes(block.type) && block?.value?.show_sidebar ) )
+    collection.content.filter(block => SIDEBAR_TYPES.includes(block.type) && (block.type == "heading" || block.type == "credits" || block?.value?.show_sidebar))
   )
 
   let titleBar
