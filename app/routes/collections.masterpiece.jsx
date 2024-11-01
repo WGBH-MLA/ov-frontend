@@ -80,20 +80,27 @@ export default function Masterpiece() {
           href={`${data.AAPB_HOST}/catalog?f[special_collections][]=${normalizedMiniseriesTitle}&f[access_types][]=all`}
           target="_blank"
         >
-          {seasonGroup[normalizedMiniseriesTitle].nice_title}
+          { seasonGroup[normalizedMiniseriesTitle].nice_title }
         </a>
       ))
       .sort((sg1, sg2) => safeDate(sg1) > safeDate(sg2))
 
-    return (
-      <div key={index} className="season-group">
-        <div id={'season-' + seasonNumber} className="season-group-number">
-          Season {seasonNumber}
+    if(seasonGroup.length > 0){
+      return (
+        <div key={index} className="season-group">
+          <div id={'season-' + seasonNumber} className="season-group-number">
+            Season {seasonNumber}
+          </div>
+          <div className="season-group-content">{seasonGroup}</div>
         </div>
-        <div className="season-group-content">{seasonGroup}</div>
-      </div>
-    )
+      )  
+    } else {
+      return false
+    }
   })
+
+  // remove whole section for empty season group
+  seasonGroups = seasonGroups.flatMap(sg => sg)
 
   // duplicated from renderSidebar, because search etc on mp/series is too different to combine into one thing
   // const [isOpen, setIsOpen] = useState(true)
@@ -143,7 +150,7 @@ export default function Masterpiece() {
         <div className="series-search-container">
           <input
             className="series-search"
-            onKeyUp={e => setMasterpieceSearch(e.target.value.toLowerCase())}
+            onKeyUp={e => setMasterpieceSearch(e.target.value.toLowerCase().replace(/\s+/g, ''))}
             type="text"
             name="series-search"
             placeholder="Series Name"
