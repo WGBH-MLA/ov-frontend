@@ -34,12 +34,12 @@ export default () => (
     </p>
     <h2>Advanced search</h2>
     <p>You can use advanced search operators to refine your search query.</p>
-    <h3>""</h3>
+    <h3>Phrases " "</h3>
     If you want to search for an exact phrase, you can use double quotes.
     <ul>
       <li>{SearchLink('"Julia Child"')}</li>
     </ul>
-    <h3>~</h3>
+    <h3>Similarity ~</h3>
     Including a tilde <code>~</code> after a word (without a number) will match
     similar words.
     <ul>
@@ -66,20 +66,17 @@ export default () => (
         Vietnam"
       </li>
     </ul>
-    <h3>*</h3>
+    <h3>Wildcard *</h3>
     You can use the asterisk to search for records that contain a term with a
     wildcard.
-    <h3>()</h3>
+    <h3>Groups ( )</h3>
     You can use parentheses to group terms.
-    <h3>+</h3>
-    You can use the <code>+</code> operator to include records that contain a
-    term.
-    <h3>AND</h3>, you can use <code>AND</code> to search for records that
-    contain multiple terms.
-    <h3>OR</h3>
+    <h3>AND +</h3>, you can use <code>AND</code> (or <code>+</code>) to search
+    for records that contain multiple terms.
+    <h3>OR |</h3>
     You can also use <code>OR</code> (or <code>|</code>) to include records that
     match either term.
-    <h3>NOT</h3>
+    <h3>NOT -</h3>
     You can use the <code>NOT</code> (or <code>-</code>) operator to exclude
     records that contain a term.
   </>
