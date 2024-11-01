@@ -70,7 +70,15 @@ export const Search = () => {
         <div className="search-results">
           <SearchBox
             autoFocus
-            placeholder="Search exhibits, collections, and Series from GBH"
+            placeholder={
+              activeTab === 0
+                ? 'Search GBH Open Vault'
+                : activeTab === 1
+                ? 'Search GBH Series'
+                : activeTab === 2
+                ? 'Search American Archive'
+                : ''
+            }
             // queryHook={(query, search) => {
             //   // console.log('searchbox', search)
             //   // debounce the search input box
@@ -89,12 +97,11 @@ export const Search = () => {
             <Tab label="Open Vault" />
             <Tab label="GBH Series" />
             <Tab label="American Archive" />
-            <Tab label="Settings" />
+            <Tab label="Help" />
           </Tabs>
           {activeTab === 0 && (
             <Index indexName="wagtail__wagtailcore_page">
               <NoResultsBoundary fallback={<NoResults />}>
-                <h2>Open Vault results</h2>
                 <Refinements />
                 <Hits hitComponent={Hit} />
                 <Pagination />
@@ -119,14 +126,7 @@ export const Search = () => {
             </Index>
           )}
           {activeTab === 2 && <AAPBResults aapb_host={aapb_host} />}
-          {activeTab === 3 && (
-            <>
-              <h2>Settings</h2>
-              <h4>Fuzzyness</h4>
-              <input type="range" />
-              <Help />
-            </>
-          )}
+          {activeTab === 3 && <Help />}
         </div>
       </ScrollTo>
     </InstantSearch>

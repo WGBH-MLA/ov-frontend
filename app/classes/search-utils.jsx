@@ -24,9 +24,9 @@ export const EmptyQueryMessage = () => {
   }
   return (
     <>
-      <h2>Search Open Vault</h2>
       <p>Search articles, titles, and GBH Series on Open Vault</p>
       <Suggestions queries={sampleSize(default_suggestions, 4)} />
+      <p>See the help section for search tips and advanced syntax.</p>
     </>
   )
 }

@@ -1,3 +1,17 @@
+h1 {
+  margin-top: 0rem;
+  margin-bottom: 3rem;
+}
+
+h4 {
+  color : var(--dark-purple);
+  font-size: 1.5rem;
+}
+
+a {
+  color: var(--blue);
+}
+
 .tag {
   position: relative;
   border-radius: 6px;
@@ -8,6 +22,7 @@
   font-size: 0.9rem;
   color: var(--white);
   transition: clip-path 500ms;
+  margin-bottom: 1rem;
 }
 
 .exhibit-tag {
@@ -46,21 +61,23 @@ input.ais-SearchBox-input {
   font-size: 2rem;
   font-family: 'Red Hat Text';
 }
+div.ais-SearchBox.search-box {
+  min-width: 20rem;
+  max-width: 40rem;
+}
 
 li.ais-Hits-item {
   min-width: 20rem;
   max-width: 25%;
   max-height: 20rem;
   overflow: hidden;
+  line-height: 1.5rem;
 }
+
 
 div.refinements {
   margin-top: 1rem;
   margin-left: 1rem;
-}
-
-div.search-results {
-  margin: 1rem;
 }
 
 .series-carousel.ais-Hits-list {
@@ -72,4 +89,20 @@ div.search-results {
   border: 2px solid var(--light-purple);
   padding: .5rem;
   min-width: 14rem;
+}
+
+/* div.page-body-container {
+ line-height: 2rem;;
+} */
+
+@media only screen and (max-width: 600px) and (orientation: portrait) {
+
+  div.page-body-container {
+    margin: 1.5rem;
+    font-size: 1.2rem;
+  }
+
+  input.ais-SearchBox-input {
+    width: 90%;
+  }
 }

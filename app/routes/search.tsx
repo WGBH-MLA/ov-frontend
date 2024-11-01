@@ -7,6 +7,7 @@ import { Search } from '~/classes/search-ui'
 import 'instantsearch.css/themes/algolia-min.css'
 import '~/styles/search.css'
 import { Meta } from '~/classes/meta'
+import { useNavigation } from '@remix-run/react'
 
 export const meta: MetaFunction = ({ location }) => {
   const query = new URLSearchParams(location.search).get('q')
@@ -48,7 +49,14 @@ export type SearchProps = {
 
 export default function SearchPage() {
   const { serverUrl, aapb_host }: SearchProps = useLoaderData()
-  return <Search serverUrl={serverUrl} aapb_host={aapb_host} />
+  return (
+    <>
+      <div className="page-body-container">
+        <h1>Search Open Vault</h1>
+        <Search serverUrl={serverUrl} aapb_host={aapb_host} />
+      </div>
+    </>
+  )
 }
 
 export function ErrorBoundary() {

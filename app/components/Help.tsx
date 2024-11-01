@@ -2,14 +2,15 @@
 import { SearchLink } from '~/classes/search-utils'
 export default () => (
   <>
-    <h1>Searching Open Vault</h1>
     <p>
       Open Vault is a search engine for the GBH Media Library and Archives. You
       can search for exhibits, collections, and series from GBH. You can also
       search for records on{' '}
-      <a href="https://americanarchive.org/">AmericanArchive.org</a>.
+      <a href="https://americanarchive.org/" target="_blank">
+        AmericanArchive.org
+      </a>
     </p>
-    <h2>Search results</h2>
+    <h1>Search tabs</h1>
     <p>The search results are divided into tabs:</p>
     <ul>
       <li>
@@ -21,63 +22,115 @@ export default () => (
       </li>
       <li>
         <strong>American Archive</strong> - Search records from over 200 media
-        organizations hosted by the American Archive of Public Broadcasting
-      </li>
-      <li>
-        <strong>Settings</strong> - Change settings for the search engine
+        organizations hosted by the{' '}
+        <a href="https://americanarchive.org/" target="_blank">
+          American Archive of Public Broadcasting
+        </a>
       </li>
     </ul>
-    <h2>Search box</h2>
-    <p>
-      The search box is where you enter your search query. You can search for
-      exhibits, collections, and series from GBH.
-    </p>
-    <h2>Advanced search</h2>
+    <h1>Advanced search</h1>
     <p>You can use advanced search operators to refine your search query.</p>
     <h3>Phrases " "</h3>
     If you want to search for an exact phrase, you can use double quotes.
     <ul>
       <li>{SearchLink('"Julia Child"')}</li>
+      <li>{SearchLink('"Louis Lyons"')}</li>
+      <li>{SearchLink('"Civil War"')}</li>
     </ul>
     <h3>Similarity ~</h3>
     Including a tilde <code>~</code> after a word (without a number) will match
     similar words.
     <ul>
-      <li>{SearchLink('Vietnam~')} will match "Vietnam" and "Vietnamese"</li>
-    </ul>
-    A tilde <code>~</code> with a number will match similar words within a
-    certain distance. The number is the "fuzzyness" factor.
-    <ul>
-      <li>{SearchLink('America~0')} will match "America" and "American"</li>
       <li>
-        {SearchLink('America~1')} will also include "Americanized" and
-        "Americanizing"
+        {SearchLink('Archive')} (without a tilde) will match <em>archive</em>,
+        and <em>archives</em>
       </li>
       <li>
-        {SearchLink('America~2')} will include "African American" and even
-        unrelated words like "medical"
+        {SearchLink('Archive~')} (with a tilde ~) includes <em>archived</em>,{' '}
+        <em>archiving</em>, <em>archival</em>, and similarly spelled words like{' '}
+        <em>architecture</em> and <em>achievement</em>
       </li>
     </ul>
-    When searching a phrase with quotes, including a tilde <code>~</code> with a
-    number will match phrases separated by that number of words.
+    The "fuzzyness" factor can be adjusted by adding a number after the tilde.
     <ul>
       <li>
-        {SearchLink('"Vietnam war"~3')} will match "Vietnam war" and "war in
-        Vietnam"
+        {SearchLink('America~0')} will match <em>America</em> and{' '}
+        <em>American</em>
+      </li>
+      <li>
+        {SearchLink('America~1')} will include <em>Americanized</em> and{' '}
+        <em>Americanizing</em>
+      </li>
+      <li>
+        {SearchLink('America~2')} will include <em>African American</em> and
+        even unrelated words like <em>medical</em>
+      </li>
+    </ul>
+    When searching a phrase with quotes, including a tilde <code>~</code>{' '}
+    followed by a number will match phrases separated by that number of words.
+    <ul>
+      <li>
+        {SearchLink('"Vietnam war"~3')} will match <em>Vietnam war</em> and{' '}
+        <em>war in Vietnam</em>
       </li>
     </ul>
     <h3>Wildcard *</h3>
-    You can use the asterisk to search for records that contain a term with a
-    wildcard.
+    You can use an asterisk <code>*</code> to search for records that contain a
+    term with a wildcard.
+    <ul>
+      <li>
+        {SearchLink('tech*')} matches <em>tech</em> and <em>technology</em>
+      </li>
+      <li>
+        {SearchLink('front*')} matches <em>front</em> and <em>Frontline</em>
+      </li>
+    </ul>
+    <h3>Booleans</h3>
+    Use <code>+</code>, <code>-</code>, and <code>|</code> operators to include
+    or exclude specific terms.
+    <h4>
+      <code>+</code> (plus)
+    </h4>
+    Use <code>+</code> to include only records that contain that term.
+    <ul>
+      <li>
+        {SearchLink('+Boston +busing')} matches records that contain both{' '}
+        <em>Boston</em> and <em>busing</em>
+      </li>
+    </ul>
+    <h4>
+      <code>-</code> (minus)
+    </h4>
+    Use <code>-</code> to exclude records that contain that term.
+    <ul>
+      <li>
+        {SearchLink('music +-folk')} matches records that contain <em>music</em>{' '}
+        and do not contain <em>folk</em>
+      </li>
+    </ul>
+    <h4>
+      <code>|</code> (pipe)
+    </h4>
+    Use <code>|</code> between terms to match either term.
+    <ul>
+      <li>
+        {SearchLink('television | radio')} matches records that contain either{' '}
+        <em>television</em> or <em>radio</em>
+      </li>
+    </ul>
     <h3>Groups ( )</h3>
-    You can use parentheses to group terms.
-    <h3>AND +</h3>, you can use <code>AND</code> (or <code>+</code>) to search
-    for records that contain multiple terms.
-    <h3>OR |</h3>
-    You can also use <code>OR</code> (or <code>|</code>) to include records that
-    match either term.
-    <h3>NOT -</h3>
-    You can use the <code>NOT</code> (or <code>-</code>) operator to exclude
-    records that contain a term.
+    Use parentheses to group terms.
+    <ul>
+      <li>
+        {SearchLink('(tech | technology) +Frontline')} matches records that
+        contain either <em>tech</em> or <em>technology</em> and includes{' '}
+        <em>Frontline</em>
+      </li>
+      <li>
+        {SearchLink('("Julia Child" | "Joyce Chen") +radio')} matches records
+        that contain either exact phrase <em>"Julia Child"</em> or{' '}
+        <em>"Joyce Chen"</em> and also includes <em>radio</em>
+      </li>
+    </ul>
   </>
 )
