@@ -11,6 +11,7 @@ import {
   renderFootnoteSection,
   renderFootnotesInBody,
 } from './pageHelpers'
+
 import {
   renderBlocks,
   renderBlock,
@@ -18,6 +19,7 @@ import {
   headingContent,
 } from './contentHelpers'
 import { SIDEBAR_TYPES } from '~/data/sidebarTypes'
+import { Share } from '../classes/share'
 
 export function renderExhibit(exhibit) {
   // console.log( 'da ex', exhibit )
@@ -125,6 +127,7 @@ export function renderExhibit(exhibit) {
       <div className="page-authorbubble-stacked">
         {bubbles}
         {extras}
+        <Share url={exhibit.url} />
       </div>
     )
   }
@@ -145,6 +148,8 @@ export function renderExhibit(exhibit) {
       <div className="page-container">
         {titleBar}
         {exhibitAuthor}
+        
+
         {sidebar}
 
         <div className="page-body-container">
