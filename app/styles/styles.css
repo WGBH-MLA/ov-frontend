@@ -156,7 +156,7 @@ div.page-body h1.masterpiece-bigtitle {
 a.masterpiece-link {
   color: var(--blue);
   display: inline-block;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: bold;
   margin-right: 1em;
   width: 100%;
@@ -183,7 +183,12 @@ div.season-group-number {
   width: 100%;
 }
 
+div.series-alphabet {
+  text-align: left;
+}
+
 a.series-alphabet-link {
+  text-align: center;
   width: 4vw;
   display: inline-block;
   font-size: 1em;
@@ -219,6 +224,8 @@ div.series-group {
 }
 
 div.series-group-letter {
+  width: 100%;
+  display: inline-block;
   font-size: 2em;
   font-weight: bold;
   color: var(--dark-purple);
@@ -228,7 +235,7 @@ div.series-group-letter {
 a.series-link {
   color: var(--blue);
   display: block;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   line-height: 1.3rem;
   font-weight: bold;
   margin-bottom: 1.5rem;
@@ -287,21 +294,22 @@ hr.spaced-hr {
 div.series-search-container input {
   height: 4vh;
   max-height: 3em;
-  width: 80%;
+  width: 70%;
 }
 
 div.series-search-container input.series-search {
   padding-block: 0px;
   padding-inline: 0px;
+  padding-left: 1em;
 }
 
 div.series-search-button {
-  margin-left: 0.2vw;
+  margin-left: 0.1em;
   display: inline-block;
   vertical-align: middle;
   background-color: var(--blue);
-  width: 3vw;
-  height: 2vw;
+  width: 2.6em;
+  height: 1.7em;
   max-height: 2em;
   background-image: url('/magnifying_glass.png');
   background-size: 40%;
@@ -563,7 +571,7 @@ div.page-body h3.page-authors-title {
 }
 
 div.page-authorbubble-stacked {
-  z-index: 1000;
+  z-index: 999;
   margin-left: 20%;
   margin-top: -2rem;
   position: relative;
@@ -615,7 +623,7 @@ div.author-bio {
 
 /* footnotes  */
 a.footnote-link {
-  z-index: -1;
+  z-index: 999;
   font-size: 0.6em;
   top: -0.5em;
   position: relative;
@@ -910,8 +918,6 @@ div.small-text {
 /*content blocks*/
 
 div.content-block {
-  /* font-size: clamp(16px, 4rem, 18px); */
-  padding: 1vw;
 }
 
 div.content-block div.content-block-body p {
@@ -1063,14 +1069,14 @@ a.content-aapbblock div.blue-circle div {
 
 div.aapb-records {
 }
-
+/*
 div.guids-block-title {
-  font-size: 1em;
+  font-size: 3em;
   font-weight: bold;
   margin-left: 1vw;
   margin-bottom: 1.2em;
 }
-
+*/
 div.org-logos img {
   width: 100%;
   margin-left: 4vw;
@@ -1432,4 +1438,61 @@ div.guids-block-title p {
   div.pagelinks-also {
     font-size: 1.6em;
   }
+
+  div.series-search-container {
+    display: block;
+  }
+
+  div.page-sidebar {
+    display: block;
+    width: 100%;
+    height: 10vh;
+  }
+
+  div.page-sidebar.list-page {
+    /*  mobile sidebar is different on series and masterpiece pages  */
+    background-color: #cfe4ff;
+    height: 40vh;
+    padding-top: 2vh;
+    top: 0;
+  }
+
+  div.page-sidebar.list-page h4.page-sidebar-title, div.page-sidebar.list-page div.series-search-container, div.page-sidebar.list-page span {
+    display: block;
+    margin-left: 4vw;
+    width: 90%;
+  }
+/*
+  div.page-sidebar.list-page h4.page-sidebar-title {
+    margin-left: 4vw;
+  }
+*/
+  div.page-body-container h1.masterpiece-bigtitle {
+    display: block;
+    font-size: 1.3em;
+    line-height: 1.3em;
+    height: 20vh;
+    margin-top: 36vh;
+    margin-bottom: 0;
+    text-align: left;
+    vertical-align: bottom;
+  }
+
+  div.masterpiece-intro div.static-halfbox {
+    display: block;
+    width: 90%;
+  }
+
+  div.masterpiece-summary {
+    display: block;
+    width: 100%;
+  }
+
+
+  div.series-alphabet,  div.masterpiece-seasons {
+    margin-left: 4vw;
+    padding-bottom: 4vh;
+    display: block;
+  }
+
 }

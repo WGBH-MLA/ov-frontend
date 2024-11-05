@@ -143,23 +143,25 @@ export default function Masterpiece() {
 
   return (
     <div className="page-container">
-      <div className="page-sidebar">
-        <h4 className="page-sidebar-title spaced">
-          Search the Masterpiece Collection
-        </h4>
-        <div className="series-search-container">
-          <input
-            className="series-search"
-            onKeyUp={e => setMasterpieceSearch(e.target.value.toLowerCase().replace(/\s+/g, ''))}
-            type="text"
-            name="series-search"
-            placeholder="Series Name"
-          />
-          <div className="series-search-button" />
-        </div>
+      <div className="page-sidebar list-page">
+        <span>
+          <h4 className="page-sidebar-title spaced">
+            Search the Masterpiece Collection
+          </h4>
+          <div className="series-search-container">
+            <input
+              className="series-search"
+              onKeyUp={e => setMasterpieceSearch(e.target.value.toLowerCase().replace(/\s+/g, ''))}
+              type="text"
+              name="series-search"
+              placeholder="Miniseries Name"
+            />
+            <div className="series-search-button" />
+          </div>
 
-        <h4 className="page-sidebar-title spaced">Jump To Season</h4>
-        <div className="masterpiece-season">{seasonLinks}</div>
+          <h4 className="page-sidebar-title spaced">Jump To Season</h4>
+          <div className="masterpiece-seasons">{seasonLinks}</div>
+        </span>
       </div>
 
       <div className="page-body-container">

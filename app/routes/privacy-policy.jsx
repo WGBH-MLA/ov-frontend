@@ -17,7 +17,7 @@ export const meta = () => {
 export default function PrivacyPolicy() {
   let titleBar = renderPageTitleBar(
     'Privacy Policy',
-    'https://s3.amazonaws.com/openvault.wgbh.org/carousel/CameraFrogPondearlyWide.jpg'
+    'https://s3.amazonaws.com/openvault.wgbh.org/carousel/wgbh-prof-at-board2.jpg'
   )
 
   return (

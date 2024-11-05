@@ -33,7 +33,7 @@ let aboutLinks = [
 
 let affiliatedSites = [
   {
-    label: 'American Archive of Public Broadcasting (AAPB)',
+    label: 'American Archive of Public Broadcasting',
     subLabel: 'Access nearly 12,000 public media programs',
     url: 'https://americanarchive.org',
   },
