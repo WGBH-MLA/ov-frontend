@@ -42,6 +42,11 @@ function safeDate(seasonGroup) {
   )
 }
 
+function clearSearch(searchStateFunction){
+  document.getElementById("search").value = ""
+  searchStateFunction("")
+}
+
 export default function Masterpiece() {
   const data = useLoaderData()
   const masterpieceData = data.masterpieceData
@@ -100,10 +105,16 @@ export default function Masterpiece() {
   })
 
   // remove whole section for empty season group
-  seasonGroups = seasonGroups.flatMap(sg => sg)
+  seasonGroups = seasonGroups.flatMap(sg => sg).filter( (sg) => sg )
+  if(seasonGroups.length == 0){
+    seasonGroups = (
+      <div>
+        No results were found for your search query. Please revise your query and try again.
+      </div>
+    )
+  }
 
   // duplicated from renderSidebar, because search etc on mp/series is too different to combine into one thing
-  // const [isOpen, setIsOpen] = useState(true)
   useEffect(() => {
     const sidebarMenu = document.getElementsByClassName('page-sidebar')[0]
     const initialSidebarTop = sidebarMenu?.offsetTop
@@ -141,6 +152,11 @@ export default function Masterpiece() {
     })
   }, [])
 
+  var clearSearch = function(){
+    document.getElementById("search").value = ""
+    setMasterpieceSearch("")
+  }
+
   return (
     <div className="page-container">
       <div className="page-sidebar list-page">
@@ -150,12 +166,14 @@ export default function Masterpiece() {
           </h4>
           <div className="series-search-container">
             <input
+              id="search"
               className="series-search"
               onKeyUp={e => setMasterpieceSearch(e.target.value.toLowerCase().replace(/\s+/g, ''))}
               type="text"
               name="series-search"
-              placeholder="Miniseries Name"
+              placeholder="Search..."
             />
+            <div className="search-clear-button" onClick={ e => clearSearch() } >X</div>
             <div className="series-search-button" />
           </div>
 

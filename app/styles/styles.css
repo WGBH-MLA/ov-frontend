@@ -135,6 +135,11 @@ a:active {
   background: var(--light-blue); /* Gecko Browsers */
 }
 
+.purple {
+  color: var(--purple);
+}
+
+
 div.masterpiece-intro {
   vertical-align: middle;
   margin-bottom: 4rem;
@@ -257,7 +262,6 @@ div.static-halfbox img {
 }
 
 div.static-halfbox {
-  margin-left: 2%;
   text-align: center;
   vertical-align: middle;
   display: inline-block;
@@ -291,10 +295,41 @@ hr.spaced-hr {
   margin-bottom: 2.4em;
 }
 
+div.search-clear-button {
+  border-radius: 4px;
+  border: 1px dashed #eee;
+  font-family: Red Hat Display, sans-serif;
+  color: #bbb;
+  font-size: 0.8em;
+  line-height: 0.8em;
+  position: relative;
+  left: -2em;
+  display: inline-block;
+  padding: 0.3em;
+}
+
+div.search-clear-button:hover {
+  border: 1px dashed #eee;
+  cursor: pointer;
+  color: #555;
+  font-weight: bold;
+}
+
+div.series-search-container {
+  max-height: 2em;
+}
+
 div.series-search-container input {
-  height: 4vh;
-  max-height: 3em;
+  font-size: 1em;
+  line-height: 1em;
+  box-sizing: border-box;
+  height: 2em;
+  max-height: 2em;
   width: 70%;
+}
+
+div.series-search-container input::placeholder {
+  color: #ddd;
 }
 
 div.series-search-container input.series-search {
@@ -304,13 +339,15 @@ div.series-search-container input.series-search {
 }
 
 div.series-search-button {
-  margin-left: 0.1em;
   display: inline-block;
+  margin-left: -1.1em;
+  position: fixed;
   vertical-align: middle;
   background-color: var(--blue);
   width: 2.6em;
-  height: 1.7em;
+  height: 2em;
   max-height: 2em;
+  font-size: 1em;
   background-image: url('/magnifying_glass.png');
   background-size: 40%;
   background-position: center;
@@ -1452,7 +1489,7 @@ div.guids-block-title p {
   div.page-sidebar.list-page {
     /*  mobile sidebar is different on series and masterpiece pages  */
     background-color: #cfe4ff;
-    height: 40vh;
+    height: 32vh;
     padding-top: 2vh;
     top: 0;
   }
