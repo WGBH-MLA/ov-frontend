@@ -1435,6 +1435,7 @@ div.guids-block-title p {
   div.bottom-bar-container {
     display: block;
     height: inherit;
+    min-height: 70vh;
   }
 
   div.bottom-bar-row,
@@ -1533,4 +1534,9 @@ div.guids-block-title p {
     display: block;
   }
 
+  div.error-container {
+    margin-left: 4vw;
+    margin-right: 4vw;
+    margin-top: 4vh;
+  }
 }

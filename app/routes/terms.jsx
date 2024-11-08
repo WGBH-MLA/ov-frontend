@@ -16,7 +16,7 @@ export const meta = () => {
 
 export default function Terms() {
   let titleBar = renderPageTitleBar(
-    'Terms <i>and</i> Conditions',
+    'Terms and Conditions',
     'https://s3.amazonaws.com/openvault.wgbh.org/carousel/DickPleasantsWide.jpeg'
   )
 

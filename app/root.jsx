@@ -135,10 +135,10 @@ export function ErrorBoundary() {
               <p>{error.statusText}</p>
             </>
           ) : (
-            <>
+            <div className="error-container">
               <h1>Oh no!</h1>
               <p>Oops! Something went wrong. Please try again later.</p>
-            </>
+            </div>
           )}
         </div>
         <Footer />

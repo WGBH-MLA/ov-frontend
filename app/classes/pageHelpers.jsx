@@ -222,7 +222,7 @@ export function renderPageTitleBar(title, hero_image_url, subtitle = null) {
       style={{ backgroundImage: `url(${hero_image_url})` }}
     >
       <h1 className="page-titlebar-title">
-        <div dangerouslySetInnerHTML={{ __html: title }} />
+        <div>{title}</div>
         {subtitleContainer}
       </h1>
     </div>
