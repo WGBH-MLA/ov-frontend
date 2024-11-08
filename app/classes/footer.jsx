@@ -26,7 +26,7 @@ export function Footer(props){
       </div>
       <div className="bottom-bar-row">
         <div className="bottom-bar-doublecolumn">
-          2021 WGBH Educational Foundation. All rights reserved.
+          2024 WGBH Educational Foundation. All rights reserved.
         </div>
       </div>
     </div>
