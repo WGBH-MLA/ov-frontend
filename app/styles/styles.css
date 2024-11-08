@@ -1364,7 +1364,7 @@ div.guids-block-title p {
     width: 84vw;
     height: 70.5vw;
     margin: 0;
-    margin-bottom: 8em;
+    margin-bottom: 12em;
   }
 
   div.pagelink-image {
@@ -1419,6 +1419,7 @@ div.guids-block-title p {
   div.page-sidebar {
     margin-left: 0;
     top: 40vh;
+    overflow: hidden;
   }
 
   div.page-titlebar {
@@ -1483,7 +1484,7 @@ div.guids-block-title p {
   div.page-sidebar {
     display: block;
     width: 100%;
-    height: 10vh;
+    z-index: 1001;
   }
 
   div.page-sidebar.list-page {
