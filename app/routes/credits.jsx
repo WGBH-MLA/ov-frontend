@@ -112,37 +112,37 @@ export default function Credits() {
 
             <div className="static-halfbox small-text spaced static-credits">
               <div>
-                <div className="gray spaced">Project Management</div>
+                <div className="purple bold spaced">Project Management</div>
                 <div className="black">Karen Cariani, Project Director</div>
                 <div className="black">Karen Colbron, Project Manager</div>
               </div>
 
               <div>
-                <div className="gray spaced">Business Manager</div>
+                <div className="purple bold spaced">Business Manager</div>
                 <div className="black">Paul Plutnicki</div>
               </div>
 
               <div>
-                <div className="gray spaced">Content Production</div>
+                <div className="purple bold spaced">Content Production</div>
                 <div className="black">Helen Brady, Production Assistant</div>
                 <div className="black">Susan Levene, Content Producer</div>
               </div>
 
               <div>
-                <div className="gray spaced">GBH Legal</div>
+                <div className="purple bold spaced">GBH Legal</div>
                 <div className="black">Nike Okediji</div>
                 <div className="black">Susan Rosen</div>
                 <div className="black">Doug Ryan</div>
               </div>
 
               <div>
-                <div className="gray spaced">Copyeditor</div>
+                <div className="purple bold spaced">Copyeditor</div>
                 <div className="black">Eleanor Beram</div>
               </div>
             </div>
             <div className="static-halfbox small-text spaced static-credits">
               <div>
-                <div className="gray spaced">With thanks to</div>
+                <div className="purple bold spaced">With thanks to</div>
                 <div className="black">
                   Steve Baldwin, National Boston Ned Biddle, National Boston
                   Kevin Carter, technical advisor, GBH Nancy Dillon, library
@@ -153,7 +153,7 @@ export default function Credits() {
               </div>
 
               <div>
-                <div className="gray spaced">
+                <div className="gray bold spaced">
                   Special thanks to our friends and colleagues in Archives:
                 </div>
                 <div className="black">

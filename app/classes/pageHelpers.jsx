@@ -215,14 +215,14 @@ export function renderPageTitleBar(title, hero_image_url, subtitle = null) {
   if (subtitle) {
     subtitleContainer = <div className="page-titlebar-subtitle">{subtitle}</div>
   }
-
+//{title}
   return (
     <div
       className="page-titlebar"
       style={{ backgroundImage: `url(${hero_image_url})` }}
     >
       <h1 className="page-titlebar-title">
-        {title}
+        <div>{title}</div>
         {subtitleContainer}
       </h1>
     </div>

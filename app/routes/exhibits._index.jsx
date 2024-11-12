@@ -32,7 +32,7 @@ export default function Exhibits() {
         Check out collections of significant GBH productions, including unique
         full-length interviews.
       </h4>
-      {exhibitLinks}
+      { exhibitLinks }
     </div>
   )
 }

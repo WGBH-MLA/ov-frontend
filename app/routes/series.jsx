@@ -31,6 +31,8 @@ function renderSeriesLink(series) {
   )
 }
 
+
+
 export default function Series() {
   const data = useLoaderData()
   const seriesData = data.seriesData
@@ -118,24 +120,43 @@ export default function Series() {
       }
     })
   }, [])
-  // seriesAlphaGroups = seriesAlphaGroups.filter( (sG) => sG.length > 0  )
+  
+  seriesAlphaGroups = seriesAlphaGroups.filter( (sG) => sG )
+  if(seriesAlphaGroups.length == 0){
+    seriesAlphaGroups = (
+      <div>
+        No results were found for your search query. Please revise your query and try again.
+      </div>
+    )
+  }
+
+
+  var clearSearch = function(){
+    document.getElementById("search").value = ""
+    setSeriesSearch("")
+  }
+
   return (
     <div className="page-container">
-      <div className="page-sidebar">
-        <h4 className="page-sidebar-title spaced">Search GBH Series</h4>
-        <div className="series-search-container">
-          <input
-            className="series-search"
-            onKeyUp={e => setSeriesSearch(e.target.value.toLowerCase())}
-            type="text"
-            name="series-search"
-            placeholder="Series Name"
-          />
-          <div className="series-search-button" />
-        </div>
+      <div className="page-sidebar list-page">
+        <span>
+          <h4 className="page-sidebar-title spaced">Search GBH Series</h4>
+          <div className="series-search-container">
+            <input
+              id="search"
+              className="series-search"
+              onKeyUp={e => setSeriesSearch(e.target.value.toLowerCase())}
+              type="text"
+              name="series-search"
+              placeholder="Search..."
+            />
+            <div className="search-clear-button" onClick={ e => clearSearch() } >X</div>
+            <div className="series-search-button" />
+          </div>
 
-        <h4 className="page-sidebar-title spaced">Jump To</h4>
-        <div className="series-alphabet">{alphabetLinks}</div>
+          <h4 className="page-sidebar-title spaced">Jump To</h4>
+          <div className="series-alphabet">{alphabetLinks}</div>
+        </span>
       </div>
 
       <div className="page-body-container">

@@ -30,7 +30,6 @@ export default function VisitUs() {
 
         <div className="page-body-container">
           <div className="page-body">
-            <h2>Visiting the Archives</h2>
 
             <p className="static-section">
               Members of the general public are welcome to access the GBH
@@ -127,7 +126,7 @@ export default function VisitUs() {
               </li>
               <li>
                 <b>Photocopying</b>: GBH Archives charges $0.25 per photocopy
-                for a standard 8.5″ x 11″ page. If a researcher requires larger
+                for a standard 8.5" x 11" page. If a researcher requires larger
                 copies, or needs between 30 and 50 pages, a special fee may be
                 arranged on-site at the Archives’ discretion.
               </li>

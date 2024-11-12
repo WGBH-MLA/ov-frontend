@@ -1,6 +1,10 @@
 export function NavigationLink(props){
+  let classes = "navigation-link"
+  if(props.highlight){
+    classes += " highlight"
+  }
   return(
-    <a className="navigation-link" href={ props.href }>
+    <a className={classes} href={ props.href }>
       <div>
         { props.text }
       </div>
