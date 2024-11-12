@@ -35,9 +35,9 @@ export function aapbRecordsBlock(block, key) {
   // here its an aapbrecordgroup
   return (
     <div key={key}>
-      <div
+      <h3
         id={block.id}
-        className="guids-block-title"
+        className="content-heading"
         dangerouslySetInnerHTML={{ __html: decode(block.value.title) }}
       />
       {handleAapbRecordGroup(block)}

@@ -48,11 +48,18 @@ html {
   /* and smooth it out */
   scroll-behavior: smooth;
 }
+
+body {
+  font-family: 'Red Hat Text', sans-serif;
+}
+h1,
+h2 {
+  font-family: 'Red Hat Display', sans-serif;
+}
 body,
 h1,
 h2 {
   margin: 0;
-  font-family: 'Red Hat Display', sans-serif;
 
   margin-block-start: 0;
   margin-block-end: 0;
@@ -84,7 +91,7 @@ h3 {
 h4 {
   color: var(--black);
   font-size: 1rem;
-  font-weight: 700;
+  font-weight: bold;
 }
 
 input {
@@ -128,6 +135,11 @@ a:active {
   background: var(--light-blue); /* Gecko Browsers */
 }
 
+.purple {
+  color: var(--purple);
+}
+
+
 div.masterpiece-intro {
   vertical-align: middle;
   margin-bottom: 4rem;
@@ -135,34 +147,36 @@ div.masterpiece-intro {
 }
 
 div.masterpiece-summary {
-  font-size: 0.9em;
+  font-size: 0.8em;
+  line-height: 1.6em;
   margin-right: 2vw;
   text-align: left;
 }
 
-h1.masterpiece-bigtitle {
-  font-size: 2rem;
-  margin-bottom: 3rem;
-  margin-top: 2rem;
-  line-height: 5rem;
+div.page-body h1.masterpiece-bigtitle {
+  font-size: 3rem;
+  line-height: 4rem;
 }
 
 a.masterpiece-link {
+  color: var(--blue);
   display: inline-block;
-  font-size: 1.5rem;
-  font-weight: 500;
-  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  font-weight: bold;
   margin-right: 1em;
   width: 100%;
 }
 
 a.masterpiece-season-link {
-  display: block;
+  display: inline-block;
+  color: var(--blue);
   font-size: 1em;
+  padding: 0.2em;
 }
 
 div.season-group-content {
   columns: 2;
+  margin-bottom: 4vh;
 }
 
 div.season-group-number {
@@ -174,7 +188,12 @@ div.season-group-number {
   width: 100%;
 }
 
+div.series-alphabet {
+  text-align: left;
+}
+
 a.series-alphabet-link {
+  text-align: center;
   width: 4vw;
   display: inline-block;
   font-size: 1em;
@@ -210,6 +229,8 @@ div.series-group {
 }
 
 div.series-group-letter {
+  width: 100%;
+  display: inline-block;
   font-size: 2em;
   font-weight: bold;
   color: var(--dark-purple);
@@ -217,9 +238,11 @@ div.series-group-letter {
 }
 
 a.series-link {
+  color: var(--blue);
   display: block;
-  font-size: 1.5rem;
-  font-weight: 500;
+  font-size: 1.1rem;
+  line-height: 1.3rem;
+  font-weight: bold;
   margin-bottom: 1.5rem;
 }
 
@@ -239,7 +262,6 @@ div.static-halfbox img {
 }
 
 div.static-halfbox {
-  margin-left: 2%;
   text-align: center;
   vertical-align: middle;
   display: inline-block;
@@ -248,7 +270,7 @@ div.static-halfbox {
   margin-bottom: 1.2em;
 }
 
-div.big-blue-link {
+a.big-blue-link {
   float: right;
   display: inline-block;
   color: var(--blue);
@@ -261,11 +283,11 @@ div.big-blue-button {
   display: inline-block;
   border-radius: 4em;
   background-color: var(--blue);
-  width: 3vw;
-  height: 3vw;
+  width: 1.4em;
+  height: 1.4em;
   vertical-align: middle;
   text-align: center;
-  line-height: 3vw;
+  line-height: 1.4em;
   color: #fff;
 }
 
@@ -273,25 +295,59 @@ hr.spaced-hr {
   margin-bottom: 2.4em;
 }
 
+div.search-clear-button {
+  border-radius: 4px;
+  border: 1px dashed #eee;
+  font-family: Red Hat Display, sans-serif;
+  color: #bbb;
+  font-size: 0.8em;
+  line-height: 0.8em;
+  position: relative;
+  left: -2em;
+  display: inline-block;
+  padding: 0.3em;
+}
+
+div.search-clear-button:hover {
+  border: 1px dashed #eee;
+  cursor: pointer;
+  color: #555;
+  font-weight: bold;
+}
+
+div.series-search-container {
+  max-height: 2em;
+}
+
 div.series-search-container input {
-  height: 4vh;
-  max-height: 3em;
-  width: 60%;
+  font-size: 1em;
+  line-height: 1em;
+  box-sizing: border-box;
+  height: 2em;
+  max-height: 2em;
+  width: 70%;
+}
+
+div.series-search-container input::placeholder {
+  color: #ddd;
 }
 
 div.series-search-container input.series-search {
   padding-block: 0px;
   padding-inline: 0px;
+  padding-left: 1em;
 }
 
 div.series-search-button {
-  margin-left: 0.2vw;
   display: inline-block;
+  margin-left: -1.1em;
+  position: fixed;
   vertical-align: middle;
   background-color: var(--blue);
-  width: 3vw;
-  height: 2vw;
+  width: 2.6em;
+  height: 2em;
   max-height: 2em;
+  font-size: 1em;
   background-image: url('/magnifying_glass.png');
   background-size: 40%;
   background-position: center;
@@ -342,9 +398,15 @@ img.ov-logo {
 }
 
 a.navigation-link {
+  font-family: 'Red Hat Display', sans-serif;
   overflow: visible;
   display: inline-block;
   flex-grow: 1;
+}
+
+a.navigation-link.highlight {
+  text-decoration: underline;
+  font-weight: bold;
 }
 
 a.navigation-link div {
@@ -397,28 +459,32 @@ a.navigation-spacer {
   margin-left: 0.5rem;
 }
 
-.drawermenu-items {
-  min-width: 15rem;
-  display: none;
-}
-
 .drawer-item {
-  padding-right: 2rem;
-  padding-left: 2rem;
-  padding-top: 0.2rem;
-  padding-bottom: 0.2rem;
+  text-align: left;
+  padding-left: 1.4em;
   display: block;
   color: var(--black);
 }
 
-.drawer-item:hover {
-  background-color: var(--light-gray);
+.drawer-item hr {
+  color: #fff;
+  width: 80%;
+  margin-right: 4em;
+}
+
+.drawer-item h4 {
+  font-size: 1em;
+}
+
+.drawer-item:hover > h4 {
+  text-decoration: underline;
+  font-weight: bold;
 }
 
 .drawer-title {
   font-family: 'Red Hat Display', sans-serif;
   /* font-size: 1.2em; */
-  font-weight: bold;
+  font-weight: normal;
   color: var(--purple);
 }
 
@@ -428,6 +494,7 @@ div.drawer-subtitle {
 }
 
 div.drawermenu-items {
+  min-width: 15rem;
   background-color: var(--x-light-gray);
   border: 1px solid var(--white);
   display: none;
@@ -541,7 +608,7 @@ div.page-body h3.page-authors-title {
 }
 
 div.page-authorbubble-stacked {
-  z-index: 1000;
+  z-index: 999;
   margin-left: 20%;
   margin-top: -2rem;
   position: relative;
@@ -593,7 +660,7 @@ div.author-bio {
 
 /* footnotes  */
 a.footnote-link {
-  z-index: -1;
+  z-index: 999;
   font-size: 0.6em;
   top: -0.5em;
   position: relative;
@@ -757,6 +824,7 @@ div.pagelinks-top {
 }
 
 div.pagelinks-container {
+  margin-top: 4vh;
   margin-left: 8vw;
   margin-bottom: 8vh;
 }
@@ -887,8 +955,6 @@ div.small-text {
 /*content blocks*/
 
 div.content-block {
-  /* font-size: clamp(16px, 4rem, 18px); */
-  padding: 1vw;
 }
 
 div.content-block div.content-block-body p {
@@ -1040,14 +1106,14 @@ a.content-aapbblock div.blue-circle div {
 
 div.aapb-records {
 }
-
+/*
 div.guids-block-title {
-  font-size: 1em;
+  font-size: 3em;
   font-weight: bold;
   margin-left: 1vw;
   margin-bottom: 1.2em;
 }
-
+*/
 div.org-logos img {
   width: 100%;
   margin-left: 4vw;
@@ -1248,8 +1314,7 @@ div.guids-block-title p {
   }
 
   div.drawermenu-container a.drawer-item,
-  a.navigation-link {
-    border: 1px solid white;
+  a.navigation-link { 
     color: var(--dark-purple);
   }
 
@@ -1291,7 +1356,7 @@ div.guids-block-title p {
 
   /*  index pages */
   div.pagelinks-container {
-    margin-bottom: 8vh;
+    margin-bottom: 28vh;
   }
 
   div.pagelink {
@@ -1299,7 +1364,7 @@ div.guids-block-title p {
     width: 84vw;
     height: 70.5vw;
     margin: 0;
-    margin-bottom: 8em;
+    margin-bottom: 12em;
   }
 
   div.pagelink-image {
@@ -1354,6 +1419,7 @@ div.guids-block-title p {
   div.page-sidebar {
     margin-left: 0;
     top: 40vh;
+    overflow: hidden;
   }
 
   div.page-titlebar {
@@ -1369,6 +1435,7 @@ div.guids-block-title p {
   div.bottom-bar-container {
     display: block;
     height: inherit;
+    min-height: 70vh;
   }
 
   div.bottom-bar-row,
@@ -1390,5 +1457,86 @@ div.guids-block-title p {
   div.page-authorbubble-stacked div.author-byline {
     bottom: 0;
     display: block;
+  }
+
+  .chevron {
+    display: none;
+  }
+
+  a.big-blue-link {
+    display: block;
+    font-size: 0.55em;
+  }
+
+  div.big-blue-button {
+    width: 1em;
+    height: 1em;
+    line-height: 1em;
+  }
+
+  div.pagelinks-also {
+    font-size: 1.6em;
+  }
+
+  div.series-search-container {
+    display: block;
+  }
+
+  div.page-sidebar {
+    display: block;
+    width: 100%;
+    z-index: 1001;
+  }
+
+  div.page-sidebar.list-page {
+    /*  mobile sidebar is different on series and masterpiece pages  */
+    background-color: #cfe4ff;
+    height: 32vh;
+    padding-top: 2vh;
+    top: 0;
+  }
+
+  div.page-sidebar.list-page h4.page-sidebar-title, div.page-sidebar.list-page div.series-search-container, div.page-sidebar.list-page span {
+    display: block;
+    margin-left: 4vw;
+    width: 90%;
+  }
+/*
+  div.page-sidebar.list-page h4.page-sidebar-title {
+    margin-left: 4vw;
+  }
+*/
+  div.page-body-container h1.masterpiece-bigtitle {
+    display: block;
+    font-size: 1.3em;
+    line-height: 1.3em;
+    height: 20vh;
+    margin-top: 36vh;
+    margin-bottom: 0;
+    text-align: left;
+    vertical-align: bottom;
+  }
+
+  div.masterpiece-intro div.static-halfbox {
+    display: block;
+    width: 90%;
+  }
+
+  div.masterpiece-summary {
+    display: block;
+    width: 100%;
+  }
+
+
+  div.series-alphabet,  div.masterpiece-seasons {
+    margin-left: 4vw;
+    padding-bottom: 4vh;
+    display: block;
+  }
+
+  div.error-container {
+    margin-left: 4vw;
+    margin-right: 4vw;
+    margin-top: 4vh;
   }
 }

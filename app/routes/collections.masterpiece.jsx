@@ -42,6 +42,11 @@ function safeDate(seasonGroup) {
   )
 }
 
+function clearSearch(searchStateFunction){
+  document.getElementById("search").value = ""
+  searchStateFunction("")
+}
+
 export default function Masterpiece() {
   const data = useLoaderData()
   const masterpieceData = data.masterpieceData
@@ -53,7 +58,7 @@ export default function Masterpiece() {
       className="masterpiece-season-link page-sidebar-link"
       to={'#season-' + seasonNumber}
     >
-      Season {seasonNumber}
+      {seasonNumber}
     </Link>
   ))
 
@@ -80,23 +85,36 @@ export default function Masterpiece() {
           href={`${data.AAPB_HOST}/catalog?f[special_collections][]=${normalizedMiniseriesTitle}&f[access_types][]=all`}
           target="_blank"
         >
-          {seasonGroup[normalizedMiniseriesTitle].nice_title}
+          { seasonGroup[normalizedMiniseriesTitle].nice_title }
         </a>
       ))
       .sort((sg1, sg2) => safeDate(sg1) > safeDate(sg2))
 
-    return (
-      <div key={index} className="season-group">
-        <div id={'season-' + seasonNumber} className="season-group-number">
-          Season {seasonNumber}
+    if(seasonGroup.length > 0){
+      return (
+        <div key={index} className="season-group">
+          <div id={'season-' + seasonNumber} className="season-group-number">
+            Season {seasonNumber}
+          </div>
+          <div className="season-group-content">{seasonGroup}</div>
         </div>
-        <div className="season-group-content">{seasonGroup}</div>
-      </div>
-    )
+      )  
+    } else {
+      return false
+    }
   })
 
+  // remove whole section for empty season group
+  seasonGroups = seasonGroups.flatMap(sg => sg).filter( (sg) => sg )
+  if(seasonGroups.length == 0){
+    seasonGroups = (
+      <div>
+        No results were found for your search query. Please revise your query and try again.
+      </div>
+    )
+  }
+
   // duplicated from renderSidebar, because search etc on mp/series is too different to combine into one thing
-  // const [isOpen, setIsOpen] = useState(true)
   useEffect(() => {
     const sidebarMenu = document.getElementsByClassName('page-sidebar')[0]
     const initialSidebarTop = sidebarMenu?.offsetTop
@@ -134,25 +152,34 @@ export default function Masterpiece() {
     })
   }, [])
 
+  var clearSearch = function(){
+    document.getElementById("search").value = ""
+    setMasterpieceSearch("")
+  }
+
   return (
     <div className="page-container">
-      <div className="page-sidebar">
-        <h4 className="page-sidebar-title spaced">
-          Search the Masterpiece Collection
-        </h4>
-        <div className="series-search-container">
-          <input
-            className="series-search"
-            onKeyUp={e => setMasterpieceSearch(e.target.value.toLowerCase())}
-            type="text"
-            name="series-search"
-            placeholder="Series Name"
-          />
-          <div className="series-search-button" />
-        </div>
+      <div className="page-sidebar list-page">
+        <span>
+          <h4 className="page-sidebar-title spaced">
+            Search the Masterpiece Collection
+          </h4>
+          <div className="series-search-container">
+            <input
+              id="search"
+              className="series-search"
+              onKeyUp={e => setMasterpieceSearch(e.target.value.toLowerCase().replace(/\s+/g, ''))}
+              type="text"
+              name="series-search"
+              placeholder="Search..."
+            />
+            <div className="search-clear-button" onClick={ e => clearSearch() } >X</div>
+            <div className="series-search-button" />
+          </div>
 
-        <h4 className="page-sidebar-title spaced">Jump To</h4>
-        <div className="masterpiece-season">{seasonLinks}</div>
+          <h4 className="page-sidebar-title spaced">Jump To Season</h4>
+          <div className="masterpiece-seasons">{seasonLinks}</div>
+        </span>
       </div>
 
       <div className="page-body-container">

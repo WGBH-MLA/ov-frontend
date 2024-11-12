@@ -146,7 +146,15 @@ export function renderSidebar(
 
   var sidebarSections = sections.map((section, index) => {
     // aapb data has title nested likea so
-    var title = section.type == 'heading' ? section.value : section.value.title
+    let title
+    if(section.type == "heading"){
+      title = section.value
+    } else if(section.type == "credits"){
+      title = "Credits"
+    } else {
+      title = section.value.title
+    }
+
     return renderSidebarSection(title, section.id, index)
   })
 
@@ -207,14 +215,14 @@ export function renderPageTitleBar(title, hero_image_url, subtitle = null) {
   if (subtitle) {
     subtitleContainer = <div className="page-titlebar-subtitle">{subtitle}</div>
   }
-
+//{title}
   return (
     <div
       className="page-titlebar"
       style={{ backgroundImage: `url(${hero_image_url})` }}
     >
       <h1 className="page-titlebar-title">
-        {title}
+        <div>{title}</div>
         {subtitleContainer}
       </h1>
     </div>
