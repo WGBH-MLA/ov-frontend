@@ -27,7 +27,7 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
     {
       name: 'description',
       content:
-        collection.meta.search_description || 'GBH Open Vault Collection',
+        collection.meta?.search_description || 'GBH Open Vault Collection',
     },
     ...extractMeta(data.server_url, collection),
   ]

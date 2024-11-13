@@ -6,18 +6,18 @@ export const extractMeta = (server_url: URL, article: Article) => [
   { property: 'og:title', content: article.title },
   {
     property: 'og:description',
-    content: article.meta.search_description || 'GBH Open Vault Exhibit',
+    content: article.meta?.search_description || 'GBH Open Vault Exhibit',
   },
-  { property: 'og:image', content: article.cover_image.url },
+  { property: 'og:image', content: article.cover_image?.url },
   { name: 'twitter:card', content: 'summary_large_image' },
   { property: 'twitter:domain', content: 'openvault.wgbh.org' },
   { property: 'twitter:url', content: server_url },
   { name: 'twitter:title', content: article.title },
   {
     name: 'twitter:description',
-    content: article.meta.search_description || 'GBH Open Vault Exhibit',
+    content: article.meta?.search_description || 'GBH Open Vault Exhibit',
   },
-  { name: 'twitter:image', content: article.cover_image.url },
+  { name: 'twitter:image', content: article.cover_image?.url },
 ]
 
 export const Meta = [
