@@ -54,10 +54,12 @@ export default function VisitUs() {
               <img src="https://s3.amazonaws.com/openvault.wgbh.org/logos/GBH_Archives_rgb_color.png" />
             </div>
             <div className="static-halfbox purple bold">
-              Please contact GBH Archives at archive_requests@wgbh.org and state
+              Please contact GBH Archives at <a style={{ textDecoration: "underline" }} href="mailto:archive_requests@wgbh.org">archive_requests@wgbh.org</a> and state
               the nature of your research interest and your academic or
               professional affiliation.
             </div>
+
+            <hr className="spaced-hr" />
 
             <h2>Guidelines</h2>
 

@@ -66,7 +66,6 @@ export class AAPBRecord extends Component<AAPBRecordProps> {
   async componentDidMount() {
     var hyphenGuid: Guid = normalizeGuid(this.props.guid)
     var record = await retrieveAapbRecord(hyphenGuid)
-
     let isWide = false
     if (record?.pbcoreDescriptionDocument?.pbcoreInstantiation) {
       let inst = record.pbcoreDescriptionDocument.pbcoreInstantiation
@@ -96,15 +95,17 @@ export class AAPBRecord extends Component<AAPBRecordProps> {
           }
         }
       }
-      this.setState({ guid: hyphenGuid, pbcore: record, wide: isWide })
     }
+  
+    this.setState({ guid: hyphenGuid, pbcore: record, wide: isWide, mediaType: this.mediaType(record) })
+
   }
 
   mediaType(pbcore: PBCore) {
     let inst: PBCoreInstantiation | PBCoreInstantiation[] =
       pbcore.pbcoreDescriptionDocument?.pbcoreInstantiation
     if (!inst) {
-      return
+      return false
     }
     if (!(inst instanceof Array)) {
       inst = [inst]
@@ -179,14 +180,17 @@ export class AAPBRecord extends Component<AAPBRecordProps> {
       if (this.props.showTitle) {
         titleBar = (
           <div className="shade-bar">
-            <div>{this.aapbTitle(this.state.pbcore)}</div>
+            <a href={`https://americanarchive.org/catalog/${this.state.guid}`}>
+              { this.aapbTitle(this.state.pbcore) }
+            </a>
           </div>
         )
       }
 
       let thumbnail
       if (this.props.showThumbnail) {
-        if (this.mediaType(this.state.pbcore) == 'Moving Image') {
+        let mt = this.state.mediaType
+        if (mt == "Moving Image") {
           // check here for digitized? if not show VIDEO THUMB
           var ci_pbi =
             this.state.pbcore.pbcoreDescriptionDocument.pbcoreIdentifier.find(
@@ -202,14 +206,26 @@ export class AAPBRecord extends Component<AAPBRecordProps> {
               backgroundImage: `url(/VIDEO_SMALL.png)`,
             }
           }
-        } else {
+        } else if(mt == "Sound") {
           // AUDIO THUMB
           thumbnail = {
             backgroundImage: `url(/AUDIO_SMALL.png)`,
           }
+        } else {
+          thumbnail = {
+            backgroundImage: `url(/other.jpg)`,
+          }
         }
       }
 
+      let playButton
+      if(this.state.mediaType){
+        playButton = (
+          <div className="blue-circle">
+            <div />
+          </div>
+        )
+      }
       if (this.state.showEmbed) {
         recordBlock = this.embed(
           this.state.guid,
@@ -218,6 +234,7 @@ export class AAPBRecord extends Component<AAPBRecordProps> {
           this.state.wide
         )
       } else {
+
         if (this.props.embedPlayer) {
           recordBlock = (
             <a
@@ -225,10 +242,8 @@ export class AAPBRecord extends Component<AAPBRecordProps> {
               className="content-aapbblock"
               onClick={() => this.setState({ showEmbed: true })}
             >
-              {titleBar}
-              <div className="blue-circle">
-                <div />
-              </div>
+              { titleBar }
+              { playButton }
             </a>
           )
         } else {
@@ -239,10 +254,8 @@ export class AAPBRecord extends Component<AAPBRecordProps> {
               className="content-aapbblock"
               href={this.aapbCatalogURL(this.state.guid)}
             >
-              {titleBar}
-              <div className="blue-circle">
-                <div />
-              </div>
+              { titleBar }
+              { playButton }
             </a>
           )
         }
@@ -266,17 +279,18 @@ export class AAPBRecords extends Component<AAPBRecordBlockProps> {
 
   async componentDidMount() {
     this.setState({ aapb_host: window.ENV.AAPB_HOST }, async () => {
+      var data
       if (this.props.specialCollections) {
         // fetch actual number of records from this special collection search
-        var data = await fetch(
-          // this endpoint takes a bare solr query within each filter option (q, fq, etc.), NOT BLACKLIGHT URL PARAMS
-          `${window.ENV.AAPB_HOST}/api.json?fq=special_collections:${this.props.specialCollections} AND access_types:online&sort=title+asc&rows=0`
+        data = await fetch(
+        // this endpoint takes a bare solr query within each filter option (q, fq, etc.), NOT BLACKLIGHT URL PARAMS
+        `${window.ENV.AAPB_HOST}/api.json?fq=special_collections:${this.props.specialCollections} AND access_types:online&sort=title+asc&rows=0`
         )
-          .then(response => response.json())
-          .catch(error => console.error(error))
-        if (data) {
-          this.setState({ numRecords: parseInt(data['response']['numFound']) })
-        }
+        .then(response => response.json())
+        .catch(error => console.error(error))
+      }
+      if (data) {
+        this.setState({ numRecords: parseInt(data['response']['numFound']) })
       }
     })
   }
@@ -301,11 +315,21 @@ export class AAPBRecords extends Component<AAPBRecordBlockProps> {
     if (this.props.specialCollections) {
       recordsSearchLink += `?f[special_collections][]=${this.props.specialCollections}&sort=title+asc&f[access_types][]=online`
     }
+    var msg
+    if(this.state.numRecords > 0){
+      if(this.state.numRecords == 1){
+        msg = `View on AAPB >`
+      } else {
+        msg = `View all ${this.state.numRecords} on AAPB >`
+      }
+    } else {
+      msg = `View more on AAPB >`
+    }
     return (
       <div className="aapb-records">
         {aapbRecords}
         <a className="aapb-records-seemore" href={recordsSearchLink}>
-          View all {this.state.numRecords} on AAPB &gt;
+          {msg}
         </a>
       </div>
     )

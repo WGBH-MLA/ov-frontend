@@ -1,3 +1,4 @@
+import { renderPageTitleBar } from '~/classes/pageHelpers'
 import { Meta } from '~/classes/meta'
 
 export const meta = () => {
@@ -14,9 +15,16 @@ export const meta = () => {
 }
 
 export default function FAQ() {
+    let titleBar = renderPageTitleBar(
+      'Frequently Asked Questions',
+      'https://s3.amazonaws.com/openvault.wgbh.org/carousel/Master_Control_multiple_dark_1978_1979.jpg'
+    )
+
   return (
     <div>
       <div className="page-container">
+        {titleBar}
+
         <div className="page-sidebar" />
 
         <div className="page-body-container">
