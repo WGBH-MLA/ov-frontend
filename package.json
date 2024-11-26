@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && vite build --ssr",
+    "build": "remix vite:build",
     "start": "remix-serve ./build/server/index.js"
   },
   "dependencies": {
