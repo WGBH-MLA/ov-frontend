@@ -201,6 +201,8 @@ a.series-alphabet-link {
 }
 
 ul {
+  margin-left: 1em;
+  padding-inline-start: 0;
   margin-block-start: 0;
 }
 
@@ -266,8 +268,9 @@ div.static-halfbox {
   vertical-align: middle;
   display: inline-block;
   width: 48%;
-  font-size: 1em;
+  font-size: 0.8em;
   margin-bottom: 1.2em;
+
 }
 
 a.big-blue-link {
@@ -927,8 +930,9 @@ div.med-heading {
 }
 
 div.med-textline {
-  font-size: 1.1em;
+  font-size: 1em;
   margin-bottom: 2em;
+  font-family: "Red Hat Text";
 }
 
 .blockquote-text {
@@ -1071,10 +1075,15 @@ a.content-aapbblock div.shade-bar {
   overflow: hidden;
 }
 
-a.content-aapbblock div.shade-bar div {
+a.content-aapbblock div.shade-bar a {
   /*  extra element here to pad without changing shade bar size */
   width: 100%;
   padding-left: 2vw;
+  color: #fff;
+}
+
+a.content-aapbblock div.shade-bar a:hover {
+  text-decoration: underline;
 }
 
 a.content-aapbblock div.blue-circle {

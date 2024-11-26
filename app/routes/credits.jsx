@@ -128,6 +128,15 @@ export default function Credits() {
                 <div className="black">Susan Levene, Content Producer</div>
               </div>
 
+              <div className="hidden">
+                <div className="purple bold spaced">GBH Archives</div>
+                <div className="black">Peter Higgins, Archives Manager</div>
+                <div className="black">Erica Titkemeyer, Archives Systems and Technology Manager</div>
+                <div className="black">Andrew Meyers, Senior Software Developer</div>
+                <div className="black">Henry Neels, Senior Software Developer</div>
+                <div className="black">Ryan Harbert, Software Developer</div>
+              </div>
+
               <div>
                 <div className="purple bold spaced">GBH Legal</div>
                 <div className="black">Nike Okediji</div>
