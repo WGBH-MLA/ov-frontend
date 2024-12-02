@@ -22,6 +22,7 @@ export function handleAapbRecordGroup(aapbRecordGroup, key) {
       endTime={aapbRecordGroup.value.end_time}
       showThumbnail={showThumbnail}
       showTitle={showTitle}
+      accessLevel={aapbRecordGroup.value.access_level}
       embedPlayer={true}
       specialCollections={
         aapbRecordGroup.value.special_collections
@@ -278,13 +279,18 @@ export class AAPBRecords extends Component<AAPBRecordBlockProps> {
   }
 
   async componentDidMount() {
+    var accessLevel = "online"
+    if(this.props.accessLevel){
+      accessLevel = this.props.accessLevel
+    }
+    
     this.setState({ aapb_host: window.ENV.AAPB_HOST }, async () => {
       var data
       if (this.props.specialCollections) {
         // fetch actual number of records from this special collection search
         data = await fetch(
         // this endpoint takes a bare solr query within each filter option (q, fq, etc.), NOT BLACKLIGHT URL PARAMS
-        `${window.ENV.AAPB_HOST}/api.json?fq=special_collections:${this.props.specialCollections} AND access_types:online&sort=title+asc&rows=0`
+        `${window.ENV.AAPB_HOST}/api.json?fq=special_collections:${this.props.specialCollections} AND access_types:${accessLevel}&sort=title+asc&rows=0`
         )
         .then(response => response.json())
         .catch(error => console.error(error))
@@ -313,7 +319,7 @@ export class AAPBRecords extends Component<AAPBRecordBlockProps> {
 
     var recordsSearchLink = `${this.state.aapb_host}/catalog`
     if (this.props.specialCollections) {
-      recordsSearchLink += `?f[special_collections][]=${this.props.specialCollections}&sort=title+asc&f[access_types][]=online`
+      recordsSearchLink += `?f[special_collections][]=${this.props.specialCollections}&sort=title+asc&f[access_types][]=${accessLevel}`
     }
     var msg
     if(this.state.numRecords > 0){
@@ -328,7 +334,7 @@ export class AAPBRecords extends Component<AAPBRecordBlockProps> {
     return (
       <div className="aapb-records">
         {aapbRecords}
-        <a className="aapb-records-seemore" href={recordsSearchLink}>
+        <a target="_blank" className="aapb-records-seemore" href={recordsSearchLink}>
           {msg}
         </a>
       </div>
