@@ -32,6 +32,8 @@ export default function Terms() {
             <p>
               THE FOLLOWING TERMS AND CONDITIONS GOVERN YOUR USE OF THE SITE.
               PLEASE READ THESE TERMS OF USE CAREFULLY BEFORE USING THIS SITE.
+            </p>
+            <p>
               By using the Site, you agree to be bound by these Terms of Use and
               the Privacy Policy. If you do not agree to these Terms of Use and
               the Privacy Policy, please exit the Site and do not use the Site

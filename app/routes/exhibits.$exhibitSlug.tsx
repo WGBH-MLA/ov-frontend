@@ -30,7 +30,7 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
     {
       name: 'description',
       content:
-        exhibit.meta.search_description ||
+        exhibit.meta?.search_description ||
         'Scholar Exhibit from GBH Open Vault',
     },
     ...extractMeta(data.server_url, exhibit),
