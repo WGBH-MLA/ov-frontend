@@ -12,23 +12,21 @@ export const stateToRoute = (uiState: UiState) => {
   console.log('stateToRoute', uiState)
   let wagtail = uiState['wagtail__wagtailcore_page']
   return {
-    q: uiState['']?.query,
-    p: uiState['wagtail__wagtailcore_page']?.page,
-    types: uiState['wagtail__wagtailcore_page']?.refinementList?.content_type,
-    featured: uiState['wagtail__wagtailcore_page']?.toggle?.featured,
+    q: wagtail.query,
+    p: wagtail.page,
+    types: wagtail.refinementList?.content_type,
+    featured: wagtail.toggle?.featured,
   }
 }
 
 export const routeToState = (routeState: RouteState) => {
   console.log('routeToState', routeState)
   return {
-    '': {
-      query: routeState.q,
-    },
     wagtail__wagtailcore_page: {
+      query: routeState.q,
       page: routeState.p,
       refinementList: { content_type: routeState.types },
-      toggle: { featured: routeState.featured ? true : undefined},
+      toggle: { featured: routeState.featured ? true : undefined },
     },
   }
 }

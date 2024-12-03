@@ -1,12 +1,12 @@
 /* Help page for search */
-import { SearchLink } from '~/classes/search-utils'
+import { SearchLink } from '~/components/Suggestions'
 export default () => (
   <>
     <p>
       Open Vault is a search engine for the GBH Media Library and Archives. You
       can search for exhibits, collections, and series from GBH. You can also
       search for records on{' '}
-      <a href="https://americanarchive.org/" target="_blank">
+      <a href='https://americanarchive.org/' target='_blank'>
         AmericanArchive.org
       </a>
     </p>
@@ -23,7 +23,7 @@ export default () => (
       <li>
         <strong>American Archive</strong> - Search records from over 200 media
         organizations hosted by the{' '}
-        <a href="https://americanarchive.org/" target="_blank">
+        <a href='https://americanarchive.org/' target='_blank'>
           American Archive of Public Broadcasting
         </a>
       </li>
