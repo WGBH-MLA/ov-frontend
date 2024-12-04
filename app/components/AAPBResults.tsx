@@ -13,14 +13,14 @@ export const AAPBResults = ({ aapb_host }) => {
   const [result_count, setResults] = useState(null)
 
   const fetchResults = useCallback(
-    debounce(currentQuery => {
+    debounce((currentQuery) => {
       console.log('fetching AAPB results for', currentQuery)
       fetch(
         `${aapb_host}/api.json?q=${encodeURIComponent(currentQuery)}&rows=0`
       )
-        .then(response => response.json())
-        .then(data => setResults(data.response.numFound))
-        .catch(error => console.error(error))
+        .then((response) => response.json())
+        .then((data) => setResults(data.response.numFound))
+        .catch((error) => console.error(error))
     }, 200),
     []
   )
@@ -35,10 +35,9 @@ export const AAPBResults = ({ aapb_host }) => {
   return (
     <a
       href={`${aapb_host}/catalog?q=${indexUiState.query}${gbh_query}`}
-      target="_blank"
-    >
-      <span className="ais-RefinementList-count">
-        {result_count || <Spinner />}
+      target='_blank'>
+      <span className='ais-RefinementList-count'>
+        {result_count === null ? <Spinner /> : result_count}
       </span>
       matching records on AmericanArchive.org for "{indexUiState.query}"
     </a>
