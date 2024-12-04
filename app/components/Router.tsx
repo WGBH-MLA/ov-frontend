@@ -8,7 +8,7 @@ type RouteState = {
   featured?: boolean
 }
 
-export const stateToRoute = (uiState: UiState) => {
+export const stateToRoute = (uiState: UiState): RouteState => {
   console.log('stateToRoute', uiState)
   let wagtail = uiState['wagtail__wagtailcore_page']
   return {
@@ -19,7 +19,7 @@ export const stateToRoute = (uiState: UiState) => {
   }
 }
 
-export const routeToState = (routeState: RouteState) => {
+export const routeToState = (routeState: RouteState): UiState => {
   console.log('routeToState', routeState)
   return {
     wagtail__wagtailcore_page: {
