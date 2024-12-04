@@ -10,12 +10,12 @@ import {
   Pagination,
   HitsPerPage,
 } from 'react-instantsearch'
-import { Error, NoResultsBoundary, LoadingIndicator } from './search-utils'
+import { Error } from '~/components/Error'
 import { EmptyQueryBoundary, EmptyQueryMessage } from '~/components/EmptyQuery'
 import { ScrollTo } from '~/components/ScrollTo'
 import { Hit } from '~/components/Hit'
 import { Carousel } from '~/components/Carousel'
-import { NoResults } from '~/components/NoResults'
+import { NoResultsBoundary, NoResultsMessage } from '~/components/NoResults'
 import { AAPBResults } from '~/components/AAPBResults'
 import { Refinements } from '~/components/Refinements'
 import Help from '~/components/Help'
@@ -59,9 +59,6 @@ export const Search = () => {
       future={{
         preserveSharedStateOnUnmount: true,
       }}>
-      <EmptyQueryBoundary fallback={<EmptyQueryMessage />}>
-        {null}
-      </EmptyQueryBoundary>
       <Tabs value={activeTab} onChange={handleTabChange}>
         <Tab label='Open Vault' />
         <Tab label='GBH Series' />
@@ -91,10 +88,12 @@ export const Search = () => {
       </ScrollTo>
 
       <Error />
-
+      <EmptyQueryBoundary fallback={<EmptyQueryMessage />}>
+        {null}
+      </EmptyQueryBoundary>
       {activeTab === 0 && (
         <Index indexName='wagtail__wagtailcore_page'>
-          <NoResultsBoundary fallback={<NoResults />}>
+          <NoResultsBoundary fallback={<NoResultsMessage />}>
             <Refinements />
             <Hits hitComponent={Hit} />
             <Pagination />
@@ -112,7 +111,7 @@ export const Search = () => {
       )}
       {activeTab === 1 && (
         <Index indexName='gbh-series'>
-          <NoResultsBoundary fallback={null}>
+          <NoResultsBoundary fallback={<NoResultsMessage />}>
             <h3>GBH Series results</h3>
             <Carousel aapb_host={aapb_host} />
           </NoResultsBoundary>
