@@ -2,13 +2,13 @@ import React, { useState } from 'react'
 import Client from '@searchkit/instantsearch-client'
 import Searchkit from 'searchkit'
 import searchkit_options from '~/data/searchkit.json'
-import { InstantSearch, SearchBox } from 'react-instantsearch'
+import { InstantSearch, SearchBox, Index } from 'react-instantsearch'
 import { Error } from '~/components/Error'
 import { EmptyQueryBoundary, EmptyQueryMessage } from '~/components/EmptyQuery'
 import { ScrollTo } from '~/components/ScrollTo'
-import { OVResults } from '~/components/Hit'
+import { OVResults } from '~/components/OVResults'
+import { ResultsCount } from '~/components/Results'
 import { SeriesResults } from '~/components/Series'
-import { NoResultsBoundary, NoResultsMessage } from '~/components/NoResults'
 import { AAPBResults } from '~/components/AAPBResults'
 import Help from '~/components/Help'
 import { SearchProps } from '~/routes/search'
@@ -53,8 +53,22 @@ export const Search = () => {
       }}>
       <ScrollTo>
         <Tabs value={activeTab} onChange={handleTabChange}>
-          <Tab label='Open Vault' />
-          <Tab label='GBH Series' />
+          <Tab
+            label={
+              <span>
+                Open Vault <ResultsCount />
+              </span>
+            }
+          />
+          <Tab
+            label={
+              <span>
+                <Index indexName='gbh-series'>
+                  GBH Series <ResultsCount />
+                </Index>
+              </span>
+            }
+          />
           <Tab label='American Archive' />
           <Tab label='Help' />
         </Tabs>
@@ -81,9 +95,11 @@ export const Search = () => {
       />
 
       <Error />
-      <EmptyQueryBoundary fallback={<EmptyQueryMessage />}>
-        {null}
-      </EmptyQueryBoundary>
+      {activeTab !== 3 && (
+        <EmptyQueryBoundary fallback={<EmptyQueryMessage />}>
+          {null}
+        </EmptyQueryBoundary>
+      )}
       {activeTab === 0 && <OVResults />}
       {activeTab === 1 && <SeriesResults aapb_host={aapb_host} />}
       {activeTab === 2 && <AAPBResults aapb_host={aapb_host} />}

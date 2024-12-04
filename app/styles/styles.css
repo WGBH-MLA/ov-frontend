@@ -71,27 +71,33 @@ h1,
 h2 {
   font-family: 'Red Hat Display', sans-serif;
   color: var(--purple);
-  font-weight: 500;
 }
 
 h1 {
   font-size: 3rem;
+  font-weight: normal;
+
 }
 
 h2 {
   font-size: 2rem;
-  line-height: 3rem;
+  font-weight: 600;
+
 }
 
 h3 {
   color: var(--purple);
-  font-size: 2rem;
+  font-size: 1.7rem;
+  font-weight: 500;
 }
 
 h4 {
   color: var(--black);
   font-size: 1rem;
   font-weight: bold;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+
 }
 
 input {

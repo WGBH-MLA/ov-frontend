@@ -1,6 +1,7 @@
 import type { Hit as AlgoliaHit } from 'instantsearch.js'
 import { Highlight, Hits, Index } from 'react-instantsearch'
 import { NoResultsBoundary, NoResultsMessage } from './NoResults'
+import { ResultsCount } from '~/components/Results'
 
 type SeriesHitProps = {
   hit: AlgoliaHit<{

@@ -10,7 +10,7 @@ export default () => (
         AmericanArchive.org
       </a>
     </p>
-    <h1>Search tabs</h1>
+    <h2>Search tabs</h2>
     <p>The search results are divided into tabs:</p>
     <ul>
       <li>
@@ -28,16 +28,16 @@ export default () => (
         </a>
       </li>
     </ul>
-    <h1>Advanced search</h1>
+    <h2>Advanced search</h2>
     <p>You can use advanced search operators to refine your search query.</p>
-    <h3>Phrases " "</h3>
+    <h3>"Exact Phrases"</h3>
     If you want to search for an exact phrase, you can use double quotes.
     <ul>
       <li>{SearchLink('"Julia Child"')}</li>
       <li>{SearchLink('"Louis Lyons"')}</li>
       <li>{SearchLink('"Civil War"')}</li>
     </ul>
-    <h3>Similarity ~</h3>
+    <h3>Similarity~</h3>
     Including a tilde <code>~</code> after a word (without a number) will match
     similar words.
     <ul>
@@ -74,7 +74,7 @@ export default () => (
         <em>war in Vietnam</em>
       </li>
     </ul>
-    <h3>Wildcard *</h3>
+    <h3>Wildcards*</h3>
     You can use an asterisk <code>*</code> to search for records that contain a
     term with a wildcard.
     <ul>
