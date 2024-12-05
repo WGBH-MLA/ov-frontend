@@ -27,10 +27,10 @@ export const loader: LoaderFunction = async ({ request }) => {
   const serverUrl = request.url
   const aapb_host = process.env.AAPB_HOST
 
-  return json({
+  return {
     serverUrl,
     aapb_host,
-  })
+  }
 }
 
 function FallbackComponent({ attribute }: { attribute: string }) {

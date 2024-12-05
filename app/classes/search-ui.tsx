@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Client from '@searchkit/instantsearch-client'
 import Searchkit from 'searchkit'
-import searchkit_options from '~/data/searchkit.json'
+import searchkit_options from '~/data/searchkit'
 import { InstantSearch, SearchBox, Index } from 'react-instantsearch'
 import { Error } from '~/components/Error'
 import { EmptyQueryBoundary, EmptyQueryMessage } from '~/components/EmptyQuery'

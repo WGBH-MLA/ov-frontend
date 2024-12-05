@@ -6,6 +6,7 @@ import {
   Index,
   Pagination,
   HitsPerPage,
+  SortBy,
 } from 'react-instantsearch'
 import { NoResultsBoundary, NoResultsMessage } from './NoResults'
 import { Refinements } from '~/components/Refinements'
@@ -52,6 +53,30 @@ export const OVResults = () => (
   <Index indexName='wagtail__wagtailcore_page'>
     <NoResultsBoundary fallback={<NoResultsMessage />}>
       <Refinements />
+      <SortBy
+        items={[
+          {
+            value: 'wagtail__wagtailcore_page',
+            label: 'Relevance',
+          },
+          {
+            value: 'wagtail__wagtailcore_page_last_published_date_desc',
+            label: 'Newest',
+          },
+          {
+            value: 'wagtail__wagtailcore_page_last_published_date_asc',
+            label: 'Oldest',
+          },
+          {
+            value: 'wagtail__wagtailcore_page_title_asc',
+            label: 'A-Z',
+          },
+          {
+            value: 'wagtail__wagtailcore_page_title_desc',
+            label: 'Z-A',
+          },
+        ]}
+      />
       <Hits hitComponent={OVPageHit} />
       <Pagination />
       Results per page

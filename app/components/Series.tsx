@@ -1,5 +1,5 @@
 import type { Hit as AlgoliaHit } from 'instantsearch.js'
-import { Highlight, Hits, Index } from 'react-instantsearch'
+import { Highlight, Hits, Index, SortBy } from 'react-instantsearch'
 import { NoResultsBoundary, NoResultsMessage } from './NoResults'
 import { ResultsCount } from '~/components/Results'
 
@@ -27,6 +27,22 @@ export const SeriesResults = ({ aapb_host }) => {
     <Index indexName='gbh-series'>
       <NoResultsBoundary fallback={<NoResultsMessage />}>
         <h3>GBH Series results</h3>
+        <SortBy
+          items={[
+            {
+              value: 'gbh-series',
+              label: 'Relevance',
+            },
+            {
+              value: 'gbh-series_series_title_asc',
+              label: 'A-Z',
+            },
+            {
+              value: 'gbh-series_series_title_desc',
+              label: 'Z-A',
+            },
+          ]}
+        />
         <Hits
           hitComponent={SeriesHit}
           classNames={{
