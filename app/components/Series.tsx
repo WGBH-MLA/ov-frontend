@@ -1,5 +1,5 @@
 import type { Hit as AlgoliaHit } from 'instantsearch.js'
-import { Highlight, Hits, Index, SortBy } from 'react-instantsearch'
+import { Highlight, Hits, Index, SortBy, Pagination } from 'react-instantsearch'
 import { NoResultsBoundary, NoResultsMessage } from './NoResults'
 import { ResultsCount } from '~/components/Results'
 
@@ -34,11 +34,11 @@ export const SeriesResults = ({ aapb_host }) => {
               label: 'Relevance',
             },
             {
-              value: 'gbh-series_series_title_asc',
+              value: 'gbh-series_seriestitle_asc',
               label: 'A-Z',
             },
             {
-              value: 'gbh-series_series_title_desc',
+              value: 'gbh-series_seriestitle_desc',
               label: 'Z-A',
             },
           ]}
@@ -50,6 +50,7 @@ export const SeriesResults = ({ aapb_host }) => {
             item: 'series-carousel-item',
           }}
         />
+        <Pagination />
       </NoResultsBoundary>
     </Index>
   )

@@ -6,6 +6,7 @@ type RouteState = {
   p?: number
   types?: string[]
   featured?: boolean
+  sort?: string
 }
 
 export const stateToRoute = (uiState: UiState): RouteState => {
@@ -16,6 +17,7 @@ export const stateToRoute = (uiState: UiState): RouteState => {
     p: wagtail.page,
     types: wagtail.refinementList?.content_type,
     featured: wagtail.toggle?.featured,
+    sort: wagtail.sortBy,
   }
 }
 
@@ -27,6 +29,7 @@ export const routeToState = (routeState: RouteState): UiState => {
       page: routeState.p,
       refinementList: { content_type: routeState.types },
       toggle: { featured: routeState.featured ? true : undefined },
+      sortBy: routeState.sort,
     },
   }
 }

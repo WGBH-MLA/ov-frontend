@@ -54,6 +54,14 @@ export default {
         field: 'title_filter',
         order: 'desc',
       },
+      _seriestitle_asc: {
+        field: 'title.keyword',
+        order: 'asc',
+      },
+      _seriestitle_desc: {
+        field: 'title.keyword',
+        order: 'desc',
+      },
     },
   },
 }
