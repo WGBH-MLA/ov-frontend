@@ -1,5 +1,12 @@
 import type { Hit as AlgoliaHit } from 'instantsearch.js'
-import { Highlight, Hits, Index, SortBy, Pagination } from 'react-instantsearch'
+import {
+  Highlight,
+  Hits,
+  Index,
+  SortBy,
+  HitsPerPage,
+} from 'react-instantsearch'
+import Pagination from './Pagination'
 import { NoResultsBoundary, NoResultsMessage } from './NoResults'
 import { ResultsCount } from '~/components/Results'
 
@@ -26,23 +33,34 @@ export const SeriesResults = ({ aapb_host }) => {
   return (
     <Index indexName='gbh-series'>
       <NoResultsBoundary fallback={<NoResultsMessage />}>
-        <h3>GBH Series results</h3>
-        <SortBy
-          items={[
-            {
-              value: 'gbh-series',
-              label: 'Relevance',
-            },
-            {
-              value: 'gbh-series_seriestitle_asc',
-              label: 'A-Z',
-            },
-            {
-              value: 'gbh-series_seriestitle_desc',
-              label: 'Z-A',
-            },
-          ]}
-        />
+        Found {<ResultsCount />} GBH Series
+        <div className='search-pagination'>
+          <SortBy
+            items={[
+              {
+                label: 'Relevance',
+                value: 'gbh-series',
+              },
+              {
+                label: 'A-Z',
+                value: 'gbh-series_seriestitle_asc',
+              },
+              {
+                label: 'Z-A',
+                value: 'gbh-series_seriestitle_desc',
+              },
+            ]}
+          />
+          <HitsPerPage
+            items={[
+              { value: 5, label: '5' },
+              { value: 10, label: '10', default: true },
+              { value: 20, label: '20' },
+              { value: 50, label: '50' },
+            ]}
+          />
+        </div>
+        <Pagination />
         <Hits
           hitComponent={SeriesHit}
           classNames={{

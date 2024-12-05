@@ -1,6 +1,5 @@
 import { RefinementList, InstantSearchServerState } from 'react-instantsearch'
 import type { LoaderFunction, MetaFunction } from '@remix-run/node'
-import { json } from '@remix-run/node'
 import { useLoaderData, useRouteError } from '@remix-run/react'
 import { Panel } from '~/components/Panel'
 import { Search } from '~/classes/search-ui'

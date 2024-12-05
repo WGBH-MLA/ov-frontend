@@ -33,13 +33,16 @@ export const AAPBResults = ({ aapb_host }) => {
   }, [fetchResults, indexUiState])
 
   return (
-    <a
-      href={`${aapb_host}/catalog?q=${indexUiState.query}${gbh_query}`}
-      target='_blank'>
-      <span className='ais-RefinementList-count'>
-        {result_count === null ? <Spinner /> : result_count}
-      </span>
-      matching records on AmericanArchive.org for "{indexUiState.query}"
-    </a>
+    indexUiState.query && (
+      <a
+        href={`${aapb_host}/catalog?q=${indexUiState.query}${gbh_query}`}
+        target='_blank'>
+        Found{' '}
+        <span className='ais-RefinementList-count'>
+          {result_count === null ? <Spinner /> : result_count}
+        </span>{' '}
+        matching records on AmericanArchive.org for "{indexUiState.query}"
+      </a>
+    )
   )
 }

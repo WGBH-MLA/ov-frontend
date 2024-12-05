@@ -70,6 +70,9 @@ div.ais-SearchBox.search-box {
   min-width: 20rem;
   max-width: 40rem;
 }
+.search-pagination {
+  /* display: inline-flex; */
+}
 
 li.ais-Hits-item {
   min-width: 20rem;

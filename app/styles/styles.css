@@ -1450,7 +1450,7 @@ div.guids-block-title p {
   div.bottom-bar-container {
     display: block;
     height: inherit;
-    min-height: 70vh;
+    max-height: 50vh;
   }
 
   div.bottom-bar-row,
@@ -1458,11 +1458,11 @@ div.guids-block-title p {
   a.bottom-bar-link,
   div.bottom-bar-logos,
   div.bottom-bar-doublecolumn {
-    font-size: 4vw;
+    font-size: .9rem;
     margin: 0;
     text-align: center;
-    display: block;
-    width: 100%;
+    /* display: block; */
+    width: auto;
   }
 
   div.bottom-bar-logos img {

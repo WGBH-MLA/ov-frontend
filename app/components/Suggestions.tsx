@@ -3,6 +3,7 @@ import shuffle from '~/utils/shuffle'
 
 export const default_suggestions = [
   'Julia Child',
+  'Joyce Chen',
   'Louis Lyons',
   'Boston',
   'Arthur',
