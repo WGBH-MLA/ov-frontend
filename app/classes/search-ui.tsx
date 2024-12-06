@@ -11,7 +11,7 @@ import { ResultsCount } from '~/components/Results'
 import { SeriesResults } from '~/components/Series'
 import { AAPBResults } from '~/components/AAPBResults'
 import Help from '~/components/Help'
-import { SearchProps } from '~/routes/search.$tab'
+import { SearchProps, TABS } from '~/routes/search.$'
 import { Router, stateToRoute, routeToState } from '~/components/Router'
 import { Tabs, Tab } from '@mui/material'
 import {
@@ -24,7 +24,6 @@ import {
 import { useLoaderData } from '@remix-run/react'
 
 const INDICES = ['wagtail__wagtailcore_page', 'gbh-series']
-const TABS = ['ov', 'gbh', 'aapb', 'help']
 
 const sk = new Searchkit(searchkit_options)
 
@@ -48,20 +47,16 @@ export const Search = () => {
   const tab = useMatches()[1].params.tab
   const navigate = useNavigate()
 
-  const tab_index = TABS.indexOf(tab)
-  console.log('search tab', tab, tab_index)
-  if (tab_index < 0) {
-    console.error('invalid tab', tab)
-    return null
-  }
-
-  const [activeTab, setActiveTab] = useState(tab_index)
+  const [activeTab, setActiveTab] = useState(0)
   const stateRef = useRef()
   stateRef.current = activeTab
   let timerId: NodeJS.Timeout
   let timeout: number = 250
   const handleTabChange = (event: React.ChangeEvent<{}>, newValue: number) => {
-    navigate({ pathname: `/search/${TABS[newValue]}` })
+    navigate({
+      pathname: `/search/${TABS[newValue]}`,
+      search: searchParams.toString(),
+    })
     setActiveTab(newValue)
   }
   return (
@@ -129,7 +124,7 @@ export const Search = () => {
       {activeTab === 0 && <OVResults />}
       {activeTab === 1 && <SeriesResults aapb_host={aapb_host} />}
       {activeTab === 2 && <AAPBResults aapb_host={aapb_host} />}
-      {activeTab === 3 && <Help />}
+      {activeTab === 3 && <Help setActiveTab={setActiveTab} />}
     </InstantSearch>
   )
 }

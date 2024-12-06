@@ -1,5 +1,5 @@
 import { RefinementList, InstantSearchServerState } from 'react-instantsearch'
-import { redirect } from '@remix-run/node'
+import { replace } from '@remix-run/node'
 import type { LoaderFunction, MetaFunction } from '@remix-run/node'
 import { useLoaderData, useRouteError } from '@remix-run/react'
 import { Panel } from '~/components/Panel'
@@ -7,7 +7,9 @@ import { Search } from '~/classes/search-ui'
 import 'instantsearch.css/themes/algolia-min.css'
 import '~/styles/search.css'
 import { Meta } from '~/classes/meta'
-import { red } from '@mui/material/colors'
+
+export const TABS = ['', 'gbh', 'aapb', 'help']
+
 export const meta: MetaFunction = ({ location }) => {
   const query = new URLSearchParams(location.search).get('q')
   return [
@@ -27,10 +29,20 @@ export const loader: LoaderFunction = async ({ request, params }) => {
   const serverUrl = request.url
   const aapb_host = process.env.AAPB_HOST
 
-  if (!['ov', 'gbh', 'aapb', 'help'].includes(params.tab)) {
-    console.error('invalid tab', params.tab)
-    throw redirect('/search/ov')
+  // Get the rest of the path and query parameters
+  const url = new URL(request.url)
+  const route = url.pathname.split('/')[2]
+  const query = url.searchParams
+  if (!['', 'gbh', 'aapb', 'help'].includes(route)) {
+    console.error('invalid route', route)
+    throw replace(`/search/${url.searchParams.toString()}`)
   }
+  console.log('search loader', route, query)
+
+  // if (!['ov', 'gbh', 'aapb', 'help'].includes(params.tab)) {
+  //   console.error('invalid tab', params.tab)
+  //   throw redirect('/search/ov')
+  // }
 
   return {
     serverUrl,

@@ -1,6 +1,5 @@
 import { history } from 'instantsearch.js/cjs/lib/routers/index.js'
 import type { UiState } from 'instantsearch.js'
-import { act } from 'react'
 
 type RouteState = {
   q?: string
@@ -46,6 +45,8 @@ export const Router = (serverUrl: URL) =>
 
     // createURL,
     // parseURL,
+
+    cleanUrlOnDispose: false,
   })
 
 // Add the dictionaries to convert the names and the slugs
