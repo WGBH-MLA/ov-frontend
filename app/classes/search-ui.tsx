@@ -1,88 +1,129 @@
+import React, { useState, useRef } from 'react'
 import Client from '@searchkit/instantsearch-client'
 import Searchkit from 'searchkit'
-import searchkit_options from '~/data/searchkit.json'
-import {
-  InstantSearch,
-  SearchBox,
-  Hits,
-  Index,
-  Pagination,
-  HitsPerPage,
-} from 'react-instantsearch'
-import {
-  Error,
-  EmptyQueryBoundary,
-  NoResultsBoundary,
-  LoadingIndicator,
-  EmptyQueryMessage,
-} from './search-utils'
+import searchkit_options from '~/data/searchkit'
+import { InstantSearch, SearchBox, Index } from 'react-instantsearch'
+import { Error } from '~/components/Error'
+import { EmptyQueryBoundary, EmptyQueryMessage } from '~/components/EmptyQuery'
 import { ScrollTo } from '~/components/ScrollTo'
-import { Hit } from '~/components/Hit'
-import { Carousel } from '~/components/Carousel'
-import { NoResults } from '~/components/NoResults'
+import { OVResults } from '~/components/OVResults'
+import { ResultsCount } from '~/components/Results'
+import { SeriesResults } from '~/components/Series'
 import { AAPBResults } from '~/components/AAPBResults'
-import { Refinements } from '~/components/Refinements'
-import { SearchProps } from '~/routes/search'
+import Help from '~/components/Help'
+import { SearchProps, TABS } from '~/routes/search.$'
 import { Router, stateToRoute, routeToState } from '~/components/Router'
+import { Tabs, Tab } from '@mui/material'
+import {
+  useRouteLoaderData,
+  useMatches,
+  useNavigate,
+  useSearchParams,
+  useResolvedPath,
+  useLoaderData,
+} from '@remix-run/react'
+
+const INDICES = ['wagtail__wagtailcore_page', 'gbh-series']
 
 const sk = new Searchkit(searchkit_options)
 
-export const searchClient = Client(sk)
+export const searchClient = Client(sk, {
+  getQuery: (query, search_attributes) => {
+    console.log('search query', query, search_attributes)
+    return [
+      {
+        simple_query_string: {
+          query,
+        },
+      },
+    ]
+  },
+})
 
-export const Search = ({ serverUrl, aapb_host }: SearchProps) => {
+export const Search = () => {
+  const { serverUrl, aapb_host, initial_tab }: SearchProps = useLoaderData()
+
+  const [searchParams, setSearchParams] = useSearchParams()
+  const navigate = useNavigate()
+
+  const [activeTab, setActiveTab] = useState(initial_tab)
+  const stateRef = useRef()
+  stateRef.current = activeTab
   let timerId: NodeJS.Timeout
-  let timeout: number = 350
-
+  let timeout: number = 250
+  const handleTabChange = (event: React.ChangeEvent<{}>, newValue: number) => {
+    navigate({
+      pathname: `/search/${TABS[newValue]}`,
+      search: searchParams.toString(),
+    })
+    setActiveTab(newValue)
+  }
   return (
     <InstantSearch
       searchClient={searchClient}
       routing={{
         router: Router(serverUrl),
-        stateMapping: { stateToRoute, routeToState },
+        stateMapping: {
+          stateToRoute,
+          routeToState,
+        },
       }}
-      insights={false}
-    >
-      <ScrollTo className="max-w-6xl p-4 flex gap-4 m-auto">
-        <SearchBox
-          queryHook={(query, refine) => {
-            // console.log('searchbox', query)
-            // debounce the search input box
-            clearTimeout(timerId)
-            timerId = setTimeout(() => refine(query), timeout)
-          }}
-          className="search-box"
-        />
-        <Error />
-        <div className="search-results">
-          <EmptyQueryBoundary fallback={<EmptyQueryMessage />}>
-            <AAPBResults aapb_host={aapb_host} />
-            <LoadingIndicator />
-            <Index indexName="wagtail__wagtailcore_page">
-              <NoResultsBoundary fallback={<NoResults />}>
-                <h2>Open Vault results</h2>
-                <Refinements />
-                <Hits hitComponent={Hit} />
-                <Pagination />
-                Results per page
-                <HitsPerPage
-                  items={[
-                    { value: 5, label: '5' },
-                    { value: 10, label: '10', default: true },
-                    { value: 20, label: '20' },
-                    { value: 50, label: '50' },
-                  ]}
-                />
-              </NoResultsBoundary>
-            </Index>
-            <Index indexName="gbh-series">
-              <NoResultsBoundary fallback={null}>
-                <h3>GBH Series results</h3>
-                <Carousel aapb_host={aapb_host} />
-              </NoResultsBoundary>
-            </Index>
-          </EmptyQueryBoundary>
-        </div>
+      indexName='wagtail__wagtailcore_page'
+      future={{
+        preserveSharedStateOnUnmount: true,
+      }}>
+      <ScrollTo>
+        <Tabs value={activeTab} onChange={handleTabChange}>
+          <Tab
+            label={
+              <span>
+                Open Vault <ResultsCount />
+              </span>
+            }
+          />
+          <Tab
+            label={
+              <span>
+                <Index indexName='gbh-series'>
+                  GBH Series <ResultsCount />
+                </Index>
+              </span>
+            }
+          />
+          <Tab label='American Archive' />
+          <Tab label='Help' />
+        </Tabs>
       </ScrollTo>
+      <SearchBox
+        autoFocus
+        placeholder={
+          activeTab === 0
+            ? 'Search GBH Open Vault'
+            : activeTab === 1
+            ? 'Search GBH Series'
+            : activeTab === 2
+            ? 'Search American Archive'
+            : ''
+        }
+        queryHook={(query, search) => {
+          // console.log('searchbox', search)
+          // debounce the search input box
+
+          clearTimeout(timerId)
+          timerId = setTimeout(() => search(query), timeout)
+        }}
+      />
+
+      <Error />
+      {activeTab !== 3 && (
+        <EmptyQueryBoundary fallback={<EmptyQueryMessage />}>
+          {null}
+        </EmptyQueryBoundary>
+      )}
+      {activeTab === 0 && <OVResults />}
+      {activeTab === 1 && <SeriesResults aapb_host={aapb_host} />}
+      {activeTab === 2 && <AAPBResults aapb_host={aapb_host} />}
+      {activeTab === 3 && <Help setActiveTab={setActiveTab} />}
     </InstantSearch>
   )
 }
