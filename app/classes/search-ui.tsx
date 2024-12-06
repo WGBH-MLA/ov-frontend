@@ -19,9 +19,9 @@ import {
   useMatches,
   useNavigate,
   useSearchParams,
+  useResolvedPath,
+  useLoaderData,
 } from '@remix-run/react'
-
-import { useLoaderData } from '@remix-run/react'
 
 const INDICES = ['wagtail__wagtailcore_page', 'gbh-series']
 
@@ -41,13 +41,12 @@ export const searchClient = Client(sk, {
 })
 
 export const Search = () => {
-  const { serverUrl, aapb_host }: SearchProps = useLoaderData()
-  // const tab = useRouteLoaderData('routes/search.$tab')
+  const { serverUrl, aapb_host, initial_tab }: SearchProps = useLoaderData()
+
   const [searchParams, setSearchParams] = useSearchParams()
-  const tab = useMatches()[1].params.tab
   const navigate = useNavigate()
 
-  const [activeTab, setActiveTab] = useState(0)
+  const [activeTab, setActiveTab] = useState(initial_tab)
   const stateRef = useRef()
   stateRef.current = activeTab
   let timerId: NodeJS.Timeout

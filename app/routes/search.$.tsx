@@ -33,20 +33,17 @@ export const loader: LoaderFunction = async ({ request, params }) => {
   const url = new URL(request.url)
   const route = url.pathname.split('/')[2]
   const query = url.searchParams
-  if (!['', 'gbh', 'aapb', 'help'].includes(route)) {
+
+  if (!TABS.includes(route)) {
     console.error('invalid route', route)
     throw replace(`/search/${url.searchParams.toString()}`)
   }
-  console.log('search loader', route, query)
-
-  // if (!['ov', 'gbh', 'aapb', 'help'].includes(params.tab)) {
-  //   console.error('invalid tab', params.tab)
-  //   throw redirect('/search/ov')
-  // }
+  const initial_tab = TABS.indexOf(route)
 
   return {
     serverUrl,
     aapb_host,
+    initial_tab,
   }
 }
 
@@ -61,6 +58,7 @@ function FallbackComponent({ attribute }: { attribute: string }) {
 export type SearchProps = {
   serverUrl?: string
   aapb_host?: string
+  initial_tab?: number
 }
 
 export default function SearchPage() {

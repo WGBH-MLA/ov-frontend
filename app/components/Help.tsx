@@ -1,22 +1,15 @@
 /* Help page for search */
-import { useNavigate, useSearchParams, useResolvedPath } from '@remix-run/react'
+import { useResolvedPath } from '@remix-run/react'
 import { useSearchBox } from 'react-instantsearch'
 
 export default ({ setActiveTab }) => {
   const { refine } = useSearchBox()
-  const navigate = useNavigate()
-  const [searchParams] = useSearchParams()
   const path = useResolvedPath('/search/')
   console.log('path', path)
 
   const HelpLink = (query: string) => (
     <div
-      onClick={(event) => {
-        // navigate(`/search/?${searchParams.toString()}`)
-        // navigate({
-        //   pathname: '/search/',
-        //   search: searchParams.toString(),
-        // })
+      onClick={() => {
         setActiveTab(0)
         refine(query)
       }}>
