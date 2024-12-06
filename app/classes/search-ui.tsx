@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import Client from '@searchkit/instantsearch-client'
 import Searchkit from 'searchkit'
 import searchkit_options from '~/data/searchkit'
@@ -11,11 +11,20 @@ import { ResultsCount } from '~/components/Results'
 import { SeriesResults } from '~/components/Series'
 import { AAPBResults } from '~/components/AAPBResults'
 import Help from '~/components/Help'
-import { SearchProps } from '~/routes/search'
+import { SearchProps } from '~/routes/search.$tab'
 import { Router, stateToRoute, routeToState } from '~/components/Router'
 import { Tabs, Tab } from '@mui/material'
+import {
+  useRouteLoaderData,
+  useMatches,
+  useNavigate,
+  useSearchParams,
+} from '@remix-run/react'
 
 import { useLoaderData } from '@remix-run/react'
+
+const INDICES = ['wagtail__wagtailcore_page', 'gbh-series']
+const TABS = ['ov', 'gbh', 'aapb', 'help']
 
 const sk = new Searchkit(searchkit_options)
 
@@ -34,10 +43,25 @@ export const searchClient = Client(sk, {
 
 export const Search = () => {
   const { serverUrl, aapb_host }: SearchProps = useLoaderData()
-  const [activeTab, setActiveTab] = useState(0)
+  // const tab = useRouteLoaderData('routes/search.$tab')
+  const [searchParams, setSearchParams] = useSearchParams()
+  const tab = useMatches()[1].params.tab
+  const navigate = useNavigate()
+
+  const tab_index = TABS.indexOf(tab)
+  console.log('search tab', tab, tab_index)
+  if (tab_index < 0) {
+    console.error('invalid tab', tab)
+    return null
+  }
+
+  const [activeTab, setActiveTab] = useState(tab_index)
+  const stateRef = useRef()
+  stateRef.current = activeTab
   let timerId: NodeJS.Timeout
   let timeout: number = 250
   const handleTabChange = (event: React.ChangeEvent<{}>, newValue: number) => {
+    navigate({ pathname: `/search/${TABS[newValue]}` })
     setActiveTab(newValue)
   }
   return (
@@ -45,7 +69,10 @@ export const Search = () => {
       searchClient={searchClient}
       routing={{
         router: Router(serverUrl),
-        stateMapping: { stateToRoute, routeToState },
+        stateMapping: {
+          stateToRoute,
+          routeToState,
+        },
       }}
       indexName='wagtail__wagtailcore_page'
       future={{
@@ -73,7 +100,6 @@ export const Search = () => {
           <Tab label='Help' />
         </Tabs>
       </ScrollTo>
-
       <SearchBox
         autoFocus
         placeholder={

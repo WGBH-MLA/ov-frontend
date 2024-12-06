@@ -1,4 +1,5 @@
 import { RefinementList, InstantSearchServerState } from 'react-instantsearch'
+import { redirect } from '@remix-run/node'
 import type { LoaderFunction, MetaFunction } from '@remix-run/node'
 import { useLoaderData, useRouteError } from '@remix-run/react'
 import { Panel } from '~/components/Panel'
@@ -6,7 +7,7 @@ import { Search } from '~/classes/search-ui'
 import 'instantsearch.css/themes/algolia-min.css'
 import '~/styles/search.css'
 import { Meta } from '~/classes/meta'
-
+import { red } from '@mui/material/colors'
 export const meta: MetaFunction = ({ location }) => {
   const query = new URLSearchParams(location.search).get('q')
   return [
@@ -22,9 +23,14 @@ export const meta: MetaFunction = ({ location }) => {
   ]
 }
 
-export const loader: LoaderFunction = async ({ request }) => {
+export const loader: LoaderFunction = async ({ request, params }) => {
   const serverUrl = request.url
   const aapb_host = process.env.AAPB_HOST
+
+  if (!['ov', 'gbh', 'aapb', 'help'].includes(params.tab)) {
+    console.error('invalid tab', params.tab)
+    throw redirect('/search/ov')
+  }
 
   return {
     serverUrl,
