@@ -34,7 +34,7 @@ export const SeriesResults = ({ aapb_host }) => {
     <Index indexName='gbh-series'>
       <NoResultsBoundary fallback={<NoResultsMessage />}>
         Found {<ResultsCount />} GBH Series
-        <div className='search-pagination'>
+        <div className='search-result-header'>
           <SortBy
             items={[
               {
@@ -51,6 +51,7 @@ export const SeriesResults = ({ aapb_host }) => {
               },
             ]}
           />
+          <Pagination />
           <HitsPerPage
             items={[
               { value: 5, label: '5' },
@@ -60,7 +61,6 @@ export const SeriesResults = ({ aapb_host }) => {
             ]}
           />
         </div>
-        <Pagination />
         <Hits
           hitComponent={SeriesHit}
           classNames={{

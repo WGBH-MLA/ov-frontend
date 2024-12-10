@@ -1,13 +1,18 @@
 /* Help page for search */
+import { useNavigate } from '@remix-run/react'
 import { useSearchBox } from 'react-instantsearch'
 
 export const Help = () => {
   const { refine } = useSearchBox()
+  const navigate = useNavigate()
 
   const HelpLink = (query: string) => (
     <div
       onClick={() => {
-        // setActiveTab(0)
+        navigate({
+          pathname: '/search',
+          hash: undefined,
+        })
         refine(query)
       }}>
       {query}

@@ -1,4 +1,3 @@
-import React, { useState, useRef } from 'react'
 import Client from '@searchkit/instantsearch-client'
 import Searchkit from 'searchkit'
 import searchkit_options from '~/data/searchkit'

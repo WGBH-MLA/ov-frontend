@@ -4,6 +4,7 @@ import { NoResultsBoundary, NoResultsMessage } from './NoResults'
 import { Refinements } from '~/components/Refinements'
 import { ResultsCount } from '~/components/Results'
 import Pagination, { PerPage } from '~/components/Pagination'
+import { Panel } from './Panel'
 
 type OVHitProps = {
   hit: Hit<{
@@ -47,8 +48,8 @@ export const OVResults = () => (
   <Index indexName='wagtail__wagtailcore_page'>
     <NoResultsBoundary fallback={<NoResultsMessage />}>
       <Refinements />
-      Found {<ResultsCount />} Open Vault results
-      <div className='search-pagination'>
+      <>Found {<ResultsCount />} Open Vault results</>
+      <div className='search-result-header'>
         <SortBy
           items={[
             {
@@ -73,9 +74,10 @@ export const OVResults = () => (
             },
           ]}
         />
+        <Pagination />
+
         <PerPage />
       </div>
-      <Pagination />
       <Hits hitComponent={OVPageHit} />
       <Pagination />
     </NoResultsBoundary>

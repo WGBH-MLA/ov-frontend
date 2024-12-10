@@ -4,7 +4,7 @@ h1 {
 }
 
 h4 {
-  color : var(--dark-purple);
+  color: var(--dark-purple);
   font-size: 1.5rem;
 }
 
@@ -70,8 +70,10 @@ div.ais-SearchBox.search-box {
   min-width: 20rem;
   max-width: 40rem;
 }
-.search-pagination {
-  /* display: inline-flex; */
+.search-result-header {
+  display: inline-flex;
+  width: 100%;
+  place-content: space-between;
 }
 
 li.ais-Hits-item {
@@ -81,7 +83,6 @@ li.ais-Hits-item {
   overflow: hidden;
   line-height: 1.5rem;
 }
-
 
 div.refinements {
   margin-top: 1rem;
@@ -94,7 +95,7 @@ div.refinements {
 
 .series-carousel .ais-Hits-item {
   border: 2px solid var(--light-purple);
-  padding: .5rem;
+  padding: 0.5rem;
   min-width: 14rem;
 }
 
@@ -103,7 +104,6 @@ div.refinements {
 } */
 
 @media only screen and (max-width: 600px) and (orientation: portrait) {
-
   div.page-body-container {
     margin: 1.5rem;
     font-size: 1.2rem;
