@@ -8,7 +8,7 @@ import 'instantsearch.css/themes/algolia-min.css'
 import '~/styles/search.css'
 import { Meta } from '~/classes/meta'
 
-export const TABS = ['', 'gbh', 'aapb', 'help']
+export const TABS = ['', '#gbh', '#aapb', '#help']
 
 export const meta: MetaFunction = ({ location }) => {
   const query = new URLSearchParams(location.search).get('q')
@@ -29,21 +29,9 @@ export const loader: LoaderFunction = async ({ request, params }) => {
   const serverUrl = request.url
   const aapb_host = process.env.AAPB_HOST
 
-  // Get the rest of the path and query parameters
-  const url = new URL(request.url)
-  const route = url.pathname.split('/')[2]
-  const query = url.searchParams
-
-  if (!TABS.includes(route)) {
-    console.error('invalid route', route)
-    throw replace(`/search/${url.searchParams.toString()}`)
-  }
-  const initial_tab = TABS.indexOf(route)
-
   return {
     serverUrl,
     aapb_host,
-    initial_tab,
   }
 }
 
@@ -58,7 +46,6 @@ function FallbackComponent({ attribute }: { attribute: string }) {
 export type SearchProps = {
   serverUrl?: string
   aapb_host?: string
-  initial_tab?: number
 }
 
 export default function SearchPage() {

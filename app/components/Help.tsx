@@ -1,16 +1,13 @@
 /* Help page for search */
-import { useResolvedPath } from '@remix-run/react'
 import { useSearchBox } from 'react-instantsearch'
 
-export default ({ setActiveTab }) => {
+export const Help = () => {
   const { refine } = useSearchBox()
-  const path = useResolvedPath('/search/')
-  console.log('path', path)
 
   const HelpLink = (query: string) => (
     <div
       onClick={() => {
-        setActiveTab(0)
+        // setActiveTab(0)
         refine(query)
       }}>
       {query}
