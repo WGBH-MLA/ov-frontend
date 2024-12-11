@@ -99,6 +99,13 @@ div.refinements {
   min-width: 14rem;
 }
 
+.ais-Hits-item.aapb-hit pre {
+  text-wrap: auto;
+  overflow: hidden;
+  max-height: 20vh;
+  
+}
+
 /* div.page-body-container {
  line-height: 2rem;;
 } */
