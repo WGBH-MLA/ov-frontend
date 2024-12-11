@@ -16,6 +16,8 @@ export default {
       'slug',
       'exhibits_exhibitpage__body_edgengrams',
       'ov_collections_collection__introduction_edgengrams',
+      'exhibits_exhibitpage__get_hero_thumb_url',
+      'ov_collections_collection__get_hero_thumb_url',
     ],
     highlight_attributes: ['title'],
     snippet_attributes: [
