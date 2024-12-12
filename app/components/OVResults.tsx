@@ -12,7 +12,7 @@ type OVHitProps = {
     title: string
     slug: string
     exhibits_exhibitpage__get_hero_thumb_url?: string
-    exhibits_exhibitpage__body_edgengrams?: string
+    ov_collections_collection__get_hero_thumb_url?: string
   }>
 }
 
@@ -37,6 +37,7 @@ export const OVPageHit = ({ hit }: OVHitProps) => {
       <div className={`tag ${type}`}>{label}</div>
       <Highlight attribute='title' hit={hit} />
       <img src={hit.exhibits_exhibitpage__get_hero_thumb_url} />
+      <img src={hit.ov_collections_collection__get_hero_thumb_url} />
       <Snippet attribute='exhibits_exhibitpage__body_edgengrams' hit={hit} />
       <Snippet
         attribute='ov_collections_collection__introduction_edgengrams'
