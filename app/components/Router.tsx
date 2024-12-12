@@ -50,8 +50,30 @@ export const Router = (serverUrl: URL) =>
       return window.location
     },
 
-    // createURL,
-    // parseURL,
+    windowTitle(routeState) {
+      const hash = window.location.hash
+      // console.log('windowTitle', routeState, hash)
+      let title
+      switch (hash) {
+        case '#gbh':
+          title = 'Search GBH Series'
+          break
+        case '#aapb':
+          title = 'Search American Archive'
+          break
+        case '#help':
+          title = 'Search Help'
+          break
+        default:
+          title = 'Search Open Vault'
+      }
+
+      if (!routeState.q) {
+        return title
+      }
+
+      return `${routeState.q} | ${title}`
+    },
 
     cleanUrlOnDispose: false,
   })

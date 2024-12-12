@@ -30,7 +30,7 @@ export function Tabs({ children }) {
   )
   const tabsRefs = useRef<HTMLElement[]>([])
   const navigate = useNavigate()
-  console.log('initialTab', initialTab)
+  // console.log('initialTab', initialTab)
 
   useEffect(() => {
     if (!firstRender.current && tabsRefs.current) {
@@ -43,7 +43,7 @@ export function Tabs({ children }) {
   }, [])
 
   useEffect(() => {
-    console.log('location.hash', location.hash)
+    // console.log('location.hash', location.hash)
     const index = TABS.indexOf(location.hash)
     if (index !== currentTab) {
       setCurrentTab(index === -1 ? 0 : index)
@@ -61,7 +61,7 @@ export function Tabs({ children }) {
   }
 
   const handleTabChange = (index) => {
-    console.log('handleTabChange', index, location)
+    // console.log('handleTabChange', index, location)
     setCurrentTab(index)
     navigate(`${window.location.search}${TABS[index]}`)
   }
