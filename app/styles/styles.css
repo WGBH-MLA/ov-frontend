@@ -1021,7 +1021,7 @@ a.aapb-records-seemore {
   font-size: clamp(12px, 2rem, 16px);
 }
 
-a.content-aapbblock {
+div.content-aapbblock {
   background-size: contain;
   background-position: center;
   margin-right: 1vw;
@@ -1037,7 +1037,7 @@ a.content-aapbblock {
   overflow: hidden;
 }
 
-a.content-aapbblock.wide {
+div.content-aapbblock.wide {
   height: 15.1875vw;
   max-height: 15.1875vw;
   min-height: 15.1875vw;
@@ -1060,7 +1060,7 @@ iframe.aapb-record-video.wide {
   width: 27vw;
 }
 
-a.content-aapbblock div.shade-bar {
+div.content-aapbblock div.shade-bar {
   vertical-align: middle;
   font-size: 1vw;
   text-align: left;
@@ -1075,18 +1075,18 @@ a.content-aapbblock div.shade-bar {
   overflow: hidden;
 }
 
-a.content-aapbblock div.shade-bar a {
+div.content-aapbblock div.shade-bar a {
   /*  extra element here to pad without changing shade bar size */
   width: 100%;
   padding-left: 2vw;
   color: #fff;
 }
 
-a.content-aapbblock div.shade-bar a:hover {
+div.content-aapbblock div.shade-bar a:hover {
   text-decoration: underline;
 }
 
-a.content-aapbblock div.blue-circle {
+div.content-aapbblock div.blue-circle {
   bottom: 1vw;
   right: 1vw;
   position: absolute;
@@ -1101,7 +1101,7 @@ a.content-aapbblock div.blue-circle {
   font-size: 3vw;
 }
 
-a.content-aapbblock div.blue-circle div {
+div.content-aapbblock div.blue-circle div {
   /* white triangle */
   bottom: -1vw;
   right: -1.32vw;
