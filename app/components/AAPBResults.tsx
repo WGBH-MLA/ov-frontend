@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react'
 import { useInstantSearch } from 'react-instantsearch'
-
+import { ExternalLink } from 'lucide-react'
 import debounce from 'lodash/debounce'
 import { Spinner } from './Spinner'
 
@@ -62,11 +62,12 @@ export const AAPBResults = ({ aapb_host }) => {
       <a
         href={`${aapb_host}/catalog?q=${indexUiState.query}${gbh_query}`}
         target='_blank'>
-        See{' '}
+        View{' '}
         <span className='ais-RefinementList-count'>
           {result_count === null ? <Spinner /> : result_count}
         </span>{' '}
-        more matching records on AmericanArchive.org for "{indexUiState.query}"
+        more results on AmericanArchive.org"
+        <ExternalLink />
       </a>
     </>
   )
@@ -77,7 +78,9 @@ export const AAPBHit = ({ hit, aapb_host }: AAPBHitProps) => {
     <div className='ais-Hits-item aapb-hit'>
       <a href={`${aapb_host}/catalog/${hit.id}`}>
         <div className='tag'>AAPB</div>
-        <h3>{hit.title}</h3>
+        <h3>
+          {hit.title} <ExternalLink />
+        </h3>
         <pre>{hit.xml}</pre>
       </a>
     </div>
