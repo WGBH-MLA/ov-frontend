@@ -36,8 +36,14 @@ export const OVPageHit = ({ hit }: OVHitProps) => {
     <a href={route}>
       <div className={`tag ${type}`}>{label}</div>
       <Highlight attribute='title' hit={hit} />
-      <img src={hit.exhibits_exhibitpage__get_hero_thumb_url} />
-      <img src={hit.ov_collections_collection__get_hero_thumb_url} />
+      <img
+        className='search-hit-thumb'
+        src={hit.exhibits_exhibitpage__get_hero_thumb_url}
+      />
+      <img
+        className='search-hit-thumb'
+        src={hit.ov_collections_collection__get_hero_thumb_url}
+      />
       <Snippet attribute='exhibits_exhibitpage__body_edgengrams' hit={hit} />
       <Snippet
         attribute='ov_collections_collection__introduction_edgengrams'

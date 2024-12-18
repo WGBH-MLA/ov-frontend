@@ -79,7 +79,7 @@ div.ais-SearchBox.search-box {
 li.ais-Hits-item {
   min-width: 20rem;
   max-width: 25%;
-  max-height: 20rem;
+  max-height: 25rem;
   overflow: hidden;
   line-height: 1.5rem;
 }
@@ -89,9 +89,6 @@ div.refinements {
   margin-left: 1rem;
 }
 
-/* .series-carousel.ais-Hits-list {
-  
-} */
 
 .series-carousel .ais-Hits-item {
   border: 2px solid var(--light-purple);
@@ -106,10 +103,10 @@ div.refinements {
   
 }
 
-/* div.page-body-container {
- line-height: 2rem;;
-} */
+.search-hit-thumb {
+  width: 100%;
 
+}
 @media only screen and (max-width: 600px) and (orientation: portrait) {
   div.page-body-container {
     margin: 1.5rem;
