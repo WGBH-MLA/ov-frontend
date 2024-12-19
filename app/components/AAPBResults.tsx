@@ -3,6 +3,8 @@ import { useInstantSearch } from 'react-instantsearch'
 import { ExternalLink } from 'lucide-react'
 import debounce from 'lodash/debounce'
 import { Spinner } from './Spinner'
+import { pbcore2json } from '~/utils/pbcore'
+import type { PBCore } from '~/types/pbcore'
 
 const gbh_query =
   '+AND+(contributing_organizations:%20WGBH(MA)%20OR%20producing_organizations:%20WGBH%20Educational%20Foundation)&f[access_types][]=online'
@@ -74,6 +76,9 @@ export const AAPBResults = ({ aapb_host }) => {
 }
 
 export const AAPBHit = ({ hit, aapb_host }: AAPBHitProps) => {
+  let pb = pbcore2json(hit.xml)
+
+  console.log('hit pbcore', pb)
   return (
     <div className='ais-Hits-item aapb-hit'>
       <a href={`${aapb_host}/catalog/${hit.id}`}>
@@ -81,8 +86,49 @@ export const AAPBHit = ({ hit, aapb_host }: AAPBHitProps) => {
         <h3>
           {hit.title} <ExternalLink />
         </h3>
-        <pre>{hit.xml}</pre>
+        {/* <pre>{hit.xml}</pre> */}
+        {/* {pb && <h4>{pb.pbcoreTitle.toString()}</h4>} */}
+        <PBCoreDescriptionHighlight pbcore={pb} />
       </a>
+    </div>
+  )
+}
+
+type PB = {
+  pbcore: PBCore
+}
+
+export const PBCoreDescriptionHighlight = ({ pbcore }: PB) => {
+  let description = pbcore?.pbcoreDescriptionDocument?.pbcoreDescription
+  console.log('pbcoredescription', description)
+
+  if (!description) {
+    return null
+  }
+
+  switch (typeof description) {
+    case 'string':
+      description = description.toString()
+      break
+    case 'object':
+      if (Array.isArray(description)) {
+        description = description.map((d) => d.text).join(', ')
+      } else {
+        description = Object.values(description).join(', ')
+      }
+      break
+  }
+
+  // Truncate the description to 200 characters
+
+  if (description.length > 200) {
+    description = description.slice(0, 200) + '...'
+  }
+
+  console.log('description', description)
+  return (
+    <div className='pbcore-description-highlight'>
+      <p>{description}</p>
     </div>
   )
 }
