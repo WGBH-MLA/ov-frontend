@@ -13,8 +13,8 @@ export class OpenCarousel extends Component {
     let slides
     if (this.props.slides && this.props.slides.length > 0) {
       slides = this.props.slides.map((slide, i) => {
-
-        let pageType = slide.meta.type == "exhibits.ExhibitPage" ? "collections" : "exhibits"
+        let pageType =
+          slide.meta.type == 'exhibits.ExhibitPage' ? 'exhibits' : 'collections'
         return (
           <Slide
             key={i}
@@ -38,8 +38,7 @@ export class OpenCarousel extends Component {
         interval={4000}
         stopOnHover={true}
         infiniteLoop={true}
-        transitionTime={1500}
-      >
+        transitionTime={1500}>
         {slides}
       </Carousel>
     )
@@ -48,10 +47,10 @@ export class OpenCarousel extends Component {
 
 function Slide(props) {
   return (
-    <a className="carousel-slide" href={props.url}>
+    <a className='carousel-slide' href={props.url}>
       <div>
         <img src={props.image_url} />
-        <p className="legend">{props.title}</p>
+        <p className='legend'>{props.title}</p>
       </div>
     </a>
   )

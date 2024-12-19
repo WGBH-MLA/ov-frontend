@@ -1,12 +1,14 @@
 import { RefinementList, InstantSearchServerState } from 'react-instantsearch'
+import { replace } from '@remix-run/node'
 import type { LoaderFunction, MetaFunction } from '@remix-run/node'
-import { json } from '@remix-run/node'
 import { useLoaderData, useRouteError } from '@remix-run/react'
 import { Panel } from '~/components/Panel'
 import { Search } from '~/classes/search-ui'
 import 'instantsearch.css/themes/algolia-min.css'
 import '~/styles/search.css'
 import { Meta } from '~/classes/meta'
+
+export const TABS = ['', '#gbh', '#aapb', '#help']
 
 export const meta: MetaFunction = ({ location }) => {
   const query = new URLSearchParams(location.search).get('q')
@@ -23,14 +25,14 @@ export const meta: MetaFunction = ({ location }) => {
   ]
 }
 
-export const loader: LoaderFunction = async ({ request }) => {
+export const loader: LoaderFunction = async ({ request, params }) => {
   const serverUrl = request.url
   const aapb_host = process.env.AAPB_HOST
 
-  return json({
+  return {
     serverUrl,
     aapb_host,
-  })
+  }
 }
 
 function FallbackComponent({ attribute }: { attribute: string }) {
@@ -48,7 +50,14 @@ export type SearchProps = {
 
 export default function SearchPage() {
   const { serverUrl, aapb_host }: SearchProps = useLoaderData()
-  return <Search serverUrl={serverUrl} aapb_host={aapb_host} />
+  return (
+    <>
+      <div className='page-body-container'>
+        <h1>Search Open Vault</h1>
+        <Search serverUrl={serverUrl} aapb_host={aapb_host} />
+      </div>
+    </>
+  )
 }
 
 export function ErrorBoundary() {
