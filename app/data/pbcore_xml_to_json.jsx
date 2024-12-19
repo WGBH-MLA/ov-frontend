@@ -10,18 +10,10 @@ export default String.raw`<?xml version="1.0" encoding="UTF-8"?>
 
 	<xsl:template name="escape-characters">
 		<xsl:param name="text" />
-		<!-- Replace backslashes -->
-		<xsl:variable name="escapedBackslashes">
-			<xsl:call-template name="replace">
-				<xsl:with-param name="text" select="$text" />
-				<xsl:with-param name="search" select="'\\'" />
-				<xsl:with-param name="replace" select="'\\\\'" />
-			</xsl:call-template>
-		</xsl:variable>
 		<!-- Replace quotes -->
 		<xsl:variable name="escapedQuotes">
 			<xsl:call-template name="replace">
-				<xsl:with-param name="text" select="$escapedBackslashes" />
+				<xsl:with-param name="text" select="$text" />
 				<xsl:with-param name="search" select="'&quot;'" />
 				<xsl:with-param name="replace" select="'\&quot;'" />
 			</xsl:call-template>

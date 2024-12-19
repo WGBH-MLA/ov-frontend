@@ -84,11 +84,10 @@ export const AAPBHit = ({ hit, aapb_host }: AAPBHitProps) => {
       <a href={`${aapb_host}/catalog/${hit.id}`}>
         <div className='tag'>AAPB</div>
         <h3>
-          {hit.title} <ExternalLink />
+          {highlightHighlight(hit.title)} <ExternalLink />
         </h3>
         {/* <pre>{hit.xml}</pre> */}
-        {/* {pb && <h4>{pb.pbcoreTitle.toString()}</h4>} */}
-        <PBCoreDescriptionHighlight pbcore={pb} />
+        <PBCoreDescriptionSnippet pbcore={pb} />
       </a>
     </div>
   )
@@ -98,7 +97,8 @@ type PB = {
   pbcore: PBCore
 }
 
-export const PBCoreDescriptionHighlight = ({ pbcore }: PB) => {
+export const PBCoreDescriptionSnippet = ({ pbcore }: PB) => {
+  const { indexUiState } = useInstantSearch()
   let description = pbcore?.pbcoreDescriptionDocument?.pbcoreDescription
   console.log('pbcoredescription', description)
 
@@ -128,7 +128,70 @@ export const PBCoreDescriptionHighlight = ({ pbcore }: PB) => {
   console.log('description', description)
   return (
     <div className='pbcore-description-highlight'>
-      <p>{description}</p>
+      <p>{highlightSnippet(description)}</p>
     </div>
   )
 }
+
+export const highlightHighlight = (text: string) => {
+  const { indexUiState } = useInstantSearch()
+  let { query } = indexUiState
+
+  if (!query) {
+    return text
+  }
+
+  // remove all special characters from the query,
+  // so they don't match in the regex
+  query = removeSpecialChars(query)
+
+  const parts = text.split(new RegExp(`(${query})`, 'gi'))
+
+  return (
+    <span className='ais-Highlight'>
+      {parts.map((part, i) =>
+        part.toLowerCase() === query.toLowerCase() ? (
+          <mark className='ais-Highlight-highlighted' key={i}>
+            {part}
+          </mark>
+        ) : (
+          <span className='ais-Highlight-nonHighlighted' key={i}>
+            {part}
+          </span>
+        )
+      )}
+    </span>
+  )
+}
+
+export const highlightSnippet = (text: string) => {
+  const { indexUiState } = useInstantSearch()
+  let { query } = indexUiState
+
+  if (!query) {
+    return text
+  }
+
+  query = removeSpecialChars(query)
+
+  const parts = text.split(new RegExp(`(${query})`, 'gi'))
+
+  return (
+    <span className='ais-Snippet'>
+      {parts.map((part, i) =>
+        part.toLowerCase() === query.toLowerCase() ? (
+          <mark className='ais-Snippet-highlighted' key={i}>
+            {part}
+          </mark>
+        ) : (
+          <span className='ais-Snippet-nonHighlighted' key={i}>
+            {part}
+          </span>
+        )
+      )}
+    </span>
+  )
+}
+
+export const removeSpecialChars = (text: string) =>
+  text.replace(/[.*+?^${}()|[\]\\"']/g, '')
