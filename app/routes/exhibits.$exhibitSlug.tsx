@@ -24,17 +24,19 @@ export const loader: LoaderFunction = async ({
 }
 
 export const meta: MetaFunction<typeof loader> = ({ data }) => {
-  let exhibit = data.exhibit
-  return [
-    { title: `${exhibit.title} | GBH Open Vault` },
-    {
-      name: 'description',
-      content:
-        exhibit.meta?.search_description ||
-        'Scholar Exhibit from GBH Open Vault',
-    },
-    ...extractMeta(data.server_url, exhibit),
-  ]
+  let exhibit = data?.exhibit
+  if(exhibit){
+    return [
+      { title: `${exhibit.title} | GBH Open Vault` },
+      {
+        name: 'description',
+        content:
+          exhibit.meta?.search_description ||
+          'Scholar Exhibit from GBH Open Vault',
+      },
+      ...extractMeta(data.server_url, exhibit),
+    ]  
+  }
 }
 
 export default function Exhibit() {

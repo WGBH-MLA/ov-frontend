@@ -82,7 +82,7 @@ export default function Masterpiece() {
         <a
           key={groupIndex}
           className="masterpiece-link"
-          href={`${data.AAPB_HOST}/catalog?f[special_collections][]=${normalizedMiniseriesTitle}&f[access_types][]=all`}
+          href={`${data.AAPB_HOST}/catalog?sort=episode_number_sort+asc&f[special_collections][]=${normalizedMiniseriesTitle}&f[access_types][]=all`}
           target="_blank"
         >
           { seasonGroup[normalizedMiniseriesTitle].nice_title }
