@@ -1,3 +1,22 @@
+h1 {
+  margin-top: 0rem;
+  margin-bottom: 1rem;
+}
+
+h4 {
+  color: var(--dark-purple);
+  font-size: 1.5rem;
+}
+
+a {
+  color: var(--blue);
+}
+
+p {
+  margin-top: 0.5rem;
+  margin-bottom: 0rem;
+}
+
 .tag {
   position: relative;
   border-radius: 6px;
@@ -8,6 +27,7 @@
   font-size: 0.9rem;
   color: var(--white);
   transition: clip-path 500ms;
+  margin-bottom: 1rem;
 }
 
 .exhibit-tag {
@@ -46,12 +66,22 @@ input.ais-SearchBox-input {
   font-size: 2rem;
   font-family: 'Red Hat Text';
 }
+div.ais-SearchBox.search-box {
+  min-width: 20rem;
+  max-width: 40rem;
+}
+.search-result-header {
+  display: inline-flex;
+  width: 100%;
+  place-content: space-between;
+}
 
 li.ais-Hits-item {
   min-width: 20rem;
   max-width: 25%;
-  max-height: 20rem;
+  max-height: 25rem;
   overflow: hidden;
+  line-height: 1.5rem;
 }
 
 div.refinements {
@@ -59,17 +89,31 @@ div.refinements {
   margin-left: 1rem;
 }
 
-div.search-results {
-  margin: 1rem;
-}
-
-.series-carousel.ais-Hits-list {
-  overflow: auto;
-  flex-wrap: nowrap;
-}
 
 .series-carousel .ais-Hits-item {
   border: 2px solid var(--light-purple);
-  padding: .5rem;
+  padding: 0.5rem;
   min-width: 14rem;
+}
+
+.ais-Hits-item.aapb-hit pre {
+  text-wrap: auto;
+  overflow: hidden;
+  max-height: 20vh;
+  
+}
+
+.search-hit-thumb {
+  width: 100%;
+
+}
+@media only screen and (max-width: 600px) and (orientation: portrait) {
+  div.page-body-container {
+    margin: 1.5rem;
+    font-size: 1.2rem;
+  }
+
+  input.ais-SearchBox-input {
+    width: 90%;
+  }
 }
