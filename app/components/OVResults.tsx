@@ -1,10 +1,14 @@
 import type { Hit } from 'instantsearch.js'
 import { Highlight, Snippet, Hits, Index, SortBy } from 'react-instantsearch'
-import { NoResultsBoundary, NoResultsMessage } from './NoResults'
-import { Refinements } from '~/components/Refinements'
-import { ResultsCount } from '~/components/Results'
-import Pagination, { PerPage } from '~/components/Pagination'
-import { Panel } from './Panel'
+
+import {
+  NoResultsBoundary,
+  NoResultsMessage,
+  Refinements,
+  Pagination,
+  PerPage,
+  ResultsCount,
+} from '~/components'
 
 type OVHitProps = {
   hit: Hit<{

@@ -1,8 +1,9 @@
 import { useState, useEffect, useCallback } from 'react'
 import { useInstantSearch } from 'react-instantsearch'
-import { ExternalLink } from 'lucide-react'
 import debounce from 'lodash/debounce'
-import { Spinner } from './Spinner'
+import { ExternalLink } from 'lucide-react'
+
+import { Spinner } from '~/components'
 import { pbcore2json } from '~/utils/pbcore'
 import type { PBCore } from '~/types/pbcore'
 

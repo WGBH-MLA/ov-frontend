@@ -6,9 +6,13 @@ import {
   SortBy,
   HitsPerPage,
 } from 'react-instantsearch'
-import Pagination from './Pagination'
-import { NoResultsBoundary, NoResultsMessage } from './NoResults'
-import { ResultsCount } from '~/components/Results'
+
+import {
+  NoResultsBoundary,
+  NoResultsMessage,
+  ResultsCount,
+  Pagination,
+} from '~/components'
 
 type SeriesHitProps = {
   hit: AlgoliaHit<{

@@ -1,8 +1,6 @@
-import { RefinementList, InstantSearchServerState } from 'react-instantsearch'
-import { replace } from '@remix-run/node'
 import type { LoaderFunction, MetaFunction } from '@remix-run/node'
 import { useLoaderData, useRouteError } from '@remix-run/react'
-import { Panel } from '~/components/Panel'
+
 import { Search } from '~/classes/search-ui'
 import 'instantsearch.css/themes/algolia-min.css'
 import '~/styles/search.css'
@@ -33,14 +31,6 @@ export const loader: LoaderFunction = async ({ request, params }) => {
     serverUrl,
     aapb_host,
   }
-}
-
-function FallbackComponent({ attribute }: { attribute: string }) {
-  return (
-    <Panel header={attribute}>
-      <RefinementList attribute={attribute} />
-    </Panel>
-  )
 }
 
 export type SearchProps = {

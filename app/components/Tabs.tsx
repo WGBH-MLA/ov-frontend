@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useNavigate, useLocation } from '@remix-run/react'
-import '~/styles/tabs.css'
 import { TABS } from '~/routes/search'
+import '~/styles/tabs.css'
 
 export function cx(
   ...classNames: Array<string | number | boolean | undefined | null>

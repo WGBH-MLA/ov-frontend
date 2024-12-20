@@ -1,8 +1,12 @@
-import { Pagination, HitsPerPage } from 'react-instantsearch'
+import {
+  Pagination as InstantSearchPagination,
+  HitsPerPage,
+} from 'react-instantsearch'
+
 import type { Hit } from 'instantsearch.js'
 
-export default () => (
-  <Pagination
+export const Pagination = () => (
+  <InstantSearchPagination
     translations={{
       firstPageItemText: 'First',
       previousPageItemText: 'Previous',
