@@ -9,7 +9,11 @@ import tsconfigPaths from 'vite-tsconfig-paths'
 
 export default defineConfig({
   plugins: [
-    remix(),
+    remix({
+      future: {
+        v3_relativeSplatPath: true,
+      },
+    }),
     legacy({
       targets: ['>= 0%'],
     }),
