@@ -8,22 +8,17 @@ import {
 import { Guid, PBCore, PBCoreInstantiation, PBCoreTitle } from '~/types/pbcore'
 
 export function handleAapbRecordGroup(aapbRecordGroup, key) {
-  // this func is where we split by whitespace v
-  var guids = parseAapbRecordGroup(aapbRecordGroup.value.guids)
+  var guids = aapbRecordGroup.value.guids
 
   // preserve these flags' effect for each aapb_record_group
-  var showThumbnail = aapbRecordGroup.value.show_thumbnail
-  var showTitle = aapbRecordGroup.value.show_title
-
   return (
     <AAPBRecords
       guids={guids}
       startTime={aapbRecordGroup.value.start_time}
       endTime={aapbRecordGroup.value.end_time}
-      showThumbnail={showThumbnail}
-      showTitle={showTitle}
+      showThumbnail={aapbRecordGroup.value.show_thumbnail}
+      showTitle={aapbRecordGroup.value.show_title}
       accessLevel={aapbRecordGroup.value.access_level}
-      embedPlayer={true}
       specialCollections={
         aapbRecordGroup.value.special_collections
           ? aapbRecordGroup.value.special_collections
@@ -33,19 +28,17 @@ export function handleAapbRecordGroup(aapbRecordGroup, key) {
   )
 }
 
-export function parseAapbRecordGroup(string: string) {
-  return string.split(/\s+/)
-}
-
 export const normalizeGuid = (guid: Guid) =>
   guid.replace(/^cpb-aacip./, 'cpb-aacip-')
 
 async function retrieveAapbRecord(guid: Guid) {
   try {
+
     var resp = await fetch(window.ENV.AAPB_HOST + '/api/' + guid + '.json')
     if (resp.status == 200) {
       return await resp.json()
     } else {
+      // any bad code from aapb api will go here
       return false
     }
   } catch (error) {
@@ -58,15 +51,15 @@ export class AAPBRecord extends Component<AAPBRecordProps> {
   constructor(props: AAPBRecordProps) {
     super(props)
     this.state = {
-      embedPlayer: true,
-      showThumbnail: props.showThumbnail,
       showTitle: props.showTitle,
+      finishedRetrieval: false
     } as AAPBRecordState
   }
 
   async componentDidMount() {
     var hyphenGuid: Guid = normalizeGuid(this.props.guid)
     var record = await retrieveAapbRecord(hyphenGuid)
+
     let isWide = false
 
     if (record?.pbcoreDescriptionDocument?.pbcoreInstantiation) {
@@ -76,20 +69,28 @@ export class AAPBRecord extends Component<AAPBRecordProps> {
       }
       // Find all proxies
       let proxies = inst.find(i => i.instantiationGenerations == 'Proxy')
+
       if (proxies) {
         // proxytome proxytome proxytome proxytome
         if (!(proxies instanceof Array)) {
           proxies = [proxies]
         }
         // Get the aspect ratio of the essence tracks
-        let ets = proxies.map(proxy =>
-          proxy.instantiationEssenceTrack.map(
-            track => track.essenceTrackAspectRatio
-          )
-        )
-        for (let aspect of ets) {
+        let aspects = []
+        proxies.map((prox) => {
+          if(prox.instantiationEssenceTrack instanceof Array){
+            aspects.concat(prox.instantiationEssenceTrack.map(et => et.essenceTrackAspectRatio))
+          } else {
+            aspects.push(prox.instantiationEssenceTrack.essenceTrackAspectRatio)
+          }
+        })
+
+        // no nulls hon
+        aspects = aspects.filter((obj) => obj)
+
+        for (let aspect of aspects) {
           // A-S-P-E-C-T
-          // Find out if it's 4:3
+          // Find out if it's 4:3!
           if (aspect.includes('16:9') || aspect.includes('1.778')) {
             // Just a little bit!
             isWide = true
@@ -99,8 +100,8 @@ export class AAPBRecord extends Component<AAPBRecordProps> {
 
       }
     }
-  
-    this.setState({ guid: hyphenGuid, pbcore: record, wide: isWide, mediaType: this.mediaType(record) })
+
+    this.setState({ guid: hyphenGuid, pbcore: record, wide: isWide, mediaType: this.mediaType(record), finishedRetrieval: true })
   }
 
   mediaType(pbcore: PBCore) {
@@ -128,7 +129,6 @@ export class AAPBRecord extends Component<AAPBRecordProps> {
 
   playable(pbcore: PBCore){
     // this detects whether the record is allowed to be played in order to display the doc icon etc instead of blocked player
-
     if(pbcore?.pbcoreDescriptionDocument?.pbcoreAnnotation){
       let annos = pbcore.pbcoreDescriptionDocument.pbcoreAnnotation
       if (!(annos instanceof Array)) {
@@ -136,11 +136,14 @@ export class AAPBRecord extends Component<AAPBRecordProps> {
       }
 
       let accessAnno = annos.find(a => a.annotationType == 'Level of User Access')
-      if(accessAnno?.value == "Online Reading Room"){
+      if(accessAnno?.text == "Online Reading Room"){
         return true
       } else {
         return false
       }
+    } else {
+      // no pbcore was retrieved from aapb
+      return false
     }
   }
 
@@ -163,6 +166,7 @@ export class AAPBRecord extends Component<AAPBRecordProps> {
       // there are multiple titles
       return pbt.map((title: PBCoreTitle) => title.text).join('; ')
     } else {
+      // this will show when no titles but also when record fails to fetch from AAPB at all
       return 'Untitled Record'
     }
   }
@@ -194,22 +198,23 @@ export class AAPBRecord extends Component<AAPBRecordProps> {
 
   render() {
     let recordBlock
-    if (this.state.pbcore) {
-      // console.log('rendering aapb record', this.state.pbcore)
-      let titleBar
-      if (this.props.showTitle) {
-        titleBar = (
-          <div className="shade-bar">
-            <a href={`https://americanarchive.org/catalog/${this.state.guid}`}>
-              { this.aapbTitle(this.state.pbcore) }
-            </a>
-          </div>
-        )
-      }
+    let titleBar
+    if (this.state.finishedRetrieval && this.props.showTitle) {
+      titleBar = (
+        <div className="shade-bar">
+          <a href={`https://americanarchive.org/catalog/${this.state.guid}`}>
+            { this.aapbTitle(this.state.pbcore) }
+          </a>
+        </div>
+      )
+    }
 
-      let thumbnail
-      if (this.props.showThumbnail) {
-        if( this.playable(this.props.pbcore) ){
+    let thumbnail
+    let embedPlayer = true
+    if (this.props.showThumbnail) {
+
+      if(this.state.finishedRetrieval && this.state.pbcore){
+        if( this.playable(this.state.pbcore) ){
           let mt = this.state.mediaType
           if (mt == "Moving Image") {
             // check here for digitized? if not show VIDEO THUMB
@@ -232,18 +237,28 @@ export class AAPBRecord extends Component<AAPBRecordProps> {
         } else {
           thumbnail = `url(/document.png)`
           // not playable so also disable player
-          this.setState({embedPlayer: false})
+          embedPlayer = false
         }
+      } else {
+        // didn't get any dang pbcore from aapb
+        thumbnail = `url(/forbidden.png)`
+        // not playable so also disable player
+        embedPlayer = false
       }
 
-      let playButton
-      if(this.state.mediaType){
-        playButton = (
-          <div className="blue-circle">
-            <div />
-          </div>
-        )
-      }
+    }
+
+
+    let playButton
+    if(this.state.mediaType){
+      playButton = (
+        <div className="blue-circle">
+          <div />
+        </div>
+      )
+    }
+
+    if(this.state.finishedRetrieval){
       if (this.state.showEmbed) {
         recordBlock = this.embed(
           this.state.guid,
@@ -252,11 +267,10 @@ export class AAPBRecord extends Component<AAPBRecordProps> {
           this.state.wide
         )
       } else {
-
-        if (this.state.embedPlayer) {
+        if (embedPlayer){
           recordBlock = (
             <div
-              style={{backgroundImage: thumbnail }}
+              style={{ backgroundImage: thumbnail }}
               className="content-aapbblock"
               onClick={() => this.setState({ showEmbed: true })}
             >
@@ -268,7 +282,7 @@ export class AAPBRecord extends Component<AAPBRecordProps> {
           // document link out
           recordBlock = (
             <div
-              style={thumbnail}
+              style={{ backgroundImage: thumbnail }}
               className="content-aapbblock"
               href={this.aapbCatalogURL(this.state.guid)}
             >
@@ -276,8 +290,9 @@ export class AAPBRecord extends Component<AAPBRecordProps> {
             </div>
           )
         }
-      }
+      }  
     }
+    
 
     return recordBlock
   }
@@ -287,8 +302,6 @@ export class AAPBRecords extends Component<AAPBRecordBlockProps> {
   constructor(props: AAPBRecordBlockProps) {
     super(props)
     this.state = {
-      embedPlayer: props.embedPlayer,
-      showThumbnail: props.showThumbnail,
       showTitle: props.showTitle,
       numRecords: props.guids.length,
     } as AAPBRecordBlockState
@@ -324,8 +337,7 @@ export class AAPBRecords extends Component<AAPBRecordBlockProps> {
         <AAPBRecord
           key={index}
           guid={guid}
-          embedPlayer={this.state.embedPlayer}
-          showThumbnail={this.state.showThumbnail}
+          showThumbnail={this.props.showThumbnail}
           showTitle={this.state.showTitle}
           startTime={this.props.startTime}
           endTime={this.props.endTime}

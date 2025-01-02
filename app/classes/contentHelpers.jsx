@@ -79,10 +79,16 @@ export function subHeadingContent(block, key) {
 }
 export function imageContent(block, key) {
   return (
-    <div id={block.id} key={key} className="content-block content-image">
-      An Image! (id {block.value})
+    <div>
+      An Image Draws Near!
     </div>
   )
+  // return (
+  //   <div id={block.id} key={key} className="content-block content-image">
+  //     An Image! (id {block.value.image})
+  //     <img src={block.value.image} />
+  //   </div>
+  // )
 }
 
 export function creditsContent(block, key) {

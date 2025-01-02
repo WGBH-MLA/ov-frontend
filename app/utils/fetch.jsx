@@ -1,11 +1,11 @@
 export async function getExhibits() {
-  return await fetch(process.env.OV_API_URL + '/api/v2/exhibits/?limit=20', res => {
+  return await fetch(process.env.OV_API_URL + '/api/v2/exhibits/?limit=999999', res => {
     console.log('exs', res)
   })
 }
 
 export async function getCollections() {
-  return await fetch(process.env.OV_API_URL + '/api/v2/collections/?limit=20')
+  return await fetch(process.env.OV_API_URL + '/api/v2/collections/?limit=999999')
 }
 
 export async function getHomepage() {
