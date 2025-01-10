@@ -8,20 +8,18 @@ import {
 import { Guid, PBCore, PBCoreInstantiation, PBCoreTitle } from '~/types/pbcore'
 
 export function handleAapbRecordGroup(aapbRecordGroup, key) {
-  var guids = aapbRecordGroup.value.guids
-
   // preserve these flags' effect for each aapb_record_group
   return (
     <AAPBRecords
-      guids={guids}
-      startTime={aapbRecordGroup.value.start_time}
-      endTime={aapbRecordGroup.value.end_time}
-      showThumbnail={aapbRecordGroup.value.show_thumbnail}
-      showTitle={aapbRecordGroup.value.show_title}
-      accessLevel={aapbRecordGroup.value.access_level}
+      guids={aapbRecordGroup.guids}
+      startTime={aapbRecordGroup.start_time}
+      endTime={aapbRecordGroup.end_time}
+      showThumbnail={aapbRecordGroup.show_thumbnail}
+      showTitle={aapbRecordGroup.show_title}
+      accessLevel={aapbRecordGroup.access_level}
       specialCollections={
-        aapbRecordGroup.value.special_collections
-          ? aapbRecordGroup.value.special_collections
+        aapbRecordGroup.special_collections
+          ? aapbRecordGroup.special_collections
           : null
       }
     />
@@ -33,7 +31,6 @@ export const normalizeGuid = (guid: Guid) =>
 
 async function retrieveAapbRecord(guid: Guid) {
   try {
-
     var resp = await fetch(window.ENV.AAPB_HOST + '/api/' + guid + '.json')
     if (resp.status == 200) {
       return await resp.json()
@@ -52,7 +49,7 @@ export class AAPBRecord extends Component<AAPBRecordProps> {
     super(props)
     this.state = {
       showTitle: props.showTitle,
-      finishedRetrieval: false
+      finishedRetrieval: false,
     } as AAPBRecordState
   }
 
@@ -68,7 +65,7 @@ export class AAPBRecord extends Component<AAPBRecordProps> {
         inst = [inst]
       }
       // Find all proxies
-      let proxies = inst.find(i => i.instantiationGenerations == 'Proxy')
+      let proxies = inst.find((i) => i.instantiationGenerations == 'Proxy')
 
       if (proxies) {
         // proxytome proxytome proxytome proxytome
@@ -78,8 +75,12 @@ export class AAPBRecord extends Component<AAPBRecordProps> {
         // Get the aspect ratio of the essence tracks
         let aspects = []
         proxies.map((prox) => {
-          if(prox.instantiationEssenceTrack instanceof Array){
-            aspects.concat(prox.instantiationEssenceTrack.map(et => et.essenceTrackAspectRatio))
+          if (prox.instantiationEssenceTrack instanceof Array) {
+            aspects.concat(
+              prox.instantiationEssenceTrack.map(
+                (et) => et.essenceTrackAspectRatio
+              )
+            )
           } else {
             aspects.push(prox.instantiationEssenceTrack.essenceTrackAspectRatio)
           }
@@ -97,11 +98,16 @@ export class AAPBRecord extends Component<AAPBRecordProps> {
             break
           }
         }
-
       }
     }
 
-    this.setState({ guid: hyphenGuid, pbcore: record, wide: isWide, mediaType: this.mediaType(record), finishedRetrieval: true })
+    this.setState({
+      guid: hyphenGuid,
+      pbcore: record,
+      wide: isWide,
+      mediaType: this.mediaType(record),
+      finishedRetrieval: true,
+    })
   }
 
   mediaType(pbcore: PBCore) {
@@ -127,16 +133,18 @@ export class AAPBRecord extends Component<AAPBRecordProps> {
     }
   }
 
-  playable(pbcore: PBCore){
+  playable(pbcore: PBCore) {
     // this detects whether the record is allowed to be played in order to display the doc icon etc instead of blocked player
-    if(pbcore?.pbcoreDescriptionDocument?.pbcoreAnnotation){
+    if (pbcore?.pbcoreDescriptionDocument?.pbcoreAnnotation) {
       let annos = pbcore.pbcoreDescriptionDocument.pbcoreAnnotation
       if (!(annos instanceof Array)) {
         annos = [annos]
       }
 
-      let accessAnno = annos.find(a => a.annotationType == 'Level of User Access')
-      if(accessAnno?.text == "Online Reading Room"){
+      let accessAnno = annos.find(
+        (a) => a.annotationType == 'Level of User Access'
+      )
+      if (accessAnno?.text == 'Online Reading Room') {
         return true
       } else {
         return false
@@ -189,7 +197,7 @@ export class AAPBRecord extends Component<AAPBRecordProps> {
         <iframe
           className={iframeClasses}
           src={url}
-          frameBorder="0"
+          frameBorder='0'
           allowFullScreen={true}
         />
       </a>
@@ -201,9 +209,9 @@ export class AAPBRecord extends Component<AAPBRecordProps> {
     let titleBar
     if (this.state.finishedRetrieval && this.props.showTitle) {
       titleBar = (
-        <div className="shade-bar">
+        <div className='shade-bar'>
           <a href={`https://americanarchive.org/catalog/${this.state.guid}`}>
-            { this.aapbTitle(this.state.pbcore) }
+            {this.aapbTitle(this.state.pbcore)}
           </a>
         </div>
       )
@@ -212,15 +220,14 @@ export class AAPBRecord extends Component<AAPBRecordProps> {
     let thumbnail
     let embedPlayer = true
     if (this.props.showThumbnail) {
-
-      if(this.state.finishedRetrieval && this.state.pbcore){
-        if( this.playable(this.state.pbcore) ){
+      if (this.state.finishedRetrieval && this.state.pbcore) {
+        if (this.playable(this.state.pbcore)) {
           let mt = this.state.mediaType
-          if (mt == "Moving Image") {
+          if (mt == 'Moving Image') {
             // check here for digitized? if not show VIDEO THUMB
             var ci_pbi =
               this.state.pbcore.pbcoreDescriptionDocument.pbcoreIdentifier.find(
-                pbi => pbi.source == 'Sony Ci'
+                (pbi) => pbi.source == 'Sony Ci'
               )
             if (ci_pbi && ci_pbi.text) {
               thumbnail = `url(${this.aapbThumbnailURL(this.state.guid)})`
@@ -228,7 +235,7 @@ export class AAPBRecord extends Component<AAPBRecordProps> {
               // video THUMB
               thumbnail = `url(/VIDEO_SMALL.png)`
             }
-          } else if(mt == "Sound") {
+          } else if (mt == 'Sound') {
             // AUDIO THUMB
             thumbnail = `url(/AUDIO_SMALL.png)`
           } else {
@@ -245,20 +252,18 @@ export class AAPBRecord extends Component<AAPBRecordProps> {
         // not playable so also disable player
         embedPlayer = false
       }
-
     }
 
-
     let playButton
-    if(this.state.mediaType){
+    if (this.state.mediaType) {
       playButton = (
-        <div className="blue-circle">
+        <div className='blue-circle'>
           <div />
         </div>
       )
     }
 
-    if(this.state.finishedRetrieval){
+    if (this.state.finishedRetrieval) {
       if (this.state.showEmbed) {
         recordBlock = this.embed(
           this.state.guid,
@@ -267,15 +272,14 @@ export class AAPBRecord extends Component<AAPBRecordProps> {
           this.state.wide
         )
       } else {
-        if (embedPlayer){
+        if (embedPlayer) {
           recordBlock = (
             <div
               style={{ backgroundImage: thumbnail }}
-              className="content-aapbblock"
-              onClick={() => this.setState({ showEmbed: true })}
-            >
-              { titleBar }
-              { playButton }
+              className='content-aapbblock'
+              onClick={() => this.setState({ showEmbed: true })}>
+              {titleBar}
+              {playButton}
             </div>
           )
         } else {
@@ -283,16 +287,14 @@ export class AAPBRecord extends Component<AAPBRecordProps> {
           recordBlock = (
             <div
               style={{ backgroundImage: thumbnail }}
-              className="content-aapbblock"
-              href={this.aapbCatalogURL(this.state.guid)}
-            >
-              { titleBar }
+              className='content-aapbblock'
+              href={this.aapbCatalogURL(this.state.guid)}>
+              {titleBar}
             </div>
           )
         }
-      }  
+      }
     }
-    
 
     return recordBlock
   }
@@ -309,21 +311,21 @@ export class AAPBRecords extends Component<AAPBRecordBlockProps> {
 
   async componentDidMount() {
     // this v corresponds to the wagtail option to set access level for aapb search link, NOT for the access level of an individual record
-    var accessLevel = "online"
-    if(this.props.accessLevel){
+    var accessLevel = 'online'
+    if (this.props.accessLevel) {
       accessLevel = this.props.accessLevel
     }
-    
+
     this.setState({ aapb_host: window.ENV.AAPB_HOST }, async () => {
       var data
       if (this.props.specialCollections) {
         // fetch actual number of records from this special collection search
         data = await fetch(
-        // this endpoint takes a bare solr query within each filter option (q, fq, etc.), NOT BLACKLIGHT URL PARAMS
-        `${window.ENV.AAPB_HOST}/api.json?fq=special_collections:${this.props.specialCollections} AND access_types:${accessLevel}&sort=title+asc&rows=0`
+          // this endpoint takes a bare solr query within each filter option (q, fq, etc.), NOT BLACKLIGHT URL PARAMS
+          `${window.ENV.AAPB_HOST}/api.json?fq=special_collections:${this.props.specialCollections} AND access_types:${accessLevel}&sort=title+asc&rows=0`
         )
-        .then(response => response.json())
-        .catch(error => console.error(error))
+          .then((response) => response.json())
+          .catch((error) => console.error(error))
       }
       if (data) {
         this.setState({ numRecords: parseInt(data['response']['numFound']) })
@@ -348,11 +350,11 @@ export class AAPBRecords extends Component<AAPBRecordBlockProps> {
 
     var recordsSearchLink = `${this.state.aapb_host}/catalog`
     if (this.props.specialCollections) {
-      recordsSearchLink += `?f[special_collections][]=${this.props.specialCollections}&sort=title+asc&f[access_types][]=${accessLevel}`
+      recordsSearchLink += `?f[special_collections][]=${this.props.specialCollections}&sort=title+asc&f[access_types][]=${this.props.accessLevel}`
     }
     var msg
-    if(this.state.numRecords > 0){
-      if(this.state.numRecords == 1){
+    if (this.state.numRecords > 0) {
+      if (this.state.numRecords == 1) {
         msg = `View on AAPB >`
       } else {
         msg = `View all ${this.state.numRecords} on AAPB >`
@@ -361,9 +363,12 @@ export class AAPBRecords extends Component<AAPBRecordBlockProps> {
       msg = `View more on AAPB >`
     }
     return (
-      <div className="aapb-records">
+      <div className='aapb-records'>
         {aapbRecords}
-        <a target="_blank" className="aapb-records-seemore" href={recordsSearchLink}>
+        <a
+          target='_blank'
+          className='aapb-records-seemore'
+          href={recordsSearchLink}>
           {msg}
         </a>
       </div>

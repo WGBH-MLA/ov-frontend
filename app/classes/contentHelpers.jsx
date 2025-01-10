@@ -15,7 +15,7 @@ export function renderBlocks(blocks) {
 export function renderBlock(block, key) {
   if (block.type == 'text') {
     return textContent(block, key)
-  } else if (AAPB_BLOCK_TYPES.some(bt => bt == block.type)) {
+  } else if (AAPB_BLOCK_TYPES.some((bt) => bt == block.type)) {
     return aapbRecordsBlock(block, key)
   } else if (block.type == 'heading') {
     return headingContent(block, key)
@@ -37,10 +37,10 @@ export function aapbRecordsBlock(block, key) {
     <div key={key}>
       <h3
         id={block.id}
-        className="content-heading"
+        className='content-heading'
         dangerouslySetInnerHTML={{ __html: decode(block.value.title) }}
       />
-      {handleAapbRecordGroup(block)}
+      {handleAapbRecordGroup(block.value)}
     </div>
   )
 }
@@ -50,7 +50,7 @@ export function textContent(block, key) {
     <div
       id={block.id}
       key={key}
-      className="content-block content-text"
+      className='content-block content-text'
       dangerouslySetInnerHTML={{ __html: decode(block.value) }}
     />
   )
@@ -61,7 +61,7 @@ export function headingContent(block, key) {
     <h3
       id={block.id}
       key={key}
-      className="content-block content-heading"
+      className='content-block content-heading'
       dangerouslySetInnerHTML={{ __html: decode(block.value) }}
     />
   )
@@ -72,17 +72,13 @@ export function subHeadingContent(block, key) {
     <h4
       id={block.id}
       key={key}
-      className="content-block content-subheading"
+      className='content-block content-subheading'
       dangerouslySetInnerHTML={{ __html: decode(block.value) }}
     />
   )
 }
 export function imageContent(block, key) {
-  return (
-    <div>
-      An Image Draws Near!
-    </div>
-  )
+  return <div>An Image Draws Near!</div>
   // return (
   //   <div id={block.id} key={key} className="content-block content-image">
   //     An Image! (id {block.value.image})
@@ -93,10 +89,10 @@ export function imageContent(block, key) {
 
 export function creditsContent(block, key) {
   return (
-    <div key={key} id={block.id} className="content-block content-credits">
+    <div key={key} id={block.id} className='content-block content-credits'>
       <h3>Credits</h3>
       <div
-        className="content-block-body"
+        className='content-block-body'
         dangerouslySetInnerHTML={{ __html: decode(block.value) }}
       />
     </div>
@@ -109,7 +105,7 @@ export function contentBlock(block, key) {
     <div
       key={key}
       id={block.id}
-      className="content-block"
+      className='content-block'
       dangerouslySetInnerHTML={{ __html: decode(block.value) }}
     />
   )
