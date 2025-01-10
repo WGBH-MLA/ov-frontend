@@ -21,8 +21,6 @@ export function renderBlock(block, key) {
     return headingContent(block, key)
   } else if (block.type == 'subheading') {
     return subHeadingContent(block, key)
-  } else if (block.type == 'image') {
-    return imageContent(block, key)
   } else if (block.type == 'credits') {
     return creditsContent(block, key)
   } else {
@@ -76,15 +74,6 @@ export function subHeadingContent(block, key) {
       dangerouslySetInnerHTML={{ __html: decode(block.value) }}
     />
   )
-}
-export function imageContent(block, key) {
-  return <div>An Image Draws Near!</div>
-  // return (
-  //   <div id={block.id} key={key} className="content-block content-image">
-  //     An Image! (id {block.value.image})
-  //     <img src={block.value.image} />
-  //   </div>
-  // )
 }
 
 export function creditsContent(block, key) {
