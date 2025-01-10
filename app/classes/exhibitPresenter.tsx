@@ -1,25 +1,18 @@
 import { decode } from 'html-entities'
-import { Link, useLoaderData } from '@remix-run/react'
-import { useEffect } from 'react'
+import { Link } from '@remix-run/react'
 import {
   renderAuthorBubble,
-  renderPageLink,
   renderPageLinks,
   renderSidebar,
-  renderSidebarSection,
   renderPageTitleBar,
   renderFootnoteSection,
   renderFootnotesInBody,
 } from './pageHelpers'
-import {
-  renderBlocks,
-  renderBlock,
-  textContent,
-  headingContent,
-} from './contentHelpers'
+import { renderBlocks } from './contentHelpers'
 import { SIDEBAR_TYPES } from '~/data/sidebarTypes'
+import type { Exhibit } from '~/types/openvault'
 
-export function renderExhibit(exhibit) {
+export function renderExhibit(exhibit: Exhibit) {
   // console.log( 'da ex', exhibit )
   let showAuthors =
     exhibit.authors && exhibit.authors.length > 0 && exhibit.authors[0].name
@@ -28,7 +21,11 @@ export function renderExhibit(exhibit) {
   let sidebar = renderSidebar(
     'In This Exhibit',
     exhibit.body.filter(
-      block => SIDEBAR_TYPES.includes(block.type) && (block.type == "heading" || block.type == "credits" || block?.value?.show_sidebar)
+      (block) =>
+        SIDEBAR_TYPES.includes(block.type) &&
+        (block.type == 'heading' ||
+          block.type == 'credits' ||
+          block?.value?.show_sidebar)
     ),
     showAuthors,
     showFootnotes
@@ -49,13 +46,13 @@ export function renderExhibit(exhibit) {
   let bottomBar
   if (exhibit.related_exhibits) {
     bottomBar = (
-      <div className="exhibit-bottom-graybar">
-        <div className="pagelinks-container">
-          <div className="pagelinks-top">
-            <div className="pagelinks-also">You may also like</div>
+      <div className='exhibit-bottom-graybar'>
+        <div className='pagelinks-container'>
+          <div className='pagelinks-top'>
+            <div className='pagelinks-also'>You may also like</div>
 
-            <div className="pagelinks-all">
-              <Link className="page-nav-link" to="/exhibits">
+            <div className='pagelinks-all'>
+              <Link className='page-nav-link' to='/exhibits'>
                 View all scholar exhibits &gt;
               </Link>
             </div>
@@ -71,7 +68,7 @@ export function renderExhibit(exhibit) {
   if (showAuthors) {
     // a blank (unspecified) author is currently valid
     authorsTitle = (
-      <h3 id="authors-section" className="page-authors-title">
+      <h3 id='authors-section' className='page-authors-title'>
         {exhibit.authors.length > 1 ? 'Authors' : 'Author'}
       </h3>
     )
@@ -81,17 +78,17 @@ export function renderExhibit(exhibit) {
       if (author.bio) {
         bio = (
           <div
-            className="author-bio"
+            className='author-bio'
             dangerouslySetInnerHTML={{ __html: decode(author.bio) }}
           />
         )
       }
 
       return (
-        <div key={index} className="page-authorbubble-bottom-container">
+        <div key={index} className='page-authorbubble-bottom-container'>
           {renderAuthorBubble(author)}
-          <div className="author-extras-bottom">
-            <div className="author-byline">
+          <div className='author-extras-bottom'>
+            <div className='author-byline'>
               <div>{author.name}</div>
             </div>
             {bio}
@@ -101,11 +98,11 @@ export function renderExhibit(exhibit) {
     })
 
     let byline = (
-      <div className="author-byline">
+      <div className='author-byline'>
         <div>
           By{' '}
           {exhibit.authors
-            .map(author => {
+            .map((author) => {
               return author.name
             })
             .join(', ')}
@@ -113,7 +110,7 @@ export function renderExhibit(exhibit) {
       </div>
     )
 
-    let extras = <div className="author-extras">{byline}</div>
+    let extras = <div className='author-extras'>{byline}</div>
 
     let bubbles
     if (exhibit.authors) {
@@ -122,7 +119,7 @@ export function renderExhibit(exhibit) {
       )
     }
     exhibitAuthor = (
-      <div className="page-authorbubble-stacked">
+      <div className='page-authorbubble-stacked'>
         {bubbles}
         {extras}
       </div>
@@ -142,13 +139,13 @@ export function renderExhibit(exhibit) {
 
   return (
     <div>
-      <div className="page-container">
+      <div className='page-container'>
         {titleBar}
         {exhibitAuthor}
         {sidebar}
 
-        <div className="page-body-container">
-          <div className="page-body">
+        <div className='page-body-container'>
+          <div className='page-body'>
             {bodyContent}
 
             {footnoteSection}

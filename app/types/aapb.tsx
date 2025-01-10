@@ -2,10 +2,12 @@ import { Guid, PBCore } from './pbcore'
 
 export type AAPBRecordProps = {
   guid: Guid
-  showThumbnail: boolean
+  title?: string
   showTitle: boolean
-  startTime: string
-  endTime: string
+  showThumbnail: boolean
+  showSidebar: boolean
+  startTime?: string
+  endTime?: string
   accessLevel: string
 }
 
@@ -20,7 +22,6 @@ export type AAPBRecordState = {
 
 export interface AAPBRecordBlockProps extends AAPBRecordProps {
   guids: Guid[]
-  showThumbnail: boolean
   specialCollections: string
 }
 
