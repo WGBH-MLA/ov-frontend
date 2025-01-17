@@ -35,7 +35,7 @@ export const AAPBResults = ({ aapb_host }) => {
       )
         .then((response) => response.json())
         .then((data) => {
-          setResults(data.response.numFound)
+          setResults(data.response.numFound.toLocaleString())
           setHits(data.response.docs)
         })
         .catch((error) => console.error(error))
