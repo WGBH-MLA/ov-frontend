@@ -449,18 +449,6 @@ a.navigation-spacer {
   display: block;
 }
 
-.chevron {
-  border-right: 0.2rem solid;
-  border-bottom: 0.2rem solid;
-  border-radius: 0.2rem;
-  height: 0.5rem;
-  width: 0.5rem;
-  transform: rotate(45deg);
-  color: var(--purple);
-  display: inline-block;
-  margin-left: 0.5rem;
-}
-
 .drawer-item {
   text-align: left;
   padding-left: 1.4em;

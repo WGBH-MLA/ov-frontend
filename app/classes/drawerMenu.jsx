@@ -1,4 +1,4 @@
-import { ExternalLink } from 'lucide-react'
+import { ExternalLink, ChevronDown } from 'lucide-react'
 
 export function DrawerMenu(props) {
   let items
@@ -26,7 +26,7 @@ export function DrawerMenu(props) {
     <div className={drawerClasses}>
       <span className='drawermenu-label'>
         {props.label}
-        <DownChevron />
+        <ChevronDown />
       </span>
 
       <div className='drawermenu-items'>{items}</div>
@@ -47,5 +47,3 @@ const DrawerItem = (props) => (
     {props.last ? null : <hr />}
   </a>
 )
-
-export const DownChevron = () => <div className='chevron' />
