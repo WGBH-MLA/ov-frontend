@@ -11,6 +11,7 @@ const aboutLinks = [
   {
     label: 'Support Us',
     url: 'https://gbharchivesopenvault.donorsupport.co/page/general-fundraising',
+    external: true,
   },
   {
     label: 'Visit Us',
@@ -35,11 +36,13 @@ const affiliatedSites = [
     label: 'American Archive of Public Broadcasting',
     subLabel: 'Access nearly 12,000 public media programs',
     url: 'https://americanarchive.org',
+    external: true,
   },
   {
     label: 'GBH Stock Sales',
     subLabel: 'License footage from GBH programs',
     url: 'http://www.wgbhstocksales.org/',
+    external: true,
   },
 ]
 

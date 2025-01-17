@@ -163,9 +163,9 @@ export default function About() {
               </li>
             </ul>
             <h2>Mailing Address</h2>
-            <p className='static-section'>Open Vault</p>
             <pre>
-              {`GBH Archives
+              {`Open Vault
+GBH Archives
 WGBH Educational Foundation
 One Guest Street
 Boston, MA 02135`}
