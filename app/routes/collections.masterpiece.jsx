@@ -4,6 +4,7 @@ import {
   isRouteErrorResponse,
   Link,
 } from '@remix-run/react'
+import { Search } from 'lucide-react'
 import { useState, useEffect } from 'react'
 
 import { getMasterpiece } from '~/utils/masterpiece'
@@ -26,7 +27,7 @@ export const loader = async () => {
 
 function renderSeriesLink(series) {
   return (
-    <a href={series.url} className="masterpiece-link">
+    <a href={series.url} className='masterpiece-link'>
       {series.title}
     </a>
   )
@@ -42,9 +43,9 @@ function safeDate(seasonGroup) {
   )
 }
 
-function clearSearch(searchStateFunction){
-  document.getElementById("search").value = ""
-  searchStateFunction("")
+function clearSearch(searchStateFunction) {
+  document.getElementById('search').value = ''
+  searchStateFunction('')
 }
 
 export default function Masterpiece() {
@@ -55,9 +56,8 @@ export default function Masterpiece() {
   let seasonLinks = Object.keys(masterpieceData).map((seasonNumber, index) => (
     <Link
       key={index}
-      className="masterpiece-season-link page-sidebar-link"
-      to={'#season-' + seasonNumber}
-    >
+      className='masterpiece-season-link page-sidebar-link'
+      to={'#season-' + seasonNumber}>
       {seasonNumber}
     </Link>
   ))
@@ -68,9 +68,9 @@ export default function Masterpiece() {
     if (masterpieceSearch.length > 0) {
       seasonGroup = {}
       var includeThese = Object.keys(masterpieceData[seasonNumber]).filter(
-        title => title.toLowerCase().includes(masterpieceSearch)
+        (title) => title.toLowerCase().includes(masterpieceSearch)
       )
-      includeThese.forEach(title => {
+      includeThese.forEach((title) => {
         seasonGroup[title] = masterpieceData[seasonNumber][title]
       })
     } else {
@@ -81,35 +81,35 @@ export default function Masterpiece() {
       .map((normalizedMiniseriesTitle, groupIndex) => (
         <a
           key={groupIndex}
-          className="masterpiece-link"
+          className='masterpiece-link'
           href={`${data.AAPB_HOST}/catalog?sort=episode_number_sort+asc&f[special_collections][]=${normalizedMiniseriesTitle}&f[access_types][]=all`}
-          target="_blank"
-        >
-          { seasonGroup[normalizedMiniseriesTitle].nice_title }
+          target='_blank'>
+          {seasonGroup[normalizedMiniseriesTitle].nice_title}
         </a>
       ))
       .sort((sg1, sg2) => safeDate(sg1) > safeDate(sg2))
 
-    if(seasonGroup.length > 0){
+    if (seasonGroup.length > 0) {
       return (
-        <div key={index} className="season-group">
-          <div id={'season-' + seasonNumber} className="season-group-number">
+        <div key={index} className='season-group'>
+          <div id={'season-' + seasonNumber} className='season-group-number'>
             Season {seasonNumber}
           </div>
-          <div className="season-group-content">{seasonGroup}</div>
+          <div className='season-group-content'>{seasonGroup}</div>
         </div>
-      )  
+      )
     } else {
       return false
     }
   })
 
   // remove whole section for empty season group
-  seasonGroups = seasonGroups.flatMap(sg => sg).filter( (sg) => sg )
-  if(seasonGroups.length == 0){
+  seasonGroups = seasonGroups.flatMap((sg) => sg).filter((sg) => sg)
+  if (seasonGroups.length == 0) {
     seasonGroups = (
       <div>
-        No results were found for your search query. Please revise your query and try again.
+        No results were found for your search query. Please revise your query
+        and try again.
       </div>
     )
   }
@@ -152,46 +152,52 @@ export default function Masterpiece() {
     })
   }, [])
 
-  var clearSearch = function(){
-    document.getElementById("search").value = ""
-    setMasterpieceSearch("")
+  var clearSearch = function () {
+    document.getElementById('search').value = ''
+    setMasterpieceSearch('')
   }
 
   return (
-    <div className="page-container">
-      <div className="page-sidebar list-page">
+    <div className='page-container'>
+      <div className='page-sidebar list-page'>
         <span>
-          <h4 className="page-sidebar-title spaced">
+          <h4 className='page-sidebar-title spaced'>
             Search the Masterpiece Collection
           </h4>
-          <div className="series-search-container">
+          <div className='series-search-container'>
             <input
-              id="search"
-              className="series-search"
-              onKeyUp={e => setMasterpieceSearch(e.target.value.toLowerCase().replace(/\s+/g, ''))}
-              type="text"
-              name="series-search"
-              placeholder="Search..."
+              id='search'
+              className='series-search'
+              onKeyUp={(e) =>
+                setMasterpieceSearch(
+                  e.target.value.toLowerCase().replace(/\s+/g, '')
+                )
+              }
+              type='text'
+              name='series-search'
+              placeholder='Search...'
             />
-            <div className="search-clear-button" onClick={ e => clearSearch() } >X</div>
-            <div className="series-search-button" />
+            <div className='search-clear-button' onClick={(e) => clearSearch()}>
+              X
+            </div>
+            <Search />
           </div>
 
-          <h4 className="page-sidebar-title spaced">Jump To Season</h4>
-          <div className="masterpiece-seasons">{seasonLinks}</div>
+          <h4 className='page-sidebar-title spaced'>Jump To Season</h4>
+          <div className='masterpiece-seasons'>{seasonLinks}</div>
         </span>
       </div>
 
-      <div className="page-body-container">
-        <div className="page-body">
-          <h1 className="masterpiece-bigtitle">
+      <div className='page-body-container'>
+        <div className='page-body'>
+          <h1 className='masterpiece-bigtitle'>
             The Linda and Andrew Egendorf Masterpiece Theatre Alistair Cooke
             Collection
           </h1>
 
-          <div className="masterpiece-intro">
-            <div className="static-halfbox">
-              <div className="masterpiece-summary">
+          <div className='masterpiece-intro'>
+            <div className='static-halfbox'>
+              <div className='masterpiece-summary'>
                 The Linda and Andrew Egendorf Masterpiece Theatre Alistair Cooke
                 Collection features programs from the anthology series
                 Masterpiece Theatre presented during Alistair Cooke’s tenure as
@@ -203,8 +209,8 @@ export default function Masterpiece() {
                 the collection and our funders who made it possible.
               </div>
             </div>
-            <div className="static-halfbox">
-              <img src="https://s3.amazonaws.com/openvault.wgbh.org/treasuries/alistair_cooke_collection.jpg" />
+            <div className='static-halfbox'>
+              <img src='https://s3.amazonaws.com/openvault.wgbh.org/treasuries/alistair_cooke_collection.jpg' />
             </div>
           </div>
           {seasonGroups}

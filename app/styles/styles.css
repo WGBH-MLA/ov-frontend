@@ -340,23 +340,6 @@ div.series-search-container input.series-search {
   padding-left: 1em;
 }
 
-div.series-search-button {
-  display: inline-block;
-  margin-left: -1.1em;
-  position: fixed;
-  vertical-align: middle;
-  background-color: var(--blue);
-  width: 2.6em;
-  height: 2em;
-  max-height: 2em;
-  font-size: 1em;
-  background-image: url('/magnifying_glass.png');
-  background-size: 40%;
-  background-position: center;
-  background-repeat: no-repeat;
-  border-radius: 4px;
-}
-
 div.purple-bar-container {
   min-height: 3rem;
   padding-top: 1rem;
