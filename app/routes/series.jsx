@@ -1,5 +1,5 @@
 import { useLoaderData, Link } from '@remix-run/react'
-import { Search, X } from 'lucide-react'
+import { ExternalLink, Search, X } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { Meta } from '~/classes/meta'
 import { seriesData } from '~/data/seriesData'
@@ -61,7 +61,7 @@ export default function Series() {
           className='series-link'
           href={`${data.AAPB_HOST}/catalog?f[series_titles][]=${title}&q=+(contributing_organizations: WGBH(MA) OR producing_organizations: WGBH Educational Foundation)&f[access_types][]=all`}
           target='_blank'>
-          {title}
+          {title} <ExternalLink size={16} />
         </a>
       )
     })
