@@ -66,7 +66,7 @@ export default () => {
 
                 <a
                   className="half-link"
-                  href={`${data.AAPB_HOST}/catalog?sort=episode_number_sort+asc&f[special_collections][]=${data.miniseriesId}&f[access_types][]=all`}
+                  href={`${data.AAPB_HOST}/catalog?sort=asset_date+asc&f[special_collections][]=${data.miniseriesId}&f[access_types][]=all`}
                   target="_blank"
                 >
                   View Records On AAPB &gt;

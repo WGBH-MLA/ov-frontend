@@ -36,7 +36,10 @@ export function renderPageLink(pageType, page, key) {
       // can't really have authorbubble without an author image!
       authorBubble = renderAuthorBubble(author, 'attach')
     }
-    authorLink = <div className="pagelink-subtitle">By {author.name}</div>
+
+    if(pageType !== "exhibits"){
+      authorLink = <div className="pagelink-subtitle">By {author.name}</div>
+    }
   } else {
     authorBubble = renderAuthorBubble(false, 'attach')
     authorLink = <div className="pagelink-subtitle" />
@@ -56,7 +59,7 @@ export function renderPageLink(pageType, page, key) {
         <h4 className="pagelink-title">{page.title}</h4>
         {authorBubble}
       </a>
-      {authorLink}
+      { authorLink }
     </div>
   )
 }

@@ -204,7 +204,11 @@ export default function Masterpiece() {
             <div className="static-halfbox">
               <img src="https://s3.amazonaws.com/openvault.wgbh.org/treasuries/alistair_cooke_collection.jpg" />
             </div>
+            
+
+            <a href={ `${data.AAPB_HOST}/catalog/?f[special_collections][]=alistair-cooke&sort=asset_date+asc` }>View All Masterpiece Records on AAPB &gt;</a>
           </div>
+
           {seasonGroups}
         </div>
       </div>
