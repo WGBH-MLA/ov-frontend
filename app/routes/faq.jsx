@@ -29,7 +29,6 @@ export default function FAQ() {
 
         <div className="page-body-container">
           <div className="page-body">
-            <h2>Frequently Asked Questions</h2>
             <div className="med-heading">
               I can't get one of the video or audio records to play. What should
               I do?

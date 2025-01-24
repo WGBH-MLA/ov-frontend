@@ -100,6 +100,13 @@ input {
   padding: 0px;
 }
 
+img {
+  max-width: 100%;
+  overflow-clip-margin: 0;
+  overflow: hidden;
+  object-fit: contain;
+} 
+
 .legacy-warning {
   display: block;
   /* background-color: var(--light-yellow); */
@@ -147,7 +154,7 @@ div.masterpiece-intro {
 }
 
 div.masterpiece-summary {
-  font-size: 0.8em;
+  font-size: 1em;
   line-height: 1.6em;
   margin-right: 2vw;
   text-align: left;
@@ -161,7 +168,7 @@ div.page-body h1.masterpiece-bigtitle {
 a.masterpiece-link {
   color: var(--blue);
   display: inline-block;
-  font-size: 1.1rem;
+  font-size: 1.4rem;
   font-weight: bold;
   margin-right: 1em;
   width: 100%;
@@ -785,6 +792,16 @@ div.page-body p {
 div.page-container a.page-nav-link {
   display: block;
   font-size: 1em;
+}
+
+a.back-link {
+  display: inline-block;
+  font-size: 0.8em;
+}
+
+a.half-link {
+  display: inline-block;
+  font-size: 1.2em;
 }
 
 div.pagelinks-allexhibits a.exhibit-viewall {

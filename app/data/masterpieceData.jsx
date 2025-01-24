@@ -1,6 +1,9 @@
 export const masterpieceData = {
   "1": {
     "coldcomfortfarm": {
+      "title": "Cold Comfort Farm",
+      "desc": null,
+      "broadcast_date": "12/26/1971",
       "ids": {
         "V_91C90FC0A3104517AC756D2492441CF9": {
           "title": "Masterpiece Theatre; Cold Comfort Farm",
@@ -12,11 +15,12 @@ export const masterpieceData = {
           "asset_type": "Broadcast program",
           "broadcast_date": "1971-12-26"
         }
-      },
-      "nice_title": "Cold Comfort Farm",
-      "description": "No Description"
+      }
     },
     "firstchurchillsthe": {
+      "title": "First Churchills, The",
+      "desc": "Broadcast: Jan. 10-March 28, 1971. Set in 17th-18th century England in the court of King Charles II, John and Sarah Churchill move with adroitness and honesty, becoming the confidants of monarchs. John, first Duke of Marlborough, was a military genius whose brilliance on the battlefield saved England from defeat--just as his descendent Sir Winston Churchill saved England 300 years later. Sarah was an uncompromising beauty with wit, temper and a matching political savvy. Their power grew over the years until they were the virtual rulers during the reign of Queen Anne.",
+      "broadcast_date": "01/10/1971",
       "ids": {
         "V_50243E492B3547A0BFD6EC72490EC45D": {
           "title": "Masterpiece Theatre; First Churchills, The, Episode 1: The Chaste Nymph",
@@ -78,11 +82,12 @@ export const masterpieceData = {
           "asset_type": "Broadcast program",
           "broadcast_date": "1971-03-28"
         }
-      },
-      "nice_title": "First Churchills, The",
-      "description": "Broadcast: Jan. 10- March 28, 1971\nSet in 17th-18th century England in the court of King Charles II, John and Sarah Churchill move with adroitness and honesty, becoming the confidants of monarchs.  John, first Duke of Marlborough, was a military genius whose brilliance on the battlefield saved England from defeat--just as his descendent Sir Winston Churchill saved England 300 years later.  Sarah was an uncompromising beauty with wit, temper and a matching political savvy.  Their power grew over the years until they were the virtual rulers during the reign of Queen Anne."
+      }
     },
     "spoilsofpoyntonthe": {
+      "title": "Spoils of Poynton, The",
+      "desc": "Broadcast: April 4-25, 1971. The story of a battle between mother and son over the priceless and exquisite contents of a country house. Mrs. Gareth has amassed in her lifetime a magnificent collection of treasures at Poynton Park. Her son Owen has fallen in love with Mona, a girl of no taste but with a highly developed sense of possession. Mrs. Gareth worries that if Owen marries Mona her treasures will fall into the wrong hands. Fleda Vetch, a friend of Owen's mother and a kindred spirit in her appreciation of fine things, has fallen in love with Owen, but will hardly admit it, even to herself.",
+      "broadcast_date": "04/04/1971",
       "ids": {
         "V_84119EC7F9654EA08D7D28A210AF632B": {
           "title": "Masterpiece Theatre; Spoils of Poynton, The, Episode 1: Pride of Possession",
@@ -104,11 +109,12 @@ export const masterpieceData = {
           "asset_type": "Broadcast program",
           "broadcast_date": "1971-04-25"
         }
-      },
-      "nice_title": "Spoils of Poynton, The",
-      "description": "Broadcast: April 4- 25, 1971 The story of a battle between mother and son over the priceless and exquisite contents of a country house. Mrs. Gareth has amassed in her lifetime a magnificent collection of treasures at Poynton Park. Her son Owen has fallen in love with Mona, a girl of no taste but with a highly developed sense of possession. Mrs. Gareth worries that if Owen marries Mona her treasures will fall into the wrong hands. Fleda Vetch, a friend of Owen's mother and a kindred spirit in her appreciation of fine things, has fallen in love with Owen, but will hardly admit it, even to herself."
+      }
     },
     "possessedthe": {
+      "title": "Possessed, The",
+      "desc": "Aired in 1971 Dostoevski's grim foreboding of the Bolshevik Revolution details the tangled web that entwines the lives of Nikolay Stavrogin, his mother, his wife, and his tutor in plots against each other and the government.",
+      "broadcast_date": "05/02/1971",
       "ids": {
         "V_10FB8E5C23014DEDA295B46621249F3B": {
           "title": "Masterpiece Theatre; Possessed, The, Episode 1: The Sins of Others",
@@ -140,11 +146,12 @@ export const masterpieceData = {
           "asset_type": "Broadcast program",
           "broadcast_date": "1971-06-06"
         }
-      },
-      "nice_title": "Possessed, The",
-      "description": "Aired in 1971 Dostoevski's grim foreboding of the Bolshevik Revolution details the tangled web that entwines the lives of Nikolay Stavrogin, his mother, his wife, and his tutor in plots against each other and the government."
+      }
     },
     "peregoriot": {
+      "title": "Pere Goriot",
+      "desc": "Broadcast: June 13-July 4, 1971. A story of the power of money from two very different points of view -- Old Goriot who, to satisfy the demands of his two daughters, has reduced himself from riches to poverty -- and Eugene, young and full of integrity and promise, who succumbs to the prevailing Paris fever for money and social success. Eugene fall in love with Delphine (daughter of Goriot) and finds himself enmeshed in a murder plot as he struggles to establish himself in society.",
+      "broadcast_date": "06/13/1971",
       "ids": {
         "V_5A184BA744B14AFE8036D50311AD3EF0": {
           "title": "Masterpiece Theatre; Pere Goriot, Episode 1: Guilded Youth",
@@ -166,11 +173,12 @@ export const masterpieceData = {
           "asset_type": "Broadcast program",
           "broadcast_date": "1971-07-04"
         }
-      },
-      "nice_title": "Pere Goriot",
-      "description": "Broadcast: June 13- July 4, 1971 A story of the power of money from two very different points of view -- Old Goriot who, to satisfy the demands of his two daughters, has reduced himself from riches to poverty -- and Eugene, young and full of integrity and promise, who succumbs to the prevailing Paris fever for money and social success. Eugene fall in love with Delphine (daughter of Goriot) and finds himself enmeshed in a murder plot as he struggles to establish himself in society."
+      }
     },
     "judetheobscure": {
+      "title": "Jude the Obscure",
+      "desc": "Broadcast: Oct. 3-Nov. 7, 1971. Last of Hardy's novels. The story of a young stonemason who fails to get into Oxford and is seduced by a farm girl who marries and abandons him. When he is at last free to marry his adored cousin, she has tired of waiting for him and has married a schoolmaster. They are at last united in a celibate marriage but his spooky first child (by the farm girl) hangs himself and their two children.",
+      "broadcast_date": "10/03/1971",
       "ids": {
         "V_C4E5EB6C09F541EA9E9C3D293BFB0FBD": {
           "title": "Masterpiece Theatre; Jude the Obscure, Episode 1: At Marygreen",
@@ -202,11 +210,12 @@ export const masterpieceData = {
           "asset_type": "Broadcast program",
           "broadcast_date": "1971-11-07"
         }
-      },
-      "nice_title": "Jude the Obscure",
-      "description": "Broadcast: Oct. 3- Nov. 7, 1971 Last of Hardy's novels. The story of a young stonemason who fails to get into Oxford and is seduced by a farm girl who marries and abandons him. When he is at last free to marry his adored cousin, she has tired of waiting for him and has married a schoolmaster. They are at last united in a celibate marriage but his spooky first child (by the farm girl) hangs himself and their two children."
+      }
     },
     "gamblerthe": {
+      "title": "Gambler, The",
+      "desc": "Broadcast: Nov. 14-21, 1971. Alexis is a young Russian nobleman who has seen better times. He is totally obsessed with the roulette wheel. Lack of money has now forced him to take him a job as tutor for a Russian general's family. The story is set in Roulettenburg, a German town which is famous for its casino. It is the casino which influences directly the lives of all the main characters--the woman Alexis loves, Polina; his young English friend, Astley; and even Grandmamma.",
+      "broadcast_date": "11/14/1971",
       "ids": {
         "V_7245E7C30916468D9E150B6025301334": {
           "title": "Masterpiece Theatre; Gambler, The, Episode 1",
@@ -223,11 +232,12 @@ export const masterpieceData = {
           "asset_type": "Broadcast program",
           "broadcast_date": "1971-11-21"
         }
-      },
-      "nice_title": "Gambler, The",
-      "description": "Broadcast: Nov. 14- 21, 1971 Alexis is a young Russian nobleman who has seen better times. He is totally obsessed with the roulette wheel. Lack of money has now forced him to take him a job as tutor for a Russian general's family. The story is set in Roulettenburg, a German town which is famous for its casino. It is the casino which influences directly the lives of all the main characters--the woman Alexis loves, Polina; his young English friend, Astley; and even Grandmamma."
+      }
     },
     "resurrection": {
+      "title": "Resurrection",
+      "desc": "Broadcast: Nov. 28-Dec. 19, 1971. Based on a novel by Leo Tolstoy, the story deals with the spiritual regeneration of a young nobleman, Prince Nekhlyudov. In his earlier years, he seduced a young girl, Katyusha Maslova. She became a prostitute and later became involved with a man she is accused of poisoning. Nekhlyudov, serving on the jury, recognizes her and decides that he is morally guilty for her predicament. He decides to marry her and when she is convicted, he follows her to Siberia to accomplish his aim. Maslova is repelled by his reforming zeal. She marries another prisoner, but is finally convinced of Nekhlyudov's sincerity and accepts his friendship.",
+      "broadcast_date": "11/28/1971",
       "ids": {
         "V_1565FFE90E46456FB3F11359B68B99D3": {
           "title": "Masterpiece Theatre; Resurrection, Episode 1: Dmitri",
@@ -249,11 +259,12 @@ export const masterpieceData = {
           "asset_type": "Broadcast program",
           "broadcast_date": "1971-12-19"
         }
-      },
-      "nice_title": "Resurrection",
-      "description": "Broadcast: Nov. 28- Dec. 19, 1971 Based on a novel by Leo Tolstoy, the story deals with the spiritual regeneration of a young nobleman, Prince Nekhlyudov. In his earlier years, he seduced a young girl, Katyusha Maslova. She became a prostitute and later became involved with a man she is accused of poisoning. Nekhlyudov, serving on the jury, recognizes her and decides that he is morally guilty for her predicament. He decides to marry her and when she is convicted, he follows her to Siberia to accomplish his aim. Maslova is repelled by his reforming zeal. She marries another prisoner, but is finally convinced of Nekhlyudov's sincerity and accepts his friendship."
+      }
     },
     "sixwivesofhenryviiithe": {
+      "title": "Six Wives of Henry VIII, The",
+      "desc": "Broadcast: Jan. 2-Feb. 6, 1972. A dramatization of the marital misadventures of England's Henry VIII who established the Church of England in his attempts to disentangle himself from his first wife, only to marry five more women in an attempt to have a male son as heir to the throne: Catherine of Aragon, the strong-willed widow of Henry's brother; Anne Boleyn, the witty and beautiful woman who is beheaded on a charge of adultery; Jane Seymour, who dies after bearing the sickly Edward; Anne of Cleves; Catherine Howard; and Catherine Parr. Keith Michell stars as Henry VIII. See January 1972 Prime Time Program Guide for cover story.",
+      "broadcast_date": "01/02/1972",
       "ids": {
         "V_5C242373730843DB8DE1DE2C2D85DAED": {
           "title": "Masterpiece Theatre; Six Wives of Henry VIII, The, Episode 1: Catherine of Aragon",
@@ -315,11 +326,12 @@ export const masterpieceData = {
           "asset_type": "Open - Close",
           "broadcast_date": "1972-02-06"
         }
-      },
-      "nice_title": "Six Wives of Henry VIII, The",
-      "description": "Broadcast: Jan. 2- Feb. 6, 1972 A dramatization of the marital misadventures of England's Henry VIII who established the Church of England in his attempts to disentangle himself from his first wife, only to marry five more women in an attempt to have a male son as heir to the throne: Catherine of Aragon, the strong-willed widow of Henry's brother; Anne Boleyn, the witty and beautiful woman who is beheaded on a charge of adultery; Jane Seymour, who dies after bearing the sickly Edward; Anne of Cleves; Catherine Howard; and Catherine Parr. Keith Michell stars as Henry VIII. See January 1972 Prime Time Program Guide for cover story."
+      }
     },
     "elizabethr": {
+      "title": "Elizabeth R",
+      "desc": "Broadcast: Feb. 13-March 19, 1972. Glenda Jackson stars as Queen Elizabeth from young princess to the end of her 45 year rule. Daughter of Henry VIII and Anne Boleyn, the series traces her from beautiful princess overlooked during the brief reigns of her brother Edward and sister Mary, through her banishment to the Tower. Ascending to the throne, she started as an astute ruler who moved at ease in the masculine world of monarchs and diplomacy. Elizabeth never married and referred to herself as the Virgin Queen, but the prospect of marriage was used as leverage with political friends and foes alike. The first episode of the classic BAFTA and Emmy award-winning series. Glenda Jackson gives a stunning performance as Elizabeth I, cited by some historians as the most accurate portrayal of the Virgin Queen. See February 1972 Prime Time Program Guide for cover story.",
+      "broadcast_date": "02/13/1972",
       "ids": {
         "V_497AC6BE99484DC3B9132DD64F95B5F9": {
           "title": "Masterpiece Theatre; Elizabeth R, Episode 1: The Lion's Cub",
@@ -356,11 +368,12 @@ export const masterpieceData = {
           "asset_type": "Broadcast program",
           "broadcast_date": "1972-03-19"
         }
-      },
-      "nice_title": "Elizabeth R",
-      "description": "Broadcast: Feb. 13- March 19, 1972 Glenda Jackson stars as Queen Elizabeth from young princess to the end of her 45 year rule. Daughter of Henry VIII and Anne Boleyn, the series traces her from beautiful princess overlooked during the brief reigns of her brother Edward and sister Mary, through her banishment to the Tower. Ascending to the throne, she started as an astute ruler who moved at ease in the masculine world of monarchs and diplomacy. Elizabeth never married and referred to herself as the Virgin Queen, but the prospect of marriage was used as leverage with political friends and foes alike. The first episode of the classic BAFTA and Emmy award-winning series. Glenda Jackson gives a stunning performance as Elizabeth I, cited by some historians as the most accurate portrayal of the Virgin Queen. See February 1972 Prime Time Program Guide for cover story."
+      }
     },
     "lastofthemohicansthe": {
+      "title": "Last of the Mohicans, The",
+      "desc": "Broadcast: March 26-May 14, 1972. Hawkeye (Natty Bumpo) serves as a scout for the British troops at Fort Henry in upstate New York during the French and Indian War. He and his Mohican Indian companions, Chingachgook and Uncas, rescue the British officer Major Heywood and Cora and Alice Munroe when they are beset by Huron Indians who are in league with the French. As they escort the Munroe sisters to safety, they clash with Huron warriors lead by Magua, who wishes to capture the women. This eight part adaptation of James Fenimore Cooper's classic American novel stars Kenneth Ives as Hawkeye, Richard Warwick as Uncas, and John Abineri as Chingachgook. See March and April 1972 Prime Time Program Guides for cover stories.",
+      "broadcast_date": "03/26/1972",
       "ids": {
         "V_785AECF2C7A741CDAE23650FEA2C7C12": {
           "title": "Masterpiece Theatre; Last of the Mohicans, The, Episode 1",
@@ -442,13 +455,14 @@ export const masterpieceData = {
           "asset_type": "Broadcast program",
           "broadcast_date": "1972-05-14"
         }
-      },
-      "nice_title": "Last of the Mohicans, The",
-      "description": "Broadcast: March 26- May 14, 1972 Hawkeye (Natty Bumpo) serves as a scout for the British troops at Fort Henry in upstate New York during the French and Indian War. He and his Mohican Indian companions, Chingachgook and Uncas, rescue the British officer Major Heywood and Cora and Alice Munroe when they are beset by Huron Indians who are in league with the French. As they escort the Munroe sisters to safety, they clash with Huron warriors lead by Magua, who wishes to capture the women. This eight part adaptation of James Fenimore Cooper's classic American novel stars Kenneth Ives as Hawkeye, Richard Warwick as Uncas, and John Abineri as Chingachgook. See March and April 1972 Prime Time Program Guides for cover stories."
+      }
     }
   },
   "2": {
     "cousinbette": {
+      "title": "Cousin Bette",
+      "desc": "Broadcast: Nov. 5-Dec. 3, 1972. Generally considered to be the first of the French naturalistic novels and one of Balzac's most mature works, \"Cousin Bette\" is the story of the revenge of a woman from the family she feels has betrayed her. The author makes clear that the form her vengeance takes is possible only because of the corrupt state of Parisian society in the 1830's, as the middle class were just taking over the trappings of power without the experience to control it. The Hulots, who rose to fortune under Napoleon, hold an important position in the Parisian society of Louis-Philippe. At the head of the clan is the general, who shortly after the opening of the story become a Marshal of France. A bachelor, he is devoted to the family of his brother Hector, a baron and the head of a department in the War Office. A handsome man in his late fifties, Hector has a disastrous weakness for women. His wife is Adeline (nee. Fischer), one of nature's martyrs. Their son Victorin has married Celestine Crevel, and it is hoped that their daughter Hortense will marry a prosperous lawyer. Johann Fischer, Adeline's elderly uncle, is also devoted to the Hulots and is far too generous to his nephew by marriage. The last member of the family is Bette Fischer, Adeline's cousin and Johann's niece, and always called Cousin Bette. She earns a living by doing gold embroidery work, and is described by Balzac as a \"true peasant.\" Like the rest of the family, her origins are in Lorraine. Bette has always resented the way in which she has been treated by the family, who have left her to support herself, and salve their consciences about their \"country cousin\" by inviting her to dine once a week. When Hortense engineers a meeting with Bette's artist protege, Steinbock, and then becomes engaged to him, all without telling her cousin anything, the spinster's fury knows no bounds. She sees in this the final insult from the Hulots and swears to destroy them. She enlists the help of Hector's new mistress, Valerie Marneffe, and together they set out to fulfill their separate ambitions. Valerie wants to make as much money as possible, as quickly as possible; Bette wants revenge. Source: WGBH. archived promotional material.",
+      "broadcast_date": "11/05/1972",
       "ids": {
         "V_DFCE1663691E45A794AE16C02CFF014E": {
           "title": "Masterpiece Theatre; Cousin Bette, Episode 2: The House for Pleasure",
@@ -500,37 +514,12 @@ export const masterpieceData = {
           "asset_type": "Open - Close",
           "broadcast_date": "2024-08-23T18:45:07+00:00"
         }
-      },
-      "nice_title": "Cousin Bette",
-      "description": "Broadcast: Nov. 5- Dec. 3, 1972\n        Generally considered to be the first of the French naturalistic novels and one of Balzac's\n        most mature works, \"Cousin Bette\" is the story of the revenge of a woman from the family she\n        feels has betrayed her. The author makes clear that the form her vengeance takes is possible\n        only because of the corrupt state of Parisian society in the 1830's, as the middle class\n        were just taking over the trappings of power without the experience to control it. The\n        Hulots, who rose to fortune under Napoleon, hold an important position in the Parisian\n        society of Louis-Philippe. At the head of the clan is the general, who shortly after the\n        opening of the story become a Marshal of France. A bachelor, he is devoted to the family of\n        his brother Hector, a baron and the head of a department in the War Office. A handsome man\n        in his late fifties, Hector has a disastrous weakness for women. His wife is Adeline (nee\n        Fischer), one of nature's martyrs. Their son Victorin has married Celestine Crevel, and it\n        is hoped that their daughter Hortense will marry a prosperous lawyer. Johann Fischer,\n        Adeline's elderly uncle, is also devoted to the Hulots and is far too generous to his nephew\n        by marriage. The last member of the family is Bette Fischer, Adeline's cousin and Johann's\n        niece, and always called Cousin Bette. She earns a living by doing gold embroidery work, and\n        is described by Balza as a \"true peasant.\" Like the rest of the family, her origins are in\n        Lorraine. Bette has always resented the way in which she has been treated by the family, who\n        have left her to support herself, and salve their consciences about their \"country cousin\"\n        by inviting her to dine once a week. When Hortense engineers a meeting with Bette's artist\n        protege, Steinbock, and then becomes engaged to him, all without telling her cousin\n        anything, the spinster's fury knows no bounds. She sees in this the final insult from the\n        Hulots and swears to destroy them. She enlists the help of Hector's new mistress, Valerie\n        Marneffe, and together they set out to fulfill their separate ambitions. Valerie wants to\n        make as much money as possible, as quickly as possible; Bette wants revenge. Source: WGBH\n        archived promotional material."
-    },
-    "moonstone": {
-      "ids": {
-        "V_9F9A929EC9A945CA984BAEB426B76996": {
-          "title": "Masterpiece Theatre; Moonstone, The (1972), Episode 2",
-          "asset_type": "Open - Close",
-          "broadcast_date": "0072-12-17"
-        },
-        "V_C4E3608737A14ED68AB1D79B463B7202": {
-          "title": "Masterpiece Theatre; Moonstone, The (1972), Episode 3",
-          "asset_type": "Open - Close",
-          "broadcast_date": "0072-12-24"
-        },
-        "V_236D4D78988747EEA032F6CD715A080C": {
-          "title": "Masterpiece Theatre; Moonstone, The (1972), Episode 1",
-          "asset_type": "Open - Close",
-          "broadcast_date": "1972-12-10"
-        },
-        "V_387CB602053247A9B2D5B140215290F2": {
-          "title": "Masterpiece Theatre; Moonstone, The (1972), Episode 5",
-          "asset_type": "Open - Close",
-          "broadcast_date": "2024-08-23T18:45:06+00:00"
-        }
-      },
-      "nice_title": "Moonstone",
-      "description": "Broadcast: Dec. 10, 1972- Jan. 7,\n        1973 Set in Victorian England, a suspense story of a fabulous diamond looted from a temple\n        in India and the misfortunes it brings those associated with it -- especially the young\n        heroine Rachel Verinder who receives the gem as an inheritance on her 18th birthday. Warned\n        the diamond resembles one stolen from a Hindu statue, the diamond disappears. As the story\n        unfolds, a series of mysterious events occur: a suicide, sleeping drugs, and the activities\n        of an unsavory money lender, three sinister Indian conjurers and a murderer. Rachel's two\n        cousins and rivals for her hand are prime suspects."
+      }
     },
     "vanityfair": {
+      "title": "Vanity Fair",
+      "desc": "Broadcast: Oct. 1-29, 1972. Becky Sharp, orphaned by her alcoholic father, is about to start her duties as governess to the two daughters of Sir Pitt Crawley. She is invited to the home of her wealthy schoolmate Amelia Sedley, where she attempts to escape her fate as a servant by charming Amelia's foolish brother Jos into marriage. The plot fails and Becky joins the household of the lecherous, miserly Sir Pitt, who promptly gives her the extra duties of caring for his accounts. The Sedleys, meanwhile, lose their fortune and Becky meets Sir Pitt's rapscallion son Rawdon. The story of a world in which everybody knows what they want but nobody wants what they get.",
+      "broadcast_date": "10/01/1972",
       "ids": {
         "V_25125F1E8A944C5A9EC9F02AC5A9A9B0": {
           "title": "Masterpiece Theatre; Vanity Fair, Episode 1: The Famous Little Becky Puppet",
@@ -582,11 +571,12 @@ export const masterpieceData = {
           "asset_type": "Open - Close",
           "broadcast_date": "1972-10-29"
         }
-      },
-      "nice_title": "Vanity Fair",
-      "description": "Broadcast: Oct. 1- 29, 1972 Becky Sharp, orphaned by her alcoholic father, is about to start her duties as governess to the two daughters of Sir Pitt Crawley. She is invited to the home of her wealthy schoolmate Amelia Sedley, where she attempts to escape her fate as a servant by charming Amelia's foolish brother Jos into marriage. The plot fails and Becky joins the household of the lecherous, miserly Sir Pitt, who promptly gives her the extra duties of caring for his accounts. The Sedleys, meanwhile, lose their fortune and Becky meets Sir Pitt's rapscallion son Rawdon. The story of a world in which everybody knows what they want but nobody wants what they get."
+      }
     },
     "moonstonethe1972": {
+      "title": "Moonstone, The (1972)",
+      "desc": "Broadcast: Dec. 10, 1972-Jan. 7, 1973. Set in Victorian England, a suspense story of a fabulous diamond looted from a temple in India and the misfortunes it brings those associated with it -- especially the young heroine Rachel Verinder who receives the gem as an inheritance on her 18th birthday. Warned the diamond resembles one stolen from a Hindu statue, the diamond disappears. As the story unfolds, a series of mysterious events occur: a suicide, sleeping drugs, and the activities of an unsavory money lender, three sinister Indian conjurers and a murderer. Rachel's two cousins and rivals for her hand are prime suspects.",
+      "broadcast_date": "12/10/1972",
       "ids": {
         "V_92EBE60951D5474DA51673077D652E1E": {
           "title": "Masterpiece Theatre; Moonstone, The (1972), Episode 1",
@@ -618,11 +608,12 @@ export const masterpieceData = {
           "asset_type": "Broadcast program",
           "broadcast_date": "1973-01-07"
         }
-      },
-      "nice_title": "Moonstone, The (1972)",
-      "description": "Broadcast: Dec. 10, 1972- Jan. 7, 1973 Set in Victorian England, a suspense story of a fabulous diamond looted from a temple in India and the misfortunes it brings those associated with it -- especially the young heroine Rachel Verinder who receives the gem as an inheritance on her 18th birthday. Warned the diamond resembles one stolen from a Hindu statue, the diamond disappears. As the story unfolds, a series of mysterious events occur: a suicide, sleeping drugs, and the activities of an unsavory money lender, three sinister Indian conjurers and a murderer. Rachel's two cousins and rivals for her hand are prime suspects."
+      }
     },
     "tombrownsschooldays": {
+      "title": "Tom Brown's Schooldays",
+      "desc": "Broadcast: Jan. 14-Feb. 11, 1973. When a fever epidemic closes down his boarding school, Tom Brown is delighted to be sent home and spend time with his village friends, particularly Harry Winburn. Tom teaches Harry how to ride, Harry teaches Tom how to wrestle. Tom prevents Sir Richard Flashman from assaulting the simple-minded Jacob and from ravishing the Brown's maid, Mary. Tom is sent to a new school where he encounters Flashman's son Gerald, leader of bullies, who singles out Tom to torment.",
+      "broadcast_date": "01/14/1973",
       "ids": {
         "V_DECF349216694AF095A7D5507E3CE5FA": {
           "title": "Masterpiece Theatre; Tom Brown's Schooldays, Episode 1",
@@ -669,11 +660,12 @@ export const masterpieceData = {
           "asset_type": "Broadcast program",
           "broadcast_date": "1973-02-11"
         }
-      },
-      "nice_title": "Tom Brown's Schooldays",
-      "description": "Broadcast: Jan. 14- Feb. 11, 1973 When a fever epidemic closes down his boarding school, Tom Brown is delighted to be sent home and spend time with his village friends, particularly Harry Winburn. Tom teaches Harry how to ride, Harry teaches Tom how to wrestle. Tom prevents Sir Richard Flashman from assaulting the simple-minded Jacob and from ravishing the Brown's maid, Mary. Tom is sent to a new school where he encounters Flashman's son Gerald, leader of bullies, who singles out Tom to torment."
+      }
     },
     "pointcounterpoint": {
+      "title": "Point Counter Point",
+      "desc": "Broadcast: Feb. 18-March 18, 1973. A savagely satirical story of life, love and violent death in the Roaring 20's about the foibles of a generation. Novelist Philip Quarles decides to write a story about the people who are attending a house party hosted by Lady Tantamount. Guest Walter Bidlake pursues the seductive Lucy Tantamount despite qualms about ignoring his pregnant mistress Marjorie. His father John Bidlake is resentfully facing old age. Lord Tantamount's assistant Illidge is snubbed by the founder of a Fascist organization, Everard Webley. Illidge is invited to a man-shooting party by Maurice Spandrell while Burlap is discreetly wooing Beatrice Gilray.",
+      "broadcast_date": "02/18/1973",
       "ids": {
         "V_7F5B12CD288E4118BE1F48F3CC9995BA": {
           "title": "Masterpiece Theatre; Point Counter Point, Episode 1: Golden Lads and\n        Girls",
@@ -725,11 +717,12 @@ export const masterpieceData = {
           "asset_type": "Open - Close",
           "broadcast_date": "1973-03-18"
         }
-      },
-      "nice_title": "Point Counter Point",
-      "description": "Broadcast: Feb. 18- March 18, 1973 A\n        savagely satirical story of life, love and violent death in the Roaring 20's about the\n        foibles of a generation. Novelist Philip Quarles decides to write a story about the people\n        who are attending a house party hosted by Lady Tantamount. Guest Walter Bidlake pursues the\n        seductive Lucy Tantamount despite qualms about ignoring his pregnant mistress Marjorie. His\n        father John Bidlake is resentfully facing old age. Lord Tantamount's assistant Illidge is\n        snubbed by the founder of a Fascist organization, Everard Webley. Illidge is invited to a\n        man-shooting party by Maurice Spandrell while Burlap is discreetly wooing Beatrice\n        Gilray."
+      }
     },
     "goldenbowlthe": {
+      "title": "Golden Bowl, The",
+      "desc": "Broadcast: March 25-April 29, 1973. Henry James last full length novel is the story of two rich Americans -- a father and a daughter -- who are devoted to each other. The daughter marries an impoverished Italian aristocrat, and the father marries the daughter's best friend. Neither father nor daughter knows that their spouses had formerly been passionately in love with each other. The story is seen through the eyes of a character who assisted in bringing the couples together -- Bob Assingham.",
+      "broadcast_date": "03/25/1973",
       "ids": {
         "V_3FBB47DCA831431EB81126422EB3081C": {
           "title": "Masterpiece Theatre; Golden Bowl, The, Episode 1: The Prince",
@@ -791,13 +784,14 @@ export const masterpieceData = {
           "asset_type": "Open - Close",
           "broadcast_date": "1973-04-29"
         }
-      },
-      "nice_title": "Golden Bowl, The",
-      "description": "Broadcast: March 25- April 29, 1973 Henry James last full length novel is the story of two rich Americans -- a father and a daughter -- who are devoted to each other. The daughter marries an impoverished Italian aristocrat, and the father marries the daughter's best friend. Neither father nor daughter knows that their spouses had formerly been passionately in love with each other. The story is seen through the eyes of a character who assisted in bringing the couples together -- Bob Assingham."
+      }
     }
   },
   "3": {
     "manwhowashuntinghimselfthe": {
+      "title": "Man Who Was Hunting Himself, The",
+      "desc": "Broadcast: Nov. 11-25, 1973. David Foster, a technical installation director, is about to take an important post in NATO when British Counter Intelligence is tipped off about a plot to replace him with a substitute. This may have already been done. At a frontier post between East and West Germany, the real Foster is interrogated by Captain Mason, while his car is searched. Gregory who is to take his place, is still receiving a final polish and a decision is made to make it appear Foster is going through a period of instability. Then, when Gregory takes over after Foster's murder, any uncharacteristic behavior will pass unnoticed.",
+      "broadcast_date": "11/11/1973",
       "ids": {
         "V_6A7746B4A1914D28885A917FBE29E8B1": {
           "title": "Masterpiece Theatre; Man Who Was Hunting Himself, The, Episode 2",
@@ -829,11 +823,12 @@ export const masterpieceData = {
           "asset_type": "Broadcast program",
           "broadcast_date": "1973-11-25"
         }
-      },
-      "nice_title": "Man Who Was Hunting Himself, The",
-      "description": "Broadcast: Nov. 11- 25, 1973 David\n        Foster, a technical installation director, is about to take an important post in NATO when\n        British Counter Intelligence is tipped off about a plot to replace him with a substitute.\n        This may have already been done. At a frontier post between East and West Germany, the real\n        Foster is interrogated by Captain Mason, while his car is searched. Gregory who is to take\n        his place, is still receiving a final polish and a decision is made to make it appear Foster\n        is going through a period of instability. Then, when Gregory takes over after Foster's\n        murder, any uncharacteristic behavior will pass unnoticed."
+      }
     },
     "cloudsofwitness": {
+      "title": "Clouds of Witness",
+      "desc": "Broadcast: Oct. 7-Nov. 4, 1973. Captain Denis Cathcart, fiance of Lady Mary Wimsey and house guest of the Duke and Duchess of Denver is found dead at 3 a.m. on the morning of October 13, 1928. Unraveling the murder falls to Lord Peter Wimsey-amateur sleuth. The man has been murdered on the eve of his marriage to Wimsey's sister; the man charged with the crime is Wimsey's brother.",
+      "broadcast_date": "10/07/1973",
       "ids": {
         "V_3362FAE95D64473980C0FF6EACA796EF": {
           "title": "Masterpiece Theatre; Clouds of Witness, Episode 1",
@@ -885,11 +880,12 @@ export const masterpieceData = {
           "asset_type": "Open - Close",
           "broadcast_date": "1973-11-04"
         }
-      },
-      "nice_title": "Clouds of Witness",
-      "description": "Broadcast: Oct. 7- Nov. 4, 1973 Captain Denis Cathcart, fiance of Lady Mary Wimsey and house guest of the Duke and Duchess of Denver is found dead at 3 a.m. on the morning of October 13, 1928. Unraveling the murder falls to Lord Peter Wimsey - amateur sleuth. The man has been murdered on the eve of his marriage to Wimsey's sister; the man charged with the crime is Wimsey's brother."
+      }
     },
     "unpleasantnessatthebellonaclubthe": {
+      "title": "Unpleasantness at the Bellona Club, The",
+      "desc": "Broadcast: Dec. 2-23, 1973. In the Bellona Club on Armistice Day 1922, General Fentiman snoozes peacefully away in his armchair, buried beneath his newspaper. Only someone discovers he isn't snoozing--he's actually dead and has been so for some nine hours. What looks at first like a routine death turns into a murder mystery and a whole series of 'unpleasantnesses', all requiring the considerable talents of Lord Peter Wimsey to untangle. Source: Masterpiece legacy archive database. See also Ian Carmichael interview in Primetime WGBH Program Guide (December 1973)",
+      "broadcast_date": "12/02/1973",
       "ids": {
         "V_5692E6BDA7D3404E8B7417FBE2B092B4": {
           "title": "Masterpiece Theatre; Unpleasantness at the Bellona Club, The, Episode 1: Armistice Night",
@@ -916,11 +912,12 @@ export const masterpieceData = {
           "asset_type": "Broadcast program",
           "broadcast_date": "1973-12-23"
         }
-      },
-      "nice_title": "Unpleasantness at the Bellona Club, The",
-      "description": "Broadcast: Dec. 2- 23, 1973 In the Bellona Club on Armistice Day 1922, General Fentiman snoozes peacefully away in his armchair, buried beneath his newspaper. Only someone discovers he isn't snoozing--he's actually dead and has been so for some nine hours. What looks at first like a routine death turns into a murder mystery and a whole series of 'unpleasantnesses', all requiring the considerable talents of Lord Peter Wimsey to untangle. Source: Masterpiece legacy archive database. See also Ian Carmichael interview in Primetime WGBH Program Guide (December 1973)"
+      }
     },
     "littlefarmthe": {
+      "title": "Little Farm, The",
+      "desc": null,
+      "broadcast_date": "12/30/1973",
       "ids": {
         "V_1B06B68F165D47C6AB3F5060CA1FD8F8": {
           "title": "Masterpiece Theatre; Little Farm, The",
@@ -932,11 +929,12 @@ export const masterpieceData = {
           "asset_type": "Open - Close",
           "broadcast_date": "1973-12-30"
         }
-      },
-      "nice_title": "Little Farm, The",
-      "description": "No Description"
+      }
     },
     "upstairsdownstairsseason1": {
+      "title": "Upstairs, Downstairs, Season 1",
+      "desc": "Popular British comedy-drama chronicles the lives of the Bellamys, a wealthy London family, and their domestic staff. Set in the turbulent years between 1903 and 1930, the series studies the relationships between characters against a rich historical backdrop: Patriarch and Member of Parliament Richard Bellamy; wife Lady Marjorie; caddish son James; free-spirited daughter Elizabeth; cousin Georgina Worsley; pragmatic parlour maid Rose; firm but friendly butler Mr. Hudson; saucy yet conservative cook Mrs. Bridges; ambitious footman Frederick; cheeky servant turned music hall performer Sarah; novice maid Daisy; dull-witted scullery Ruby.",
+      "broadcast_date": "01/06/1974",
       "ids": {
         "V_4ECC68A64E0C44F4AEF2E68EBD14CD7F": {
           "title": "Masterpiece Theatre; Upstairs, Downstairs, Season 1, Episode 1: On Trial",
@@ -1043,11 +1041,12 @@ export const masterpieceData = {
           "asset_type": "Broadcast program",
           "broadcast_date": "1974-03-31"
         }
-      },
-      "nice_title": "Upstairs, Downstairs, Season 1",
-      "description": "Popular British comedy-drama chronicles the lives of the Bellamys, a wealthy London family, and their domestic staff. Set in the turbulent years between 1903 and 1930, the series studies the relationships between characters against a rich historical backdrop: Patriarch and Member of Parliament Richard Bellamy; wife Lady Marjorie; caddish son James; free-spirited daughter Elizabeth; cousin Georgina Worsley; pragmatic parlour maid Rose; firm but friendly butler Mr. Hudson; saucy yet conservative cook Mrs. Bridges; ambitious footman Frederick; cheeky servant turned music hall performer Sarah; novice maid Daisy; dull-witted scullery Ruby."
+      }
     },
     "edwardiansthe": {
+      "title": "Edwardians, The",
+      "desc": "Broadcast: July 7-28, 1974. \"Lloyd George\": The fiery liberal politician who dominated England prior to WWI, whose personal escapades kept him on the brink of political disaster. \"The Reluctant Juggler\": The story of actors struggling to organize a performer's union. \"Mr. Rolls and Mr. Royce\": 1902 in Manchester, England when two men combined to make the car that still remains a legend. \"Conan Doyle\": When his wife dies, the author becomes depressed and only the interest of an intriguing investigation revives him--trying to prove the innocence of a young Eurasian imprisoned for a crime he did not commit.",
+      "broadcast_date": "07/07/1974",
       "ids": {
         "V_7D13889C932040469D0BA0D2DFC9ECC3": {
           "title": "Masterpiece Theatre; Edwardians, The, Episode 1: Lloyd George",
@@ -1084,13 +1083,14 @@ export const masterpieceData = {
           "asset_type": "Open - Close",
           "broadcast_date": "2024-08-23T18:45:06+00:00"
         }
-      },
-      "nice_title": "Edwardians, The",
-      "description": "Broadcast: July 7- 28, 1974 \"Lloyd George\": The fiery liberal politician who dominated England prior to WWI, whose personal escapades kept him on the brink of political disaster. \"The Reluctant Juggler\": The story of actors struggling to organize a performer's union. \"Mr. Rolls and Mr. Royce\": 1902 in Manchester, England when two men combined to make the car that still remains a legend. \"Conan Doyle\": When his wife dies, the author becomes depressed and only the interest of an intriguing investigation revives him--trying to prove the innocence of a young Eurasian imprisoned for a crime he did not commit."
+      }
     }
   },
   "4": {
     "murdermustadvertise": {
+      "title": "Murder Must Advertise",
+      "desc": "Broadcast: Oct. 6-27, 1974. The staff of Pym's Publicity Ltd are still shocked by the death of their colleague Victor Dean when his replacement arrives. The new copywriter, Death Bredon, bears a strong physical resemblance to Lord Peter Wimsey, in fact he is Wimsey -- hired by the head of the firm to investigate Dean's death. The young man's fall on the spiral staircase was assumed an accident until his sister Pamela found an unfinished letter of warning.",
+      "broadcast_date": "10/06/1974",
       "ids": {
         "V_A371D90CA59D465582E433EF3C2C329D": {
           "title": "Masterpiece Theatre; Murder Must Advertise, Episode 1",
@@ -1122,11 +1122,12 @@ export const masterpieceData = {
           "asset_type": "Broadcast program",
           "broadcast_date": "1974-10-27"
         }
-      },
-      "nice_title": "Murder Must Advertise",
-      "description": "Broadcast: Oct. 6- 27, 1974 The staff of Pym's Publicity Ltd are still shocked by the death of their colleague Victor Dean when his replacement arrives. The new copywriter, Death Bredon, bears a strong physical resemblance to Lord Peter Wimsey, in fact he is Wimsey -- hired by the head of the firm to investigate Dean's death. The young man's fall on the spiral staircase was assumed an accident until his sister Pamela found an unfinished letter of warning."
+      }
     },
     "upstairsdownstairsseason2": {
+      "title": "Upstairs, Downstairs, Season 2",
+      "desc": "Broadcast: Nov. 3, 1974-Jan. 26, 1975. The second series of 'Upstairs, Downstairs' is set in the years just before the outbreak of the First World War. The fashionable and wealthy family--the Bellamys--and their domestic staff are the focus for this drama. The series presents this well-to-do household as a microcosm of Edwardian society and studies the characters and their relationships in depth revealing the tragedies, comedies, dramas, and scandals which involve the entire household.",
+      "broadcast_date": "11/03/1974",
       "ids": {
         "V_453B047CCD73402D815FD2ADDF5801AF": {
           "title": "Masterpiece Theatre; Upstairs, Downstairs, Season 2, Episode 1: Miss\n        Forrest",
@@ -1223,11 +1224,12 @@ export const masterpieceData = {
           "asset_type": "Broadcast program",
           "broadcast_date": "1975-01-26"
         }
-      },
-      "nice_title": "Upstairs, Downstairs, Season 2",
-      "description": "Broadcast: Nov. 3, 1974- Jan. 26,\n        1975 The second series of 'Upstairs, Downstairs' is set in the years just before the\n        outbreak of the First World War. The fashionable and wealthy family--the Bellamys--and their\n        domestic staff are the focus for this drama. The series presents this well-to-do household\n        as a microcosm of Edwardian society and studies the characters and their relationships in\n        depth revealing the tragedies, comedies, dramas, and scandals which involve the entire\n        household."
+      }
     },
     "countrymattersseason1": {
+      "title": "Country Matters, Season 1",
+      "desc": "Broadcast: Feb. 2-23, 1975. Based on the short stories of two masters of the genre, A.E. Coppard and H.E. Bates, \"Country Matters\" depicts life in rural England during that period between the two World Wars when countrymen and women were untroubled by the noises of the twentieth century. The short stories televised are: \"The Higgler\", \"The Black Dog\", \"The Watercress Girl\" (all by A.E. Coppard) and \"The Mill\" by H.E. Bates.",
+      "broadcast_date": "02/02/1975",
       "ids": {
         "V_C6726839671F43C78D3C0D27070A814A": {
           "title": "Masterpiece Theatre; Country Matters, Season 1, Episode 1: The Higgler",
@@ -1249,11 +1251,12 @@ export const masterpieceData = {
           "asset_type": "Broadcast program",
           "broadcast_date": "1975-02-23"
         }
-      },
-      "nice_title": "Country Matters, Season 1",
-      "description": "Broadcast: Feb. 2- 23, 1975 Series Description: Based on the short stories of two masters of the genre, A.E. Coppard and H.E. Bates, \"Country Matters\" depicts life in rural England during that period between the two World Wars when countrymen and women were untroubled by the noises of the twentieth century. The short stories televised are: \"The Higgler\", \"The Black Dog\", \"The Watercress Girl\" (all by A.E. Coppard) and \"The Mill\" by H.E. Bates."
+      }
     },
     "vienna1900": {
+      "title": "Vienna 1900",
+      "desc": "Broadcast: March 2-April 6, 1975. Story 1: Alone in a cafe in Vienna, Doktor Graesler observes the people passing through, recording their lives, loves and deaths. Story 2: Alfred Beratoner's passion for Adele knows no bounds, but Elsie stands between them. How to remove Elise and remain a man of honor? Story 3: Alone since the death of his sister, Dr. Graesler, age 48, shows all the signs of being a confirmed bachelor, until he meets Sabine. Story 4: \"I lived with you; I will die with you,\" says Marie to her lover Karl. But faced with death, how sweet life seems. Story 5: A young widow rediscovers the love of her youth, but he is now a famous violinist who prefers part-time passion.",
+      "broadcast_date": "03/02/1975",
       "ids": {
         "V_1781AB087CAB4A0BA83C964F62235E76": {
           "title": "Masterpiece Theatre; Vienna 1900, Episode 1: Mother and Son",
@@ -1305,11 +1308,12 @@ export const masterpieceData = {
           "asset_type": "Broadcast program",
           "broadcast_date": "1975-04-06"
         }
-      },
-      "nice_title": "Vienna 1900",
-      "description": "No Description"
+      }
     },
     "ninetailorsthe": {
+      "title": "Nine Tailors, The",
+      "desc": "Broadcast: April 13-May 4, 1975. Story opens in 1914 when Wimsey attends a fashionable wedding in Fenchurch before leaving his regiment in France. The festivities are shattered by the discovery that the jewels belonging to a guest have been stolen. The jewels are never recovered. 18 years later when Lord Peter Wimsey attends the funeral of an old friend in the same country village, there are two corpses -- one body is already in the grave bound with bell ropes. Nine Tailors is bell ringers' term that refers to the peal that tolls for the dead.",
+      "broadcast_date": "04/13/1975",
       "ids": {
         "V_F1494337C43D43B48F0B33DD07E07D66": {
           "title": "Masterpiece Theatre; Nine Tailors, The, Episode 1",
@@ -1346,24 +1350,14 @@ export const masterpieceData = {
           "asset_type": "Broadcast program",
           "broadcast_date": "1975-05-04"
         }
-      },
-      "nice_title": "Nine Tailors, The",
-      "description": "Broadcast: April 13- May 4, 1975 Story opens in 1914 when Wimsey attends a fashionable wedding in Fenchurch before leaving his regiment in France. The festivities are shattered by the discovery that the jewels belonging to a guest have been stolen. The jewels are never recovered. 18 years later when Lord Peter Wimsey attends the funeral of an old friend in the same country village, there are two corpses -- one body is already in the grave bound with bell ropes. Nine Tailors is bell ringers' term that refers to the peal that tolls for the dead."
-    },
-    "upstairsdownstairs": {
-      "ids": {
-        "V_593D4222DA684D3D8581F4B814E6A694": {
-          "title": "Masterpiece Theatre; Upstairs, Downstairs, Season 2, Episode 13: The Sudden\n        Storm",
-          "asset_type": "Open - Close",
-          "broadcast_date": "2024-08-23T18:45:07+00:00"
-        }
-      },
-      "nice_title": "Upstairs, Downstairs",
-      "description": "Broadcast: Nov. 3, 1974- Jan. 26,\n        1975 The second series of 'Upstairs, Downstairs' is set in the years just before the\n        outbreak of the First World War. The fashionable and wealthy family--the Bellamys--and their\n        domestic staff are the focus for this drama. The series presents this well-to-do household\n        as a microcosm of Edwardian society and studies the characters and their relationships in\n        depth revealing the tragedies, comedies, dramas, and scandals which involve the entire\n        household."
+      }
     }
   },
   "5": {
     "shouldertoshoulder": {
+      "title": "Shoulder to Shoulder",
+      "desc": "Broadcast: Oct. 5-Nov. 9, 1975. Dramatized history of women's suffrage struggle in England from 1886-1918 focuses on the Pankhurst family -- four women who mobilized an army of women -- Mrs Emmeline Pankhurst, her militant daughter Christabel, her determined pacifist daughter Sylvia, and the youngest Adela. Series also depicts Annie Kenney-the mill girl who brought working-class women into what had been an upper-class struggle; Lady Constance Lytton; and Emily Wilding Davison -- the women's movement's first martyr who threw herself under the King's horse at the Derby. SERIES ALSO AIRED AS SEPARATE SERIES IN 1988, hosted by Jane Alexander.",
+      "broadcast_date": "10/05/1975",
       "ids": {
         "V_33C24ABF99E94548B7C1AC81F3C0087F": {
           "title": "Masterpiece Theatre; Shoulder to Shoulder, Episode 1: The Pankhurst Family",
@@ -1405,11 +1399,12 @@ export const masterpieceData = {
           "asset_type": "Open - Close",
           "broadcast_date": "2024-08-23T18:45:06+00:00"
         }
-      },
-      "nice_title": "Shoulder to Shoulder",
-      "description": "Broadcast: Oct. 5- Nov. 9, 1975 Dramatized history of women's suffrage struggle in England from 1886-1918 focuses on the Pankhurst family -- four women who mobilized an army of women -- Mrs Emmeline Pankhurst, her militant daughter Christabel, her determined pacifist daughter Sylvia, and the youngest Adela. Series also depicts Annie Kenney - the mill girl who brought working-class women into what had been an upper-class struggle; Lady Constance Lytton; and Emily Wilding Davison -- the women's movement's first martyr who threw herself under the King's horse at the Derby. SERIES ALSO AIRED AS SEPARATE SERIES IN 1988, hosted by Jane Alexander."
+      }
     },
     "notoriouswoman": {
+      "title": "Notorious Woman",
+      "desc": "Broadcast: Nov. 16-Dec. 28, 1975. The story of George Sand, the notorious novelist who sparked controversy as a cigar-smoking, trouser-clad woman who took a succession of lovers insisting that \"My body is mine to give and I shall give it to whom I wish.\" Aurore Dupin, a young French girl just out of convent school, grows up to become the most scandalous woman of nineteenth century Paris. Her Bohemian lifestyle, affairs with artists, dress of men's clothing and writing activities all combined to make her an outrageous character for her time. Story follows her career, including her relationships with composers Liszt and Chopin. Rosemary Harris who plays George Sand won the Outstanding Lead Actress in a Limited Series Emmy for her work in the role. See cover story in Prime Time program guide, November 1975",
+      "broadcast_date": "11/16/1975",
       "ids": {
         "V_EA92B097A7A9497F9033500935B30D17": {
           "title": "Masterpiece Theatre; Notorious Woman, Episode 1: Misalliance",
@@ -1476,11 +1471,12 @@ export const masterpieceData = {
           "asset_type": "Open - Close",
           "broadcast_date": "1975-12-28"
         }
-      },
-      "nice_title": "Notorious Woman",
-      "description": "Broadcast: Nov. 16- Dec. 28, 1975 Series Description: The story of George Sand, the notorious novelist who sparked controversy as a cigar-smoking, trouser-clad woman who took a succession of lovers insisting that \"My body is mine to give and I shall give it to whom I wish.\" Aurore Dupin, a young French girl just out of convent school, grows up to become the most scandalous woman of nineteenth century Paris. Her Bohemian lifestyle, affairs with artists, dress of men's clothing and writing activities all combined to make her an outrageous character for her time. Story follows her career, including her relationships with composers Liszt and Chopin. Rosemary Harris who plays George Sand won the Outstanding Lead Actress in a Limited Series Emmy for her work in the role. See cover story in Prime Time program guide, November 1975"
+      }
     },
     "upstairsdownstairsseason3": {
+      "title": "Upstairs, Downstairs, Season 3",
+      "desc": "Broadcast: Jan. 4-March 28, 1976. The third series of 'Upstairs, Downstairs' is set during the First World War and follows the experiences of the entire family and staff during that painful period between 1914-1918 when over 1 million British soldiers were killed or wounded on the Western Front. This series chronicles the beginning of the end of the British empire, as well as the social unrest beginning to affect the class system, as viewed through the microcosm of the Bellamy household: family and servants.",
+      "broadcast_date": "01/04/1976",
       "ids": {
         "V_30E413B80702422499DEB8BD901AF946": {
           "title": "Masterpiece Theatre; Upstairs, Downstairs, Season 3, Episode 1: A Patriotic Offering",
@@ -1572,11 +1568,12 @@ export const masterpieceData = {
           "asset_type": "Open - Close",
           "broadcast_date": "2024-08-23T18:45:06+00:00"
         }
-      },
-      "nice_title": "Upstairs, Downstairs, Season 3",
-      "description": "Broadcast: Jan. 4- March 28, 1976 The third series of 'Upstairs, Downstairs' is set during the First World War and follows the experiences of the entire family and staff during that painful period between 1914-1918 when over 1 million British soldiers were killed or wounded on the Western Front. This series chronicles the beginning of the end of the British empire, as well as the social unrest beginning to affect the class system, as viewed through the microcosm of the Bellamy household: family and servants."
+      }
     },
     "cakesandale": {
+      "title": "Cakes and Ale",
+      "desc": "Broadcast: Sundays in April: 4th, 11th and 18th, 1976. Irrepressible Rosie Gann is an English barmaid who is the central figure of this dramatization of a Somerset Maugham novel. Rosie Gann marries a struggling young novelist (Mike Pratt) because he needs her. She deserts him and elopes with an old time lover (James Grout) when he needs her more. Rosie's heart of gold is related through the eyes of still another lover (Michael Hordern), a successful writer and identifiable projection of Somerset Maugham.",
+      "broadcast_date": "04/04/1976",
       "ids": {
         "V_D404F34C6D9F4C4894ED3DE6D85BC35F": {
           "title": "Masterpiece Theatre; Cakes and Ale, Episode 1",
@@ -1608,11 +1605,12 @@ export const masterpieceData = {
           "asset_type": "Open - Close",
           "broadcast_date": "2024-08-23T18:45:07+00:00"
         }
-      },
-      "nice_title": "Cakes and Ale",
-      "description": "Broadcast: Sundays in April: 4th, 11th and 18th, 1976 Irrepressible Rosie Gann is an English barmaid who is the central figure of this dramatization of a Somerset Maugham novel. Rosie Gann marries a struggling young novelist (Mike Pratt) because he needs her. She deserts him and elopes with an old time lover (James Grout) when he needs her more. Rosie's heart of gold is related through the eyes of still another lover (Michael Hordern), a successful writer and identifiable projection of Somerset Maugham."
+      }
     },
     "sunsetsong": {
+      "title": "Sunset Song",
+      "desc": "Broadcast: April 25-May 30, 1976. Beginning in 1912, the year of a major drought, the story centers on 16-year old Christine Guthrie. Chris is a bright girl who may become a teacher some day. But she is also attracted to the harshness of the Scottish landscape and the direct coarseness of the farm people. Chris' father John Guthrie is a magnificently terrifying and pathetic creature. Consumed by the needs of the flesh, he redoubles his religious devotions and posturings. Believing himself a terrible sinner, he is convinced that everyone else is also, becoming suspicious, righteous and lustful.",
+      "broadcast_date": "04/25/1976",
       "ids": {
         "V_DAE326B94FA5478686AA0115E86D50FA": {
           "title": "Masterpiece Theatre; Sunset Song, Episode 1: The Unfurrowed Field",
@@ -1669,24 +1667,14 @@ export const masterpieceData = {
           "asset_type": "Open - Close",
           "broadcast_date": "2024-08-23T18:45:06+00:00"
         }
-      },
-      "nice_title": "Sunset Song",
-      "description": "Broadcast: April 25- May 30, 1976 Beginning in 1912, the year of a major drought, the story centers on 16-year old Christine Guthrie. Chris is a bright girl who may become a teacher some day. But she is also attracted to the harshness of the Scottish landscape and the direct coarseness of the farm people. Chris' father John Guthrie is a magnificently terrifying and pathetic creature. Consumed by the needs of the flesh, he redoubles his religious devotions and posturings. Believing himself a terrible sinner, he is convinced that everyone else is also, becoming suspicious, righteous and lustful."
-    },
-    "upstairsdownstairs": {
-      "ids": {
-        "V_16ED5B6E122D45CAA4FA128ECAB821FF": {
-          "title": "Masterpiece Theatre; Upstairs, Downstairs, Season 3, Episode 11: Missing Believed\n        Killed",
-          "asset_type": "Open - Close",
-          "broadcast_date": "2024-08-23T18:45:06+00:00"
-        }
-      },
-      "nice_title": "Upstairs, Downstairs",
-      "description": "Broadcast: Jan. 4- March 28, 1976\n        The third series of 'Upstairs, Downstairs' is set during the First World War and follows the\n        experiences of the entire family and staff during that painful period between 1914-1918 when\n        over 1 million British soldiers were killed or wounded on the Western Front. This series\n        chronicles the beginning of the end of the British empire, as well as the social unrest\n        beginning to affect the class system, as viewed through the microcosm of the Bellamy\n        household: family and servants."
+      }
     }
   },
   "6": {
     "madamebovary": {
+      "title": "Madame Bovary",
+      "desc": "Broadcast: Oct. 10-31, 1976. A vivid portrait of a romantic adulteress in 19th century France. The tragic heroine Emma sets tongues wagging as she tries to escape the boredom of her marriage in the arms of other men.",
+      "broadcast_date": "10/10/1976",
       "ids": {
         "V_68D4FA4033D04F87865225BA889A9D65": {
           "title": "Masterpiece Theatre; Madame Bovary, Episode 2: First Love",
@@ -1728,11 +1716,12 @@ export const masterpieceData = {
           "asset_type": "Open - Close",
           "broadcast_date": "1976-10-31"
         }
-      },
-      "nice_title": "Madame Bovary",
-      "description": "Broadcast: Oct. 10- 31, 1976 A vivid\n        portrait of a romantic adulteress in 19th century France. The tragic heroine Emma sets\n        tongues wagging as she tries to escape the boredom of her marriage in the arms of other\n        men."
+      }
     },
     "howgreenwasmyvalley": {
+      "title": "How Green Was My Valley",
+      "desc": "Broadcast: Nov. 7-Dec. 12, 1976. Warm, robust portrait of Welsh mining town and the tightly knit Morgan family. Examines the grim, dangerous life down in the mines and the labor dispute that divides a tight-knit family presided over by a loving but iron willed patriarch.",
+      "broadcast_date": "11/28/1976",
       "ids": {
         "V_920904740F65484992FEAB0C357EEE4A": {
           "title": "Masterpiece Theatre; How Green Was My Valley, Episode 4",
@@ -1794,11 +1783,12 @@ export const masterpieceData = {
           "asset_type": "Broadcast program",
           "broadcast_date": "1976-12-12"
         }
-      },
-      "nice_title": "How Green Was My Valley",
-      "description": "No Description"
+      }
     },
     "fiveredherrings": {
+      "title": "Five Red Herrings",
+      "desc": "Broadcast: Dec. 19, 1976-Jan. 9, 1977. Wimsey stumbles across the corpse of Sandy Campbell, the most unpopular man in this district. Before long there are six suspects -- all fellow artists who have recently quarreled with Campbell. Five are obviously red herrings, only one has an alibi. Slowly Wimsey works through the list. A tiny detail -- a tube of flake white missing from the scene of the crime; an identical tube in one of the studios worries him. In an elaborate reconstruction, he shows just how the murder was committed and the killer confesses.",
+      "broadcast_date": "12/19/1976",
       "ids": {
         "V_4DCFA29134AF48C88A7676F1C999A532": {
           "title": "Masterpiece Theatre; Five Red Herrings, Episode 1",
@@ -1840,11 +1830,12 @@ export const masterpieceData = {
           "asset_type": "Open - Close",
           "broadcast_date": "1977-01-09"
         }
-      },
-      "nice_title": "Five Red Herrings",
-      "description": "Broadcast: Dec. 19, 1976- Jan. 9, 1977 Wimsey stumbles across the corpse of Sandy Campbell, the most unpopular man in this district. Before long there are six suspects -- all fellow artists who have recently quarreled with Campbell. Five are obviously red herrings, only one has an alibi. Slowly Wimsey works through the list. A tiny detail -- a tube of flake white missing from the scene of the crime; an identical tube in one of the studios worries him. In an elaborate reconstruction, he shows just how the murder was committed and the killer confesses."
+      }
     },
     "upstairsdownstairsseason4": {
+      "title": "Upstairs, Downstairs, Season 4",
+      "desc": "Broadcast: Jan. 16-May 1, 1977. The fourth series of \"Upstairs, Downstairs\" is set during the Roaring Twenties and follows the experiences of the entire family and staff as they adjust to the changes made in their lives by the aftermath of World War I.",
+      "broadcast_date": "01/16/1977",
       "ids": {
         "V_4755B1FB2B704F799AC3DCB046DBB84E": {
           "title": "Masterpiece Theatre; Upstairs, Downstairs, Season 4, Episode 1: On With the Dance",
@@ -1971,11 +1962,12 @@ export const masterpieceData = {
           "asset_type": "Open - Close",
           "broadcast_date": "2024-08-23T18:45:06+00:00"
         }
-      },
-      "nice_title": "Upstairs, Downstairs, Season 4",
-      "description": "Broadcast: Jan. 16- May 1, 1977 Series Description: The fourth series of \"Upstairs, Downstairs\" is set during the Roaring Twenties and follows the experiences of the entire family and staff as they adjust to the changes made in their lives by the aftermath of World War I."
+      }
     },
     "poldarkseason11977": {
+      "title": "Poldark, Season 1 (1977)",
+      "desc": "Broadcast: May 8-Aug. 21, 1977. Series begins with Capt. Ross Poldark's return from the defeat of British forces in the Revolutionary War. On his return to his native Cornwall, Ross finds his father dead, leaving him the heir to a run-down estate and house, Nampara. His main sources of revenue, two copper mines, have been neglected and the house run by a drunken common law wife. His intended wife has become engaged to his cousin, Francis, because she thought Poldark perished in the war. His Uncle Charles had agreed to sell the mines to a smooth character named Warleggen. How the feisty Poldark handles these and other troubles is the focus of these two series.",
+      "broadcast_date": "05/08/1977",
       "ids": {
         "V_E6A94B84B1D744EDB719D3CEC99ACAEB": {
           "title": "Masterpiece Theatre; Poldark, Season 1 (1977), Episode 1",
@@ -2127,13 +2119,14 @@ export const masterpieceData = {
           "asset_type": "Open - Close",
           "broadcast_date": "2024-08-23T18:45:07+00:00"
         }
-      },
-      "nice_title": "Poldark, Season 1 (1977)",
-      "description": "Broadcast: May 8- Aug. 21, 1977 Series begins with Capt. Ross Poldark's return from the defeat of British forces in the Revolutionary War. On his return to his native Cornwall, Ross finds his father dead, leaving him the heir to a run-down estate and house, Nampara. His main sources of revenue, two copper mines, have been neglected and the house run by a drunken common law wife. His intended wife has become engaged to his cousin, Francis, because she thought Poldark perished in the war. His Uncle Charles had agreed to sell the mines to a smooth character named Warleggen. How the feisty Poldark handles these and other troubles is the focus of these two series."
+      }
     }
   },
   "7": {
     "dickensoflondon": {
+      "title": "Dickens of London",
+      "desc": "Broadcast: Aug. 28-Oct. 30, 1977. The life and works of writer Charles Dickens. Composing lengthy novels in a serial format, Dickens was a social commentator who brought the ills of Victorian England to light by the vivid and entertaining characters he drew. Elements of autobiography crept into many of his beloved stories such as Bleak House and Nicholas Nickleby. A Yorkshire Television series. See Prime Time program guide, August 1977 for cover story.",
+      "broadcast_date": "10/16/1977",
       "ids": {
         "V_F3EE825C3459419CBD5876B45E225B32": {
           "title": "Masterpiece Theatre; Dickens of London, Episode 8: Magic",
@@ -2230,11 +2223,12 @@ export const masterpieceData = {
           "asset_type": "Open - Close",
           "broadcast_date": "2024-08-23T18:45:07+00:00"
         }
-      },
-      "nice_title": "Dickens of London",
-      "description": "Broadcast: Aug. 28- Oct. 30, 1977\n        The life and works of writer Charles Dickens. Composing lengthy novels in a serial format,\n        Dickens was a social commentator who brought the ills of Victorian England to light by the\n        vivid and entertaining characters he drew. Elements of autobiography crept into many of his\n        beloved stories such as Bleak House and Nicholas Nickleby. A Yorkshire Television series.\n        See Prime Time program guide, August 1977 for cover story."
+      }
     },
     "iclaudius": {
+      "title": "I, Claudius",
+      "desc": "Broadcast: Nov. 6, 1977-Jan. 29, 1978. The action covers the reign of four emperors (of the Claudian family) who followed Caesar and preceded Nero. The story of a man who all Rome thought was a fool, the laughing-stock of its ruling family. Claudius stuttered so badly that his grandmother, Livia, casually suggested severing his head from his body as the only sure cure. He was also afflicted with a limp and incessant twitch. Livia was guilty of a trail of murders and deceptions. Claudius, placed on the throne after the assassination of Caligula, managed to restore some measure of nobility to the world's most powerful nation. Claudius began a just and sensible rule, his efforts directed toward the dream of restoring the cherished Republic but the power-mad around him thwarted his intentions. See November 1977 Prime Time Program Guide for cover story.",
+      "broadcast_date": "11/20/1977",
       "ids": {
         "V_5DAE4950133847A196C98621E9E3A46F": {
           "title": "Masterpiece Theatre; I, Claudius, Episode 3: Waiting in the Wings",
@@ -2406,11 +2400,12 @@ export const masterpieceData = {
           "asset_type": "Open - Close",
           "broadcast_date": "1978-01-29"
         }
-      },
-      "nice_title": "I, Claudius",
-      "description": "Broadcast: Nov. 6, 1977- Jan. 29,\n        1978 The action covers the reign of four emperors (of the Claudian family) who followed\n        Caesar and preceded Nero. The story of a man who all Rome thought was a fool, the\n        laughing-stock of its ruling family. Claudius stuttered so badly that his grandmother,\n        Livia, casually suggested severing his head from his body as the only sure cure. He was also\n        afflicted with a limp and incessant twitch. Livia was guilty of a trail of murders and\n        deceptions. Claudius, placed on the throne after the assassination of Caligula, managed to\n        restore some measure of nobility to the world's most powerful nation. Claudius began a just\n        and sensible rule, his efforts directed toward the dream of restoring the cherished Republic\n        but the power-mad around him thwarted his intentions. See November 1977 Prime Time Program\n        Guide for cover story."
+      }
     },
     "annakarenina1978": {
+      "title": "Anna Karenina (1978)",
+      "desc": "Broadcast: Feb. 5-April 9, 1978. Centering on a doomed extra-marital affair, Anna Karenina paints a portrait of the social and political fabric of upper-class Russia in the 1870's. Anna is married to Karenin, a convention-bound, austere husband. Into her life comes Count Vronsky and their affair leads to the dissolution of her marriage and a tragic end.",
+      "broadcast_date": "02/05/1978",
       "ids": {
         "V_5B0C4A30055940989C57F02F360623AE": {
           "title": "Masterpiece Theatre; Anna Karenina (1978), Episode 1",
@@ -2507,11 +2502,12 @@ export const masterpieceData = {
           "asset_type": "Open - Close",
           "broadcast_date": "2024-08-23T18:45:07+00:00"
         }
-      },
-      "nice_title": "Anna Karenina (1978)",
-      "description": "Broadcast: Feb. 5- April 9, 1978 Centering on a doomed extra-marital affair, Anna Karenina paints a portrait of the social and political fabric of upper-class Russia in the 1870's. Anna is married to Karenin, a convention-bound, austere husband. Into her life comes Count Vronsky and their affair leads to the dissolution of her marriage and a tragic end."
+      }
     },
     "ourmutualfriend1978": {
+      "title": "Our Mutual Friend (1978)",
+      "desc": "Broadcast: April 16-May 28, 1978. Dickens last complete novel is a story about money, which rules the destiny of practically every character. Mr. and Mrs. Lammle marry because each mistakenly assumed the other to possess a fortune. In compensation they scheme to sell the over-protected daughter of Mr. Podsnap to a financier who wants an entre to Mr. P's money. Mr. Boffin, the once innocent, amiable servant, inherits the fantastic Harmon fortune and appears to become an embittered miser. Boffin protege Bella Wilfer becomes an arrogant coquette. Parasites cluster like flies to try to grasp a part of the Harmon fortune.",
+      "broadcast_date": "04/16/1978",
       "ids": {
         "V_92E8A83E33744A9EA62B8E0B4428DCD8": {
           "title": "Masterpiece Theatre; Our Mutual Friend (1978), Episode 1",
@@ -2548,11 +2544,12 @@ export const masterpieceData = {
           "asset_type": "Broadcast program",
           "broadcast_date": "1978-05-28"
         }
-      },
-      "nice_title": "Our Mutual Friend (1978)",
-      "description": "Broadcast: April 16- May 28, 1978 Dickens last complete novel is a story about money, which rules the destiny of practically every character. Mr. and Mrs. Lammle marry because each mistakenly assumed the other to possess a fortune. In compensation they scheme to sell the over-protected daughter of Mr. Podsnap to a financier who wants an entre to Mr. P's money. Mr. Boffin, the once innocent, amiable servant, inherits the fantastic Harmon fortune and appears to become an embittered miser. Boffin protege Bella Wilfer becomes an arrogant coquette. Parasites cluster like flies to try to grasp a part of the Harmon fortune."
+      }
     },
     "poldarkseason21978": {
+      "title": "Poldark, Season 2 (1978)",
+      "desc": "Broadcast: June 4-Aug. 27, 1978. A whole new series with dashing Ross Poldark and his fiery wife, Demelza. Source: WGBH Prime Time program guide, June 1978",
+      "broadcast_date": "06/04/1978",
       "ids": {
         "V_5E5274AD6F3F4CBBBF0E71E9928A7590": {
           "title": "Masterpiece Theatre; Poldark, Season 2 (1978), Episode 1",
@@ -2669,13 +2666,14 @@ export const masterpieceData = {
           "asset_type": "Open - Close",
           "broadcast_date": "2024-08-23T18:45:07+00:00"
         }
-      },
-      "nice_title": "Poldark, Season 2 (1978)",
-      "description": "Broadcast: June 4- Aug. 27, 1978 A whole new series with dashing Ross Poldark and his fiery wife, Demelza. Source: WGBH Prime Time program guide, June 1978"
+      }
     }
   },
   "8": {
     "mayorofcasterbridgethe": {
+      "title": "Mayor of Casterbridge, The",
+      "desc": "Broadcast: Sept. 3-Oct. 15, 1978. Casterbridge's Mayor Michael Henchard is a doomed man. His fall was charted 18 years before, when he drunkenly sold his wife and child to a passing sailor, and is set off when his deserted wife turns up with her now-grown daughter. Ashamed by his deed, Henchard vows never to drink again. He has achieved eminence, respect and wealth. The re-entry of wife and child into his life sets up a convoluted chain of events which results in his ruin and return to drunkenness.",
+      "broadcast_date": "09/03/1978",
       "ids": {
         "V_E8A07B49BB8F4CEFA76DF1199FE91C17": {
           "title": "Masterpiece Theatre; Mayor of Casterbridge, The, Episode 1",
@@ -2717,11 +2715,12 @@ export const masterpieceData = {
           "asset_type": "Open - Close",
           "broadcast_date": "2024-08-23T18:45:06+00:00"
         }
-      },
-      "nice_title": "Mayor of Casterbridge, The",
-      "description": "Broadcast: Sept. 3- Oct. 15, 1978 Casterbridge's Mayor Michael Henchard is a doomed man. His fall was charted 18 years before, when he drunkenly sold his wife and child to a passing sailor, and is set off when his deserted wife turns up with her now-grown daughter. Ashamed by his deed, Henchard vows never to drink again. He has achieved eminence, respect and wealth. The re-entry of wife and child into his life sets up a convoluted chain of events which results in his ruin and return to drunkenness."
+      }
     },
     "duchessofdukestreettheseason1": {
+      "title": "Duchess of Duke Street, The, Season 1",
+      "desc": "Broadcast: Oct. 22, 1978-Jan. 28, 1979. Louisa Leyton starts her life as a scullery maid and then, through her beauty as well as her skill as a cook, becomes the hostess, entertainer and intimate friend of peers, princes and kings. The Prince of Wales makes her his mistress, though the affair must end when he becomes King Edward VII. The house and money he gives her makes it possible for Louisa to become owner of Bentinck Hotel in Duke Street. In spite of a drunken husband, ill health and financial difficulties, she transforms it into an international meeting place for the rich and famous. Series 2 traces the events of our heroine from 1911 through WWI and its aftermath.",
+      "broadcast_date": "10/22/1978",
       "ids": {
         "V_ED4A7E4CBE4C43FBBE7C8A067C1E911A": {
           "title": "Masterpiece Theatre; Duchess of Duke Street, The, Season 1, Episode 1: A Present Sovereign",
@@ -2798,22 +2797,12 @@ export const masterpieceData = {
           "asset_type": "Broadcast program",
           "broadcast_date": "1979-01-28"
         }
-      },
-      "nice_title": "Duchess of Duke Street, The, Season 1",
-      "description": "Broadcast: Oct. 22, 1978- Jan. 28, 1979 Louisa Leyton starts her life as a scullery maid and then, through her beauty as well as her skill as a cook, becomes the hostess, entertainer and intimate friend of peers, princes and kings. The Prince of Wales makes her his mistress, though the affair must end when he becomes King Edward VII. The house and money he gives her makes it possible for Louisa to become owner of Bentinck Hotel in Duke Street. In spite of a drunken husband, ill health and financial difficulties, she transforms it into an international meeting place for the rich and famous. Series 2 traces the events of our heroine from 1911 through WWI and its aftermath."
-    },
-    "duchessofdukestreetthe": {
-      "ids": {
-        "V_61591C1313B044D08D329EA27BAF7AED": {
-          "title": "Masterpiece Theatre; Duchess of Duke Street, The, Season 1, Episode 11: No Letters,\n        No Lawyers",
-          "asset_type": "Open - Close",
-          "broadcast_date": "1978-12-31"
-        }
-      },
-      "nice_title": "Duchess of Duke Street, The,",
-      "description": "Broadcast: Oct. 22, 1978- Jan. 28,\n        1979 Louisa Leyton starts her life as a scullery maid and then, through her beauty as well\n        as her skill as a cook, becomes the hostess, entertainer and intimate friend of peers,\n        princes and kings. The Prince of Wales makes her his mistress, though the affair must end\n        when he becomes King Edward VII. The house and money he gives her makes it possible for\n        Louisa to become owner of Bentinck Hotel in Duke Street. In spite of a drunken husband, ill\n        health and financial difficulties, she transforms it into an international meeting place for\n        the rich and famous. Series 2 traces the events of our heroine from 1911 through WWI and its\n        aftermath."
+      }
     },
     "countrymattersseason2": {
+      "title": "Country Matters, Season 2",
+      "desc": "Broadcast: Feb. 4-March 4, 1979. Based on the short stories of two masters of the genre, A.E. Coppard and H.E. Bates, 'Country Matters' depicts life in rural England during that period between the two World Wars when countrymen and women were untroubled by the noises of the twentieth century. The short stories televised are: 'Crippled Bloom' (Coppard), 'Breeze Anstey', 'The Simple Life', 'An Aspidistra in Babylon' (all Bates), and 'The Sullens Sisters' (Coppard).",
+      "broadcast_date": "02/04/1979",
       "ids": {
         "V_839DB33C2E374852A46D86EC0C351F89": {
           "title": "Masterpiece Theatre; Country Matters, Season 2, Episode 1: Crippled Bloom",
@@ -2845,11 +2834,12 @@ export const masterpieceData = {
           "asset_type": "Broadcast program",
           "broadcast_date": "1979-03-04"
         }
-      },
-      "nice_title": "Country Matters, Season 2",
-      "description": "Broadcast: Feb. 4- March 4, 1979 Based on the short stories of two masters of the genre, A.E. Coppard and H.E. Bates, 'Country Matters' depicts life in rural England during that period between the two World Wars when countrymen and women were untroubled by the noises of the twentieth century. The short stories televised are: 'Crippled Bloom' (Coppard), 'Breeze Anstey', 'The Simple Life', 'An Aspidistra in Babylon' (all Bates), and 'The Sullens Sisters' (Coppard)."
+      }
     },
     "lillie": {
+      "title": "Lillie",
+      "desc": "Broadcast: March 11-June 3, 1979. Life of Lillie Langtry, professional beauty and singer. Vivid, witty, unconventional, she rose from comparatively humble beginnings to the highest peak of society. She was adored and loved by such dissimilar men as Oscar Wilde, Edward the Seventh, and the colorful Texas gunman Judge Roy Bean. She faced ruin and ostracism with defiant courage and won. In a masculine world she used her beauty and originality to win a fortune; her daring became a household name on two continents.",
+      "broadcast_date": "03/11/1979",
       "ids": {
         "V_4CC79A1B66994539B733AC38C40AB221": {
           "title": "Masterpiece Theatre; Lillie, Episode 1: Emillie",
@@ -2921,13 +2911,14 @@ export const masterpieceData = {
           "asset_type": "Broadcast program",
           "broadcast_date": "1979-06-03"
         }
-      },
-      "nice_title": "Lillie",
-      "description": "Broadcast: March 11- June 3, 1979 Life of Lillie Langtry, professional beauty and singer. Vivid, witty, unconventional, she rose from comparatively humble beginnings to the highest peak of society. She was adored and loved by such dissimilar men as Oscar Wilde, Edward the Seventh, and the colorful Texas gunman Judge Roy Bean. She faced ruin and ostracism with defiant courage and won. In a masculine world she used her beauty and originality to win a fortune; her daring became a household name on two continents."
+      }
     }
   },
   "9": {
     "kean": {
+      "title": "Kean",
+      "desc": "Broadcast: Sept. 9-16, 1979. The off-stage antics of actor Edmund Kean, who became the idol of critics and audiences alike. High living and loving, temper tantrums and tremendous talents characterized Kean. Sartre wrote of this historical figure because of his reputation for relentless womanizing and uses him as a vehicle to develop a delightfully witty and satirical comedy about illusion and reality.",
+      "broadcast_date": "09/09/1979",
       "ids": {
         "V_D5A342610B7246DD8741DFFEF1907AF2": {
           "title": "Masterpiece Theatre; Kean, Episode 1",
@@ -2939,11 +2930,12 @@ export const masterpieceData = {
           "asset_type": "Broadcast program",
           "broadcast_date": "1979-09-16"
         }
-      },
-      "nice_title": "Kean",
-      "description": "Broadcast: Sept. 9- 16, 1979 The off-stage antics of actor Edmund Kean, who became the idol of critics and audiences alike. High living and loving, temper tantrums and tremendous talents characterized Kean. Sartre wrote of this historical figure because of his reputation for relentless womanizing and uses him as a vehicle to develop a delightfully witty and satirical comedy about illusion and reality."
+      }
     },
     "loveforlydia": {
+      "title": "Love for Lydia",
+      "desc": "Broadcast: Sept. 23-Dec. 9, 1979. The shy but blossoming beauty, Lydia Aspen, brings love --and tragedy-- into the lives of four young men in the post-war England scarred by depression. The story begins when Lydia's father has recently died and she has taken to gloomy Aspen Park to live with two spinster aunts. Reporter Edward Richardson is sent to interview the eccentric Aspen family and find out what plans have been made for Lydia. He meets Lydia, asks her to go skating, and promptly falls in love. The Lydia he meets is a shy, awkward teenager. The Lydia who emerges through their blossoming relationship is a beautiful, mysterious woman who puts men hopelessly under her spell.",
+      "broadcast_date": "09/23/1979",
       "ids": {
         "V_46EB68B3C5344C4C86FED30DD2926327": {
           "title": "Masterpiece Theatre; Love for Lydia, Episode 1",
@@ -3005,11 +2997,12 @@ export const masterpieceData = {
           "asset_type": "Broadcast program",
           "broadcast_date": "1979-12-09"
         }
-      },
-      "nice_title": "Love for Lydia",
-      "description": "Broadcast: Sept. 23- Dec. 9, 1979 The shy but blossoming beauty, Lydia Aspen, brings love --and tragedy-- into the lives of four young men in the post-war England scarred by depression. The story begins when Lydia's father has recently died and she has taken to gloomy Aspen Park to live with two spinster aunts. Reporter Edward Richardson is sent to interview the eccentric Aspen family and find out what plans have been made for Lydia. He meets Lydia, asks her to go skating, and promptly falls in love. The Lydia he meets is a shy, awkward teenager. The Lydia who emerges through their blossoming relationship is a beautiful, mysterious woman who puts men hopelessly under her spell."
+      }
     },
     "duchessofdukestreettheseason2": {
+      "title": "Duchess of Duke Street, The, Season 2",
+      "desc": "Broadcast: Dec. 16, 1979-April 6, 1980. Back at the Bentinck Hotel doing her incomparable and sometimes scandalous thing will be that hotelier par excellence, Louisa Trotter (Gemma Jones). The sixteen new episodes pickup where the original left off, in 1911 and continue the story through World War I and its aftermath. Still involved in Louisa's life is Charlie, whose marriage doesn't interfere in their relationship, her parents, the Major, still short on cash but long on stories, Starr and his dog still man the lobby, and Mrs. Cochrane still cooks the Bentinck's famous gourmet dishes. Ethel, Violet and Mary are back and becoming more integral to the hotel's work. Finally, Louisa's daughter with Charlie, who has been living with foster parents, reenters her life. Source: GBH Archives promotional material, barcode 383450.",
+      "broadcast_date": "12/16/1979",
       "ids": {
         "V_0BEBEA9823B8483089510531C29882A3": {
           "title": "Masterpiece Theatre; Duchess of Duke Street, The, Season 2, Episode 1: Family Matters",
@@ -3091,11 +3084,12 @@ export const masterpieceData = {
           "asset_type": "Broadcast program",
           "broadcast_date": "1980-03-30"
         }
-      },
-      "nice_title": "Duchess of Duke Street, The, Season 2",
-      "description": "No Description"
+      }
     },
     "mysonmyson": {
+      "title": "My Son, My Son",
+      "desc": "Broadcast: April 13-May 25, 1980. Set in London and Cornwall and spanning the period from 1900 through World War I, the story centers on two men who grew up together and maintain a close relationship throughout their lives. As their sons grow up, the contrast in their characters reflects the personal and dominating ambitions of each father.",
+      "broadcast_date": "04/13/1980",
       "ids": {
         "V_828084507E674CDAB1001F54FAB8A885": {
           "title": "Masterpiece Theatre; My Son, My Son, Episode 1",
@@ -3137,11 +3131,12 @@ export const masterpieceData = {
           "asset_type": "Open - Close",
           "broadcast_date": "2024-08-23T18:45:07+00:00"
         }
-      },
-      "nice_title": "My Son, My Son",
-      "description": "Broadcast: April 13- May 25, 1980 Set in London and Cornwall and spanning the period from 1900 through World War I, the story centers on two men who grew up together and maintain a close relationship throughout their lives. As their sons grow up, the contrast in their characters reflects the personal and dominating ambitions of each father."
+      }
     },
     "disraeli": {
+      "title": "Disraeli",
+      "desc": "Broadcast: June 1-22, 1980. Passion and politics -- those were the predominant drives in the life of Benjamin Disraeli. Ian McShane starred as Disraeli, the eternal romantic. The series follows his marriage to the wealthy Mary Anne Wyndham Lewis, who played a dramatic part in shaping his political career. The series spans more than 40 years of Disraeli's life as an outrageous novelist, dandy and spendthrift -- through his years as Britain's first Jewish prime minister and his close association with Queen Victoria. \"When Disraeli was dying, the Queen had the streets of London paved with straw so that the clacking of horse's hoofs on the cobblestones would not disturb him.\"",
+      "broadcast_date": "06/01/1980",
       "ids": {
         "V_6C7D12B458354BCA97D738CD4C1E1B6D": {
           "title": "Masterpiece Theatre; Disraeli, Episode 1: Dizzy",
@@ -3163,13 +3158,14 @@ export const masterpieceData = {
           "asset_type": "Broadcast program",
           "broadcast_date": "1980-06-22"
         }
-      },
-      "nice_title": "Disraeli",
-      "description": "Broadcast: June 1- 22, 1980 Passion and politics -- those were the predominant drives in the life of Benjamin Disraeli. Ian McShane starred as Disraeli, the eternal romantic. The series follows his marriage to the wealthy Mary Anne Wyndham Lewis, who played a dramatic part in shaping his political career. The series spans more than 40 years of Disraeli's life as an outrageous novelist, dandy and spendthrift -- through his years as Britain's first Jewish prime minister and his close association with Queen Victoria. \"When Disraeli was dying, the Queen had the streets of London paved with straw so that the clacking of horse's hoofs on the cobblestones would not disturb him.\""
+      }
     }
   },
   "10": {
     "crimeandpunishment": {
+      "title": "Crime and Punishment",
+      "desc": "Broadcast: Sept. 28-Oct. 19, 1980. The self-deluding, tortured Raskolnikov (a poverty striken university student) believes his \"superiority\" entitles him to murder and get away with it. Magistrate Porfiry leads him into confession rather than pursuing him. He knows that ultimately the criminal wants to confess.",
+      "broadcast_date": "10/12/1980",
       "ids": {
         "V_E73EA3EA58114BE6A01DC4836CDB862B": {
           "title": "Masterpiece Theatre; Crime and Punishment, Episode 3",
@@ -3201,11 +3197,12 @@ export const masterpieceData = {
           "asset_type": "Broadcast program",
           "broadcast_date": "1980-10-19"
         }
-      },
-      "nice_title": "Crime and Punishment",
-      "description": "Broadcast: Sept. 28- Oct. 19, 1980\n        The self-deluding, tortured Raskolnikov (a poverty striken university student) believes his\n        \"superiority\" entitles him to murder and get away with it. Magistrate Porfiry leads him into\n        confession rather than pursuing him. He knows that ultimately the criminal wants to\n        confess."
+      }
     },
     "prideandprejudice": {
+      "title": "Pride and Prejudice",
+      "desc": "Broadcast: Oct. 26-Nov. 23, 1980. A satire on the machinations of courtship and marriage which follows the efforts of Mr. and Mrs. Bennett to find find suitable marriages for their five daughters. Their eldest Elizabeth is alternately intrigued, repulsed and attracted to the aloof Mr. Darcy, a young gentleman of considerable wealth who has come to live in the neighborhood.",
+      "broadcast_date": "10/26/1980",
       "ids": {
         "V_7C4557F0908A4718AAA44FAD19B0F4C5": {
           "title": "Masterpiece Theatre; Pride and Prejudice, Episode 1",
@@ -3237,11 +3234,12 @@ export const masterpieceData = {
           "asset_type": "Open - Close",
           "broadcast_date": "1980-11-23"
         }
-      },
-      "nice_title": "Pride and Prejudice",
-      "description": "Broadcast: Oct. 26- Nov. 23, 1980 A satire on the machinations of courtship and marriage which follows the efforts of Mr. and Mrs. Bennett to find find suitable marriages for their five daughters. Their eldest Elizabeth is alternately intrigued, repulsed and attracted to the aloof Mr. Darcy, a young gentleman of considerable wealth who has come to live in the neighborhood."
+      }
     },
     "testamentofyouth": {
+      "title": "Testament of Youth",
+      "desc": "Broadcast: Nov. 30-Dec. 28, 1980. Dramatization of author Vera Brittain's autobiography of her early years during World War I. In 1913, Vera -- daughter of a wealthy businessman -- is determined to go to Oxford despite her sex. There she meets the friend of her brother Edward-Roland Leighton. Roland and Edward are called up for service in France and Roland dies. Vera volunteers for service overseas where friends are dying and being maimed. She is forced to return home to help her ailing mother and Edward is killed. Embittered after the war, she returns to Oxford, determined to become a writer and work for peace and the League of Nations.",
+      "broadcast_date": "11/30/1980",
       "ids": {
         "V_D2BBF622162C40F5AD451E8DB0E904E2": {
           "title": "Masterpiece Theatre; Testament of Youth, Episode 1: Buxton 1913",
@@ -3273,11 +3271,12 @@ export const masterpieceData = {
           "asset_type": "Broadcast program",
           "broadcast_date": "1980-12-28"
         }
-      },
-      "nice_title": "Testament of Youth",
-      "description": "Broadcast: Nov. 30- Dec. 28, 1980\nDramatization of author Vera Brittain's autobiography of her early years during World War I.  In 1913, Vera -- daughter of a wealthy businessman -- is determined to go to Oxford despite her sex.  There she meets the friend of her brother Edward - Roland Leighton.  Roland and Edward are called up for service in France and Roland dies.  Vera volunteers for service overseas where friends are dying and being maimed.  She is forced to return home to help her ailing mother and Edward is killed.  Embittered after the war, she returns to Oxford, determined to become a writer and work for peace and the League of Nations."
+      }
     },
     "dangeruxb": {
+      "title": "Danger UXB",
+      "desc": "Broadcast: Jan. 4-April 5, 1981. Series based on the exploits of an Army bomb disposal unit during World War II in London, showing the extraordinary pressures on the men who tackled one of the most difficult and dangerous jobs-defusing unexploded bombs that rained on England during the Blitz. Series follows one bomb disposal company based in Southeast London from September 1940 to spiring of 1944. Brian Ash, leader of the unit, falls in love with Susan, the daughter of a British scientist who is working on safer de-activating techniques.",
+      "broadcast_date": "01/04/1981",
       "ids": {
         "V_FAB410DD7EDA44CCA2DB5863B8B11B40": {
           "title": "Masterpiece Theatre; Danger UXB, Episode 1: Dead Man's Shoes",
@@ -3404,11 +3403,12 @@ export const masterpieceData = {
           "asset_type": "Open - Close",
           "broadcast_date": "2024-08-23T18:45:06+00:00"
         }
-      },
-      "nice_title": "Danger UXB",
-      "description": "Broadcast: Jan. 4 - April 5, 1981\nSeries Description: Series based on the exploits of an Army bomb disposal unit during World War II in London, showing the extraordinary pressures on the men who tackled one of the most difficult and dangerous jobs - defusing unexploded bombs that rained on England during the Blitz.  Series follows one bomb disposal company based in Southeast London from September 1940 to spiring of 1944.  Brian Ash, leader of the unit, falls in love with Susan, the daughter of a British scientist who is working on safer de-activating techniques."
+      }
     },
     "thereseraquin": {
+      "title": "Therese Raquin",
+      "desc": "Broadcast: April 12-26, 1981. Therese Raquin is married to her sickly cousin Camille and they live with his mother who keeps a small draper's shop in Paris. Therese is a passive, withdrawn girl who develops an overwhelming sexual attraction for Camille's fellow-clerk Laurent. Their passionate affair leads to murder and a terrible sense of guilt.",
+      "broadcast_date": "04/12/1981",
       "ids": {
         "V_C592089CF69244C39F8E9F224238258E": {
           "title": "Masterpiece Theatre; Therese Raquin, Episode 1",
@@ -3440,13 +3440,14 @@ export const masterpieceData = {
           "asset_type": "Open - Close",
           "broadcast_date": "1981-04-26"
         }
-      },
-      "nice_title": "Therese Raquin",
-      "description": "Broadcast: April 12- 26, 1981 Therese Raquin is married to her sickly cousin Camille and they live with his mother who keeps a small draper's shop in Paris. Therese is a passive, withdrawn girl who develops an overwhelming sexual attraction for Camille's fellow-clerk Laurent. Their passionate affair leads to murder and a terrible sense of guilt."
+      }
     }
   },
   "11": {
     "edwardandmrssimpson": {
+      "title": "Edward And Mrs. Simpson",
+      "desc": "Broadcast: Nov. 15-Dec. 27, 1981. Dramatization of the story of Edward VIII of England and Wallis Simpson, the American divorcee for whom he relinquished his throne. The series co-stars Edward Fox and Cynthia Harris as the famous couple.",
+      "broadcast_date": "11/22/1981",
       "ids": {
         "V_79960B03372940A7BB0DCF6FA33C855A": {
           "title": "Masterpiece Theatre; Edward And Mrs. Simpson, Episode 2: Venus At The\n        Prow",
@@ -3508,11 +3509,12 @@ export const masterpieceData = {
           "asset_type": "Open - Close",
           "broadcast_date": "2024-08-23T18:45:07+00:00"
         }
-      },
-      "nice_title": "Edward And Mrs. Simpson",
-      "description": "Broadcast: Nov. 15- Dec. 27, 1981\n        Dramatization of the story of Edward VIII of England and Wallis Simpson, the American\n        divorcee for whom he relinquished his throne. The series co-stars Edward Fox and Cynthia\n        Harris as the famous couple."
+      }
     },
     "townlikealicea": {
+      "title": "Town Like Alice, A",
+      "desc": "Broadcast: Oct. 4-Nov. 8, 1981. Jean Paget, a young English girl who lives in Malaysia, is taken prisoner by the Japanese shortly before the fall of Singapore. She and other women prisoners are forced to walk across the length and breadth of Malaysia, shunted from one Japanese commander to another. The trek is a nightmare, as many of the women and children die from diseases, snake bites or sheer exhaustion. Based on a true incident during World War II. Filmed on location in Australia, Malaysia, Scotland and London--this is the story about the prisoners of war whose romance begins during the Japanese take-over of Malaysia and ends in the vast Australian \"outback.\"",
+      "broadcast_date": "10/04/1981",
       "ids": {
         "V_5357C6C582294E4EB5CBFD8A53BEFB78": {
           "title": "Masterpiece Theatre; Town Like Alice, A, Episode 1",
@@ -3574,11 +3576,12 @@ export const masterpieceData = {
           "asset_type": "Open - Close",
           "broadcast_date": "1981-11-08"
         }
-      },
-      "nice_title": "Town Like Alice, A",
-      "description": "Broadcast: Oct. 4- Nov. 8, 1981\nJean Paget, a young English girl who lives in Malaysia, is taken prisoner by the Japanese shortly before the fall of Singapore.  She and other women prisoners are forced to walk across the length and breadth of Malaysia, shunted from one Japanese commander to another.  The trek is a nightmare, as many of the women and children die from diseases, snake bites or sheer exhaustion.  Based on a true incident during World War II.  Filmed on location in Australia, Malaysia, Scotland and London--this is the story about the prisoners of war whose romance begins during the Japanese take-over of Malaysia and ends in the vast Australian \"outback.\""
+      }
     },
     "flametreesofthikathe": {
+      "title": "Flame Trees Of Thika, The",
+      "desc": "Broadcast: Jan. 3-Feb. 14, 1982. The Grant family moves from England to East Africa in the early part of the century hoping to make their way as cattle farmers. Daughter Elspeth develops a special relationship with the country and its peoples. The series is adapted from her autobiography.",
+      "broadcast_date": "01/03/1982",
       "ids": {
         "V_7225A39706764A3B86D497075E4E5968": {
           "title": "Masterpiece Theatre; Flame Trees Of Thika, The, Episode 1: The Promised Land",
@@ -3650,11 +3653,12 @@ export const masterpieceData = {
           "asset_type": "Open - Close",
           "broadcast_date": "2024-08-23T18:45:06+00:00"
         }
-      },
-      "nice_title": "Flame Trees Of Thika, The",
-      "description": "Broadcast: Jan. 3- Feb. 14, 1982\nThe Grant family moves from England to East Africa in the early part of the century hoping to make their way as cattle farmers.  Daughter Elspeth develops a special relationship with the country and its peoples.  The series is adapted from her autobiography."
+      }
     },
     "iremembernelson": {
+      "title": "I Remember Nelson",
+      "desc": "Broadcast: Feb. 21-March 14, 1982. Portrait of the British naval hero, Lord Nelson, as seen through the eyes of four individuals:  his wife Fanny who loved Nelson despite the years of sea duty and his relationship with Lady Emma Hamilton; Sir William Hamilton, the man he cuckolded; Capt. Hardy, who served with Nelson for 20 years; and a young sailor named Blackie who witnessed Nelson's death.",
+      "broadcast_date": "02/21/1982",
       "ids": {
         "V_7225917F156246CF87E72686A7E0757A": {
           "title": "Masterpiece Theatre; I Remember Nelson, Episode 1: Love",
@@ -3696,11 +3700,12 @@ export const masterpieceData = {
           "asset_type": "Open - Close",
           "broadcast_date": "2024-08-23T18:45:07+00:00"
         }
-      },
-      "nice_title": "I Remember Nelson",
-      "description": "Broadcast: Feb. 21- March 14, 1982\nPortrait of the British naval hero, Lord Nelson, as seen through the eyes of four individuals:  his wife Fanny who loved Nelson despite the years of sea duty and his relationship with Lady Emma Hamilton; Sir William Hamilton, the man he cuckolded; Capt. Hardy, who served with Nelson for 20 years; and a young sailor named Blackie who witnessed Nelson's death."
+      }
     },
     "loveinacoldclimate": {
+      "title": "Love In A Cold Climate",
+      "desc": "Broadcast: March 28-May 16, 1982. Dramatization of two Nancy Mitford semi-autobiographical best-selling novels about the hilarious domestic life of an eccentric upper class British family living in pre-World War II frivolity of grand balls and house parties. Lucy Gutteridge and Rosalyun Landor portray two beautiful aristocratic young girls whose affairs of the heart are played against the glamorous backdrop of the 1930s while future political upheaval and the shadow of war wait ominously in the wings.",
+      "broadcast_date": "03/28/1982",
       "ids": {
         "V_2B0E961629554009846D963B8171F820": {
           "title": "Masterpiece Theatre; Love In A Cold Climate, Episode 1: Child Hunt",
@@ -3782,11 +3787,12 @@ export const masterpieceData = {
           "asset_type": "Open - Close",
           "broadcast_date": "2024-08-23T18:45:06+00:00"
         }
-      },
-      "nice_title": "Love In A Cold Climate",
-      "description": "Broadcast: March 28- May 16, 1982\nDramatization of two Nancy Mitford semi-autobiographical best-selling novels about the hilarious domestic life of an eccentric upper class British family living in pre-World War II frivolity of grand balls and house parties.  Lucy Gutteridge and Rosalyun Landor portray two beautiful aristocratic young girls whose affairs of the heart are played against the glamorous backdrop of the 30s while future political upheaval and the shadow of war wait ominously in the wings."
+      }
     },
     "flickers": {
+      "title": "Flickers",
+      "desc": "Broadcast: May 23-June 27, 1982. Set in 1914 as the silent screen gained momentum, series follows the trails and tribulations of a brash movie pioneer who began as a traveling film showman and ends by creating his own studio and producing pictures.",
+      "broadcast_date": "05/23/1982",
       "ids": {
         "V_EBC034724DD74F14B18880AAC4BFB7E7": {
           "title": "Masterpiece Theatre; Flickers, Episode 1",
@@ -3853,13 +3859,14 @@ export const masterpieceData = {
           "asset_type": "Open - Close",
           "broadcast_date": "2024-08-23T18:45:07+00:00"
         }
-      },
-      "nice_title": "Flickers",
-      "description": "Broadcast: May 23- June 27, 1982\nSet in 1914 as the silent screen gained momentum, series follows the trails and tribulations of a brash movie pioneer who began as a traveling film showman and ends by creating his own studio and producing pictures."
+      }
     }
   },
   "12": {
     "toservethemallmydays": {
+      "title": "To Serve Them All My Days",
+      "desc": "Broadcast: Oct. 10, 1982-Jan. 2, 1983. A teacher in a British boy's school between the two World Wars, David Powlett-Jones was a Welsh coal-miner's son, invalided out of the Army by shell shock. Embittered by his war experiences, he finds a post at a remote boy's school as a history teacher. Despite unpromising beginnings, he develops into an educator with uncommon perception and understanding. He finds romance with three different women.",
+      "broadcast_date": "11/28/1982",
       "ids": {
         "V_FF8F1B4AF60B44729F72EED7AA67FECB": {
           "title": "Masterpiece Theatre; To Serve Them All My Days, Episode 8",
@@ -3991,11 +3998,12 @@ export const masterpieceData = {
           "asset_type": "Broadcast program",
           "broadcast_date": "1983-01-02"
         }
-      },
-      "nice_title": "To Serve Them All My Days",
-      "description": "Broadcast: Oct. 10, 1982- Jan. 2,\n        1983 A teacher in a British boy's school between the two World Wars, David Powlett-Jones was\n        a Welsh coal-miner's son, invalided out of the Army by shell shock. Embittered by his war\n        experiences, he finds a post at a remote boy's school as a history teacher. Despite\n        unpromising beginnings, he develops into an educator with uncommon perception and\n        understanding. He finds romance with three different women."
+      }
     },
     "goodsoldierthe": {
+      "title": "Good Soldier, The",
+      "desc": null,
+      "broadcast_date": "01/09/1983",
       "ids": {
         "V_E5FFD70E724E41A0914BA0F60992C34C": {
           "title": "Masterpiece Theatre; Good Soldier, The",
@@ -4007,11 +4015,12 @@ export const masterpieceData = {
           "asset_type": "Open - Close",
           "broadcast_date": "1983-01-09"
         }
-      },
-      "nice_title": "Good Soldier, The",
-      "description": "No Description"
+      }
     },
     "winstonchurchillthewildernessyears": {
+      "title": "Winston Churchill: The Wilderness Years",
+      "desc": "Broadcast: Jan. 16-March 6, 1983. Historically accurate and under-sentimentalized dramatization of the period between the World Wars, when Winston Churchill almost sank into public and political oblivion.",
+      "broadcast_date": "01/16/1983",
       "ids": {
         "V_29B8C3FE1AD9499BAA1FB490A24B2F89": {
           "title": "Masterpiece Theatre; Winston Churchill: The Wilderness Years, Episode 1: Down and Out",
@@ -4093,33 +4102,36 @@ export const masterpieceData = {
           "asset_type": "Open - Close",
           "broadcast_date": "2024-08-23T18:45:07+00:00"
         }
-      },
-      "nice_title": "Winston Churchill: The Wilderness Years",
-      "description": "Broadcast: Jan. 16- March 6, 1983\nHistorically accurate and under-sentimentalized dramatization of the period between the World Wars, when Winston Churchill almost sank into public and political oblivion."
+      }
     },
     "onapproval": {
+      "title": "On Approval",
+      "desc": null,
+      "broadcast_date": "03/13/1983",
       "ids": {
         "V_F5592C8F9F9E4954986448C76DA00D1C": {
           "title": "Masterpiece Theatre; On Approval",
           "asset_type": "Broadcast program",
           "broadcast_date": "1983-03-13"
         }
-      },
-      "nice_title": "On Approval",
-      "description": "No Description"
+      }
     },
     "drakesventure": {
+      "title": "Drake's Venture",
+      "desc": null,
+      "broadcast_date": "03/27/1983",
       "ids": {
         "V_F328113CD5A04754A1751E8668FB408E": {
           "title": "Masterpiece Theatre; Drake's Venture",
           "asset_type": "Broadcast program",
           "broadcast_date": "1983-03-27"
         }
-      },
-      "nice_title": "Drake's Venture",
-      "description": "No Description"
+      }
     },
     "privateschulz": {
+      "title": "Private Schulz",
+      "desc": "Broadcast: April 3-May 8, 1983. Comic view of World War II from the German point of view, that of Private Schultz who was pressed into service when he was released from prison. A street savvy, likable loser, Schultz invents an outrageous plan to disrupt the British and Allied wartime economies by forging currency. His operation includes a comical trek around the Kent countryside of England where he goes on a spending spree with his forgeries.",
+      "broadcast_date": "04/03/1983",
       "ids": {
         "V_BB03E7F8D09A46FF86A4D81E8A860B88": {
           "title": "Masterpiece Theatre; Private Schulz, Episode 1",
@@ -4176,11 +4188,12 @@ export const masterpieceData = {
           "asset_type": "Open - Close",
           "broadcast_date": "2024-08-23T18:45:07+00:00"
         }
-      },
-      "nice_title": "Private Schulz",
-      "description": "Broadcast: April 3- May 8, 1983\nComic view of World War II from the German point of view, that of Private Schultz who was pressed into service when he was released from prison.  A street savvy, likable loser, Schultz invents an outrageous plan to disrupt the British and Allied wartime economies by forging currency.  His operation includes a comical trek around the Kent countryside of England where he goes on a spending spree with his forgeries."
+      }
     },
     "sonsandlovers": {
+      "title": "Sons and Lovers",
+      "desc": "Broadcast: May 15-June 26, 1983. D.H. Lawrence's autobiographical novel about a son's relationship with his mother and the other women in his life.",
+      "broadcast_date": "05/15/1983",
       "ids": {
         "V_75EADCE7B2DB4E22B2AC55C5CE71F0EA": {
           "title": "Masterpiece Theatre; Sons and Lovers, Episode 1",
@@ -4247,13 +4260,14 @@ export const masterpieceData = {
           "asset_type": "Open - Close",
           "broadcast_date": "2024-08-23T18:45:06+00:00"
         }
-      },
-      "nice_title": "Sons and Lovers",
-      "description": "Broadcast: May 15- June 26, 1983\nD.H. Lawrence's autobiographical novel about a son's relationship with his mother and the other women in his life."
+      }
     }
   },
   "13": {
     "pictures": {
+      "title": "Pictures",
+      "desc": "Broadcast: Oct. 2-Nov. 13, 1983. Ruby L. Sears is an ardent film fan with a dream of being in \"pictures.\" She meets screenwriter Bill Trench who bases his latest film script on Ruby's madcap life. Bill works for Ziggy Holman, a producer of the traditional Tzar-like mould, an American in England dying for a blockbuster hit which will propel him back to Hollywood.",
+      "broadcast_date": "10/02/1983",
       "ids": {
         "V_4870DE5044CE4563B19295DF0A33433A": {
           "title": "Masterpiece Theatre; Pictures, Episode 5",
@@ -4325,11 +4339,12 @@ export const masterpieceData = {
           "asset_type": "Open - Close",
           "broadcast_date": "2024-08-23T18:45:06+00:00"
         }
-      },
-      "nice_title": "Pictures",
-      "description": "Broadcast: Oct. 2- Nov. 13, 1983\n        Ruby L. Sears is an ardent film fan with a dream of being in \"pictures.\" She meets\n        screenwriter Bill Trench who bases his latest film script on Ruby's madcap life. Bill works\n        for Ziggy Holman, a producer of the traditional Tzar-like mould, an American in England\n        dying for a blockbuster hit which will propel him back to Hollywood."
+      }
     },
     "citadelthe": {
+      "title": "Citadel, The",
+      "desc": "Broadcast: Nov. 20, 1983-Jan. 22, 1984. Based on a novel which was a best-seller-considered a shocking expose of the medical profession in England during the 1920's. Andrew Manson, an idealistic Scottish doctor begins his practice in Wales but moves onto a successful practice in a fashionable part of London. Through disillusionment with his colleagues and personal tragedy, he recaptures the fierce dedication to medicine he lost in his move to London.",
+      "broadcast_date": "11/20/1983",
       "ids": {
         "V_3E939518B05E4EE69BCEF3E631267CD4": {
           "title": "Masterpiece Theatre; Citadel, The, Episode 6",
@@ -4436,11 +4451,12 @@ export const masterpieceData = {
           "asset_type": "Open - Close",
           "broadcast_date": "2024-08-23T18:45:07+00:00"
         }
-      },
-      "nice_title": "Citadel, The",
-      "description": "Broadcast: Nov. 20, 1983- Jan. 22,\n        1984 Based on a novel which was a best-seller - considered a shocking expose of the medical\n        profession in England during the 1920's. Andrew Manson, an idealistic Scottish doctor begins\n        his practice in Wales but moves onto a successful practice in a fashionable part of London.\n        Through disillusionment with his colleagues and personal tragedy, he recaptures the fierce\n        dedication to medicine he lost in his move to London."
+      }
     },
     "irishrmtheseason1": {
+      "title": "Irish R.M., The, Season 1",
+      "desc": "Broadcast: Jan. 29-March 4, 1984. In late 1895, Major Sinclair Yeates, a retired army officer arrives in the West of Ireland to take up his appointment as Resident Magistrate. His first encounter with his landlord Flurry Knox, local Master of Hounds, introduces a central theme: the curious affection and mutual misunderstanding between the British and Irish.",
+      "broadcast_date": "01/29/1984",
       "ids": {
         "V_AE7B1EDE87394E3096981EA55E515BE8": {
           "title": "Masterpiece Theatre; Irish R.M., The, Season 1, Episode 1: Great-Uncle McCarthy",
@@ -4472,47 +4488,12 @@ export const masterpieceData = {
           "asset_type": "Broadcast program",
           "broadcast_date": "1984-03-04"
         }
-      },
-      "nice_title": "Irish R.M., The, Season 1",
-      "description": "Broadcast: Jan. 29- March 4, 1984\nIn late 1895, Major Sinclair Yeates, a retired army officer arrives in the West of Ireland to take up his appointment as Resident Magistrate.  His first encounter with his landlord Flurry Knox, local Master of Hounds, introduces a central theme: the curious affection and mutual misunderstanding between the British and Irish."
-    },
-    "irishrmthe": {
-      "ids": {
-        "V_7DD91AF51C3F40058951D71D1428D9BA": {
-          "title": "Masterpiece Theatre; Irish R.M., The, Season 1, Episode 1: Great-Uncle McCarthy",
-          "asset_type": "Open - Close",
-          "broadcast_date": "1984-01-29"
-        },
-        "V_3E05A8C8FA2C4A909539C76958B79BC4": {
-          "title": "Masterpiece Theatre; Irish R.M., The, Season 1, Episode 2: Trinket's Colt",
-          "asset_type": "Open - Close",
-          "broadcast_date": "1984-02-05"
-        },
-        "V_4FEB3C8EC26746899D1AC5CA02322EE8": {
-          "title": "Masterpiece Theatre; Irish R.M., The, Season 1, Episode 3: A Misdeal",
-          "asset_type": "Open - Close",
-          "broadcast_date": "1984-02-12"
-        },
-        "V_5791ACE3186E43B0AF4CA1F6D7D855FB": {
-          "title": "Masterpiece Theatre; Irish R.M., The, Season 1, Episode 5: Occasional Licenses",
-          "asset_type": "Open - Close",
-          "broadcast_date": "1984-02-26"
-        },
-        "V_57799BD6DDC54905B0FA1FA12073AD21": {
-          "title": "Masterpiece Theatre; Irish R.M., The, Season 1, Episode 6: O, Love! O, Fire!",
-          "asset_type": "Open - Close",
-          "broadcast_date": "1984-03-04"
-        },
-        "V_A759E22A42EE4CCE8C13017E805C2078": {
-          "title": "Masterpiece Theatre; The Irish R.M., Season 1, Episode 4 (The Boat's\n        Share)",
-          "asset_type": "Open - Close",
-          "broadcast_date": "2024-08-23T18:45:06+00:00"
-        }
-      },
-      "nice_title": "Irish R.M., The",
-      "description": "Broadcast: Jan. 29- March 4, 1984\nIn late 1895, Major Sinclair Yeates, a retired army officer arrives in the West of Ireland to take up his appointment as Resident Magistrate.  His first encounter with his landlord Flurry Knox, local Master of Hounds, introduces a central theme: the curious affection and mutual misunderstanding between the British and Irish."
+      }
     },
     "taleofbeatrixpotterthe": {
+      "title": "Tale of Beatrix Potter, The",
+      "desc": "Broadcast: March 25-April 1, 1984. A dramatization of the life and work of Beatrix Potter -- one of the most accomplished and popular children's writers. Born in London in 1866 to parents who were amateur artists, Beatrix's childhood was very lonely. The original \"Peter Rabbit\" was written as an illustrated letter to a child. Her books have since delighted generations and been translated into 12 languages.",
+      "broadcast_date": "03/25/1984",
       "ids": {
         "V_C9C3383B74BC42EC945AF7823E63D658": {
           "title": "Masterpiece Theatre; Tale of Beatrix Potter, The, Episode 1",
@@ -4534,11 +4515,12 @@ export const masterpieceData = {
           "asset_type": "Open - Close",
           "broadcast_date": "1984-04-01"
         }
-      },
-      "nice_title": "Tale of Beatrix Potter, The",
-      "description": "Broadcast: March 25- April 1, 1984\nA dramatization of the life and work of Beatrix Potter -- one of the most accomplished and popular children's writers.  Born in London in 1866 to parents who were amateur artists, Beatrix's childhood was very lonely.  The original \"Peter Rabbit\" was written as an illustrated letter to a child.  Her books have since delighted generations and been translated into 12 languages."
+      }
     },
     "nancyastor": {
+      "title": "Nancy Astor",
+      "desc": "Broadcast: April 8-May 27, 1984. The spirited and beautiful Nancy Langhorne took the English establishment by storm and was to become the first woman member of Parliament. A fierce, outspoken campaigner, as Lady Astor she gained notoriety when her \"Cliveden Set\" was embroiled in the row over appeasement with Hitler. Later her home was the center of scandal when news broke of the Profumo affair.",
+      "broadcast_date": "04/08/1984",
       "ids": {
         "V_4F98B5DA81A947E892B903E8049C5E73": {
           "title": "Masterpiece Theatre; Nancy Astor, Episode 1: The Langhornes of Virginia",
@@ -4615,13 +4597,14 @@ export const masterpieceData = {
           "asset_type": "Broadcast program",
           "broadcast_date": "1984-05-27"
         }
-      },
-      "nice_title": "Nancy Astor",
-      "description": "Broadcast: April 8- May 27, 1984\n The spirited and beautiful Nancy Langhorne took the English establishment by storm and was to become the first woman member of Parliament. A fierce, outspoken campaigner, as Lady Astor she gained notoriety when her \"Cliveden set\" was embroiled in the row over appeasement with Hitler. Later her home was the center of scandal when news broke of the Profumo affair."
+      }
     }
   },
   "14": {
     "barchesterchroniclesthe": {
+      "title": "Barchester Chronicles, The",
+      "desc": "Broadcast: Oct. 28-Dec. 9, 1984. Anthony Trollope wrote six novels centered on a fictitious cathedral city in the west of England. This series adapts the first two novels to relate the experiences of Septimus Harding. Septimus is a widower with two daughters and the most respected man in his community. When physician John Bold not only falls in love with his daughter Eleanor, but declares Septimus is cheating a charitable foundation for which he is warder, the story takes a comically dramatic turn. Other events which propel this narrative of city life include the appointment of a new bishop, whose wife and chaplain have many schemes of their own.",
+      "broadcast_date": "10/28/1984",
       "ids": {
         "V_2B5F522F6F964E57956641DE68BC2D33": {
           "title": "Masterpiece Theatre; Barchester Chronicles, The, Episode 3",
@@ -4693,22 +4676,12 @@ export const masterpieceData = {
           "asset_type": "Broadcast program",
           "broadcast_date": "1984-12-09"
         }
-      },
-      "nice_title": "Barchester Chronicles, The",
-      "description": "\"Broadcast: Oct. 28- Dec. 9, 1984\n        Anthony Trollope wrote six novels centered on a fictitious cathedral city in the west of\n        England. This series adapts the first two novels to relate the experiences of Septimus\n        Harding. Septimus is a widower with two daughters and the most respected man in his\n        community. When physician John Bold not only falls in love with his daughter Eleanor, but\n        declares Septimus is cheating a charitable foundation for which he is warder, the story\n        takes a comically dramatic turn. Other events which propel this narrative of city life\n        include the appointment of a new bishop, whose wife and chaplain have many schemes of their\n        own.\""
-    },
-    "jewelinthecrown": {
-      "ids": {
-        "V_52BE82FCE4D044C9B6F6D88C3381DC1A": {
-          "title": "Masterpiece Theatre; Jewel in the Crown, The, Episode 1: Crossing the\n        River",
-          "asset_type": "Open - Close",
-          "broadcast_date": "0084-12-16"
-        }
-      },
-      "nice_title": "Jewel in the Crown",
-      "description": "Broadcast: Dec. 16, 1984- March 17,\n        1985 The five years preceding England's granting independence to India in 1947 have been\n        called the \"final years of the forced marriage between the two countries, followed by the\n        agonies of divorce.\" It's in that milieu that British and Indian men and women are embroiled\n        in \"The Jewel in the Crown,\" a l4-part series on Mobil Masterpiece Theatre. The story opens\n        in 1942 when turmoil was at its peak in India, the Japanese army poised for invasion and\n        Gandhi rallying his followers in the struggle against British imperialism. A young\n        London-educated Indian, Hari Kumar (Art Malik), suspected of being a subversive by the local\n        British police superintendent, Ronald Merrick (Pigott-Smith), strikes up a romance with a\n        shy young English girl, Daphne Manners (Susan Wooldridge). Their star-crossed affair and\n        Merrick’s persistent hatred for Kumar affect other characters through most of the story.\n        Among these are Barbie Batchelor (Dame Peggy Ashcroft), a slightly dotty retired missionary;\n        Lady Manners (Rachel Kempson), Daphne’s aunt; Mildred Layton (Judy Parfitt), a promiscuous\n        English lady, and her two daughters, Sarah and Susan. Others include Count Bronowsky, chief\n        minister to an Indian leader, the Nawab; Teddie Bingham, the young soldier who marries Susan\n        Layton; and Guy Perron, a young British Intelligence officer. The series was adapted from\n        Paul Scott’s four novels known collectively as “the Raj Quartet. Source: WGBH Press Kit,\n        barcode 379367 See December 1984 Dial Program Guide for cover story and Viewer’s Guide with\n        episode descriptions."
+      }
     },
     "jewelinthecrownthe": {
+      "title": "Jewel in the Crown, The",
+      "desc": "Broadcast: Dec. 16, 1984-March 17, 1985. The five years preceding England's granting independence to India in 1947 have been called the \"final years of the forced marriage between the two countries, followed by the agonies of divorce.\" It's in that milieu that British and Indian men and women are embroiled in \"The Jewel in the Crown,\" a 14-part series on Mobil Masterpiece Theatre. The story opens in 1942 when turmoil was at its peak in India, the Japanese army poised for invasion and Gandhi rallying his followers in the struggle against British imperialism. A young London-educated Indian, Hari Kumar (Art Malik), suspected of being a subversive by the local British police superintendent, Ronald Merrick (Pigott-Smith), strikes up a romance with a shy young English girl, Daphne Manners (Susan Wooldridge). Their star-crossed affair and Merrick’s persistent hatred for Kumar affect other characters through most of the story. Among these are Barbie Batchelor (Dame Peggy Ashcroft), a slightly dotty retired missionary; Lady Manners (Rachel Kempson), Daphne’s aunt; Mildred Layton (Judy Parfitt), a promiscuous English lady, and her two daughters, Sarah and Susan. Others include Count Bronowsky, chief minister to an Indian leader, the Nawab; Teddie Bingham, the young soldier who marries Susan Layton; and Guy Perron, a young British Intelligence officer. The series was adapted from Paul Scott’s four novels known collectively as \"The Raj Quartet\". Source: WGBH Press Kit, barcode 379367. See December 1984 Dial Program Guide for cover story and Viewer’s Guide with episode descriptions.",
+      "broadcast_date": "12/16/1984",
       "ids": {
         "V_4EB7934BDF034714B11F0C9A9B17C511": {
           "title": "Masterpiece Theatre; Jewel in the Crown, The, Episode 3: Questions of\n        Loyalty",
@@ -4840,11 +4813,12 @@ export const masterpieceData = {
           "asset_type": "Open - Close",
           "broadcast_date": "2024-08-23T18:45:07+00:00"
         }
-      },
-      "nice_title": "Jewel in the Crown, The",
-      "description": "Broadcast: Dec. 16, 1984- March 17,\n        1985 The five years preceding England's granting independence to India in 1947 have been\n        called the \"final years of the forced marriage between the two countries, followed by the\n        agonies of divorce.\" It's in that milieu that British and Indian men and women are embroiled\n        in \"The Jewel in the Crown,\" a l4-part series on Mobil Masterpiece Theatre. The story opens\n        in 1942 when turmoil was at its peak in India, the Japanese army poised for invasion and\n        Gandhi rallying his followers in the struggle against British imperialism. A young\n        London-educated Indian, Hari Kumar (Art Malik), suspected of being a subversive by the local\n        British police superintendent, Ronald Merrick (Pigott-Smith), strikes up a romance with a\n        shy young English girl, Daphne Manners (Susan Wooldridge). Their star-crossed affair and\n        Merrick’s persistent hatred for Kumar affect other characters through most of the story.\n        Among these are Barbie Batchelor (Dame Peggy Ashcroft), a slightly dotty retired missionary;\n        Lady Manners (Rachel Kempson), Daphne’s aunt; Mildred Layton (Judy Parfitt), a promiscuous\n        English lady, and her two daughters, Sarah and Susan. Others include Count Bronowsky, chief\n        minister to an Indian leader, the Nawab; Teddie Bingham, the young soldier who marries Susan\n        Layton; and Guy Perron, a young British Intelligence officer. The series was adapted from\n        Paul Scott’s four novels known collectively as “the Raj Quartet. Source: WGBH Press Kit,\n        barcode 379367 See December 1984 Dial Program Guide for cover story and Viewer’s Guide with\n        episode descriptions."
+      }
     },
     "allforlove": {
+      "title": "All For Love",
+      "desc": "Broadcast: March 31-April 28, 1985 \"All for Love\" is an anthology of short stories by distinguished writers adapted for television, which illustrate four widely different aspects of love--from a young girl's devotion to an elderly invalid to a woman's desperate love for her imaginary son. The stories are: \"A Dedicated Man\" by Elizabeth Taylor, \"Mona\" by Francis King, \"L'Elegance\" by Rumer Godden, and \"A Bit of Singing and Dancing\" by Susan Hill.",
+      "broadcast_date": "03/31/1985",
       "ids": {
         "V_F87A3C5D650646FD82ACB059798ED0A0": {
           "title": "Masterpiece Theatre; All for Love, Episode 1: A Dedicated Man",
@@ -4891,11 +4865,12 @@ export const masterpieceData = {
           "asset_type": "Open - Close",
           "broadcast_date": "2024-08-23T18:45:06+00:00"
         }
-      },
-      "nice_title": "All for Love",
-      "description": "Broadcast: March 31- April 28, 1985\n\"All for Love\" is an anthology of short stories by distinguished writers adapted for television, which illustrate four widely different aspects of love--from a young girl's devotion to an elderly invalid to a woman's desperate love for her imaginary son. The stories are: \"A Dedicated Man\" by Elizabeth Taylor, \"Mona\" by Francis King, \"L'Elegance\" by Rumer Godden, and \"A Bit of Singing and Dancing\" by Susan Hill."
+      }
     },
     "strangersandbrothers": {
+      "title": "Strangers and Brothers",
+      "desc": "Broadcast: May 5-June 16, 1985. The story of Lewis Eliot, a lawyer, civil servant, husband and teacher. The series follows his life from the end of college through World War II. Eliot finishes his finals for the bar in the 1920's and begins his clerkship in London. He later marries and becomes a Cambridge professor in the mid-1930's.",
+      "broadcast_date": "05/05/1985",
       "ids": {
         "V_C399B68129184847A476E462FDF4FA2A": {
           "title": "Masterpiece Theatre; Strangers and Brothers, Episode 1",
@@ -4967,13 +4942,14 @@ export const masterpieceData = {
           "asset_type": "Broadcast program",
           "broadcast_date": "1985-06-16"
         }
-      },
-      "nice_title": "Strangers and Brothers",
-      "description": "Broadcast: May 5- June 16, 1985\nThe story of Lewis Eliot, a lawyer, civil servant, husband and teacher.  The series follows his life from the end of college through World War II.  Eliot finishes his finals for the bar in the 1920's and begins his clerkship in London.  He later marries and becomes a Cambridge professor in the mid-1930's."
+      }
     }
   },
   "15": {
     "bleakhouse1985": {
+      "title": "Bleak House (1985)",
+      "desc": "Broadcast: Dec. 1, 1985-Jan. 19, 1986. Orphan Esther Summerson is summoned to London by her guardian's solicitors. There she meets wards of the court Richard Carstone and Ada Claire who are involved in a long-running court case: \"Jarndyce vs. Jarndyce.\" With this plot, Dickens' novel of social reform attacks the absurdities of Victorian England's judicial system. The court case, which has dragged on through two generations, ensnares the two young wards and those around them.",
+      "broadcast_date": "12/01/1985",
       "ids": {
         "V_0523221A93A04391B6AA00AE47A7031D": {
           "title": "Masterpiece Theatre; Bleak House (1985), Episode 3",
@@ -5055,11 +5031,12 @@ export const masterpieceData = {
           "asset_type": "Open - Close",
           "broadcast_date": "2024-08-23T18:45:07+00:00"
         }
-      },
-      "nice_title": "Bleak House (1985)",
-      "description": "Broadcast: Dec. 1, 1985- Jan. 19,\n        1986 Orphan Esther Summerson is summoned to London by her guardian's solicitors. There she\n        meets wards of the court Richard Carstone and Ada Claire who are involved in a long-running\n        court case: \"Jarndyce vs. Jarndyce.\" With this plot, Dickens' novel of social reform attacks\n        the absurdities of Victorian England's judicial system. The court case, which has dragged on\n        through two generations, ensnares the two young wards and those around\n        them."
+      }
     },
     "lastplaceonearththe": {
+      "title": "Last Place on Earth, The",
+      "desc": "Broadcast: Oct. 20-Nov. 24, 1985. A six-part drama based on the epic Scott-Amundsen race to the South Pole in 1912. Captain Robert Scott reached the South Pole with a small band of weary men after one of the most harrowing polar expeditions in history -- only to discover that Norwegian explorer Roald Amundsen had reached the Pole a month earlier. Series tells the story of that race from their political maneuverings in London and Norway to gather men and money for their expeditions, to the drama of their actual journeys. See Dial magazine/program guide, October 1985, for story.",
+      "broadcast_date": "10/20/1985",
       "ids": {
         "V_0B6682A83EF743059A92129ACA46C4A8": {
           "title": "Masterpiece Theatre; Last Place on Earth, The, Episode 1: Poles Apart/Minor Diversions",
@@ -5121,11 +5098,12 @@ export const masterpieceData = {
           "asset_type": "Open - Close",
           "broadcast_date": "1985-11-24"
         }
-      },
-      "nice_title": "Last Place on Earth, The",
-      "description": "No Description"
+      }
     },
     "lordmountbattenthelastviceroy": {
+      "title": "Lord Mountbatten: The Last Viceroy",
+      "desc": "Broadcast: Jan. 26-March 2, 1986. The adventurous aristocrat Mountbatten was given the difficult task of turning the reins of government back to the Indian people after 200 years of the British Raj. Spanning the period from December 1946 when Prime Minister Attlee appointed Mountbatten the last Viceroy of India, to 1948 when he left the still-troubled country. Actions centers on how the dream of a united, independent India crumbles amid riots between Hindus and Moslems, leading to the division into India and Pakistan.",
+      "broadcast_date": "01/26/1986",
       "ids": {
         "V_620E1BC78FF14FBBB643C0B076625C44": {
           "title": "Masterpiece Theatre; Lord Mountbatten: The Last Viceroy, Episode 1",
@@ -5157,11 +5135,12 @@ export const masterpieceData = {
           "asset_type": "Broadcast program",
           "broadcast_date": "1986-03-02"
         }
-      },
-      "nice_title": "Lord Mountbatten: The Last Viceroy",
-      "description": "Broadcast: Jan. 26- March 2, 1986\nThe adventurous aristocrat Mountbatten was given the difficult task of turning the reins of government back to the Indian people after 200 years of the British Raj.  Spanning the period from December 1946 when Prime Minister Attlee appointed Mountbatten the last Viceroy of India, to 1948 when he left the still-troubled country.  Actions centers on how the dream of a united, independent India crumbles amid riots between Hindus and Moslems, leading to the division into India and Pakistan."
+      }
     },
     "bythesworddividedseason1": {
+      "title": "By the Sword Divided, Season 1",
+      "desc": "Broadcast: March 23-May 18, 1986. Story of the Lacey family and their divided loyalties during the British Civil War of the 1640's. Sir Martin Lacey, country squire, prepares to marry off his daughters while King Charles calls his supporters to muster an army to resist Cromwell. Sir Martin and his family become embroiled in the political events that are rocking their country and will mold the fate of the family.. . A BBC/Consolidated production presented on PBS by WGBH, Boston.",
+      "broadcast_date": "03/23/1986",
       "ids": {
         "V_75DFDAA029F4419183E36BDA9F2967D9": {
           "title": "Masterpiece Theatre; By the Sword Divided, Season 1, Episode 1: Gather Ye Rosebuds",
@@ -5238,11 +5217,12 @@ export const masterpieceData = {
           "asset_type": "Broadcast program",
           "broadcast_date": "1986-05-18"
         }
-      },
-      "nice_title": "By the Sword Divided, Season 1",
-      "description": "Broadcast: March 23- May 18, 1986\nStory of the Lacey family and their divided loyalties during the British Civil War of the 1640's.  Sir Martin Lacey, country squire, prepares to marry off his daughters while King Charles calls his supporters to muster an army to resist Cromwell.  Sir Martin and his family become embroiled in the political events that are rocking their country and will mold the fate of the family.\n\nA BBC/Consolidated production presented on PBS by WGBH, Boston."
+      }
     },
     "irishrmtheseason2": {
+      "title": "Irish R.M., The, Season 2",
+      "desc": "Broadcast: May 25-June 29, 1986. In late 1895, Major Sinclair Yeates, a retired army officer arrives in the West of Ireland to take up his appointment as Resident Magistrate. His first encounter with his landlord Flurry Knox, local Master of Hounds, introduces a central theme: the curious affection and mutual misunderstanding between the British and Irish.",
+      "broadcast_date": "05/25/1986",
       "ids": {
         "V_7056841509A246E5A058D288F892413D": {
           "title": "Masterpiece Theatre; Irish R.M., The, Season 2, Episode 1: A Horse! A Horse!",
@@ -5274,34 +5254,14 @@ export const masterpieceData = {
           "asset_type": "Broadcast program",
           "broadcast_date": "1986-06-29"
         }
-      },
-      "nice_title": "Irish R.M., The, Season 2",
-      "description": "Broadcast: May 25- June 29, 1986\nIn late 1895, Major Sinclair Yeates, a retired army officer arrives in the West of Ireland to take up his appointment as Resident Magistrate.  His first encounter with his landlord Flurry Knox, local Master of Hounds, introduces a central theme: the curious affection and mutual misunderstanding between the British and Irish."
-    },
-    "bythesworddivided": {
-      "ids": {
-        "V_1E8B4504D32C48E8B5171609BC4EBB01": {
-          "title": "Masterpiece Theatre; By the Sword Divided, Season 1, Episode 9",
-          "asset_type": "Open - Close",
-          "broadcast_date": "2024-08-23T18:45:06+00:00"
-        },
-        "V_3F045391733044109B158678F08B2CC9": {
-          "title": "Masterpiece Theatre; By the Sword Divided, Episode 6",
-          "asset_type": "Open - Close",
-          "broadcast_date": "2024-08-23T18:45:06+00:00"
-        },
-        "V_2585B27FB68243A89026264F2DCCA168": {
-          "title": "Masterpiece Theatre; By the Sword Divided, Season 1, Episode 8",
-          "asset_type": "Open - Close",
-          "broadcast_date": "2024-08-23T18:45:06+00:00"
-        }
-      },
-      "nice_title": "By the Sword Divided",
-      "description": "Broadcast: March 23- May 18, 1986\n        Story of the Lacey family and their divided loyalties during the British Civil War of the\n        1640's. Sir Martin Lacey, country squire, prepares to marry off his daughters while King\n        Charles calls his supporters to muster an army to resist Cromwell. Sir Martin and his family\n        become embroiled in the political events that are rocking their country and will mold the\n        fate of the family. A BBC/Consolidated production presented on PBS by WGBH,\n        Boston."
+      }
     }
   },
   "16": {
     "paradisepostponed": {
+      "title": "Paradise Postponed",
+      "desc": "Broadcast: Oct. 19-Dec. 28, 1986. Program follows forty years in the family of Rev. Simeon Simcox, Rector of Rapstone Fanner, who dies quietly in his rectory leaving a mysterious will and a baffled family. His son, Fred, sets out to find the secret of his father's past -- told in flashbacks that hopscotch through the decades. Son Henry is determined to contest the will which leaves the estate to Leslie Titmuss, who rose from humble beginnings to Cabinet member in the Conservative government. See Dial magazine/program guide, October 1986, for cover story.",
+      "broadcast_date": "10/19/1986",
       "ids": {
         "V_C249536EC16E41DAB3648E93AE04AF37": {
           "title": "Masterpiece Theatre; Paradise Postponed, Episode 1: Death of a Saint",
@@ -5358,11 +5318,12 @@ export const masterpieceData = {
           "asset_type": "Broadcast program",
           "broadcast_date": "1986-12-28"
         }
-      },
-      "nice_title": "Paradise Postponed",
-      "description": "No Description"
+      }
     },
     "goodbyemrchips1987": {
+      "title": "Goodbye, Mr. Chips (1987)",
+      "desc": "Broadcast: Jan. 4-18, 1987. Dedicated schoolmaster at Brookfield School, whose wisdom and strength guides his students, marries a captivating, unorthodox woman. Caught between loyalty to his new bride and his faithful housekeeper Mrs. Wickett; quarreling with the new schoolmaster; and facing the prospect of World War, Chips casts a quiet but compelling figure on the school landscape.",
+      "broadcast_date": "01/04/1987",
       "ids": {
         "V_12EB026EC36C4C44A0FA658431C62F63": {
           "title": "Masterpiece Theatre; Goodbye, Mr. Chips (1987), Episode 1",
@@ -5394,11 +5355,12 @@ export const masterpieceData = {
           "asset_type": "Broadcast program",
           "broadcast_date": "1987-01-18"
         }
-      },
-      "nice_title": "Goodbye, Mr. Chips (1987)",
-      "description": "Broadcast: Jan. 4- 18, 1987\nDedicated schoolmaster at Brookfield School, whose wisdom and strength guides his students, marries a captivating, unorthodox woman.  Caught between loyalty to his new bride and his faithful housekeeper Mrs. Wickett; quarreling with the new schoolmaster; and facing the prospect of World War, Chips casts a quiet but compelling figure on the school landscape."
+      }
     },
     "lostempires": {
+      "title": "Lost Empires",
+      "desc": "Broadcast: Jan. 25-March 8, 1987. Set in the last days of innocence just before World War I, the story of young Richard Hardcastle who joins his Uncle Nick, a master illusionist, on the music hall stage.",
+      "broadcast_date": "01/25/1987",
       "ids": {
         "V_23AF138AA928486181A5E1E42CACBEE7": {
           "title": "Masterpiece Theatre; Lost Empires, Episode 1",
@@ -5470,11 +5432,12 @@ export const masterpieceData = {
           "asset_type": "Open - Close",
           "broadcast_date": "2024-08-23T18:45:07+00:00"
         }
-      },
-      "nice_title": "Lost Empires",
-      "description": "Broadcast: Jan. 25- March 8, 1987\nSet in the last days of innocence just before World War I, the story of young Richard Hardcastle who joins his Uncle Nick, a master illusionist, on the music hall stage."
+      }
     },
     "silasmarner": {
+      "title": "Silas Marner",
+      "desc": "George Eliot's classic Victorian novel is the story of a lonely, embittered linen weaver, living apart and speaking to no one, who is brought back into human company by the love of a small child who mysteriously appears at his doorstep on New Year's Eve. He calls her Eppie and his happiness with her is threatened when Eppie's real father comes to claim her. See Dial magazine/program guide, March 1987, for related story.",
+      "broadcast_date": "03/22/1987",
       "ids": {
         "V_7D9C960FABA544BAA2C4AB24286B616C": {
           "title": "Masterpiece Theatre; Silas Marner",
@@ -5486,11 +5449,12 @@ export const masterpieceData = {
           "asset_type": "Open - Close",
           "broadcast_date": "1987-03-15"
         }
-      },
-      "nice_title": "Silas Marner",
-      "description": "Broadcast: Jan. 25- March 8, 1987\nSet in the last days of innocence just before World War I, the story of young Richard Hardcastle who joins his Uncle Nick, a master illusionist, on the music hall stage."
+      }
     },
     "starqualitynoelcowardstories": {
+      "title": "Star Quality: Noel Coward Stories",
+      "desc": "Broadcast: March 29-April 26, 1987. During his 50-year career Noel Coward excelled as a playwright, author, composer and actor. He won fame with elegant, mischievous comedies through the 1920s. During the late 1940s and into the 1950s, the works of Noel Coward fell into temporary disfavor. The mischievous stage comedies that made him a favorite were considered old hat, too glib for a grim post-World War II world. Unwilling to stop writing, Coward began to concentrate on short stories, something he had begun as a way to relax between his plays and songs during the 1930s. Viewers get a close-up look at Coward's genius when adaptations of five stories air under the umbrella title \"Star Quality.\" The stories, with impressive casts, reflect a sensitivity and insight into the human spirit not always present in his brilliant but often brittle stage comedies. A BBC Television production in association with Quintet Films and Arts and Entertainment. See Dial magazine/program guide, March 1987, for related story. Source: Press kit, GBH Archives, barcode 383914.",
+      "broadcast_date": "03/29/1987",
       "ids": {
         "V_D088C0DCFF5D4CAB84E8BC00C50DB565": {
           "title": "Masterpiece Theatre; Star Quality: Noel Coward Stories, Episode 1: Star Quality",
@@ -5537,11 +5501,12 @@ export const masterpieceData = {
           "asset_type": "Open - Close",
           "broadcast_date": "2024-08-23T18:45:07+00:00"
         }
-      },
-      "nice_title": "Star Quality: Noel Coward Stories",
-      "description": "No Description"
+      }
     },
     "deathoftheheartthe": {
+      "title": "Death of the Heart, The",
+      "desc": null,
+      "broadcast_date": "05/03/1987",
       "ids": {
         "V_E477270ADF3F497F9171895C5E5D9DD8": {
           "title": "Masterpiece Theatre; Death of the Heart, The",
@@ -5553,11 +5518,12 @@ export const masterpieceData = {
           "asset_type": "Open - Close",
           "broadcast_date": "1987-05-03"
         }
-      },
-      "nice_title": "Death of the Heart, The",
-      "description": "No Description"
+      }
     },
     "lovesong": {
+      "title": "Love Song",
+      "desc": "Broadcast: May 10-17, 1987. A beguiling love story whose central characters, the brilliant academics William and Phillippa, begin their university life as fierce rivals. It spans the honours-gathering careers of the couple who first meet as students at Cambridge University, whose minds 'buzz like a dynamo' and whose contentious hate-to-love relationship is enhanced by their life-long bid to outshine each other.",
+      "broadcast_date": "05/10/1987",
       "ids": {
         "V_AD35D294FD284C4EA247412677141A99": {
           "title": "Masterpiece Theatre; Love Song, Episode 1",
@@ -5579,24 +5545,14 @@ export const masterpieceData = {
           "asset_type": "Open - Close",
           "broadcast_date": "1987-05-17"
         }
-      },
-      "nice_title": "Love Song",
-      "description": "Broadcast: May 10- 17, 1987\nA beguiling love story whose central characters, the brilliant academics William and Phillippa, begin their university life as fierce rivals.  It spans the honours-gathering careers of the couple who first meet as students at Cambridge University, whose minds 'buzz like a dynamo' and whose contentious hate-to-love relationship is enhanced by their life-long bid to outshine each other."
-    },
-    "verybritishcoupa": {
-      "ids": {
-        "V_A59801196D5A4F44B1A224C518086D57": {
-          "title": "Masterpiece Theatre; Very British Coup, A, Episode 3",
-          "asset_type": "Open - Close",
-          "broadcast_date": "1989-01-16"
-        }
-      },
-      "nice_title": "Very British Coup, A",
-      "description": "Broadcast: Jan. 15- 16, 1989 This\n        program is a political thriller set sometime in the 1990's. A conservative government has\n        been thrown out and a new government, headed by ex-steel worker and radical Socialist Harry\n        Perkins assumes power. Harry's political life is at stake when the British Civil Service,\n        the conservative press, and the Americans begin to close their net. He has entered a world\n        where the establishment is out to stop implementation of his campaign promises and the issue\n        becomes who runs the country? They have not reckoned with Harry's steely\n        determination."
+      }
     }
   },
   "17": {
     "sorrellandson": {
+      "title": "Sorrell and Son",
+      "desc": "Broadcast: Dec. 13, 1987-Jan 10, 1988. A dramatization of Warwick Deeping's 1925 bestseller about a father-son relationship that triumphs over adversity. Stephen Sorrell returns from World Ward I jobless and wifeless, An officer and a gentleman, totally unsuited to manual labor and without any proper profession, he decides to devote his life to rearing his son. A job as a porter at the Pelican Hotel gives father and son a stable home and Stephen's career prospers. Son Kit achieves a profession as a surgeon.",
+      "broadcast_date": "12/13/1987",
       "ids": {
         "V_50DDCBBB71964232B09858B22A5D7B9A": {
           "title": "Masterpiece Theatre; Sorrell and Son, Episode 3",
@@ -5648,11 +5604,12 @@ export const masterpieceData = {
           "asset_type": "Open - Close",
           "broadcast_date": "2024-08-23T18:45:07+00:00"
         }
-      },
-      "nice_title": "Sorrell and Son",
-      "description": "Broadcast: Dec. 13, 1987- Jan 10,\n        1988 A dramatization of Warwick Deeping's 1925 bestseller about a father-son relationship\n        that triumphs over adversity. Stephen Sorrell returns from World Ward I jobless and\n        wifeless, An officer and a gentleman, totally unsuited to manual labor and without any\n        proper profession, he decides to devote his life to rearing his son. A job as a porter at\n        the Pelican Hotel gives father and son a stable home and Stephen's career prospers. Son Kit\n        achieves a profession as a surgeon."
+      }
     },
     "brettstheseason1": {
+      "title": "Bretts, The, Season 1",
+      "desc": "Broadcast: Oct. 11- Nov. 29, 1987. The curtain rises on the series' 17th season with a look behind the footlights of the glittering London theater world of the 1920s through the escapades of the Bretts, a family dedicated to drama onstage and off. This eight part series stars Norman Rodway as Charles Brett, Barbara Murray as his wife, Lydia. David Yelland and George Winter play sons Edwin and Thomas, and Belinda Land is the irrepressible vamp, Martha.",
+      "broadcast_date": "10/11/1987",
       "ids": {
         "V_FE226B06509E419C9AFFEAE07A657B0C": {
           "title": "Masterpiece Theatre; Bretts, The, Season 1, Episode 1: The King Shall Not Die / Driving Ambition",
@@ -5694,47 +5651,12 @@ export const masterpieceData = {
           "asset_type": "Broadcast program",
           "broadcast_date": "1987-11-29"
         }
-      },
-      "nice_title": "Bretts, The, Season 1",
-      "description": "No Description"
-    },
-    "brettsthe": {
-      "ids": {
-        "V_441FDE90DA5C4558A65F5BB702E4735D": {
-          "title": "Masterpiece Theatre; Bretts, The, Season 1, Episode 1: The King Shall Not Die / Driving Ambition",
-          "asset_type": "Open - Close",
-          "broadcast_date": "1987-10-11"
-        },
-        "V_2107844C8AE64D20A5D64882B2D6A08A": {
-          "title": "Masterpiece Theatre; Bretts, The, Season 1, Episode 2: Vagabonds and Thieves",
-          "asset_type": "Open - Close",
-          "broadcast_date": "1987-10-18"
-        },
-        "V_221E2B1D0CAB4AC8946EA7D7ED4C1075": {
-          "title": "Masterpiece Theatre; Bretts, The, Season 1, Episode 3: Full House",
-          "asset_type": "Open - Close",
-          "broadcast_date": "1987-10-25"
-        },
-        "V_AD9DF219BDBE4C6292C1C1E94E308BC4": {
-          "title": "Masterpiece Theatre; Bretts, The, Season 1, Episode 4: Moving Pictures",
-          "asset_type": "Open - Close",
-          "broadcast_date": "1987-11-01"
-        },
-        "V_19F80FABAF6E40CAA7D86399AE2EA26D": {
-          "title": "Masterpiece Theatre; Bretts, The, Season 1, Episode 5: Broadway, Here I Come",
-          "asset_type": "Open - Close",
-          "broadcast_date": "1987-11-08"
-        },
-        "V_B259B5DBBA6E475088F8F056AB10AF59": {
-          "title": "Masterpiece Theatre; Bretts, The, Season 1, Episode 8: Get Me to the Church on Time",
-          "asset_type": "Open - Close",
-          "broadcast_date": "1987-11-29"
-        }
-      },
-      "nice_title": "Bretts, The",
-      "description": "No Description"
+      }
     },
     "northangerabbey": {
+      "title": "Northanger Abbey",
+      "desc": null,
+      "broadcast_date": "12/06/1987",
       "ids": {
         "V_F754AB9AF3634E6CB64A4136AE071BF2": {
           "title": "Masterpiece Theatre; Northanger Abbey",
@@ -5746,11 +5668,12 @@ export const masterpieceData = {
           "asset_type": "Open - Close",
           "broadcast_date": "2024-08-23T18:45:06+00:00"
         }
-      },
-      "nice_title": "Northanger Abbey",
-      "description": "No Description"
+      }
     },
     "fortunesofwar": {
+      "title": "Fortunes of War",
+      "desc": "Broadcast: Dec. 13, 1987-Jan 10, 1988. A dramatization of Warwick Deeping's 1925 bestseller about a father-son relationship that triumphs over adversity. Stephen Sorrell returns from World Ward I jobless and wifeless,  An officer and a gentleman, totally unsuited to manual labor and without any proper profession, he decides to devote his life to rearing his son. A job as a porter at the Pelican Hotel gives father and son a stable home and Stephen's career prospers. Son Kit achieves a profession as a surgeon.",
+      "broadcast_date": "12/13/1987",
       "ids": {
         "V_7EF1B0129E9249C7A701CAFD203EDE77": {
           "title": "Masterpiece Theatre; Fortunes of War, Episode 1",
@@ -5822,11 +5745,12 @@ export const masterpieceData = {
           "asset_type": "Open - Close",
           "broadcast_date": "2024-08-23T18:45:06+00:00"
         }
-      },
-      "nice_title": "Fortunes of War",
-      "description": "Broadcast: Dec. 13, 1987- Jan 10, 1988\nA dramatization of Warwick Deeping's 1925 bestseller about a father-son relationship that triumphs over adversity.  Stephen Sorrell returns from World Ward I jobless and wifeless,  An officer and a gentleman, totally unsuited to manual labor and without any proper profession, he decides to devote his life to rearing his son.  A job as a porter at the Pelican Hotel gives father and son a stable home and Stephen's career prospers.  Son Kit achieves a profession as a surgeon."
+      }
     },
     "dayafterthefair": {
+      "title": "Day After the Fair",
+      "desc": "Broadcast: March 6-13, 1988. Set in Victorian England, Anna, the young maid of a rich brewer and his discontented wife, falls in love at the local fair with a young barrister on a visit from London. They continue their courtship by letter. Because she is almost illiterate, Anna persuades her mistress, Edith, to write for her. Edith's letters grow more intimate. Charles falls in love with Anna, whom he assumes has written the letters.",
+      "broadcast_date": "03/06/1988",
       "ids": {
         "V_00CF1D8676784FF49970CFB80833556B": {
           "title": "Masterpiece Theatre; Day After the Fair, Episode 1",
@@ -5848,11 +5772,12 @@ export const masterpieceData = {
           "asset_type": "Broadcast program",
           "broadcast_date": "1988-03-13"
         }
-      },
-      "nice_title": "Day After the Fair",
-      "description": "Broadcast: March 6- 13, 1988\n Set in Victorian England, Anna, the young maid of a rich brewer and his discontented wife, falls in love at the local fair with a young barrister on a visit from London. They continue their courtship by letter. Because she is almost illiterate, Anna persuades her mistress, Edith, to write for her. Edith's letters grow more intimate. Charles falls in love with Anna, whom he assumes has written the letters."
+      }
     },
     "davidcopperfield1988": {
+      "title": "David Copperfield (1988)",
+      "desc": "Broadcast: March 27- April 24, 1988. Soon after the death of her husband, Clara Copperfield delivers a baby son named David, much to the chagrin of Aunt Betsy Trotwood, who had expected a girl. Though fatherless, little David leads a happy life with his nurse Peggotty until his mother marries the ill-tempered Mr. Murdstone, who sends David to a school run by the savage Mr. Creakle. David is later taken out of school and put to work in a rat-infested warehouse and sent to lodge with the eccentric Mr. Micawber. Soon Mr. Micawber and his family are sent to debtor's prison and David sets off to live with Aunt Betsy Trotwood and Mr. Dick.",
+      "broadcast_date": "03/27/1988",
       "ids": {
         "V_3A1D6CAAECE74A02A2D4E4A57E9036A3": {
           "title": "Masterpiece Theatre; David Copperfield (1988), Episode 1",
@@ -5904,11 +5829,12 @@ export const masterpieceData = {
           "asset_type": "Broadcast program",
           "broadcast_date": "1988-04-24"
         }
-      },
-      "nice_title": "David Copperfield (1988)",
-      "description": "Broadcast: March 6- 13, 1988\n Set in Victorian England, Anna, the young maid of a rich brewer and his discontented wife, falls in love at the local fair with a young barrister on a visit from London. They continue their courtship by letter. Because she is almost illiterate, Anna persuades her mistress, Edith, to write for her. Edith's letters grow more intimate. Charles falls in love with Anna, whom he assumes has written the letters."
+      }
     },
     "bythesworddividedseason2": {
+      "title": "By the Sword Divided, Season 2",
+      "desc": "Broadcast: Aug. 28-Oct. 9, 1988. NOTE: Not all of the BBC episodes aired in the US. Continues the story of the 17th century Lacey Family- a family divided by their loyalties to King Charles and to Oliver Cromwell. The civil war is over and Cromwell has taken command. Arnescote Castle, once the proud home of the Laceys, is now the property of Cromwell ally John Fletcher whose wife Anne is a Lacey. Her brother Tom, a royalist, refusing to accept defeat, has fled to France to join a last attempt to overthrow Cromwell -- an attempt doomed to failure.",
+      "broadcast_date": "08/28/1988",
       "ids": {
         "V_4BA4A35078C64177BB8661770DDB5355": {
           "title": "Masterpiece Theatre; By the Sword Divided, Season 2, Episode 1: Cruel Necessity",
@@ -5980,13 +5906,14 @@ export const masterpieceData = {
           "asset_type": "Open - Close",
           "broadcast_date": "2024-08-23T18:45:06+00:00"
         }
-      },
-      "nice_title": "By the Sword Divided, Season 2",
-      "description": "Broadcast: Aug. 28- Oct. 9, 1988\n\nNOTE: Not all of the BBC episodes aired in the US.  \n\nContinues the story of the 17th century Lacey Family -  a family divided by their loyalties to King Charles and to Oliver Cromwell.  The civil war is over and Cromwell has taken command.  Arnescote Castle, once the proud home of the Laceys, is now the property of Cromwell ally John Fletcher whose wife Anne is a Lacey.  Her brother Tom, a royalist, refusing to accept defeat, has fled to France to join a last attempt to overthrow Cromwell -- an attempt doomed to failure.\n\nA seven-part BBC/Consolidated Pictures production presented on PBS by WGBH, Boston."
+      }
     }
   },
   "18": {
     "perfectspya": {
+      "title": "Perfect Spy, A",
+      "desc": "Broadcast: Oct. 16-Nov. 27, 1988. Story dissects the life of Magnus Pym, a man shaped from his early years with his charming scoundrel of a father Rick. Rick is a con man in a grand style who raises his son in a strange world of fancy cars, country mansions and petty criminals. Magnus learns to use his charm to maximum effect to become a willing accomplice in many of his father's fraudulent schemes. Rick's fortunes rise and fall, and Magnus later finds a parallel career as part of the British intelligence service.",
+      "broadcast_date": "10/16/1988",
       "ids": {
         "V_FE14BD9CFACA4A538E6EC1179912BA3D": {
           "title": "Masterpiece Theatre; Perfect Spy, A, Episode 1",
@@ -6053,20 +5980,21 @@ export const masterpieceData = {
           "asset_type": "Open - Close",
           "broadcast_date": "1988-11-27",
           "ids": {
-        "V_F548FAADD4CD490DA7CB1B4DD1E366A8": {
-          "title": "Masterpiece Theatre; Perfect Spy, A, Episode 5",
-          "asset_type": "Open - Close",
-          "broadcast_date": "1988-11-13"
+            "V_F548FAADD4CD490DA7CB1B4DD1E366A8": {
+              "title": "Masterpiece Theatre; Perfect Spy, A, Episode 5",
+              "asset_type": "Open - Close",
+              "broadcast_date": "1988-11-13"
+            }
+          },
+          "nice_title": "A Perfect Spy",
+          "description": "Broadcast: Oct. 16- Nov. 27, 1988\n        Story dissects the life of Magnus Pym, a man shaped from his early years with his charming\n        scoundrel of a father Rick. Rick is a con man in a grand style who raises his son in a\n        strange world of fancy cars, country mansions and petty criminals. Magnus learns to use his\n        charm to maximum effect to become a willing accomplice in many of his father's fraudulent\n        schemes. Rick's fortunes rise and fall, and Magnus later finds a parallel career as part of\n        the British intelligence service."
         }
-      },
-      "nice_title": "A Perfect Spy",
-      "description": "Broadcast: Oct. 16- Nov. 27, 1988\n        Story dissects the life of Magnus Pym, a man shaped from his early years with his charming\n        scoundrel of a father Rick. Rick is a con man in a grand style who raises his son in a\n        strange world of fancy cars, country mansions and petty criminals. Magnus learns to use his\n        charm to maximum effect to become a willing accomplice in many of his father's fraudulent\n        schemes. Rick's fortunes rise and fall, and Magnus later finds a parallel career as part of\n        the British intelligence service."
-        }
-      },
-      "nice_title": "Perfect Spy, A",
-      "description": "Broadcast: Oct. 16- Nov. 27, 1988\n        Story dissects the life of Magnus Pym, a man shaped from his early years with his charming\n        scoundrel of a father Rick. Rick is a con man in a grand style who raises his son in a\n        strange world of fancy cars, country mansions and petty criminals. Magnus learns to use his\n        charm to maximum effect to become a willing accomplice in many of his father's fraudulent\n        schemes. Rick's fortunes rise and fall, and Magnus later finds a parallel career as part of\n        the British intelligence service."
+      }
     },
     "heavenonearth": {
+      "title": "Heaven on Earth",
+      "desc": null,
+      "broadcast_date": "12/04/1988",
       "ids": {
         "V_723827FBF8B448E29962F9AEE35A0589": {
           "title": "Masterpiece Theatre; Heaven on Earth",
@@ -6078,11 +6006,12 @@ export const masterpieceData = {
           "asset_type": "Open - Close",
           "broadcast_date": "2024-08-23T18:45:06+00:00"
         }
-      },
-      "nice_title": "Heaven on Earth",
-      "description": "No Description"
+      }
     },
     "wreathofrosesa": {
+      "title": "Wreath of Roses, A",
+      "desc": null,
+      "broadcast_date": "01/08/1989",
       "ids": {
         "V_1C1625926E5F42A7A028565877B8ECFE": {
           "title": "Masterpiece Theatre; Wreath of Roses, A",
@@ -6094,11 +6023,12 @@ export const masterpieceData = {
           "asset_type": "Open - Close",
           "broadcast_date": "1989-01-08"
         }
-      },
-      "nice_title": "Wreath of Roses, A",
-      "description": "No Description"
+      }
     },
     "verybritishcoupa": {
+      "title": "Very British Coup, A",
+      "desc": "Broadcast: Jan. 15-16, 1989. This program is a political thriller set sometime in the 1990's. A conservative government has been thrown out and a new government, headed by ex-steel worker and radical Socialist Harry Perkins assumes power. Harry's political life is at stake when the British Civil Service, the conservative press, and the Americans begin to close their net. He has entered a world where the establishment is out to stop implementation of his campaign promises and the issue becomes who runs the country?  They have not reckoned with Harry's steely determination.",
+      "broadcast_date": "01/15/1989",
       "ids": {
         "V_3B732B5891FB4D17963FB9DE74736D98": {
           "title": "Masterpiece Theatre; Very British Coup, A, Episode 1",
@@ -6120,11 +6050,12 @@ export const masterpieceData = {
           "asset_type": "Open - Close",
           "broadcast_date": "1989-01-16"
         }
-      },
-      "nice_title": "Very British Coup, A",
-      "description": "Broadcast: Jan. 15- 16, 1989\nThis program is a political thriller set sometime in the 1990's. A conservative government has been thrown out and a new government, headed by ex-steel worker and radical Socialist Harry Perkins assumes power. Harry's political life is at stake when the British Civil Service, the conservative press, and the Americans begin to close their net.  He has entered a world where the establishment is out to stop implementation of his campaign promises and the issue becomes who runs the country?  They have not reckoned with Harry's steely determination."
+      }
     },
     "allpassionspent": {
+      "title": "All Passion Spent",
+      "desc": "Broadcast: Jan. 22-Feb. 5, 1989. Dame Wendy Hiller stars as Lady Slane, a newly widowed 85-year-old who declares her independence from intrusive but well-meaning children and decides to live her own life in her new house. Maurice Denham is her extraordinarily considerate new landlord Mr. Bucktrout, Harry Andrews is her long-devoted admirer Fitzgeorge.",
+      "broadcast_date": "01/22/1989",
       "ids": {
         "V_A7D4CF7E7DDD45D4810470E88B3D14ED": {
           "title": "Masterpiece Theatre; All Passion Spent, Episode 1",
@@ -6156,11 +6087,12 @@ export const masterpieceData = {
           "asset_type": "Open - Close",
           "broadcast_date": "1989-02-05"
         }
-      },
-      "nice_title": "All Passion Spent",
-      "description": "Broadcast: Jan. 22- Feb. 5, 1989\nDame Wendy Hiller stars as Lady Slane, a newly widowed 85-year-old who declares her independence from intrusive but well-meaning children and decides to live her own life in her new house.  Maurice Denham is her extraordinarily considerate new landlord Mr. Bucktrout, Harry Andrews is her long-devoted admirer Fitzgeorge."
+      }
     },
     "talkingheadsbedamongthelentils": {
+      "title": "Talking Heads: Bed Among the Lentils",
+      "desc": null,
+      "broadcast_date": "02/12/1989",
       "ids": {
         "V_F86AF9B502674914850CE7ACD667E2F1": {
           "title": "Masterpiece Theatre; Talking Heads: Bed Among the Lentils",
@@ -6172,11 +6104,12 @@ export const masterpieceData = {
           "asset_type": "Broadcast program",
           "broadcast_date": "1989-02-12"
         }
-      },
-      "nice_title": "Talking Heads: Bed Among the Lentils",
-      "description": "No Description"
+      }
     },
     "christabel": {
+      "title": "Christabel",
+      "desc": "Broadcast: Feb. 19-March 12, 1989. Christabel Bielenberg's autobiographical novel, \"The Past is Myself\" tells of her marriage to a German during the turbulent years leading up to and including the Second World War. Christabel makes her home in Germany with husband Peter. They are both alarmed by the rise of Hitler. Peter is a lawyer who feels they must remain to try to ensure that there is a sane element in place to help the country recover from the madness of Nazism. He enters the government and becomes involved in an attempt to assassinate Hitler.",
+      "broadcast_date": "02/19/1989",
       "ids": {
         "V_BD8037BB19FF412387B3A2DB14AE7AA3": {
           "title": "Masterpiece Theatre; Christabel, Episode 1",
@@ -6218,11 +6151,12 @@ export const masterpieceData = {
           "asset_type": "Open - Close",
           "broadcast_date": "1989-03-12"
         }
-      },
-      "nice_title": "Christabel",
-      "description": "Broadcast: Feb. 19- March 12, 1989\nChristabel Bielenberg's autobiographical novel, \"The Past is Myself\" tells of her marriage to a German during the turbulent years leading up to and including the Second World War.  Christabel makes her home in Germany with husband Peter.  They are both alarmed by the rise of Hitler.  Peter is a lawyer who feels they must remain to try to ensure that there is a sane element in place to help the country recover from the madness of Nazism.  He enters the government and becomes involved in an attempt to assassinate Hitler."
+      }
     },
     "charmerthe": {
+      "title": "Charmer, The",
+      "desc": "Broadcast: April 30-June 4, 1989. On the surface, dashing Ralph Gorse is the kind of man any decent young woman would be happy to bring home to mother. But underneath, he's an amoral, calculating sexual adventurer and con man who'll stop at nothing, even murder, to climb into a high-society world shimmering with money and power.. . Nigel Havers stars in this drama based on a novel by  Patrick Hamilton.. . Source: 'GBH  Members Magazine, April 1989",
+      "broadcast_date": "04/30/1989",
       "ids": {
         "V_937D3A9FA6A44A1B9F4CF361341F7944": {
           "title": "Masterpiece Theatre; Charmer, The, Episode 1: Gorse, The Tempter",
@@ -6279,11 +6213,12 @@ export const masterpieceData = {
           "asset_type": "Broadcast program",
           "broadcast_date": "1989-06-04"
         }
-      },
-      "nice_title": "Charmer, The",
-      "description": "Broadcast: April 30- June 4, 1989\nOn the surface, dashing Ralph Gorse is the kind of man any decent young woman would be happy to bring home to mother. But underneath, he's an amoral, calculating sexual adventurer and con man who'll stop at nothing, even murder, to climb into a high-society world shimmering with money and power.\n\nNigel Havers stars in this drama based on a novel by  Patrick Hamilton.\n\nSource: 'GBH  Members Magazine, April 1989"
+      }
     },
     "brettstheseason2": {
+      "title": "Bretts, The, Season 2",
+      "desc": "Broadcast: June 11-July 16, 1989. A second series about the London theatrical dynasty. This series rejoins the Bretts in 1931 as Charles and Lydia Brett, heads of the family, find their careers and fortunes threatened by the new phenomenon of talking pictures, which are relentlessly wooing away their audiences. Meanwhile, their elder son Edwin has given up the stage and become a famous Hollywood film star... The rest of the family also lurches its way through the upheaval of the 1930s.",
+      "broadcast_date": "06/11/1989",
       "ids": {
         "V_534910F897484133AFDAC697FFB4A15D": {
           "title": "Masterpiece Theatre; Bretts, The, Season 2, Episode 1: Home and Away, Part\n        1",
@@ -6340,13 +6275,14 @@ export const masterpieceData = {
           "asset_type": "Open - Close",
           "broadcast_date": "1989-07-16"
         }
-      },
-      "nice_title": "Bretts, The, Season 2",
-      "description": "Broadcast: June 11- July 16, 1989\n        Series Description: A second series about the London theatrical dynasty. This series rejoins\n        the Bretts in 1931 as Charles and Lydia Brett, heads of the family, find their careers and\n        fortunes threatened by the new phenomenon of talking pictures, which are relentlessly wooing\n        away their audiences. Meanwhile, their elder son Edwin has given up the stage and become a\n        famous Hollywood film star....The rest of the family also lurches its way through the\n        upheaval of the 1930's."
+      }
     }
   },
   "19": {
     "taleoftwocitiesa": {
+      "title": "Tale of Two Cities, A",
+      "desc": "Set against backdrop of revolutionary France, Dickens' story of love and sacrifice follows the fortunes of two men, one French, the other English, whose love for the same woman draws them into the turbulent events of the Reign of Terror. When Dr. Manette is released after 18 years imprisonment in the Bastille, his daughter Lucy devotes herself to ensuring his happiness and protection from further hardships. Broadcast: Nov. 19-Dec. 10, 1989",
+      "broadcast_date": "12/10/1989",
       "ids": {
         "V_AC365A9C9EAB4106AB9F5B2DA4EE31D5": {
           "title": "Masterpiece Theatre; Tale of Two Cities, A, Episode 4",
@@ -6388,11 +6324,12 @@ export const masterpieceData = {
           "asset_type": "Broadcast program",
           "broadcast_date": "1989-12-10"
         }
-      },
-      "nice_title": "Tale of Two Cities, A",
-      "description": "Set against backdrop of\n        revolutionary France, Dickens' story of love and sacrifice follows the fortunes of two men,\n        one French, the other English, whose love for the same woman draws them into the turbulent\n        events of the Reign of Terror. When Dr. Manette is released after 18 years imprisonment in\n        the Bastille, his daughter Lucy devotes herself to ensuring his happiness and protection\n        from further hardships. Broadcast: Nov. 19- Dec. 10, 1989"
+      }
     },
     "andanightingalesang": {
+      "title": "And a Nightingale Sang",
+      "desc": null,
+      "broadcast_date": "10/15/1989",
       "ids": {
         "V_D40D17D8A15544D4B43F03E42A44D4B2": {
           "title": "Masterpiece Theatre; And a Nightingale Sang",
@@ -6404,11 +6341,12 @@ export const masterpieceData = {
           "asset_type": "Broadcast program",
           "broadcast_date": "1989-10-15"
         }
-      },
-      "nice_title": "And a Nightingale Sang",
-      "description": "Broadcast: June 11- July 16, 1989\n        Series Description: A second series about the London theatrical dynasty. This series rejoins\n        the Bretts in 1931 as Charles and Lydia Brett, heads of the family, find their careers and\n        fortunes threatened by the new phenomenon of talking pictures, which are relentlessly wooing\n        away their audiences. Meanwhile, their elder son Edwin has given up the stage and become a\n        famous Hollywood film star....The rest of the family also lurches its way through the\n        upheaval of the 1930's."
+      }
     },
     "preciousbane": {
+      "title": "Precious Bane",
+      "desc": "A two-part adaptation of Mary Webb's 1925 story about a disfigured young woman and her courageous fight for dignity and love in rural, 19th century Shropshire, England. Source: GBH Members Magazine (October 1989)",
+      "broadcast_date": "10/22/1989",
       "ids": {
         "V_E4AFEC68B5F64C91843D4C0DE9326B7F": {
           "title": "Masterpiece Theatre; Precious Bane, Episode 1",
@@ -6430,11 +6368,12 @@ export const masterpieceData = {
           "asset_type": "Open - Close",
           "broadcast_date": "1989-10-29"
         }
-      },
-      "nice_title": "Precious Bane",
-      "description": "No Description"
+      }
     },
     "gloryenoughforall": {
+      "title": "Glory Enough for All",
+      "desc": "Broadcast: Nov. 5-12, 1989. This is the turbulent true story of one of this century's greatest medical miracles, the discovery of insulin. R.H. Thomson stars as Dr. Frederick Banting, John Woodvine as J.J. MacLeod, Robert Wisden as Charles Best, and Michael Zelniker as James Collip.",
+      "broadcast_date": "11/05/1989",
       "ids": {
         "V_99A0B6FC07DB4A15921A911FF6F7C454": {
           "title": "Masterpiece Theatre; Glory Enough for All, Episode 1",
@@ -6451,11 +6390,12 @@ export const masterpieceData = {
           "asset_type": "Open - Close",
           "broadcast_date": "2024-08-23T18:45:06+00:00"
         }
-      },
-      "nice_title": "Glory Enough for All",
-      "description": "Broadcast: Nov. 5- 12, 1989\nThis is the turbulent true story of one of this century's greatest medical miracles, the discovery of insulin.  R.H. Thomson stars as Dr. Frederick Banting, John Woodvine as J.J. MacLeod, Robert Wisden as Charles Best, and Michael Zelniker as James Collip."
+      }
     },
     "yellowwallpaperthe": {
+      "title": "Yellow Wallpaper, The",
+      "desc": null,
+      "broadcast_date": "12/17/1989",
       "ids": {
         "V_8954A27059A641B7B4452C53ACCE63C0": {
           "title": "Masterpiece Theatre; Yellow Wallpaper, The",
@@ -6467,11 +6407,12 @@ export const masterpieceData = {
           "asset_type": "Open - Close",
           "broadcast_date": "1989-12-17"
         }
-      },
-      "nice_title": "Yellow Wallpaper, The",
-      "description": "No Description"
+      }
     },
     "afterthewar": {
+      "title": "After the War",
+      "desc": "Broadcast: Jan. 7-Feb. 25, 1990. The story of a generation that grew up in peace, albeit an uneasy one. Follows the lives and careers of two Jewish schoolboys with widely different backgrounds:  Michael and Joe will always be friendly enemies, their paths destined to cross again and again. At the age of twelve Michael Jordan is evacuated with his school to Devon. In the midst of an English education with all its demanding rules and traditions, he is asked to look after Joe Hirsch, a refuge from Germany. The two boys have very little in common and they are divided by the fierce gang warfare of school life. It is the start of an uneasy relationship which continues for many years.",
+      "broadcast_date": "01/07/1990",
       "ids": {
         "V_6F5C85D8C7184E238290385160EB99E9": {
           "title": "Masterpiece Theatre; After the War, Episode 1: Friends and Enemies",
@@ -6553,11 +6494,12 @@ export const masterpieceData = {
           "asset_type": "Open - Close",
           "broadcast_date": "2024-08-23T18:45:07+00:00"
         }
-      },
-      "nice_title": "After the War",
-      "description": "Broadcast: Jan. 7- Feb. 25, 1990\nThe story of a generation that grew up in peace, albeit an uneasy one. Follows the lives and careers of two Jewish schoolboys with widely different backgrounds:  Michael and Joe will always be friendly enemies, their paths destined to cross again and again.  At the age of twelve Michael Jordan is evacuated with his school to Devon.  In the midst of an English education with all its demanding rules and traditions, he is asked to look after Joe Hirsch, a refuge from Germany.  The two boys have very little in common and they are divided by the fierce gang warfare of school life.  It is the start of an uneasy relationship which continues for many years."
+      }
     },
     "realcharlottethe": {
+      "title": "Real Charlotte, The",
+      "desc": "Broadcast: March 25-April 8, 1990. Young Francie Fitzpatrick comes to stay with her cousin Charlotte Mullen in the west of Ireland. Socially ambitious, Charlotte schemes to bring about a marriage between Francie and Christopher Dysart, the heir to a great estate. Yet Francie proves irresistible to Roddy Lambert, Dysart's land agent-as well as to Gerald Hawkins, a dashing young officer in the British army.",
+      "broadcast_date": "03/25/1990",
       "ids": {
         "V_866E0A3C1D8E4A3898171B65192BA174": {
           "title": "Masterpiece Theatre; Real Charlotte, The, Episode 1",
@@ -6584,11 +6526,12 @@ export const masterpieceData = {
           "asset_type": "Broadcast program",
           "broadcast_date": "1990-04-08"
         }
-      },
-      "nice_title": "Real Charlotte, The",
-      "description": "Broadcast: March 25- April 8, 1990\nYoung Francie Fitzpatrick comes to stay with her cousin Charlotte Mullen in the west of Ireland.  Socially ambitious, Charlotte schemes to bring about a marriage between Francie and Christopher Dysart, the heir to a great estate.  Yet Francie proves irresistible to Roddy Lambert, Dysart's land agent - as well as to Gerald Hawkins, a dashing young officer in the British army."
+      }
     },
     "dressmakerthe": {
+      "title": "Dressmaker, The",
+      "desc": null,
+      "broadcast_date": "04/15/1990",
       "ids": {
         "V_79916AF2A9804749A79E333B1C2CE202": {
           "title": "Masterpiece Theatre; Dressmaker, The",
@@ -6600,11 +6543,12 @@ export const masterpieceData = {
           "asset_type": "Open - Close",
           "broadcast_date": "1990-04-15"
         }
-      },
-      "nice_title": "Dressmaker, The",
-      "description": "No Description"
+      }
     },
     "traffik": {
+      "title": "Traffik",
+      "desc": "Broadcast: April 22-May 20, 1990. The contemporary story of a British government minister who puts himself and his family in danger when he tries to reform the international drug trade.. . Repacked and Rebroadcast in 2001",
+      "broadcast_date": "04/22/1990",
       "ids": {
         "V_9E661F35A87D47EE98B404515F99704B": {
           "title": "Masterpiece Theatre; Traffik, Episode 1",
@@ -6656,11 +6600,12 @@ export const masterpieceData = {
           "asset_type": "Open - Close",
           "broadcast_date": "2024-08-23T18:45:06+00:00"
         }
-      },
-      "nice_title": "Traffik",
-      "description": "Broadcast: April 22- May 20, 1990\nThe contemporary story of a British government minister who puts himself and his family in danger when he tries to reform the international drug trade.\n\nRepacked and Rebroadcast in 2001"
+      }
     },
     "pieceofcake": {
+      "title": "Piece of Cake",
+      "desc": "Broadcast: July 8-Aug. 12, 1990. The series follows the daredevil exploits of the 12-man Hornet Squadron, all young men barely out of their teens. Taught to fly the famous single-engine Spitfires, they are posted to France to do battle in the skies with the better-trained, better-armed and more experienced Luftwaffe flyers. (First airing of the series coincided with the 50th anniversary of the Battle of Britain.)",
+      "broadcast_date": "07/08/1990",
       "ids": {
         "V_B021D43BAC8D437087F4A75A3CE80499": {
           "title": "Masterpiece Theatre; Piece of Cake, Episode 1",
@@ -6712,13 +6657,14 @@ export const masterpieceData = {
           "asset_type": "Broadcast program",
           "broadcast_date": "1990-08-12"
         }
-      },
-      "nice_title": "Piece of Cake",
-      "description": "Broadcast: July 8- Aug. 12, 1990 The\n        series follows the daredevil exploits of the 12-man Hornet Squadron, all young men barely\n        out of their teens. Taught to fly the famous single-engine Spitfires, they are posted to\n        France to do battle in the skies with the better-trained, better-armed and more experienced\n        Luftwaffe flyers. (First airing of the series coincided with the 50th anniversary of the\n        Battle of Britain.)"
+      }
     }
   },
   "20": {
     "heatofthedaythe": {
+      "title": "Heat of the Day, The",
+      "desc": null,
+      "broadcast_date": "09/30/1990",
       "ids": {
         "V_31EC78EB792C489B9A839EC75BBF7E96": {
           "title": "Masterpiece Theatre; Heat of the Day, The",
@@ -6730,11 +6676,12 @@ export const masterpieceData = {
           "asset_type": "Broadcast program",
           "broadcast_date": "1990-09-30"
         }
-      },
-      "nice_title": "Heat of the Day, The",
-      "description": "No Description"
+      }
     },
     "gingertreethe": {
+      "title": "Ginger Tree, The",
+      "desc": "Broadcast: Oct. 14-Nov. 4, 1990. Story of a young Scottish girl who travel to Manchuria at the turn of the century to marry an English Officer and finds herself trapped in a war zone. Disillusioned, but lonely and desperately disappointed with her husband, she begins a passionate affair with a Japanese nobleman that radically changes her life. Shot on location in Japan, Taiwan and England, this was the first Masterpiece Theatre to be filmed in High Definition.",
+      "broadcast_date": "10/14/1990",
       "ids": {
         "V_70911C75B5F149BA87C1D3A7D668E3DB": {
           "title": "Masterpiece Theatre; Ginger Tree, The, Episode 1",
@@ -6771,11 +6718,12 @@ export const masterpieceData = {
           "asset_type": "Open - Close",
           "broadcast_date": "1990-11-04"
         }
-      },
-      "nice_title": "Ginger Tree, The",
-      "description": "Broadcast: Oct. 14- Nov. 4, 1990\nStory of a young Scottish girl who travel to Manchuria at the turn of the century to marry an English Officer and finds herself trapped in a war zone.  Disillusioned, but lonely and desperately disappointed with her husband, she begins a passionate affair with a Japanese nobleman that radically changes her life.  Shot on location in Japan, Taiwan and England, this was the first Masterpiece Theatre to be filmed in High Definition."
+      }
     },
     "20thanniversaryfavoritesonapproval": {
+      "title": "20th Anniversary Favorites: On Approval",
+      "desc": "Two unmarried couples spend a month together to decide whether marriage would promise the bliss they think. Jeremy Brett, Penelope Keith, Benjamin Whitrow and Lindsay Duncan star as the experimenting foursome in Frederick Lonsdale’s period comedy.",
+      "broadcast_date": "12/11/1990",
       "ids": {
         "V_39BB632705374295894AED02FAD2C9B8": {
           "title": "Masterpiece Theatre; 20th Anniversary Favorites: On Approval",
@@ -6787,11 +6735,12 @@ export const masterpieceData = {
           "asset_type": "Broadcast program",
           "broadcast_date": "1991-01-27"
         }
-      },
-      "nice_title": "20th Anniversary Favorites: On Approval",
-      "description": "Broadcast: Jan. 13- March 10, 1991\n        Favorite episodes from the first twenty years of Masterpiece Theatre were rebroadcast as\n        part of the celebration. See individual titles for assets."
+      }
     },
     "jeevesandwoosterseason1": {
+      "title": "Jeeves and Wooster, Season 1",
+      "desc": "Broadcast: Nov. 11-Dec. 9, 1990. The hilarious misadventures of P.G. Wodehouse's most famous character, Bertie Wooster, and the sage and miraculous valet Jeeves who extricates him from one disaster after another. See below for individual episode descriptions.. See WGBH Members Program Guide, November 1990 for cover story.",
+      "broadcast_date": "11/11/1990",
       "ids": {
         "V_5FE4A3874E2849738D8BF24D8CBEC761": {
           "title": "Masterpiece Theatre; Jeeves and Wooster,  Season 1, Episode 1: In Court After the Boat Race, or Jeeves' Arrival",
@@ -6843,43 +6792,24 @@ export const masterpieceData = {
           "asset_type": "Open - Close",
           "broadcast_date": "1990-12-09"
         }
-      },
-      "nice_title": "Jeeves and Wooster, Season 1",
-      "description": "Broadcast: Nov. 11- Dec. 9, 1990\nThe hilarious misadventures of P.G. Wodehouse's most famous character, Bertie Wooster, and the sage and miraculous valet Jeeves who extricates him from one disaster after another.  See below for individual episode descriptions.\nSee WGBH Members Program Guide, November 1990 for cover story."
-    },
-    "20thanniversaryfavorites": {
-      "ids": {
-        "V_29DF5A36900D4B19A1BAAA2583E61AF2": {
-          "title": "Masterpiece Theatre; 20th Anniversary Favorites: I, Claudius: Zeus, By\n        Jove",
-          "asset_type": "Open - Close",
-          "broadcast_date": "1990-11-19"
-        },
-        "V_166E31B715F8412487B32F86D414A0F0": {
-          "title": "Masterpiece Theatre; 20th Anniversary Favorites: The Jewel in the Crown: Crossing\n        the River",
-          "asset_type": "Open - Close",
-          "broadcast_date": "1990-12-08"
-        },
-        "V_185B4292C5AF400A8443A61D74FB94E4": {
-          "title": "Masterpiece Theatre; 20th Anniversary Favorites: The Six Wives of Henry VIII:\n        Catherine Howard",
-          "asset_type": "Open - Close",
-          "broadcast_date": "1991-03-10"
-        }
-      },
-      "nice_title": "20th Anniversary Favorites",
-      "description": "Broadcast: Jan. 13- March 10, 1991\n        Favorite episodes from the first twenty years of Masterpiece Theatre were rebroadcast as\n        part of the celebration. See individual titles for assets."
+      }
     },
     "scoop": {
+      "title": "Scoop",
+      "desc": null,
+      "broadcast_date": "12/30/1990",
       "ids": {
         "V_9234197032ED46068B095A182F9DFAB9": {
           "title": "Masterpiece Theatre; Scoop",
           "asset_type": "Broadcast program",
           "broadcast_date": "1990-12-30"
         }
-      },
-      "nice_title": "Scoop",
-      "description": "No Description"
+      }
     },
     "roomofonesowna": {
+      "title": "Room of One's Own, A",
+      "desc": "Based upon the two lectures delivered by author Virginia Woolf to the women of Girton College, Cambridge in 1928. Simply staged in a lecture hall, actress Eileen Atkins portrays Woolf as she speaks to a group of students about the role of women in fiction and particularly the difficulties of being a woman artist. Virginia Woolf's thesis was that in order to write, \"a woman must have money and a room of one's own.\"",
+      "broadcast_date": "01/06/1991",
       "ids": {
         "V_D7688DE43DE148E0B9393E4439020859": {
           "title": "Masterpiece Theatre; Room of One's Own, A",
@@ -6891,11 +6821,12 @@ export const masterpieceData = {
           "asset_type": "Broadcast program",
           "broadcast_date": "1991-01-06"
         }
-      },
-      "nice_title": "Room of One's Own, A",
-      "description": "Based upon the two lectures\n        delivered by author Virginia Woolf to the women of Girton College, Cambridge in 1928. Simply\n        staged in a lecture hall, actress Eileen Atkins portrays Woolf as she speaks to a group of\n        students about the role of women in fiction and particularly the difficulties of being a\n        woman artist. Virginia Woolf's thesis was that in order to write, \"a woman must have money\n        and a room of one's own.\""
+      }
     },
     "20thanniversaryfavoritesupstairsdownstairs": {
+      "title": "20th Anniversary Favorites: Upstairs, Downstairs",
+      "desc": "Broadcast: Jan. 13-March 10, 1991. . Favorite episodes from the first twenty years of Masterpiece Theatre were rebroadcast as part of the celebration.. . See individual titles for assets.",
+      "broadcast_date": "01/13/1991",
       "ids": {
         "V_64DE1E4B3CAC4B02A1334BC3873CB4BE": {
           "title": "Masterpiece Theatre; 20th Anniversary Favorites: Upstairs, Downstairs, Series IV: Such A Lovely Man",
@@ -6907,99 +6838,108 @@ export const masterpieceData = {
           "asset_type": "Broadcast program",
           "broadcast_date": "1991-01-13"
         }
-      },
-      "nice_title": "20th Anniversary Favorites: Upstairs, Downstairs",
-      "description": "Broadcast: Jan. 13- March 10, 1991\n\nFavorite episodes from the first twenty years of Masterpiece Theatre were rebroadcast as part of the celebration.\n\nSee individual titles for assets."
+      }
     },
     "20thanniversaryfavoritestheflametreesofthikahappynewyear": {
+      "title": "20th Anniversary Favorites: The Flame Trees Of Thika: Happy New Year",
+      "desc": "Broadcast: Jan. 13-March 10, 1991. . Favorite episodes from the first twenty years of Masterpiece Theatre were rebroadcast as part of the celebration.. . See individual titles for assets.",
+      "broadcast_date": "01/20/1991",
       "ids": {
         "V_B44510C9C331418CBDEF858299027EF1": {
           "title": "Masterpiece Theatre; 20th Anniversary Favorites: The Flame Trees Of Thika: Happy New Year",
           "asset_type": "Broadcast program",
           "broadcast_date": "1991-01-20"
         }
-      },
-      "nice_title": "20th Anniversary Favorites: The Flame Trees Of Thika: Happy New Year",
-      "description": "Broadcast: Jan. 13- March 10, 1991\n\nFavorite episodes from the first twenty years of Masterpiece Theatre were rebroadcast as part of the celebration.\n\nSee individual titles for assets."
+      }
     },
     "20thanniversaryfavoritesiclaudiuszeusbyjove": {
+      "title": "20th Anniversary Favorites: I, Claudius: Zeus, By Jove",
+      "desc": "Broadcast: Jan. 13-March 10, 1991. . Favorite episodes from the first twenty years of Masterpiece Theatre were rebroadcast as part of the celebration.. . See individual titles for assets.",
+      "broadcast_date": "02/03/1991",
       "ids": {
         "V_88BB0AD6F6E0442D929DDBFF6C5E0B10": {
           "title": "Masterpiece Theatre; 20th Anniversary Favorites: I, Claudius: Zeus, By Jove",
           "asset_type": "Broadcast program",
           "broadcast_date": "1991-02-03"
         }
-      },
-      "nice_title": "20th Anniversary Favorites: I, Claudius: Zeus, By Jove",
-      "description": "Broadcast: Jan. 13- March 10, 1991\n\nFavorite episodes from the first twenty years of Masterpiece Theatre were rebroadcast as part of the celebration.\n\nSee individual titles for assets."
+      }
     },
     "20thanniversaryfavoritesallforloveadedicatedman": {
+      "title": "20th Anniversary Favorites: All for Love: A Dedicated Man",
+      "desc": "Broadcast: Jan. 13-March 10, 1991. . Favorite episodes from the first twenty years of Masterpiece Theatre were rebroadcast as part of the celebration.. . See individual titles for assets.",
+      "broadcast_date": "02/10/1991",
       "ids": {
         "V_96B8608442C64D778153A57DF4DB2C25": {
           "title": "Masterpiece Theatre; 20th Anniversary Favorites: All for Love: A Dedicated Man",
           "asset_type": "Broadcast program",
           "broadcast_date": "1991-02-10"
         }
-      },
-      "nice_title": "20th Anniversary Favorites: All for Love: A Dedicated Man",
-      "description": "Broadcast: Jan. 13- March 10, 1991\n\nFavorite episodes from the first twenty years of Masterpiece Theatre were rebroadcast as part of the celebration.\n\nSee individual titles for assets."
+      }
     },
     "20thanniversaryfavoriteselizabethrthelionscub": {
+      "title": "20th Anniversary Favorites: Elizabeth R: The Lion's Cub",
+      "desc": "Broadcast: Jan. 13-March 10, 1991. . Favorite episodes from the first twenty years of Masterpiece Theatre were rebroadcast as part of the celebration.. . See individual titles for assets.",
+      "broadcast_date": "02/17/1991",
       "ids": {
         "V_5F60C15AF4A14B55A246642B9E3271D1": {
           "title": "Masterpiece Theatre; 20th Anniversary Favorites: Elizabeth R: The Lion's Cub",
           "asset_type": "Broadcast program",
           "broadcast_date": "1991-02-17"
         }
-      },
-      "nice_title": "20th Anniversary Favorites: Elizabeth R: The Lion's Cub",
-      "description": "Broadcast: Jan. 13- March 10, 1991\n\nFavorite episodes from the first twenty years of Masterpiece Theatre were rebroadcast as part of the celebration.\n\nSee individual titles for assets."
+      }
     },
     "20thanniversaryfavoritesthejewelinthecrowncrossingtheriver": {
+      "title": "20th Anniversary Favorites: The Jewel in the Crown: Crossing the River",
+      "desc": "Broadcast: Jan. 13-March 10, 1991. . Favorite episodes from the first twenty years of Masterpiece Theatre were rebroadcast as part of the celebration.. . See individual titles for assets.",
+      "broadcast_date": "02/24/1991",
       "ids": {
         "V_0BE29B65C78240E7A78BFDA1A6DDFB06": {
           "title": "Masterpiece Theatre; 20th Anniversary Favorites: The Jewel in the Crown: Crossing the River",
           "asset_type": "Broadcast program",
           "broadcast_date": "1991-02-24"
         }
-      },
-      "nice_title": "20th Anniversary Favorites: The Jewel in the Crown: Crossing the River",
-      "description": "Broadcast: Jan. 13- March 10, 1991\n\nFavorite episodes from the first twenty years of Masterpiece Theatre were rebroadcast as part of the celebration.\n\nSee individual titles for assets."
+      }
     },
     "20thanniversaryfavoritesthetaleofbeatrixpotter": {
+      "title": "20th Anniversary Favorites: The Tale of Beatrix Potter",
+      "desc": "Broadcast: Jan. 13-March 10, 1991. . Favorite episodes from the first twenty years of Masterpiece Theatre were rebroadcast as part of the celebration.. . See individual titles for assets.",
+      "broadcast_date": "03/03/1991",
       "ids": {
         "V_86C2C532BC6B487C995D4D7239404D25": {
           "title": "Masterpiece Theatre; 20th Anniversary Favorites: The Tale of Beatrix Potter",
           "asset_type": "Broadcast program",
           "broadcast_date": "1991-03-03"
         }
-      },
-      "nice_title": "20th Anniversary Favorites: The Tale of Beatrix Potter",
-      "description": "Broadcast: Jan. 13- March 10, 1991\n\nFavorite episodes from the first twenty years of Masterpiece Theatre were rebroadcast as part of the celebration.\n\nSee individual titles for assets."
+      }
     },
     "20thanniversaryfavoritesthesixwivesofhenryviiicatherinehoward": {
+      "title": "20th Anniversary Favorites: The Six Wives of Henry VIII: Catherine Howard",
+      "desc": null,
+      "broadcast_date": "03/10/1991",
       "ids": {
         "V_FC51D5833D3F41CDBD33C82ED9A62460": {
           "title": "Masterpiece Theatre; 20th Anniversary Favorites: The Six Wives of Henry VIII: Catherine Howard",
           "asset_type": "Broadcast program",
           "broadcast_date": "1991-03-10"
         }
-      },
-      "nice_title": "20th Anniversary Favorites: The Six Wives of Henry VIII: Catherine Howard",
-      "description": "No Description"
+      }
     },
     "backstageatmasterpiecetheatre20thanniversaryspecial": {
+      "title": "Backstage at Masterpiece Theatre: 20th Anniversary Special",
+      "desc": null,
+      "broadcast_date": "03/24/1991",
       "ids": {
         "V_56B35FD6B2054E16A1EBDFA453FA0828": {
           "title": "Masterpiece Theatre; Backstage at Masterpiece Theatre: 20th Anniversary Special",
           "asset_type": "Broadcast program",
           "broadcast_date": "1991-03-24"
         }
-      },
-      "nice_title": "Backstage at Masterpiece Theatre: 20th Anniversary Special",
-      "description": "No Description"
+      }
     },
     "houseofcards": {
+      "title": "House of Cards",
+      "desc": "Broadcast: March 31-April 21, 1991. A black comedy of British politics in a post-Thatcher Conservative Party. Francis Urquhart, the party's Machiavellian Chief Whip sets to work on a dark and devious plan to settle the question of \"Who will be the next Prime Minister?\"  His plan to undermine the new PM gathers force and his power grows. The foreign secretary's dalliance is secretly taped, and Mattie Storin crusades on Urquhart's behalf. Blackmail convinces the Tory's publicity director to assist Urquhart as his methods become more and more ruthless. From the makers of \"Mother Love.\"",
+      "broadcast_date": "03/31/1991",
       "ids": {
         "V_8BD0C4FB7388433199EEB64573B08C06": {
           "title": "Masterpiece Theatre; House of Cards, Episode 1",
@@ -7031,11 +6971,12 @@ export const masterpieceData = {
           "asset_type": "Open - Close",
           "broadcast_date": "1991-04-21"
         }
-      },
-      "nice_title": "House of Cards",
-      "description": "Broadcast: March 31- April 21, 1991\nA black comedy of British politics in a post-Thatcher Conservative Party.  Francis Urquhart, the party's Machiavellian Chief Whip sets to work on a dark and devious plan to settle the question of \"Who will be the next Prime Minister?\"  His plan to undermine the new PM gathers force and his power grows.  The foreign secretary's dalliance is secretly taped, and Mattie Storin crusades on Urquhart's behalf.  Blackmail convinces the Tory's publicity director to assist Urquhart as his methods become more and more ruthless.  From the makers of \"Mother Love.\""
+      }
     },
     "shiraleethe": {
+      "title": "Shiralee, The",
+      "desc": null,
+      "broadcast_date": "04/28/1991",
       "ids": {
         "V_CB252D7A7DBE4504B8BE63D935AF3779": {
           "title": "Masterpiece Theatre; Shiralee, The",
@@ -7047,11 +6988,12 @@ export const masterpieceData = {
           "asset_type": "Open - Close",
           "broadcast_date": "1991-04-28"
         }
-      },
-      "nice_title": "Shiralee, The",
-      "description": "No Description"
+      }
     },
     "summerslease": {
+      "title": "Summer's Lease",
+      "desc": "Broadcast: May 12-June 2, 1991. Story of an English family who rents a house in Tuscany, where Molly, mother of the family, discovers more about her absentee landlord than is good for her. Molly Pargeters is a nice woman, vaguely dissatisfied with her life, who takes to amateur sleuthing in her quest for the elusive owner of the villa. Her father Haverford Downs is an aging roue whose libido never stops and a columnist for a London newspaper, who encounters a former flame at the villa nearby.",
+      "broadcast_date": "05/12/1991",
       "ids": {
         "V_549C84F2E3FD4E01891FEA13C4095794": {
           "title": "Masterpiece Theatre; Summer's Lease, Episode 1: Villa to Let",
@@ -7088,24 +7030,26 @@ export const masterpieceData = {
           "asset_type": "Broadcast program",
           "broadcast_date": "1991-06-02"
         }
-      },
-      "nice_title": "Summer's Lease",
-      "description": "Broadcast: May 12- June 2, 1991\nStory of an English family who rents a house in Tuscany, where Molly, mother of the family, discovers more about her absentee landlord than is good for her. Molly Pargeters is a nice woman, vaguely dissatisfied with her life, who takes to amateur sleuthing in her quest for the elusive owner of the villa. Her father Haverford Downs is an aging roue whose libido never stops and a columnist for a London newspaper, who encounters a former flame at the villa nearby."
+      }
     },
     "20thanniversaryfavoritesupstairsdownstairsseriesivallthekingshorses": {
+      "title": "20th Anniversary Favorites: Upstairs, Downstairs, Series IV: All the King's Horses",
+      "desc": "Broadcast: Jan. 13-March 10, 1991. . Favorite episodes from the first twenty years of Masterpiece Theatre were rebroadcast as part of the celebration.. . See individual titles for assets.",
+      "broadcast_date": "10/21/2024",
       "ids": {
         "V_26570227C6A34F398643A0095AC94E2A": {
           "title": "Masterpiece Theatre; 20th Anniversary Favorites: Upstairs, Downstairs, Series IV: All the King's Horses",
           "asset_type": "Broadcast program",
           "broadcast_date": "2024-08-23T18:45:06+00:00"
         }
-      },
-      "nice_title": "20th Anniversary Favorites: Upstairs, Downstairs, Series IV: All the King's Horses",
-      "description": "Broadcast: Jan. 13- March 10, 1991\n\nFavorite episodes from the first twenty years of Masterpiece Theatre were rebroadcast as part of the celebration.\n\nSee individual titles for assets."
+      }
     }
   },
   "21": {
     "parnellandtheenglishwoman": {
+      "title": "Parnell and the Englishwoman",
+      "desc": "Broadcast: Dec. 29, 1991-Jan. 19, 1992. True story of Irish politician Charles Stewart Parnell and his affair with Kitty O'Shea, which led to his political downfall and ended his hopes of Irish home rule.",
+      "broadcast_date": "12/29/1991",
       "ids": {
         "V_1A11B13878DD437B99A9495182CD11EE": {
           "title": "Masterpiece Theatre; Parnell and the Englishwoman, Episode 1",
@@ -7147,11 +7091,12 @@ export const masterpieceData = {
           "asset_type": "Open - Close",
           "broadcast_date": "1992-01-19"
         }
-      },
-      "nice_title": "Parnell and the Englishwoman",
-      "description": "Broadcast: Dec. 29, 1991- Jan. 19,\n        1992 True story of Irish politician Charles Stewart Parnell and his affair with Kitty\n        O'Shea, which led to his political downfall and ended his hopes of Irish home\n        rule."
+      }
     },
     "titmussregained": {
+      "title": "Titmuss Regained",
+      "desc": "Broadcast: Feb. 9-23, 1992. This sequel to Paradise Postponed follows the fortunes of Leslie Titmuss who rose from humble beginnings to Cabinet member in the Conservative government. Story explores the collision of honesty and deceit in politics and marriage. Titmuss is a universal breed of politician, whose motives are suspect despite his claims for the common good. We find Leslie a Cabinet Minister, a widower and in love.",
+      "broadcast_date": "02/09/1992",
       "ids": {
         "V_6B6D76FCE3484E6DAAE5B1D3B57EEE2E": {
           "title": "Masterpiece Theatre; Titmuss Regained, Episode 1",
@@ -7183,11 +7128,12 @@ export const masterpieceData = {
           "asset_type": "Open - Close",
           "broadcast_date": "1992-02-23"
         }
-      },
-      "nice_title": "Titmuss Regained",
-      "description": "Broadcast: Feb. 9- 23, 1992\nThis sequel to PARADISE POSTPONED follows the fortunes of Leslie Titmuss who rose from humble beginnings to Cabinet member in the Conservative government.  Story explores the collision of honesty and deceit in politics and marriage.  Titmuss is a universal breed of politician, whose motives are suspect despite his claims for the common good.  We find Leslie a Cabinet Minister, a widower and in love."
+      }
     },
     "adambede": {
+      "title": "Adam Bede",
+      "desc": "Broadcast: March 1-8, 1992. Tale of an honest young carpenter betrayed by the girl he loves, the tragic consequences for them both, and his subsequent discovery of lasting happiness with another women.",
+      "broadcast_date": "03/01/1992",
       "ids": {
         "V_B7DE4C6390A946F886522149157492D7": {
           "title": "Masterpiece Theatre; Adam Bede, Episode 1",
@@ -7199,22 +7145,24 @@ export const masterpieceData = {
           "asset_type": "Broadcast program",
           "broadcast_date": "1992-03-08"
         }
-      },
-      "nice_title": "Adam Bede",
-      "description": "Broadcast: March 1- 8, 1992\nTale of an honest young carpenter betrayed by the girl he loves, the tragic consequences for them both, and his subsequent discovery of lasting happiness with another women."
+      }
     },
     "dollshousea": {
+      "title": "Doll's House, A",
+      "desc": null,
+      "broadcast_date": "03/29/1992",
       "ids": {
         "V_C56F2993B2214F099E56109F3A6480C1": {
           "title": "Masterpiece Theatre; Doll's House, A",
           "asset_type": "Broadcast program",
           "broadcast_date": "1992-03-29"
         }
-      },
-      "nice_title": "Doll's House, A",
-      "description": "No Description"
+      }
     },
     "clarissa": {
+      "title": "Clarissa",
+      "desc": "Broadcast: April 5-19, 1992. Grandfather Harlowe leaves his fortune to his granddaughter Clarissa, who is being pressed to marry a man she despises. Struggling to retain her integrity, Clarissa defies her relatives and in desperation turns to aristocratic Robert Lovelace, a scandalous rake who will stop at nothing to possess the beautiful and virtuous Clarissa. The rogue Lovelace, thwarted at every turn, finally gets his way with Clarissa, with tragic results.",
+      "broadcast_date": "04/05/1992",
       "ids": {
         "V_486A9042F0C0490DA028D6DCE7EF1A91": {
           "title": "Masterpiece Theatre; Clarissa, Episode 1",
@@ -7241,11 +7189,12 @@ export const masterpieceData = {
           "asset_type": "Broadcast program",
           "broadcast_date": "1992-04-19"
         }
-      },
-      "nice_title": "Clarissa",
-      "description": "Broadcast: April 5- 19, 1992\nGrandfather Harlowe leaves his fortune to his granddaughter Clarissa, who is being pressed to marry a man she despises.  Struggling to retain her integrity, Clarissa defies her relatives and in desperation turns to aristocratic Robert Lovelace, a scandalous rake who will stop at nothing to possess the beautiful and virtuous Clarissa.  The rogue Lovelace, thwarted at every turn, finally gets his way with Clarissa, with tragic results."
+      }
     },
     "perfectheroa": {
+      "title": "Perfect Hero, A",
+      "desc": "Broadcast: May 3-24, 1992. Nigel Havers stars as Hugh Fleming, a young RAF fighter pilot who\"has it all\" until he is shot down and horribly burned during a World War II dogfight over Kent. Fleming undergoes reconstructive surgery and vows to fly again.",
+      "broadcast_date": "05/03/1992",
       "ids": {
         "V_ADDAC83FE03641C0BBDAEBFADAF1B705": {
           "title": "Masterpiece Theatre; Perfect Hero, A, Episode 1",
@@ -7277,11 +7226,12 @@ export const masterpieceData = {
           "asset_type": "Open - Close",
           "broadcast_date": "1992-05-24"
         }
-      },
-      "nice_title": "Perfect Hero, A",
-      "description": "Broadcast: May 3- 24, 1992\nNigel Havers stars as Hugh Fleming, a young RAF fighter pilot who\"has it all\" until he is shot down and horribly burned during a World War II dogfight over Kent.  Fleming undergoes reconstructive surgery and vows to fly again."
+      }
     },
     "portraitofamarriage": {
+      "title": "Portrait of a Marriage",
+      "desc": "Broadcast: July 19-Aug. 2, 1992. Account of the remarkable marriage of diplomat Sir Harold Nicolson and writer/gardener extraordinaire Vita Sackville-West --from a memoir by their son Nigel Nicolson. Story centers on their early years together and on Vita's long infatuation and affair with friend Violet Trefusis.",
+      "broadcast_date": "07/19/1992",
       "ids": {
         "V_E76D4B75A7BD45178DE5596985BC9AD3": {
           "title": "Masterpiece Theatre; Portrait of a Marriage, Episode 1",
@@ -7313,96 +7263,7 @@ export const masterpieceData = {
           "asset_type": "Open - Close",
           "broadcast_date": "1992-08-02"
         }
-      },
-      "nice_title": "Portrait of a Marriage",
-      "description": "Broadcast: July 19- Aug. 2, 1992\n        Account of the remarkable marriage of diplomat Sir Harold Nicolson and writer/gardener\n        extraordinaire Vita Sackville-West --from a memoir by their son Nigel Nicolson. Story\n        centers on their early years together and on Vita's long infatuation and affair with friend\n        Violet Trefusis."
-    }
-  },
-  "22": {
-    "secretagentthe": {
-      "ids": {
-        "V_E0E60B9FA59C4F1D829C13B5BE93868E": {
-          "title": "Masterpiece Theatre; The Secret Agent, Episode 2",
-          "asset_type": "Open - Close",
-          "broadcast_date": "0092-11-22"
-        },
-        "V_EA6667F7F1194EE8B1332D64FE6DAC69": {
-          "title": "Masterpiece Theatre; The Secret Agent, Episode 3",
-          "asset_type": "Open - Close",
-          "broadcast_date": "0092-11-29"
-        },
-        "V_9AADA329B419424E92D755725EA8CD16": {
-          "title": "Masterpiece Theatre; Secret Agent, The, Episode 1",
-          "asset_type": "Broadcast program",
-          "broadcast_date": "1992-11-15"
-        },
-        "V_E74AE41FB75F4E62B66D216DBDDB703D": {
-          "title": "Masterpiece Theatre; Secret Agent, The, Episode 2",
-          "asset_type": "Broadcast program",
-          "broadcast_date": "1992-11-22"
-        },
-        "V_6AC08CC2F756439A818BA248737D7024": {
-          "title": "Masterpiece Theatre; Secret Agent, The, Episode 3",
-          "asset_type": "Broadcast program",
-          "broadcast_date": "1992-11-29"
-        }
-      },
-      "nice_title": "Secret Agent, The",
-      "description": "\"Broadcast: Nov. 15- 29, 1992 Set in\n        1890's London and based on Joseph Conrad's novel, this series tells the tale of a European\n        anarchist manipulated to commit a terrorist act that devastates his family. Starring David\n        Suchet (plays Hercule Poirot in Mystery!'s Poirot series), Patrick Malahide, Cheryl Campbell\n        and Janet Suzman. Alistair Cooke's last program as host.\""
-    },
-    "questionofattributiona": {
-      "ids": {
-        "V_21EE45D5379242D1BA08F8FEE08F1EB2": {
-          "title": "Masterpiece Theatre; Question of Attribution, A",
-          "asset_type": "Broadcast program",
-          "broadcast_date": "1992-10-04"
-        }
-      },
-      "nice_title": "Question of Attribution, A",
-      "description": "No Description"
-    },
-    "bestoffriendsthe": {
-      "ids": {
-        "V_D3C0B2E46C1B4ECCBEA0D28F1D14C6D0": {
-          "title": "Masterpiece Theatre; Best of Friends, The",
-          "asset_type": "Broadcast program",
-          "broadcast_date": "1992-10-18"
-        }
-      },
-      "nice_title": "Best of Friends, The",
-      "description": "No Description"
-    },
-    "mementomori": {
-      "ids": {
-        "V_944114F54B2E432DB564E7DDBD8CC3C8": {
-          "title": "Masterpiece Theatre; Memento Mori, Episode 1",
-          "asset_type": "Broadcast program",
-          "broadcast_date": "1992-10-25"
-        },
-        "V_70F13A40980548A19F56A456A3D75D71": {
-          "title": "Masterpiece Theatre; Memento Mori, Episode 2",
-          "asset_type": "Broadcast program",
-          "broadcast_date": "1992-11-01"
-        }
-      },
-      "nice_title": "Memento Mori",
-      "description": "Broadcast: Oct. 25- Nov. 1, 1992\nTouching black comedy about a group of elderly friends whose jealousies and passions are very much alive, but who lately have been receiving mysterious phone calls saying, \"Remember, you must die...\"  (The English translation for the Latin phrase \"Memento Mori\".)"
-    },
-    "twomonologuesinmydefenseachipinthesugar": {
-      "ids": {
-        "V_116E369BC0B6499EB367DE931601FA2E": {
-          "title": "Masterpiece Theatre; Two Monologues: In My Defense; A Chip in the Sugar",
-          "asset_type": "Broadcast program",
-          "broadcast_date": "1992-11-08"
-        },
-        "V_D8C0F58D8E524222ADE9BC72770EA77C": {
-          "title": "Masterpiece Theatre; Two Monologues: In My Defense; A Chip in the\n        Sugar",
-          "asset_type": "Open - Close",
-          "broadcast_date": "2024-08-23T18:45:06+00:00"
-        }
-      },
-      "nice_title": "Two Monologues: In My Defense; A Chip in the Sugar",
-      "description": "No Description"
+      }
     }
   }
 }
