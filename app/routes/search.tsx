@@ -1,6 +1,8 @@
 import type { LoaderFunction, MetaFunction } from '@remix-run/node'
 import { useLoaderData, useRouteError } from '@remix-run/react'
-
+import Client from '@searchkit/instantsearch-client'
+import Searchkit from 'searchkit'
+import search_settings from '~/data/searchkit'
 import { Search } from '~/classes/search-ui'
 import 'instantsearch.css/themes/algolia-min.css'
 import '~/styles/search.css'
@@ -23,13 +25,12 @@ export const meta: MetaFunction = ({ location }) => {
   ]
 }
 
-export const loader: LoaderFunction = async ({ request, params }) => {
-  const serverUrl = request.url
-  const aapbHost = process.env.AAPB_HOST
-
+export const loader: LoaderFunction = async ({ request }) => {
   return {
-    serverUrl,
-    aapbHost,
+    serverUrl: request.url,
+    aapbHost: process.env.AAPB_HOST,
+    esUrl: process.env.ES_URL,
+    esApiKey: process.env.ES_API_KEY,
   }
 }
 
@@ -39,12 +40,38 @@ export type SearchProps = {
 }
 
 export default function SearchPage() {
-  const { serverUrl, aapbHost }: SearchProps = useLoaderData()
+  const { serverUrl, aapbHost, esUrl, esApiKey }: SearchProps = useLoaderData()
+
+  const sk = new Searchkit({
+    connection: {
+      host: esUrl,
+      apiKey: esApiKey,
+    },
+    search_settings,
+  })
+
+  const searchClient = Client(sk, {
+    getQuery: (query, search_attributes) => {
+      console.log('search query', query, search_attributes)
+      return [
+        {
+          simple_query_string: {
+            query,
+          },
+        },
+      ]
+    },
+  })
+
   return (
     <>
       <div className='page-body-container'>
         <h1>Search Open Vault</h1>
-        <Search serverUrl={serverUrl} aapbHost={aapbHost} />
+        <Search
+          serverUrl={serverUrl}
+          aapbHost={aapbHost}
+          searchClient={searchClient}
+        />
       </div>
     </>
   )

@@ -1,6 +1,3 @@
-import Client from '@searchkit/instantsearch-client'
-import Searchkit from 'searchkit'
-import searchkit_options from '~/data/searchkit'
 import { InstantSearch, SearchBox, Index } from 'react-instantsearch'
 
 import { SearchProps } from '~/routes/search'
@@ -20,28 +17,8 @@ import {
   EmptyQueryMessage,
   EmptyQueryBoundary,
 } from '~/components'
-import { useLoaderData } from '@remix-run/react'
 
-const INDICES = ['wagtail__wagtailcore_page', 'gbh-series']
-
-const sk = new Searchkit(searchkit_options)
-
-export const searchClient = Client(sk, {
-  getQuery: (query, search_attributes) => {
-    console.log('search query', query, search_attributes)
-    return [
-      {
-        simple_query_string: {
-          query,
-        },
-      },
-    ]
-  },
-})
-
-export const Search = () => {
-  const { serverUrl, aapbHost }: SearchProps = useLoaderData()
-
+export const Search = ({ serverUrl, aapbHost, searchClient }: SearchProps) => {
   let timerId: NodeJS.Timeout
   let timeout: number = 250
 
