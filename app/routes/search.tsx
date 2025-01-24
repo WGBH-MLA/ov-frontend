@@ -25,26 +25,26 @@ export const meta: MetaFunction = ({ location }) => {
 
 export const loader: LoaderFunction = async ({ request, params }) => {
   const serverUrl = request.url
-  const aapb_host = process.env.AAPB_HOST
+  const aapbHost = process.env.AAPB_HOST
 
   return {
     serverUrl,
-    aapb_host,
+    aapbHost,
   }
 }
 
 export type SearchProps = {
   serverUrl?: string
-  aapb_host?: string
+  aapbHost?: string
 }
 
 export default function SearchPage() {
-  const { serverUrl, aapb_host }: SearchProps = useLoaderData()
+  const { serverUrl, aapbHost }: SearchProps = useLoaderData()
   return (
     <>
       <div className='page-body-container'>
         <h1>Search Open Vault</h1>
-        <Search serverUrl={serverUrl} aapb_host={aapb_host} />
+        <Search serverUrl={serverUrl} aapbHost={aapbHost} />
       </div>
     </>
   )

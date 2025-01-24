@@ -40,7 +40,7 @@ export const searchClient = Client(sk, {
 })
 
 export const Search = () => {
-  const { serverUrl, aapb_host }: SearchProps = useLoaderData()
+  const { serverUrl, aapbHost }: SearchProps = useLoaderData()
 
   let timerId: NodeJS.Timeout
   let timeout: number = 250
@@ -91,10 +91,10 @@ export const Search = () => {
                 </Index>
               </span>
             }>
-            <SeriesResults aapb_host={aapb_host} />
+            <SeriesResults aapbHost={aapbHost} />
           </Tab>
           <Tab title='American Archive'>
-            <AAPBResults aapb_host={aapb_host} />
+            <AAPBResults aapbHost={aapbHost} />
           </Tab>
           <Tab title='Help'>
             <Help />
