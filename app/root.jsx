@@ -9,15 +9,15 @@ import {
   useRouteError,
 } from '@remix-run/react'
 import { json } from '@remix-run/node'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
+import { ToastContainer, toast, Flip } from 'react-toastify'
+
 import { HomeMeta } from '~/classes/meta'
-
 import { NavigationBar } from '~/classes/navigationBar'
-import { Warning } from '~/components/Warning'
 import { Footer } from '~/classes/footer'
+import Warning from '~/components/Warning'
 
-import { useState } from 'react'
-
+import 'react-toastify/dist/ReactToastify.css'
 import '~/styles/styles.css'
 import '~/styles/colors.css'
 import '@fontsource/red-hat-display'
@@ -73,8 +73,26 @@ export default function App() {
       }
       lastScrollTop = scrollTop
     })
-  }, []) // Empty array means this effect runs once on component mount
 
+    // 🚧 Under Construction warning
+    // Show a warning toast if it hasn't been shown in the last hour
+    const lastShown = localStorage.getItem('warningLastShown')
+    if (!lastShown || Date.now() - parseInt(lastShown, 10) > 1000 * 60 * 60) {
+      localStorage.setItem('warningLastShown', Date.now().toString())
+      toast(Warning, {
+        type: 'warning',
+        position: 'top-center',
+        autoClose: 10000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'light',
+        transition: Flip,
+      })
+    }
+  }, []) // Empty array means this effect runs once on component mount
   return (
     <html lang='en'>
       <head>
@@ -106,11 +124,7 @@ export default function App() {
             {/* TODO: Make this dismissable */}
           </div>
         ) : null}
-
-        <Warning
-          visible={warningVisible}
-          onClick={() => setWarningVisible(false)}
-        />
+        <ToastContainer />
         <NavigationBar />
         <Outlet />
 
