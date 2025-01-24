@@ -13,7 +13,10 @@ import { useEffect } from 'react'
 import { HomeMeta } from './classes/meta'
 
 import { NavigationBar } from './classes/navigationBar'
+import { Warning } from './components/warning'
 import { Footer } from './classes/footer'
+
+import { useState } from 'react'
 
 import './styles/styles.css'
 import './styles/colors.css'
@@ -54,6 +57,8 @@ export default function App() {
   if (meta.env && meta.env.LEGACY) {
     console.log('legacy browser detected')
   }
+
+  const [warningVisible, setWarningVisible] = useState(true)
 
   useEffect(() => {
     let lastScrollTop = 0
@@ -98,6 +103,8 @@ export default function App() {
             {/* TODO: Make this dismissable */}
           </div>
         ) : null}
+
+        <Warning visible={ warningVisible } onClick={ () => setWarningVisible(false) } />
         <NavigationBar />
         <Outlet />
 

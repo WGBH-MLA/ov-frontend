@@ -220,6 +220,30 @@ ul.numbered-list {
 div.error-box {
   margin-left: 2rem;
 }
+div.warning-container div.close {
+  display: inline-block;
+  float: right;
+  vertical-align: middle;
+}
+
+div.warning-container {
+  border-radius: 1px;
+  padding: 0.5em;
+  padding-bottom: 0em;
+  z-index: 20000;
+  top: 2vh;
+  left: 20vw;
+  position: fixed;
+  width: 60%;
+  color: #000;
+  background-color: #DDD;
+  opacity: 1;
+}
+
+div.warning-container.fade {
+  opacity: 0;
+  transition: opacity 0.4s ease-in;
+}
 
 h1.series-bigtitle {
   font-size: 3rem;
