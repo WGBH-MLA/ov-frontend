@@ -10,16 +10,16 @@ import {
 } from '@remix-run/react'
 import { json } from '@remix-run/node'
 import { useEffect } from 'react'
-import { HomeMeta } from './classes/meta'
+import { HomeMeta } from '~/classes/meta'
 
-import { NavigationBar } from './classes/navigationBar'
-import { Warning } from './components/warning'
-import { Footer } from './classes/footer'
+import { NavigationBar } from '~/classes/navigationBar'
+import { Warning } from '~/components/Warning'
+import { Footer } from '~/classes/footer'
 
 import { useState } from 'react'
 
-import './styles/styles.css'
-import './styles/colors.css'
+import '~/styles/styles.css'
+import '~/styles/colors.css'
 import '@fontsource/red-hat-display'
 import '@fontsource/red-hat-text'
 
@@ -76,25 +76,28 @@ export default function App() {
   }, []) // Empty array means this effect runs once on component mount
 
   return (
-    <html lang="en">
+    <html lang='en'>
       <head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <meta charSet='utf-8' />
+        <meta name='viewport' content='width=device-width,initial-scale=1' />
         <Meta />
         <Links />
 
-
-        { <script src="https://www.googletagmanager.com/gtag/js?id=G-H82X285XCF"></script> }
-        <script dangerouslySetInnerHTML={{__html:
-          `window.dataLayer = window.dataLayer || [];
+        {
+          <script src='https://www.googletagmanager.com/gtag/js?id=G-H82X285XCF'></script>
+        }
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-          gtag('config', 'G-H82X285XCF');`
-        }} />
+          gtag('config', 'G-H82X285XCF');`,
+          }}
+        />
       </head>
       <body>
         {meta.env && meta.env.LEGACY ? (
-          <div className="legacy-warning">
+          <div className='legacy-warning'>
             <h3>You are using an outdated browser.</h3>
             <p>
               Please upgrade to a modern browser to view all the features of
@@ -104,7 +107,10 @@ export default function App() {
           </div>
         ) : null}
 
-        <Warning visible={ warningVisible } onClick={ () => setWarningVisible(false) } />
+        <Warning
+          visible={warningVisible}
+          onClick={() => setWarningVisible(false)}
+        />
         <NavigationBar />
         <Outlet />
 
@@ -126,15 +132,15 @@ export function ErrorBoundary() {
   const error = useRouteError()
   console.log('error', error)
   return (
-    <html lang="en">
+    <html lang='en'>
       <head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <meta charSet='utf-8' />
+        <meta name='viewport' content='width=device-width,initial-scale=1' />
         <title>Oh no!</title>
       </head>
       <body>
         <NavigationBar />
-        <div className="page-body-container">
+        <div className='page-body-container'>
           {isRouteErrorResponse(error) ? (
             <>
               <h1>{error.status} error</h1>
@@ -142,7 +148,7 @@ export function ErrorBoundary() {
               <p>{error.statusText}</p>
             </>
           ) : (
-            <div className="error-container">
+            <div className='error-container'>
               <h1>Oh no!</h1>
               <p>Oops! Something went wrong. Please try again later.</p>
             </div>

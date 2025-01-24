@@ -11,31 +11,44 @@ import { getMasterpiece } from '~/utils/masterpiece'
 import { masterpieceFlavor } from '~/data/masterpieceFlavor'
 import { renderPageTitleBar } from '~/classes/pageHelpers'
 
-export const loader = async ({params}) => {
+export const loader = async ({ params }) => {
   var data = await getMasterpiece()
   var series
   Object.keys(data.masterpieceData).forEach((season) => {
-    if(data.masterpieceData[season][params.miniseriesId]){
+    if (data.masterpieceData[season][params.miniseriesId]) {
       series = data.masterpieceData[season][params.miniseriesId]
     }
   })
 
-   return {AAPB_HOST: process.env.AAPB_HOST, miniseriesId: params.miniseriesId, series: series}
+  return {
+    AAPB_HOST: process.env.AAPB_HOST,
+    miniseriesId: params.miniseriesId,
+    series: series,
+  }
 }
 
 export const meta = ({ seriesData }) => {
-  if(seriesData?.title){
+  if (seriesData?.title) {
     return [
       { title: `GBH Series - ${seriesData?.title}` },
-      { name: 'description', content: `Information for the Masterpiece Miniseries ${seriesData?.title} from GBH Open Vault` },
+      {
+        name: 'description',
+        content: `Information for the Masterpiece Miniseries ${seriesData?.title} from GBH Open Vault`,
+      },
     ]
   }
 }
 
-function masterpieceFlavorImage(){
-  console.log( 'do it', masterpieceFlavor.length, Math.floor(Math.random(masterpieceFlavor.length)) )
+function masterpieceFlavorImage() {
+  console.log(
+    'do it',
+    masterpieceFlavor.length,
+    Math.floor(Math.random(masterpieceFlavor.length))
+  )
 
-  return `https://s3.amazonaws.com/openvault.wgbh.org/treasuries/cooke-production-flavor/${ masterpieceFlavor[ Math.floor(Math.random() * masterpieceFlavor.length)] }`
+  return `https://s3.amazonaws.com/openvault.wgbh.org/treasuries/cooke-production-flavor/${
+    masterpieceFlavor[Math.floor(Math.random() * masterpieceFlavor.length)]
+  }`
 }
 
 export default () => {
@@ -43,39 +56,40 @@ export default () => {
   let titleBar = renderPageTitleBar(
     data.series.title,
     masterpieceFlavorImage(),
-    ""
+    ''
   )
 
   return (
     <div>
       <div className='page-container'>
-        { titleBar }
-        <div className="page-sidebar" />
+        {titleBar}
+        <div className='page-sidebar' />
 
         <div className='page-body-container'>
           <div className='page-body'>
-
-            <div className="masterpiece-intro">
-              <div className="static-halfbox">
-                <div className="masterpiece-summary">
-                  { data.series.desc || "No description is available for this series. Visit AAPB for more info!" }
+            <div className='masterpiece-intro'>
+              <div className='static-halfbox'>
+                <div className='masterpiece-summary'>
+                  {data.series.desc ||
+                    'No description is available for this series. Visit AAPB for more info!'}
                 </div>
               </div>
-              <div className="static-halfbox">
-                <img src={ masterpieceFlavorImage() } />
+              <div className='static-halfbox'>
+                <img src={masterpieceFlavorImage()} />
 
                 <a
-                  className="half-link"
+                  className='half-link'
                   href={`${data.AAPB_HOST}/catalog?sort=asset_date+asc&f[special_collections][]=${data.miniseriesId}&f[access_types][]=all`}
-                  target="_blank"
-                >
+                  target='_blank'>
                   View Records On AAPB &gt;
                 </a>
               </div>
             </div>
 
             <div>
-              <a className="back-link" href="/collections/masterpiece">&lt; Back to Masterpiece Collection</a>
+              <a className='back-link' href='/collections/masterpiece'>
+                &lt; Back to Masterpiece Collection
+              </a>
             </div>
           </div>
         </div>
