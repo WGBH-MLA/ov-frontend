@@ -352,6 +352,7 @@ export class AAPBRecords extends Component<AAPBRecordBlockProps> {
     if (this.props.specialCollections) {
       recordsSearchLink += `?f[special_collections][]=${this.props.specialCollections}&sort=title+asc&f[access_types][]=${this.props.accessLevel}`
     }
+
     var msg
     if (this.state.numRecords > 0) {
       if (this.state.numRecords == 1) {
