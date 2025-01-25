@@ -31,7 +31,7 @@ export default function Index() {
           </div>
           <h4>
             Explore selected topics and digitized programs of historical
-            significance curated by GBH Mellon Scholars.
+            significance from the GBH Archives.
           </h4>
         </div>
 
