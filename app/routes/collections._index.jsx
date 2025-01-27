@@ -36,13 +36,13 @@ export default function Collections() {
 
   let collectionLinks = renderPageLinks('collections', specs.items)
   return (
-    <div className="pagelinks-container">
+    <div className='pagelinks-container'>
       <h1>Special Collections</h1>
       <h4>
         Explore selected topics and digitized programs of historical
-        significance curated by GBH Mellon Scholars.
+        significance from the GBH Archives.
       </h4>
-      { collectionLinks }
+      {collectionLinks}
     </div>
   )
 }

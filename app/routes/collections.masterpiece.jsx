@@ -36,10 +36,8 @@ function renderSeriesLink(series) {
 function safeDate(seasonGroup) {
   return (
     seasonGroup &&
-    seasonGroup.ids &&
-    seasonGroup.ids[0] &&
-    seasonGroup.ids[0].broadcast_date &&
-    new Date(seasonGroup.ids[0].broadcast_date)
+    seasonGroup.broadcast_date &&
+    new Date(seasonGroup.broadcast_date)
   )
 }
 
@@ -82,9 +80,9 @@ export default function Masterpiece() {
         <a
           key={groupIndex}
           className='masterpiece-link'
-          href={`${data.AAPB_HOST}/catalog?sort=episode_number_sort+asc&f[special_collections][]=${normalizedMiniseriesTitle}&f[access_types][]=all`}
+          href={`/miniseries/${normalizedMiniseriesTitle}`}
           target='_blank'>
-          {seasonGroup[normalizedMiniseriesTitle].nice_title}
+          {seasonGroup[normalizedMiniseriesTitle].title}
         </a>
       ))
       .sort((sg1, sg2) => safeDate(sg1) > safeDate(sg2))
@@ -205,14 +203,23 @@ export default function Masterpiece() {
                 with descriptions, the collection will also include Alistair
                 Cooke’s introductions and conclusions for each episode.
                 Additional materials in the collection will be made available
-                online or on-site at GBH as they are digitized. Read more about
-                the collection and our funders who made it possible.
+                online or on-site at GBH as they are digitized.{' '}
+                <a href='/collections/masterpiece-funders'>
+                  Read more about the collection and our funders who made it
+                  possible.
+                </a>
               </div>
             </div>
             <div className='static-halfbox'>
               <img src='https://s3.amazonaws.com/openvault.wgbh.org/treasuries/alistair_cooke_collection.jpg' />
             </div>
+
+            <a
+              href={`${data.AAPB_HOST}/catalog/?f[special_collections][]=alistair-cooke&sort=asset_date+asc`}>
+              View All Masterpiece Records on AAPB &gt;
+            </a>
           </div>
+
           {seasonGroups}
         </div>
       </div>
