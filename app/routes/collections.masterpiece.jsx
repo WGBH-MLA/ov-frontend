@@ -181,7 +181,7 @@ export default function Masterpiece() {
           </div>
 
           <h4 className='page-sidebar-title spaced'>Jump To Season</h4>
-          <div className='masterpiece-seasons'>{seasonLinks}</div>
+          <div className='masterpiece-seasons'>{ seasonLinks }</div>
         </span>
       </div>
 
