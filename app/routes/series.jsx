@@ -61,7 +61,8 @@ export default function Series() {
         <a
           key={groupIndex}
           className="series-link"
-          href={`${data.AAPB_HOST}/catalog?f[series_titles][]=${title}&q=+(contributing_organizations: WGBH(MA) OR producing_organizations: WGBH Educational Foundation)&f[access_types][]=all`}
+          // href={`${data.AAPB_HOST}/catalog?f[series_titles][]=${title}&q=+(contributing_organizations: WGBH(MA) OR producing_organizations: WGBH Educational Foundation)&f[access_types][]=all`}
+          href={`${data.AAPB_HOST}/catalog?q=+(+(series_titles: ${title} OR program_titles: ${title}) AND (contributing_organizations: WGBH(MA) OR producing_organizations: WGBH Educational Foundation))&f[access_types][]=all`}
           target="_blank"
         >
           {title}
