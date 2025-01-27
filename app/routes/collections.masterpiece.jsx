@@ -202,7 +202,7 @@ export default function Masterpiece() {
                 with descriptions, the collection will also include Alistair
                 Cooke’s introductions and conclusions for each episode.
                 Additional materials in the collection will be made available
-                online or on-site at GBH as they are digitized.{' '}
+                online or on-site at GBH as they are digitized.
                 <a href='/collections/masterpiece-funders'>
                   Read more about the collection and our funders who made it
                   possible.
@@ -215,7 +215,7 @@ export default function Masterpiece() {
 
             <a
               href={`${data.AAPB_HOST}/catalog/?f[special_collections][]=alistair-cooke&sort=asset_date+asc`}>
-              View All Masterpiece Records on AAPB &gt;
+              View all Alistair Cooke clips on AAPB &gt;
             </a>
           </div>
 
