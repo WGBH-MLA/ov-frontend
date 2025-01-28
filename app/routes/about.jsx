@@ -69,12 +69,13 @@ export default function About() {
               1947.
             </p>
             <hr className='spaced-hr' />
-            <h2>American Archive of Public Broadcasting</h2>
-            <h4>
-              {' '}
+            <h2>
               <a href='https://americanarchive.org/'>
-                americanarchive.org <ExternalLink size={16} />
+                American Archive of Public Broadcasting <ExternalLink size={24} />
               </a>
+            </h2>
+            <h4>
+
             </h4>
             <p className='static-section'>
               <img className='half-image right' src='/aapb.png' />
@@ -87,34 +88,22 @@ export default function About() {
               hours of content comprising 68,000 programs, contributed by 100
               stations across the country, have been digitized. We provide
               access to nearly 12,000 of these programs, which are available
-              online at{' '}
-              <a href='https://americanarchive.org/'>
-                americanarchive.org <ExternalLink size={18} />
-              </a>
+              online at <a href='https://americanarchive.org/'>americanarchive.org <ExternalLink size={18} /></a>
             </p>
             <hr className='spaced-hr' />
-            <h2>GBH Stock Sales</h2>
-            <h4>
-              <a href='https://wgbhstocksales.org/'>
-                wgbhstocksales.org <ExternalLink size={16} />
+            <h2><a href='https://wgbhstocksales.org/'>
+                 GBH Stock Sales <ExternalLink size={24} />
               </a>
-            </h4>
+            </h2>
             <p className='static-section'>
-              For professional licensing requests, please visit the{' '}
-              <a href='https://wgbhstocksales.org/'>
-                GBH Stock Sales website <ExternalLink size={18} />
-              </a>{' '}
-              or call 617-300-3939.
+              For professional licensing requests, please visit the <a href='https://wgbhstocksales.org/'>GBH Stock Sales website <ExternalLink size={18} /></a> or call 617-300-3939.
             </p>
             <hr className='spaced-hr' />
             <h2>
-              <a>Boston TV News Digital Library</a>
-            </h2>
-            <h4>
               <a href='https://bostonlocaltv.org/'>
-                bostonlocaltv.org <ExternalLink size={16} />
+                Boston TV News Digital Library <ExternalLink size={24} />
               </a>
-            </h4>
+            </h2>
             <p className='static-section'>
               <img className='half-image left' src='/tocn.png' />
               You can explore more of GBH's collection in the Boston TV News
@@ -122,10 +111,8 @@ export default function About() {
               worked with the Boston Public Library, Cambridge Community
               Television, and Northeast Historic Film to digitize and bring to
               life local news stories produced in and about Boston from 1960 to
-              2000. Nearly 2,000 news programs are available online at{' '}
-              <a href='https://bostonlocaltv.org/'>
-                BostonLocalTV.org <ExternalLink size={18} />
-              </a>
+              2000. Nearly 2,000 news programs are available online at <a href='https://bostonlocaltv.org/'>
+                bostonlocaltv.org <ExternalLink size={18} /></a>.
             </p>
             <p className='static-section'>
               The entire GBH collection and AAPB are available for research on
@@ -155,7 +142,7 @@ export default function About() {
               <li>Add newly digitized content to Open Vault</li>
               <li>
                 Improve our website with new features and improve functionality
-                and discoverability of the collection{' '}
+                and discoverability of the collection
               </li>
               <li>
                 Sustain Open Vault technical infrastructure so that we can

@@ -43,6 +43,21 @@
   --index: 9;
 }
 
+svg.lucide-external-link {
+  margin-left: 0.5em;
+}
+
+svg.lucide-chevron-down {
+  position: absolute;
+  margin-left: 0.2em;
+  top: 1em;
+}
+
+svg.lucide-chevrons-left {
+  margin-right: 0.2em;
+  vertical-align: middle;
+}
+
 html {
   /* and smooth it out */
   scroll-behavior: smooth;
@@ -52,7 +67,7 @@ body {
   font-family: 'Red Hat Text', sans-serif;
 }
 h1,
-h2 {
+h2, pre {
   font-family: 'Red Hat Display', sans-serif;
 }
 body,
@@ -249,7 +264,7 @@ div.series-group-letter {
 a.series-link {
   color: var(--blue);
   display: block;
-  font-size: 1.1rem;
+  font-size: 1.4rem;
   line-height: 1.3rem;
   font-weight: bold;
   margin-bottom: 1.5rem;

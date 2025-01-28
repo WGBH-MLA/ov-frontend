@@ -63,7 +63,7 @@ export default function Masterpiece() {
           key={groupIndex}
           className='masterpiece-link'
           href={`/miniseries/${normalizedMiniseriesTitle}`}
-          target='_blank'>
+        >
           {seasonGroup[normalizedMiniseriesTitle].title}
         </a>
       ))
@@ -88,7 +88,7 @@ export default function Masterpiece() {
   if (seasonGroups.length == 0) {
     seasonGroups = (
       <div>
-        No results were found for your search query. Please revise your query
+        No results were found for your search. Please revise your query
         and try again.
       </div>
     )
@@ -185,11 +185,7 @@ export default function Masterpiece() {
                 with descriptions, the collection will also include Alistair
                 Cooke’s introductions and conclusions for each episode.
                 Additional materials in the collection will be made available
-                online or on-site at GBH as they are digitized.
-                <a href='/collections/masterpiece-funders'>
-                  Read more about the collection and our funders who made it
-                  possible.
-                </a>
+                online or on-site at GBH as they are digitized. <a href='/collections/masterpiece-funders'>Read more about the collection and our funders who made it possible.</a>
               </div>
             </div>
             <div className='static-halfbox'>
