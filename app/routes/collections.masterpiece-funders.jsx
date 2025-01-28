@@ -29,7 +29,7 @@ export default function MasterpieceFunders() {
         <a
           className='back-link'
           style={{ marginLeft: '4vw', marginTop: '4vh' }}
-          href='/collections/alistair-cooke'>
+          href='/collections/masterpiece'>
           &lt; Back to Masterpiece Collection
         </a>
       </div>
