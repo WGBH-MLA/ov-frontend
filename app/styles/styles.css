@@ -767,7 +767,9 @@ div.page-container a.page-nav-link {
 
 a.back-link {
   display: inline-block;
-  font-size: 0.8em;
+  font-size: 1em;
+  margin-left: 1rem;
+  margin-top: 2rem;
 }
 
 a.half-link {

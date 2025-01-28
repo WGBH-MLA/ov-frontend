@@ -1,10 +1,5 @@
-import {
-  useLoaderData,
-  useRouteError,
-  isRouteErrorResponse,
-  Link,
-} from '@remix-run/react'
-import { Search } from 'lucide-react'
+import { useLoaderData, Link } from '@remix-run/react'
+import { ExternalLink, Search } from 'lucide-react'
 import { useState, useEffect } from 'react'
 
 import { getMasterpiece } from '~/utils/masterpiece'
@@ -25,25 +20,12 @@ export const loader = async () => {
   return await getMasterpiece()
 }
 
-function renderSeriesLink(series) {
-  return (
-    <a href={series.url} className='masterpiece-link'>
-      {series.title}
-    </a>
-  )
-}
-
 function safeDate(seasonGroup) {
   return (
     seasonGroup &&
     seasonGroup.broadcast_date &&
     new Date(seasonGroup.broadcast_date)
   )
-}
-
-function clearSearch(searchStateFunction) {
-  document.getElementById('search').value = ''
-  searchStateFunction('')
 }
 
 export default function Masterpiece() {
@@ -216,7 +198,7 @@ export default function Masterpiece() {
 
             <a
               href={`${data.AAPB_HOST}/catalog/?f[special_collections][]=alistair-cooke&sort=asset_date+asc`}>
-              View All Masterpiece Records on AAPB &gt;
+              View All Masterpiece Records on AAPB <ExternalLink size={20} />
             </a>
           </div>
 

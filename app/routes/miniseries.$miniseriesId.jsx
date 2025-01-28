@@ -3,13 +3,10 @@ import {
   useRouteError,
   isRouteErrorResponse,
 } from '@remix-run/react'
-// import { getPageBySlug } from '~/utils/fetch'
-// import { renderExhibit } from '~/classes/exhibitPresenter'
-import { extractMeta } from '~/classes/meta'
-// import type { Exhibit } from '~/types/openvault'
 import { getMasterpiece } from '~/utils/masterpiece'
 import { masterpieceFlavor } from '~/data/masterpieceFlavor'
 import { renderPageTitleBar } from '~/classes/pageHelpers'
+import { ChevronsLeft, ExternalLink } from 'lucide-react'
 
 export const loader = async ({ params }) => {
   var data = await getMasterpiece()
@@ -81,14 +78,14 @@ export default () => {
                   className='half-link'
                   href={`${data.AAPB_HOST}/catalog?sort=asset_date+asc&f[special_collections][]=${data.miniseriesId}&f[access_types][]=all`}
                   target='_blank'>
-                  View Records On AAPB &gt;
+                  View Records On AAPB <ExternalLink size={20} />
                 </a>
               </div>
             </div>
 
             <div>
               <a className='back-link' href='/collections/masterpiece'>
-                &lt; Back to Masterpiece Collection
+                <ChevronsLeft /> Back to Masterpiece Collection
               </a>
             </div>
           </div>
