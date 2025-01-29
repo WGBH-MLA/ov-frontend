@@ -52,13 +52,20 @@ export function ErrorBoundary() {
   // This is also the error boundary for the /collections route
   const error = useRouteError()
   if (isRouteErrorResponse(error)) {
-    if (error.status !== 404) throw error
+    if (error.status == 404)
+      return (
+        <div className='page-body-container'>
+          <h1>Not found</h1>
+          <h3>{error.data}</h3>
+          <div>{error.statusText}</div>
+          <div>Check your spelling, or try another route.</div>
+        </div>
+      )
     return (
       <div className='page-body-container'>
-        <h1>Not found</h1>
-        <h3>{error.data}</h3>
-        <div>{error.statusText}</div>
-        <div>Check your spelling, or try another route.</div>
+        <h1>Something went wrong</h1>
+        <h3>{error.statusText}</h3>
+        <div>{error.data}</div>
       </div>
     )
   }

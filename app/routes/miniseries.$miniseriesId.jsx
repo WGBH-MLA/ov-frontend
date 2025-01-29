@@ -1,12 +1,9 @@
-import {
-  useLoaderData,
-  useRouteError,
-  isRouteErrorResponse,
-} from '@remix-run/react'
+import { useLoaderData } from '@remix-run/react'
 import { getMasterpiece } from '~/utils/masterpiece'
 import { masterpieceFlavor } from '~/data/masterpieceFlavor'
 import { renderPageTitleBar } from '~/classes/pageHelpers'
 import { ChevronsLeft, ExternalLink } from 'lucide-react'
+import { ErrorBoundary } from '~/routes/exhibits.$exhibitSlug'
 
 export const loader = async ({ params }) => {
   var data = await getMasterpiece()
@@ -16,6 +13,12 @@ export const loader = async ({ params }) => {
       series = data.masterpieceData[season][params.miniseriesId]
     }
   })
+  if (!series) {
+    throw new Response('Miniseries not found', {
+      status: 404,
+      statusText: `We couldn't find anything called "${params.miniseriesId}"`,
+    })
+  }
 
   return {
     AAPB_HOST: process.env.AAPB_HOST,
@@ -95,21 +98,7 @@ export default () => {
   )
 }
 
-export function ErrorBoundary() {
-  // This is also the error boundary for the /collections route
-  const error = useRouteError()
-  if (isRouteErrorResponse(error)) {
-    if (error.status !== 404) throw error
-    return (
-      <div className='page-body-container'>
-        <h1>Not found</h1>
-        <h3>{error.data}</h3>
-        <div>{error.statusText}</div>
-        <div>Check your spelling, or try another route.</div>
-      </div>
-    )
-  }
-}
+export { ErrorBoundary }
 
 // export const sitemap = async ({ config, request }) => {
 //   const exhibits = await fetch(
