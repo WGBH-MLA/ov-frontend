@@ -42,9 +42,8 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
 }
 
 export default function Collection() {
-  // const { collection } = useLoaderData()
-  // return renderCollection(collection)
-  return 'asdf'
+  const { collection } = useLoaderData()
+  return renderCollection(collection)
 }
 
 export { ErrorBoundary }
