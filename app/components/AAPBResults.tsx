@@ -35,7 +35,7 @@ export const AAPBResults = ({ aapb_host }) => {
       )
         .then((response) => response.json())
         .then((data) => {
-          setResults(data.response.numFound)
+          setResults(data.response.numFound.toLocaleString())
           setHits(data.response.docs)
         })
         .catch((error) => console.error(error))
@@ -50,10 +50,10 @@ export const AAPBResults = ({ aapb_host }) => {
 
   return (
     <>
-      Found{' '}
+      Found
       <span className='ais-RefinementList-count'>
         {result_count === null ? <Spinner /> : result_count}
-      </span>{' '}
+      </span>
       matching records on AmericanArchive.org for "{indexUiState.query}"
       <div className='ais-Hits'>
         <div className='ais-Hits-list'>
@@ -65,10 +65,10 @@ export const AAPBResults = ({ aapb_host }) => {
       <a
         href={`${aapb_host}/catalog?q=${indexUiState.query}${gbh_query}`}
         target='_blank'>
-        View{' '}
+        View
         <span className='ais-RefinementList-count'>
           {result_count === null ? <Spinner /> : result_count}
-        </span>{' '}
+        </span>
         more results on AmericanArchive.org"
         <ExternalLink />
       </a>

@@ -8,8 +8,7 @@ import {
   useLoaderData,
   useRouteError,
 } from '@remix-run/react'
-import { json } from '@remix-run/node'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { ToastContainer, toast, Flip } from 'react-toastify'
 
 import { HomeMeta } from '~/classes/meta'
@@ -42,13 +41,13 @@ export const meta = () => {
 
 export async function loader() {
   // lift these env vars from process.env so they can be injected into window
-  return json({
+  return {
     ENV: {
       AAPB_HOST: process.env.AAPB_HOST || 'https://americanarchive.org',
       OV_API_URL: process.env.OV_API_URL || 'http://localhost:8000',
       ORGAN_URL: process.env.ORGAN_URL || 'http://localhost:9000',
     },
-  })
+  }
 }
 
 export default function App() {
@@ -148,6 +147,8 @@ export function ErrorBoundary() {
       <head>
         <meta charSet='utf-8' />
         <meta name='viewport' content='width=device-width,initial-scale=1' />
+        <Meta />
+        <Links />
         <title>Oh no!</title>
       </head>
       <body>

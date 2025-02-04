@@ -36,7 +36,7 @@ export default () => {
         {shuffle(default_suggestions)
           .slice(0, 4)
           .map((query) => (
-            <li key={query}>{SearchLink(query)}</li>
+            <li className="search-suggestion" key={query}>{SearchLink(query)}</li>
           ))}
       </ul>
     </>
