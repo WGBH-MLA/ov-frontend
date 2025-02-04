@@ -1,4 +1,5 @@
 import type { Hit as AlgoliaHit } from 'instantsearch.js'
+import { ExternalLink } from 'lucide-react'
 import {
   Highlight,
   Hits,
@@ -29,7 +30,7 @@ export const SeriesResults = ({ aapb_host }) => {
     return (
       <a href={aapb_link(hit.title)} target='_blank'>
         <div className='tag'>GBH Series</div>
-        <Highlight attribute='title' hit={hit} />
+        <Highlight attribute='title' hit={hit} /> <ExternalLink />
       </a>
     )
   }

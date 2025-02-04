@@ -1,5 +1,6 @@
 import { renderPageTitleBar } from '~/classes/pageHelpers'
 import { Meta } from '~/classes/meta'
+import { ExternalLink } from 'lucide-react'
 
 export const meta = () => {
   return [
@@ -23,23 +24,22 @@ export default function About() {
 
   return (
     <div>
-      <div className="page-container">
+      <div className='page-container'>
         {titleBar}
 
-        <div className="page-sidebar" />
+        <div className='page-sidebar' />
 
-        <div className="page-body-container">
-          <div className="page-body">
+        <div className='page-body-container'>
+          <div className='page-body'>
             <h2>Welcome to Open Vault!</h2>
-
-            <p className="static-section">
+            <p className='static-section'>
               On this website, GBH Archives provides online access to unique and
               historically important content produced by the public television
               and radio station GBH. Open Vault contains video, audio, images,
               searchable transcripts, and resource management tools, all of
               which are available for individual and classroom learning.
             </p>
-            <p className="static-section">
+            <p className='static-section'>
               As America's preeminent public broadcasting producer, the source
               of fully one-third of PBS' prime-time lineup, GBH has been on the
               front lines of history for nearly seven decades. GBH productions -
@@ -52,7 +52,7 @@ export default function About() {
               GBH. We currently manage and preserve nearly 1 million audio,
               video, film, and digital assets dating back to 1947.
             </p>
-            <p className="static-section">
+            <p className='static-section'>
               Open Vault contains video, audio, images, searchable transcripts,
               and resource management tools, all of which are available for
               individual and classroom learning. As America's preeminent public
@@ -68,15 +68,17 @@ export default function About() {
               1 million audio, video, film, and digital assets dating back to
               1947.
             </p>
-
-            <hr className="spaced-hr" />
-
-            <h2 className="static-link">
-              American Archive of Public Broadcasting
+            <hr className='spaced-hr' />
+            <h2>
+              <a href='https://americanarchive.org/'>
+                American Archive of Public Broadcasting <ExternalLink size={24} />
+              </a>
             </h2>
+            <h4>
 
-            <p className="static-section">
-              <img className="half-image right" src="/aapb.png" />
+            </h4>
+            <p className='static-section'>
+              <img className='half-image right' src='/aapb.png' />
               In 2013, the Corporation for Public Broadcasting selected GBH and
               the Library of Congress as the permanent stewards of the American
               Archive of Public Broadcasting, an initiative seeking to identify,
@@ -86,40 +88,40 @@ export default function About() {
               hours of content comprising 68,000 programs, contributed by 100
               stations across the country, have been digitized. We provide
               access to nearly 12,000 of these programs, which are available
-              online at americanarchive.org.
+              online at <a href='https://americanarchive.org/'>americanarchive.org <ExternalLink size={18} /></a>
             </p>
-
-            <hr className="spaced-hr" />
-
-            <h3 className="static-link">GBH Stock Sales</h3>
-            <p className="static-section">
-              For professional licensing requests, please visit the GBH Stock
-              Sales website or call 617-300-3939.
+            <hr className='spaced-hr' />
+            <h2><a href='https://wgbhstocksales.org/'>
+                 GBH Stock Sales <ExternalLink size={24} />
+              </a>
+            </h2>
+            <p className='static-section'>
+              For professional licensing requests, please visit the <a href='https://wgbhstocksales.org/'>GBH Stock Sales website <ExternalLink size={18} /></a> or call 617-300-3939.
             </p>
-
-            <hr className="spaced-hr" />
-
-            <a className="static-link">Boston TV News Digital Library</a>
-            <p className="static-section">
-              <img className="half-image left" src="/tocn.png" />
+            <hr className='spaced-hr' />
+            <h2>
+              <a href='https://bostonlocaltv.org/'>
+                Boston TV News Digital Library <ExternalLink size={24} />
+              </a>
+            </h2>
+            <p className='static-section'>
+              <img className='half-image left' src='/tocn.png' />
               You can explore more of GBH's collection in the Boston TV News
               Digital Library. During this CLIR and IMLS-funded project, we
               worked with the Boston Public Library, Cambridge Community
               Television, and Northeast Historic Film to digitize and bring to
               life local news stories produced in and about Boston from 1960 to
-              2000. Nearly 2,000 news programs are available online at
-              BostonLocalTV.org.
+              2000. Nearly 2,000 news programs are available online at <a href='https://bostonlocaltv.org/'>
+                bostonlocaltv.org <ExternalLink size={18} /></a>.
             </p>
-
-            <p className="static-section">
+            <p className='static-section'>
               The entire GBH collection and AAPB are available for research on
               location at GBH. Contact us to schedule a research visit in our
               Brighton, MA offices.
             </p>
-
+            <hr className='spaced-hr' />
             <h2>Current Initiatives</h2>
-
-            <p className="static-section">
+            <p className='static-section'>
               In 2018, GBH received a $750,000 challenge grant from the National
               Endowment for the Humanities (NEH) to preserve and digitize the
               most at-risk items in the GBH archival collection, specifically
@@ -128,12 +130,10 @@ export default function About() {
               preserved as they are created. The grant calls for a 4:1 match, or
               $3 million in matching dollars over the next four years.
             </p>
-
-            <p className="static-section">
+            <p className='static-section'>
               A gift in support of Open Vault, leveraged by the NEH Challenge
               grant currently underway, directly enables us to:
             </p>
-
             <ul>
               <li>
                 Digitize critical programs that are currently deteriorating on
@@ -142,22 +142,21 @@ export default function About() {
               <li>Add newly digitized content to Open Vault</li>
               <li>
                 Improve our website with new features and improve functionality
-                and discoverability of the collection{' '}
+                and discoverability of the collection
               </li>
               <li>
                 Sustain Open Vault technical infrastructure so that we can
                 continue to provide online access to the collection
               </li>
             </ul>
-
             <h2>Mailing Address</h2>
-            <p className="static-section">
-              Open Vault
-              <br /> GBH Archives
-              <br /> WGBH Educational Foundation
-              <br /> One Guest Street
-              <br /> Boston, MA 02135
-            </p>
+            <pre>
+              {`Open Vault
+GBH Archives
+WGBH Educational Foundation
+One Guest Street
+Boston, MA 02135`}
+            </pre>
           </div>
         </div>
       </div>
