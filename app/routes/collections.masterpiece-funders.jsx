@@ -1,5 +1,6 @@
 import { renderPageTitleBar } from '~/classes/pageHelpers'
 import { Meta } from '~/classes/meta'
+import { ChevronsLeft } from 'lucide-react'
 
 export const meta = () => {
   return [
@@ -26,11 +27,9 @@ export default function MasterpieceFunders() {
       {titleBar}
 
       <div className='page-sidebar'>
-        <a
-          className='back-link'
-          style={{ marginLeft: '4vw', marginTop: '4vh' }}
-          href='/collections/masterpiece'>
-          &lt; Back to Masterpiece Collection
+        <a className='back-link' href='/collections/masterpiece'>
+          <ChevronsLeft />
+          Back to Masterpiece Collection
         </a>
       </div>
 

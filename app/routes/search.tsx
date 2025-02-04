@@ -81,7 +81,7 @@ export function ErrorBoundary() {
   const error = useRouteError()
   console.log('search error', error)
   return (
-    <div>
+    <div className='page-body-container'>
       <h1>Search Error</h1>
       <h4>We're sorry! Search appears to be broken!</h4>
       <pre>{error.message}</pre>

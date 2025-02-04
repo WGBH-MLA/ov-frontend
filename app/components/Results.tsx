@@ -5,7 +5,7 @@ export const ResultsCount = () => {
 
   return (
     <span className='ais-RefinementList-count'>
-      {results ? results.nbHits : null}
+      {results ? results.nbHits.toLocaleString() : null}
     </span>
   )
 }

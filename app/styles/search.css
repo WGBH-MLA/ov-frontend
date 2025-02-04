@@ -75,6 +75,11 @@ div.ais-Hits {
   margin-bottom: 4vh;
 }
 
+span.ais-RefinementList-count {
+  margin-left: 0.8em;
+  margin-right: 0.8em;
+}
+
 .search-result-header {
   display: inline-flex;
   width: 100%;
@@ -87,6 +92,10 @@ li.ais-Hits-item {
   max-width: 25rem;
   max-height: 25rem;
   overflow: hidden;
+  line-height: 1.5rem;
+}
+
+div.pbcore-description-highlight {
   line-height: 1.5rem;
 }
 
@@ -111,8 +120,16 @@ div.refinements {
 
 .search-hit-thumb {
   width: 100%;
-
 }
+
+li.search-suggestion {
+  cursor: pointer;
+}
+
+li.search-suggestion:hover {
+  text-decoration: underline;
+}
+
 @media only screen and (max-width: 600px) and (orientation: portrait) {
   div.page-body-container {
     margin: 1.5rem;

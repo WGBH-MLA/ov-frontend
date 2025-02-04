@@ -1,12 +1,30 @@
-import { Link } from '@remix-run/react'
 import { useLoaderData } from '@remix-run/react'
 import { OpenCarousel } from '~/classes/openCarousel'
 import { renderPageLinks } from '~/classes/pageHelpers'
-import { getHomepage } from '~/utils/fetch'
 import shuffle from '~/utils/shuffle'
 
 export const loader = async () => {
-  return await getHomepage()
+  let collections, exhibits
+  try {
+    var cr = await fetch(
+      process.env.OV_API_URL + '/api/v2/collections/?order=random&limit=3'
+    )
+    collections = await cr.json()
+    var er = await fetch(
+      process.env.OV_API_URL + '/api/v2/exhibits/?order=random&limit=3'
+    )
+    exhibits = await er.json()
+    return {
+      collections,
+      exhibits,
+    }
+  } catch (e) {
+    console.log('error getting home page', e)
+    throw new Response(`Error getting home page`, {
+      status: 500,
+      statusText: 'Something went wrong. Try again later.',
+    })
+  }
 }
 
 export default function Index() {
@@ -16,6 +34,7 @@ export default function Index() {
   let exhibitLinksContainer, collectionLinksContainer
 
   if (exhibits?.items && exhibits.items.length > 0) {
+    console.log('home exhibits', exhibits)
     let exhibitLinks = renderPageLinks('exhibits', exhibits.items)
     exhibitLinksContainer = (
       <div className='pagelinks-container'>
@@ -41,7 +60,7 @@ export default function Index() {
 
     carousel = (
       <OpenCarousel
-        slides={shuffle(exhibits.items.concat(collections?.items))}
+        slides={shuffle(exhibits?.items.concat(collections?.items))}
       />
     )
   }

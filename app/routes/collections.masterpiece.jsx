@@ -1,9 +1,5 @@
-import {
-  useLoaderData,
-  useRouteError,
-  isRouteErrorResponse,
-  Link,
-} from '@remix-run/react'
+import { useLoaderData, Link } from '@remix-run/react'
+import { ExternalLink, Search } from 'lucide-react'
 import { useState, useEffect } from 'react'
 
 import { getMasterpiece } from '~/utils/masterpiece'
@@ -24,25 +20,12 @@ export const loader = async () => {
   return await getMasterpiece()
 }
 
-function renderSeriesLink(series) {
-  return (
-    <a href={series.url} className='masterpiece-link'>
-      {series.title}
-    </a>
-  )
-}
-
 function safeDate(seasonGroup) {
   return (
     seasonGroup &&
     seasonGroup.broadcast_date &&
     new Date(seasonGroup.broadcast_date)
   )
-}
-
-function clearSearch(searchStateFunction) {
-  document.getElementById('search').value = ''
-  searchStateFunction('')
 }
 
 export default function Masterpiece() {
@@ -80,7 +63,7 @@ export default function Masterpiece() {
           key={groupIndex}
           className='masterpiece-link'
           href={`/miniseries/${normalizedMiniseriesTitle}`}
-          target='_blank'>
+        >
           {seasonGroup[normalizedMiniseriesTitle].title}
         </a>
       ))
@@ -105,7 +88,7 @@ export default function Masterpiece() {
   if (seasonGroups.length == 0) {
     seasonGroups = (
       <div>
-        No results were found for your search query. Please revise your query
+        No results were found for your search. Please revise your query
         and try again.
       </div>
     )
@@ -177,11 +160,11 @@ export default function Masterpiece() {
             <div className='search-clear-button' onClick={(e) => clearSearch()}>
               X
             </div>
-            <div className='series-search-button' />
+            <Search />
           </div>
 
           <h4 className='page-sidebar-title spaced'>Jump To Season</h4>
-          <div className='masterpiece-seasons'>{ seasonLinks }</div>
+          <div className='masterpiece-seasons'>{seasonLinks}</div>
         </span>
       </div>
 
@@ -202,11 +185,7 @@ export default function Masterpiece() {
                 with descriptions, the collection will also include Alistair
                 Cooke’s introductions and conclusions for each episode.
                 Additional materials in the collection will be made available
-                online or on-site at GBH as they are digitized.
-                <a href='/collections/masterpiece-funders'>
-                  Read more about the collection and our funders who made it
-                  possible.
-                </a>
+                online or on-site at GBH as they are digitized. <a href='/collections/masterpiece-funders'>Read more about the collection and our funders who made it possible.</a>
               </div>
             </div>
             <div className='static-halfbox'>
@@ -215,7 +194,7 @@ export default function Masterpiece() {
 
             <a
               href={`${data.AAPB_HOST}/catalog/?f[special_collections][]=alistair-cooke&sort=asset_date+asc`}>
-              View all Alistair Cooke clips on AAPB &gt;
+              View all Alistair Cooke clips on AAPB <ExternalLink size={20} />
             </a>
           </div>
 
