@@ -1,3 +1,10 @@
+import {
+  FileLock,
+  FileQuestion,
+  FileVideo,
+  FileVolume,
+  FileX2,
+} from 'lucide-react'
 import { Component } from 'react'
 import {
   AAPBRecordProps,
@@ -217,7 +224,7 @@ export class AAPBRecord extends Component<AAPBRecordProps> {
       )
     }
 
-    let thumbnail
+    let icon, backgroundImage
     let embedPlayer = true
     if (this.props.showThumbnail) {
       if (this.state.finishedRetrieval && this.state.pbcore) {
@@ -230,25 +237,26 @@ export class AAPBRecord extends Component<AAPBRecordProps> {
                 (pbi) => pbi.source == 'Sony Ci'
               )
             if (ci_pbi && ci_pbi.text) {
-              thumbnail = `url(${this.aapbThumbnailURL(this.state.guid)})`
+              backgroundImage = `url(${this.aapbThumbnailURL(this.state.guid)})`
             } else {
               // video THUMB
-              thumbnail = `url(/VIDEO_SMALL.png)`
+              icon = <FileVideo size={'50%'} />
             }
           } else if (mt == 'Sound') {
             // AUDIO THUMB
-            thumbnail = `url(/AUDIO_SMALL.png)`
+            icon = <FileVolume size={'50%'} />
           } else {
-            thumbnail = `url(/other.png)`
+            // Neither audio nor video: ?
+            icon = <FileQuestion size={'50%'} />
           }
         } else {
-          thumbnail = `url(/document.png)`
+          icon = <FileLock size={'50%'} />
           // not playable so also disable player
           embedPlayer = false
         }
       } else {
         // didn't get any dang pbcore from aapb
-        thumbnail = `url(/forbidden.png)`
+        icon = <FileX2 size={'50%'} />
         // not playable so also disable player
         embedPlayer = false
       }
@@ -275,9 +283,10 @@ export class AAPBRecord extends Component<AAPBRecordProps> {
         if (embedPlayer) {
           recordBlock = (
             <div
-              style={{ backgroundImage: thumbnail }}
+              style={{ backgroundImage }}
               className='content-aapbblock'
               onClick={() => this.setState({ showEmbed: true })}>
+              {icon}
               {titleBar}
               {playButton}
             </div>
@@ -286,9 +295,11 @@ export class AAPBRecord extends Component<AAPBRecordProps> {
           // document link out
           recordBlock = (
             <div
-              style={{ backgroundImage: thumbnail }}
+              style={{ backgroundImage }}
               className='content-aapbblock'
               href={this.aapbCatalogURL(this.state.guid)}>
+              {icon}
+
               {titleBar}
             </div>
           )

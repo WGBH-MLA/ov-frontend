@@ -1,26 +1,16 @@
 export async function getExhibits() {
-  return await fetch(process.env.OV_API_URL + '/api/v2/exhibits/?limit=999999', res => {
-    console.log('exs', res)
-  })
+  return await fetch(
+    process.env.OV_API_URL + '/api/v2/exhibits/?limit=999999',
+    (res) => {
+      console.log('exs', res)
+    }
+  )
 }
 
 export async function getCollections() {
-  return await fetch(process.env.OV_API_URL + '/api/v2/collections/?limit=999999')
-}
-
-export async function getHomepage() {
-  var cr = await fetch(
-    process.env.OV_API_URL + '/api/v2/collections/?order=random&limit=3'
+  return await fetch(
+    process.env.OV_API_URL + '/api/v2/collections/?limit=999999'
   )
-  var collections = await cr.json()
-  var er = await fetch(
-    process.env.OV_API_URL + '/api/v2/exhibits/?order=random&limit=3'
-  )
-  var exhibits = await er.json()
-  return {
-    collections: collections,
-    exhibits: exhibits,
-  }
 }
 
 export async function getPageBySlug(type, slug) {
@@ -31,8 +21,8 @@ export async function getPageBySlug(type, slug) {
   const body = await fetch(
     `${process.env.OV_API_URL}/api/v2/pages/?slug=${slug}`
   )
-    .then(res => res.json())
-    .catch(err => {
+    .then((res) => res.json())
+    .catch((err) => {
       console.log('fetch error', err)
       throw new Response(`Error fetching ${type}`, {
         status: 500,
@@ -45,5 +35,5 @@ export async function getPageBySlug(type, slug) {
   }
   return await fetch(
     `${process.env.OV_API_URL}/api/v2/${type}/${body.items[0].id}`
-  ).then(res => res.json())
+  ).then((res) => res.json())
 }
