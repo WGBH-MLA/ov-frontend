@@ -6,4 +6,4 @@ This is a simple health check route that returns a 200 status code and a JSON re
 import type { LoaderFunction } from '@remix-run/node'
 
 export const loader: LoaderFunction = async () =>
-  Response.json({ status: 'ok' })
+  await Response.json({ status: 'ok' })
