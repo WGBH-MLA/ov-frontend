@@ -22,9 +22,9 @@ type SeriesHitProps = {
   }>
 }
 
-export const SeriesResults = ({ aapb_host }) => {
+export const SeriesResults = ({ aapbHost }) => {
   const aapb_link = (title: string) =>
-    `${aapb_host}/catalog?f[series_titles][]=${title}&q=+(contributing_organizations: WGBH(MA) OR producing_organizations: WGBH Educational Foundation)&f[access_types][]=all`
+    `${aapbHost}/catalog?f[series_titles][]=${title}&q=+(contributing_organizations: WGBH(MA) OR producing_organizations: WGBH Educational Foundation)&f[access_types][]=all`
 
   const SeriesHit = ({ hit }: SeriesHitProps) => {
     return (

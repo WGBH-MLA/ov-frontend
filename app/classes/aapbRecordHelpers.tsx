@@ -327,7 +327,7 @@ export class AAPBRecords extends Component<AAPBRecordBlockProps> {
       accessLevel = this.props.accessLevel
     }
 
-    this.setState({ aapb_host: window.ENV.AAPB_HOST }, async () => {
+    this.setState({ aapbHost: window.ENV.AAPB_HOST }, async () => {
       var data
       if (this.props.specialCollections) {
         // fetch actual number of records from this special collection search
@@ -359,7 +359,7 @@ export class AAPBRecords extends Component<AAPBRecordBlockProps> {
       )
     })
 
-    var recordsSearchLink = `${this.state.aapb_host}/catalog`
+    var recordsSearchLink = `${this.state.aapbHost}/catalog`
     if (this.props.specialCollections) {
       recordsSearchLink += `?f[special_collections][]=${this.props.specialCollections}&sort=title+asc&f[access_types][]=${this.props.accessLevel}`
     }
