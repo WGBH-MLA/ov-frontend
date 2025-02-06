@@ -29,21 +29,6 @@ export function renderAuthorBubble(author, style, key) {
 export function renderPageLink(pageType, page, key) {
   let authorBubble, authorLink
 
-  if (page.authors && page.authors.length > 0 && page.authors[0].name) {
-    let author = page.authors[0]
-    if (author.image) {
-      // can't really have authorbubble without an author image!
-      authorBubble = renderAuthorBubble(author, 'attach')
-    }
-
-    if (pageType !== 'exhibits') {
-      authorLink = <div className='pagelink-subtitle'>By {author.name}</div>
-    }
-  } else {
-    authorBubble = renderAuthorBubble(false, 'attach')
-    authorLink = <div className='pagelink-subtitle' />
-  }
-
   return (
     <div key={key} className='pagelink'>
       <a href={'/' + pageType + '/' + page.meta.slug}>
