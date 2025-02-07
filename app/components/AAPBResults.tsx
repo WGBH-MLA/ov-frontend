@@ -18,10 +18,10 @@ export type AAPBHit = {
 
 export type AAPBHitProps = {
   hit: AAPBHit
-  aapb_host: string
+  aapbHost: string
 }
 
-export const AAPBResults = ({ aapb_host }) => {
+export const AAPBResults = ({ aapbHost }) => {
   const { indexUiState } = useInstantSearch()
 
   const [result_count, setResults] = useState(null)
@@ -31,7 +31,7 @@ export const AAPBResults = ({ aapb_host }) => {
     debounce((currentQuery) => {
       console.log('fetching AAPB results for', currentQuery)
       fetch(
-        `${aapb_host}/api.json?q=${encodeURIComponent(currentQuery)}&rows=10`
+        `${aapbHost}/api.json?q=${encodeURIComponent(currentQuery)}&rows=10`
       )
         .then((response) => response.json())
         .then((data) => {
@@ -58,12 +58,12 @@ export const AAPBResults = ({ aapb_host }) => {
       <div className='ais-Hits'>
         <div className='ais-Hits-list'>
           {hits.map((hit: AAPBHit) => (
-            <AAPBHit key={hit.id} hit={hit} aapb_host={aapb_host} />
+            <AAPBHit key={hit.id} hit={hit} aapbHost={aapbHost} />
           ))}
         </div>
       </div>
       <a
-        href={`${aapb_host}/catalog?q=${indexUiState.query}${gbh_query}`}
+        href={`${aapbHost}/catalog?q=${indexUiState.query}${gbh_query}`}
         target='_blank'>
         View
         <span className='ais-RefinementList-count'>
@@ -76,13 +76,13 @@ export const AAPBResults = ({ aapb_host }) => {
   )
 }
 
-export const AAPBHit = ({ hit, aapb_host }: AAPBHitProps) => {
+export const AAPBHit = ({ hit, aapbHost }: AAPBHitProps) => {
   let pb = pbcore2json(hit.xml)
 
   console.log('hit pbcore', pb)
   return (
     <div className='ais-Hits-item aapb-hit'>
-      <a href={`${aapb_host}/catalog/${hit.id}`}>
+      <a href={`${aapbHost}/catalog/${hit.id}`}>
         <div className='tag'>AAPB</div>
         <h3>
           {highlightHighlight(hit.title)} <ExternalLink />
