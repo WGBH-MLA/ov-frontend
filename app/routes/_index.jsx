@@ -34,7 +34,6 @@ export default function Index() {
   let exhibitLinksContainer, collectionLinksContainer
 
   if (exhibits?.items && exhibits.items.length > 0) {
-    // console.log('home exhibits', exhibits)
     let exhibitLinks = renderPageLinks('exhibits', exhibits.items)
     exhibitLinksContainer = (
       <div className='pagelinks-container'>
@@ -94,8 +93,8 @@ export default function Index() {
     <div className='home-container'>
       <div className='carousel-container'>{carousel}</div>
 
-      {exhibitLinksContainer}
       {collectionLinksContainer}
+      {exhibitLinksContainer}
     </div>
   )
 }

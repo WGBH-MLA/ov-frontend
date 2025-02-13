@@ -62,15 +62,15 @@ export function NavigationBar() {
 
         <div id='navigation-bar' className='navigation-bar mobile-hidden'>
           <NavigationLink
-            highlight={pathname.startsWith('/exhibits')}
-            href='/exhibits'
-            text='Scholar Exhibits'
-          />
-          <NavigationLink
             highlight={pathname.startsWith('/collections')}
             href='/collections'
             text='Special Collections'
           />
+          <NavigationLink
+            highlight={pathname.startsWith('/exhibits')}
+            href='/exhibits'
+            text='Scholar Exhibits'
+          />          
           <NavigationLink
             highlight={pathname.startsWith('/series')}
             href='/series'
