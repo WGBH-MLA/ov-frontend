@@ -24,10 +24,7 @@ export const Help = () => {
       <p>
         Open Vault is a search engine for the GBH Media Library and Archives.
         You can search for exhibits, collections, and series from GBH. You can
-        also search for records on{' '}
-        <a href='https://americanarchive.org/' target='_blank'>
-          AmericanArchive.org
-        </a>
+        also search for records on <a href='https://americanarchive.org/' target='_blank'>americanarchive.org</a>
       </p>
       <h2>Search tabs</h2>
       <p>The search results are divided into tabs:</p>
@@ -41,7 +38,7 @@ export const Help = () => {
         </li>
         <li>
           <strong>American Archive</strong> - Search records from over 200 media
-          organizations hosted by the{' '}
+          organizations hosted by the
           <a href='https://americanarchive.org/' target='_blank'>
             American Archive of Public Broadcasting
           </a>
@@ -61,36 +58,28 @@ export const Help = () => {
       match similar words.
       <ul>
         <li>
-          {HelpLink('Archive')} (without a tilde) will match <em>archive</em>,
-          and <em>archives</em>
+          {HelpLink('Archive')} (without a tilde) will match <em>archive</em>, and <em>archives</em>
         </li>
         <li>
-          {HelpLink('Archive~')} (with a tilde ~) includes <em>archived</em>,{' '}
-          <em>archiving</em>, <em>archival</em>, and similarly spelled words
-          like <em>architecture</em> and <em>achievement</em>
+          {HelpLink('Archive~')} (with a tilde ~) includes <em>archived</em>, <em>archiving</em>, <em>archival</em>, and similarly spelled words like <em>architecture</em> and <em>achievement</em>
         </li>
       </ul>
       The "fuzzyness" factor can be adjusted by adding a number after the tilde.
       <ul>
         <li>
-          {HelpLink('America~0')} will match <em>America</em> and{' '}
-          <em>American</em>
+          {HelpLink('America~0')} will match <em>America</em> and <em>American</em>
         </li>
         <li>
-          {HelpLink('America~1')} will include <em>Americanized</em> and{' '}
-          <em>Americanizing</em>
+          {HelpLink('America~1')} will include <em>Americanized</em> and <em>Americanizing</em>
         </li>
         <li>
-          {HelpLink('America~2')} will include <em>African American</em> and
-          even unrelated words like <em>medical</em>
+          {HelpLink('America~2')} will include <em>African American</em> and even unrelated words like <em>medical</em>
         </li>
       </ul>
-      When searching a phrase with quotes, including a tilde <code>~</code>{' '}
-      followed by a number will match phrases separated by that number of words.
+      When searching a phrase with quotes, including a tilde <code>~</code> followed by a number will match phrases separated by that number of words.
       <ul>
         <li>
-          {HelpLink('"Vietnam war"~3')} will match <em>Vietnam war</em> and{' '}
-          <em>war in Vietnam</em>
+          {HelpLink('"Vietnam war"~3')} will match <em>Vietnam war</em> and <em>war in Vietnam</em>
         </li>
       </ul>
       <h3>Wildcards*</h3>
@@ -105,16 +94,14 @@ export const Help = () => {
         </li>
       </ul>
       <h3>Booleans</h3>
-      Use <code>+</code>, <code>-</code>, and <code>|</code> operators to
-      include or exclude specific terms.
+      Use <code>+</code>, <code>-</code>, and <code>|</code> operators to include or exclude specific terms.
       <h4>
         <code>+</code> (plus)
       </h4>
       Use <code>+</code> to include only records that contain that term.
       <ul>
         <li>
-          {HelpLink('+Boston +busing')} matches records that contain both{' '}
-          <em>Boston</em> and <em>busing</em>
+          {HelpLink('+Boston +busing')} matches records that contain both <em>Boston</em> and <em>busing</em>
         </li>
       </ul>
       <h4>
@@ -123,8 +110,7 @@ export const Help = () => {
       Use <code>-</code> to exclude records that contain that term.
       <ul>
         <li>
-          {HelpLink('music +-folk')} matches records that contain <em>music</em>{' '}
-          and do not contain <em>folk</em>
+          {HelpLink('music +-folk')} matches records that contain <em>music</em>and do not contain <em>folk</em>
         </li>
       </ul>
       <h4>
@@ -133,22 +119,17 @@ export const Help = () => {
       Use <code>|</code> between terms to match either term.
       <ul>
         <li>
-          {HelpLink('television | radio')} matches records that contain either{' '}
-          <em>television</em> or <em>radio</em>
+          {HelpLink('television | radio')} matches records that contain either <em>television</em> or <em>radio</em>
         </li>
       </ul>
       <h3>Groups ( )</h3>
       Use parentheses to group terms.
       <ul>
         <li>
-          {HelpLink('(tech | technology) +Frontline')} matches records that
-          contain either <em>tech</em> or <em>technology</em> and includes{' '}
-          <em>Frontline</em>
+          {HelpLink('(tech | technology) +Frontline')} matches records that contain either <em>tech</em> or <em>technology</em> and includes <em>Frontline</em>
         </li>
         <li>
-          {HelpLink('("Julia Child" | "Joyce Chen") +radio')} matches records
-          that contain either exact phrase <em>"Julia Child"</em> or{' '}
-          <em>"Joyce Chen"</em> and also includes <em>radio</em>
+          {HelpLink('("Julia Child" | "Joyce Chen") +radio')} matches records that contain either exact phrase <em>"Julia Child"</em> or <em>"Joyce Chen"</em> and also includes <em>radio</em>
         </li>
       </ul>
     </>

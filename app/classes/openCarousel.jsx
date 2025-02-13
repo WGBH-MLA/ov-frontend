@@ -50,7 +50,7 @@ function Slide(props) {
     <a className='carousel-slide' href={props.url}>
       <div>
         <img src={props.image_url} />
-        <p className='legend'>{props.title}</p>
+        <p className='legend'>{props.title} &gt;</p>
       </div>
     </a>
   )

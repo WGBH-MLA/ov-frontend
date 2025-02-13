@@ -35,8 +35,7 @@ export default function FAQ() {
             </div>
             <div className='med-textline'>
               Please make sure your web browser is updated to the latest
-              version. If the record still will not play, please{' '}
-              <a href='/contact-us'>contact us</a>.
+              version. If the record still will not play, please <a href='/contact-us'>contact us</a>.
             </div>
 
             <div className='med-heading'>
@@ -62,11 +61,7 @@ export default function FAQ() {
             </div>
             <div className='med-textline'>
               For professional licensing requests, please contact GBH Stock
-              Sales at 617-300-3939 or{' '}
-              <a href='mailto:stock_sales@wgbh.org?subject=Open%20Vault%20licensing'>
-                stock_sales@wgbh.org
-              </a>
-              .
+              Sales at 617-300-3939 or audio <a href='mailto:stock_sales@wgbh.org?subject=Open%20Vault%20licensing'>stock_sales@wgbh.org</a>.
             </div>
 
             <div className='med-heading'>
@@ -74,7 +69,7 @@ export default function FAQ() {
             </div>
             <div className='med-textline'>
               Individuals wishing to visit the Archives should be engaged in
-              educational research. Please see <a href='/visit-us'>Visit Us</a>{' '}
+              educational research. Please see <a href='/visit-us'>Visit Us</a>
               for further information.
             </div>
 

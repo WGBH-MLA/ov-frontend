@@ -100,8 +100,7 @@ export function renderExhibit(exhibit: Exhibit) {
     let byline = (
       <div className='author-byline'>
         <div>
-          By{' '}
-          {exhibit.authors
+          By {exhibit.authors
             .map((author) => {
               return author.name
             })
