@@ -37,11 +37,7 @@ export const Help = () => {
           <strong>GBH Series</strong> - Program names and series produced by GBH
         </li>
         <li>
-          <strong>American Archive</strong> - Search records from over 200 media
-          organizations hosted by the
-          <a href='https://americanarchive.org/' target='_blank'>
-            American Archive of Public Broadcasting
-          </a>
+          <strong>American Archive</strong> - Search records from over 200 media organizations hosted by the <a href='https://americanarchive.org/' target='_blank'>American Archive of Public Broadcasting</a>
         </li>
       </ul>
       <h2>Advanced search</h2>

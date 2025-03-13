@@ -73,15 +73,22 @@ export default function OpenvaultCredits() {
               <div className="black">Susan Levene, Content Producer</div>
             </div>
 
-            <div className="hidden">
+            <div>
               <div className="purple bold spaced">GBH Archives</div>
               <div className="black">Peter Higgins, Archives Manager</div>
               <div className="black">Erica Titkemeyer, Archives Systems and Technology Manager</div>
               <div className="black">Andrew Meyers, Senior Software Developer</div>
               <div className="black">Henry Neels, Senior Software Developer</div>
-              <div className="black">Ryan Harbert, Software Developer</div>
+              <div className="black">Ryan Harbert, Senior Software Developer</div>
             </div>
 
+
+            <div>
+              <div className="purple bold spaced">GBH Creative</div>
+              <div className="black">Allison Picard, Senior Designer</div>
+              <div className="black">Matt Welch, Associate Creative Director of Graphic Design</div>
+
+            </div>
             <div>
               <div className="purple bold spaced">GBH Legal</div>
               <div className="black">Nike Okediji</div>

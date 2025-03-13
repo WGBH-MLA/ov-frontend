@@ -44,6 +44,12 @@ const affiliatedSites = [
     url: 'http://www.wgbhstocksales.org/',
     external: true,
   },
+  {
+    label: 'Boston Local TV News',
+    subLabel: '',
+    url: 'https://bostonlocaltv.org/',
+    external: true,
+  },
 ]
 
 export function NavigationBar() {
