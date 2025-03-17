@@ -46,7 +46,7 @@ const affiliatedSites = [
   },
   {
     label: 'Boston Local TV News',
-    subLabel: '',
+    subLabel: 'Learn more about the history of Boston’s local news',
     url: 'https://bostonlocaltv.org/',
     external: true,
   },
