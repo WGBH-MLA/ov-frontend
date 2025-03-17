@@ -1,3 +1,5 @@
+import { Social } from '~/classes/social'
+
 export function Footer(props){
   return(
     <div className="bottom-bar-container">
@@ -22,6 +24,7 @@ export function Footer(props){
           <FooterLink link="/contact-us" text="Contact Us" />
           <FooterLink link="/privacy-policy" text="Privacy Policy" />
           <FooterLink link="/terms" text="Terms & Conditions" />
+          <Social />
         </div>
       </div>
       <div className="bottom-bar-row">

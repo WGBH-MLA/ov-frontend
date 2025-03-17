@@ -426,6 +426,17 @@ a.navigation-spacer {
   flex-grow: 2;
 }
 
+.martop {
+  margin-top: 4vh;
+}
+
+.social-icon {
+  margin-right: 1em;
+  width: 2em;
+  max-height: 2em;
+  object-fit: contain;
+}
+
 .affiliated-websites-menu {
   min-width: 200px;
   margin-right: 2rem;
