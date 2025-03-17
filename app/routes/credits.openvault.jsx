@@ -81,9 +81,27 @@ export default function OpenvaultCredits() {
             </div>
 
             <div>
-              <div className="purple bold spaced">Copyeditor</div>
+              <div className="purple bold spaced">Copy Editor</div>
               <div className="black">Eleanor Beram</div>
             </div>
+
+            <div>
+              <div className="purple bold spaced">Web Production, Design, and Development - GBH Interactive</div>
+              <div className="black">Keren Shomer, Producer</div>
+              <div className="black">Mayo Todorovic, Designer</div>
+              <div className="black">Mitch Smith, Developer</div>
+              <div className="black">Jamie Biggar, Senior Developer</div>
+              <div className="black">Peter Pinch, Director of Technology</div>
+              <div className="black">Jon Alper, Director of Video Encoding</div>
+              <div className="black">Toby Bottorf, Director of Design</div>
+              <div className="black">Jim Barton, Business Operations Manager</div>
+            </div>
+
+            <div>
+              <div className="purple bold spaced">Copy Editor</div>
+              <div className="black">Eleanor Beram</div>
+            </div>            
+
           </div>
           <div className="static-halfbox small-text spaced static-credits">
             <div>
