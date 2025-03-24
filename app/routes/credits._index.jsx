@@ -42,7 +42,30 @@ export default function Credits() {
               future media assets are properly preserved as they are created.
             </div>
 
-            <div className="med-heading">
+            <div className="med-heading">Open Vault 2024 Redesign Project</div>
+            <div>
+              <div className="purple bold spaced">GBH Archives</div>
+              <div className="black">Peter Higgins, Archives Manager</div>
+              <div className="black">Erica Titkemeyer, Archives Systems and Technology Manager</div>
+              <div className="black">Andrew Meyers, Senior Software Developer</div>
+              <div className="black">Henry Neels, Senior Software Developer</div>
+              <div className="black">Ryan Harbert, Senior Software Developer</div>
+            </div>
+
+            <div>
+              <div className="purple bold spaced">GBH Creative</div>
+              <div className="black">Allison Picard, Senior Designer</div>
+              <div className="black">Matt Welch, Associate Creative Director of Graphic Design</div>
+            </div>
+
+            <div>
+              <div className="purple bold spaced">Special Thanks To</div>
+              <div className="black">Karen Cariani, Executive Director, Media Library and Archives</div>
+              <div className="black">Sammy Driscoll, Archives Shutdown Project Manager</div>
+              <div className="black">Lauren Jefferson, Archivist</div>
+            </div>
+
+            <div className="med-heading martop">
               Major funding for the Digital Infrastructure Project is provided
               by:
             </div>

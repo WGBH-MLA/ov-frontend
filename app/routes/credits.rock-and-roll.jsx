@@ -43,7 +43,7 @@ export default function RockCredits() {
             <div className="purple bold spaced">Project Director</div>
             <div className="black">Karen Cariani</div>
 
-            <div className="purple bold spaced">Project Staff></div>
+            <div className="purple bold spaced">Project Staff</div>
             <div className="black">Kevin Carter</div>
             <div className="black">Nancy Dillon</div>
             <div className="black">Julie Ecker</div>

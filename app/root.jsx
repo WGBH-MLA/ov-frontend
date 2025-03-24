@@ -14,7 +14,6 @@ import { ToastContainer, toast, Flip } from 'react-toastify'
 import { HomeMeta } from '~/classes/meta'
 import { NavigationBar } from '~/classes/navigationBar'
 import { Footer } from '~/classes/footer'
-import UnderConstruction from '~/components/UnderConstruction'
 
 import 'react-toastify/dist/ReactToastify.css'
 import '~/styles/styles.css'
@@ -71,24 +70,6 @@ export default function App() {
       lastScrollTop = scrollTop
     })
 
-    // 🚧 Under Construction warning
-    // Show a warning toast if it hasn't been shown in the last hour
-    const lastShown = localStorage.getItem('UnderConstructionLastShown')
-    if (!lastShown || Date.now() - parseInt(lastShown, 10) > 1000 * 60 * 60) {
-      localStorage.setItem('UnderConstructionLastShown', Date.now().toString())
-      toast(UnderConstruction, {
-        type: 'warning',
-        position: 'top-center',
-        autoClose: 10000,
-        hideProgressBar: true,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: 'light',
-        transition: Flip,
-      })
-    }
   }, []) // Empty array means this effect runs once on component mount
   return (
     <html lang='en'>
