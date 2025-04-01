@@ -52,7 +52,7 @@ export async function loader() {
 export default function App() {
   var data = useLoaderData()
   let meta = import.meta
-  if (meta.env && meta.env.LEGACY) {
+  if (import.meta.env && import.meta.env.LEGACY) {
     console.log('legacy browser detected')
   }
 
@@ -69,7 +69,6 @@ export default function App() {
       }
       lastScrollTop = scrollTop
     })
-
   }, []) // Empty array means this effect runs once on component mount
   return (
     <html lang='en'>
