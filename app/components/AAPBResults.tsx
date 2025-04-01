@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react'
 import { useInstantSearch } from 'react-instantsearch'
-import debounce from 'lodash/debounce'
+import debounce from '~/utils/debounce'
 import { ExternalLink } from 'lucide-react'
 
 import { Spinner } from '~/components'
@@ -28,17 +28,17 @@ export const AAPBResults = ({ aapbHost }) => {
   const [hits, setHits] = useState([])
 
   const fetchResults = useCallback(
-    debounce((currentQuery) => {
+    debounce(currentQuery => {
       console.log('fetching AAPB results for', currentQuery)
       fetch(
         `${aapbHost}/api.json?q=${encodeURIComponent(currentQuery)}&rows=10`
       )
-        .then((response) => response.json())
-        .then((data) => {
+        .then(response => response.json())
+        .then(data => {
           setResults(data.response.numFound.toLocaleString())
           setHits(data.response.docs)
         })
-        .catch((error) => console.error(error))
+        .catch(error => console.error(error))
     }, 200),
     []
   )
@@ -113,7 +113,7 @@ export const PBCoreDescriptionSnippet = ({ pbcore }: PB) => {
       break
     case 'object':
       if (Array.isArray(description)) {
-        description = description.map((d) => d.text).join(', ')
+        description = description.map(d => d.text).join(', ')
       } else {
         description = Object.values(description).join(', ')
       }
