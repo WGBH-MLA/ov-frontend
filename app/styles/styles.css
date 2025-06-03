@@ -863,10 +863,13 @@ div.pagelinks {
 
 div.pagelink {
   position: relative;
-  display: inline-block;
+  display: inline-flex;
+  margin-right: 10vw;
+}
+
+div.pagelink, div.pagelink a {
   width: 20vw;
   height: 40vh;
-  margin-right: 10vw;
 }
 
 div.exhibit-bottomlink a {
@@ -886,6 +889,13 @@ div.pagelink h4.pagelink-title {
   font-size: 1em;
   height: 8vh;
   max-height: 8vh;
+
+/*
+  need to support multiline
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+*/
   width: 85%;
 }
 
