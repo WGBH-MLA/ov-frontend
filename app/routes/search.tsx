@@ -37,6 +37,8 @@ export const loader: LoaderFunction = async ({ request }) => {
 export type SearchProps = {
   serverUrl?: string
   aapbHost?: string
+  esUrl?: string
+  esApiKey?: string
 }
 
 export default function SearchPage() {

@@ -1,4 +1,4 @@
-import { InstantSearch, SearchBox, Index } from 'react-instantsearch'
+import { InstantSearch, SearchBox, Index, Configure } from 'react-instantsearch'
 
 import { SearchProps } from '~/routes/search'
 import {
@@ -41,7 +41,7 @@ export const Search = ({ serverUrl, aapbHost, searchClient }: SearchProps) => {
           autoFocus
           placeholder='Search GBH Open Vault'
           queryHook={(query, search) => {
-            // console.log('searchbox', search)
+            console.debug('searchbox', search)
             // debounce the search input box
 
             clearTimeout(timerId)
@@ -55,7 +55,10 @@ export const Search = ({ serverUrl, aapbHost, searchClient }: SearchProps) => {
           <Tab
             title={
               <span>
-                Open Vault <ResultsCount />
+                <Index indexName='wagtail__wagtailcore_page'>
+                  <Configure filters='live:true AND id>3' />
+                  Open Vault <ResultsCount />
+                </Index>
               </span>
             }>
             <OVResults />

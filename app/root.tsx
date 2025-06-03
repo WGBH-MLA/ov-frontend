@@ -8,6 +8,7 @@ import {
   useLoaderData,
   useRouteError,
 } from '@remix-run/react'
+import type { LoaderFunction, MetaFunction } from '@remix-run/node'
 import { useEffect } from 'react'
 import { ToastContainer, toast, Flip } from 'react-toastify'
 
@@ -27,16 +28,14 @@ export function links() {
   return [{ rel: 'icon', href: '/favicon.ico', type: 'image/png' }]
 }
 
-export const meta = () => {
-  return [
-    { title: `GBH Open Vault` },
-    {
-      name: 'description',
-      content: `Explore scholar exhibits and collections from the GBH Archives.`,
-    },
-    ...HomeMeta,
-  ]
-}
+export const meta: MetaFunction = () => [
+  { title: `GBH Open Vault` },
+  {
+    name: 'description',
+    content: `Explore scholar exhibits and collections from the GBH Archives.`,
+  },
+  ...HomeMeta,
+]
 
 export async function loader() {
   // lift these env vars from process.env so they can be injected into window
@@ -69,7 +68,6 @@ export default function App() {
       }
       lastScrollTop = scrollTop
     })
-
   }, []) // Empty array means this effect runs once on component mount
   return (
     <html lang='en'>
