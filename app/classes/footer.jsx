@@ -1,3 +1,5 @@
+import { Social } from '~/classes/social'
+
 export function Footer(props){
   return(
     <div className="bottom-bar-container">
@@ -9,8 +11,8 @@ export function Footer(props){
         </div>
         <div className="bottom-bar-column">
           <FooterLink link="/series" text="GBH Series" />
-          <FooterLink link="/exhibits" text="Exhibits" />
-          <FooterLink link="/collections" text="Collections" />
+          <FooterLink link="/exhibits" text="Scholar Exhibits" />
+          <FooterLink link="/collections" text="Special Collections" />
         </div>
         <div className="bottom-bar-column">
           <FooterLink link="https://gbharchivesopenvault.donorsupport.co/page/general-fundraising" text="Support Us" />
@@ -19,13 +21,15 @@ export function Footer(props){
           <FooterLink link="/credits" text="Credits" />
         </div>
         <div className="bottom-bar-column">
+          <FooterLink link="/contact-us" text="Contact Us" />
           <FooterLink link="/privacy-policy" text="Privacy Policy" />
           <FooterLink link="/terms" text="Terms & Conditions" />
+          <Social />
         </div>
       </div>
       <div className="bottom-bar-row">
         <div className="bottom-bar-doublecolumn">
-          2021 WGBH Educational Foundation. All rights reserved.
+          2024 WGBH Educational Foundation. All rights reserved.
         </div>
       </div>
     </div>

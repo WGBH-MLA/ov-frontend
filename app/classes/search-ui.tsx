@@ -1,88 +1,85 @@
-import Client from '@searchkit/instantsearch-client'
-import Searchkit from 'searchkit'
-import searchkit_options from '~/data/searchkit.json'
-import {
-  InstantSearch,
-  SearchBox,
-  Hits,
-  Index,
-  Pagination,
-  HitsPerPage,
-} from 'react-instantsearch'
+import { InstantSearch, SearchBox, Index } from 'react-instantsearch'
+
+import { SearchProps } from '~/routes/search'
 import {
   Error,
-  EmptyQueryBoundary,
-  NoResultsBoundary,
-  LoadingIndicator,
+  ScrollTo,
+  Tabs,
+  Tab,
+  Router,
+  stateToRoute,
+  routeToState,
+  OVResults,
+  ResultsCount,
+  SeriesResults,
+  AAPBResults,
+  Help,
   EmptyQueryMessage,
-} from './search-utils'
-import { ScrollTo } from '~/components/ScrollTo'
-import { Hit } from '~/components/Hit'
-import { Carousel } from '~/components/Carousel'
-import { NoResults } from '~/components/NoResults'
-import { AAPBResults } from '~/components/AAPBResults'
-import { Refinements } from '~/components/Refinements'
-import { SearchProps } from '~/routes/search'
-import { Router, stateToRoute, routeToState } from '~/components/Router'
+  EmptyQueryBoundary,
+} from '~/components'
 
-const sk = new Searchkit(searchkit_options)
-
-export const searchClient = Client(sk)
-
-export const Search = ({ serverUrl, aapb_host }: SearchProps) => {
+export const Search = ({ serverUrl, aapbHost, searchClient }: SearchProps) => {
   let timerId: NodeJS.Timeout
-  let timeout: number = 350
+  let timeout: number = 250
 
   return (
     <InstantSearch
       searchClient={searchClient}
       routing={{
         router: Router(serverUrl),
-        stateMapping: { stateToRoute, routeToState },
+        stateMapping: {
+          stateToRoute,
+          routeToState,
+        },
       }}
-      insights={false}
-    >
-      <ScrollTo className="max-w-6xl p-4 flex gap-4 m-auto">
+      indexName='wagtail__wagtailcore_page'
+      future={{
+        preserveSharedStateOnUnmount: true,
+      }}>
+      <ScrollTo>
         <SearchBox
-          queryHook={(query, refine) => {
-            // console.log('searchbox', query)
+          autoFocus
+          placeholder='Search GBH Open Vault'
+          queryHook={(query, search) => {
+            // console.log('searchbox', search)
             // debounce the search input box
+
             clearTimeout(timerId)
-            timerId = setTimeout(() => refine(query), timeout)
+            timerId = setTimeout(() => search(query), timeout)
           }}
-          className="search-box"
         />
-        <Error />
-        <div className="search-results">
-          <EmptyQueryBoundary fallback={<EmptyQueryMessage />}>
-            <AAPBResults aapb_host={aapb_host} />
-            <LoadingIndicator />
-            <Index indexName="wagtail__wagtailcore_page">
-              <NoResultsBoundary fallback={<NoResults />}>
-                <h2>Open Vault results</h2>
-                <Refinements />
-                <Hits hitComponent={Hit} />
-                <Pagination />
-                Results per page
-                <HitsPerPage
-                  items={[
-                    { value: 5, label: '5' },
-                    { value: 10, label: '10', default: true },
-                    { value: 20, label: '20' },
-                    { value: 50, label: '50' },
-                  ]}
-                />
-              </NoResultsBoundary>
-            </Index>
-            <Index indexName="gbh-series">
-              <NoResultsBoundary fallback={null}>
-                <h3>GBH Series results</h3>
-                <Carousel aapb_host={aapb_host} />
-              </NoResultsBoundary>
-            </Index>
-          </EmptyQueryBoundary>
-        </div>
+        <EmptyQueryBoundary fallback={<EmptyQueryMessage />}>
+          {null}
+        </EmptyQueryBoundary>
+        <Tabs>
+          <Tab
+            title={
+              <span>
+                Open Vault <ResultsCount />
+              </span>
+            }>
+            <OVResults />
+          </Tab>
+          <Tab
+            title={
+              <span>
+                <Index indexName='gbh-series'>
+                  GBH Series <ResultsCount />
+                </Index>
+              </span>
+            }>
+            <SeriesResults aapbHost={aapbHost} />
+          </Tab>
+          <Tab title='American Archive'>
+            <AAPBResults aapbHost={aapbHost} />
+          </Tab>
+          <Tab title='Help'>
+            <Help />
+          </Tab>
+        </Tabs>
       </ScrollTo>
+
+      <Error />
     </InstantSearch>
   )
 }

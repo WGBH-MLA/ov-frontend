@@ -1,37 +1,37 @@
-import type { ComponentProps, ReactNode } from 'react';
-import React, { useEffect, useRef } from 'react';
-import { useInstantSearch } from 'react-instantsearch-core';
+import type { ComponentProps, ReactNode } from 'react'
+import React, { useEffect, useRef } from 'react'
+import { useInstantSearch } from 'react-instantsearch-core'
 
 type ScrollToProps = ComponentProps<'div'> & {
-  children: ReactNode;
-};
+  children: ReactNode
+}
 
 export function ScrollTo({ children, ...props }: ScrollToProps) {
-  const { addMiddlewares } = useInstantSearch();
-  const containerRef = useRef<HTMLDivElement>(null);
+  const { addMiddlewares } = useInstantSearch()
+  const containerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     return addMiddlewares(() => {
       return {
         onStateChange() {
-          const isFiltering = document.body.classList.contains('filtering');
+          const isFiltering = document.body.classList.contains('filtering')
           const isTyping =
             document.activeElement?.tagName === 'INPUT' &&
-            document.activeElement?.getAttribute('type') === 'search';
+            document.activeElement?.getAttribute('type') === 'search'
 
           if (isFiltering || isTyping) {
-            return;
+            return
           }
 
-          containerRef.current!.scrollIntoView();
+          containerRef.current!.scrollIntoView()
         },
-      };
-    });
-  }, [addMiddlewares]);
+      }
+    })
+  }, [addMiddlewares])
 
   return (
     <div {...props} ref={containerRef}>
       {children}
     </div>
-  );
+  )
 }

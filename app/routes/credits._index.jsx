@@ -42,7 +42,30 @@ export default function Credits() {
               future media assets are properly preserved as they are created.
             </div>
 
-            <div className="med-heading">
+            <div className="med-heading">Open Vault 2024 Redesign Project</div>
+            <div>
+              <div className="purple bold spaced">GBH Archives</div>
+              <div className="black">Peter Higgins, Archives Manager</div>
+              <div className="black">Erica Titkemeyer, Archives Systems and Technology Manager</div>
+              <div className="black">Andrew Meyers, Senior Software Developer</div>
+              <div className="black">Henry Neels, Senior Software Developer</div>
+              <div className="black">Ryan Harbert, Senior Software Developer</div>
+            </div>
+
+            <div>
+              <div className="purple bold spaced">GBH Creative</div>
+              <div className="black">Allison Picard, Senior Designer</div>
+              <div className="black">Matt Welch, Associate Creative Director of Graphic Design</div>
+            </div>
+
+            <div>
+              <div className="purple bold spaced">Special Thanks To</div>
+              <div className="black">Karen Cariani, Executive Director, Media Library and Archives</div>
+              <div className="black">Sammy Driscoll, Archives Shutdown Project Manager</div>
+              <div className="black">Lauren Jefferson, Archivist</div>
+            </div>
+
+            <div className="med-heading martop">
               Major funding for the Digital Infrastructure Project is provided
               by:
             </div>
@@ -85,8 +108,7 @@ export default function Credits() {
 
             <div className="static-halfbox small-text">
               <div className="med-textline">
-                The prototype website was funded in part by{' '}
-                <b>The John D. and Catherine T. MacArthur Foundation</b>.
+                The prototype website was funded in part by <b>The John D. and Catherine T. MacArthur Foundation</b>.
               </div>
             </div>
             <div className="static-halfbox small-text spaced org-logos">
@@ -108,59 +130,30 @@ export default function Credits() {
               <img src="/mellon.png" />
             </div>
 
-            <h2>Open Vault Credits</h2>
-
-            <div className="static-halfbox small-text spaced static-credits">
+            <div>
+              <h2>Additional Project Credits</h2>
               <div>
-                <div className="gray spaced">Project Management</div>
-                <div className="black">Karen Cariani, Project Director</div>
-                <div className="black">Karen Colbron, Project Manager</div>
+                <ul style={{listStyle: "none"}}>
+                  <li><a href="/credits/openvault">Open Vault</a></li>
+                  <li><a href="/credits/research">Digital Library Initiative</a></li>
+                  <li><a href="/credits/vietnam">Open Vault Vietnam</a></li>
+                  <li><a href="/credits/ten-oclock-news">Ten O’Clock News</a></li>
+                  <li><a href="/credits/say-brother">Say Brother</a></li>
+                  <li><a href="/credits/new-television-workshop">New Television Workshop</a></li>
+                  <li><a href="/credits/war-and-peace-in-the-nuclear-age">War and Peace in the Nuclear Age</a></li>
+                  <li><a href="/credits/the-advocates">The Advocates</a></li>
+
+                  <li><a href="/credits/march-on-washington">March on Washington</a></li>
+                  <li><a href="/credits/rock-and-roll">Rock and Roll</a></li>
+                </ul>
               </div>
 
-              <div>
-                <div className="gray spaced">Business Manager</div>
-                <div className="black">Paul Plutnicki</div>
-              </div>
 
-              <div>
-                <div className="gray spaced">Content Production</div>
-                <div className="black">Helen Brady, Production Assistant</div>
-                <div className="black">Susan Levene, Content Producer</div>
-              </div>
-
-              <div>
-                <div className="gray spaced">GBH Legal</div>
-                <div className="black">Nike Okediji</div>
-                <div className="black">Susan Rosen</div>
-                <div className="black">Doug Ryan</div>
-              </div>
-
-              <div>
-                <div className="gray spaced">Copyeditor</div>
-                <div className="black">Eleanor Beram</div>
-              </div>
             </div>
-            <div className="static-halfbox small-text spaced static-credits">
-              <div>
-                <div className="gray spaced">With thanks to</div>
-                <div className="black">
-                  Steve Baldwin, National Boston Ned Biddle, National Boston
-                  Kevin Carter, technical advisor, GBH Nancy Dillon, library
-                  manager, GBH Dale Freeman, assistant archivist, Archives and
-                  Special Collections Department, Healey Library, University of
-                  Massachusetts at Boston
-                </div>
-              </div>
 
-              <div>
-                <div className="gray spaced">
-                  Special thanks to our friends and colleagues in Archives:
-                </div>
-                <div className="black">
-                  Jordan Berson, Mary Ide, Keith Luf, Jonathan Pipe, Leah Weisse
-                </div>
-              </div>
-            </div>
+
+
+
           </div>
         </div>
       </div>

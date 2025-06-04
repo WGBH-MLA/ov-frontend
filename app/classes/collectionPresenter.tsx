@@ -2,13 +2,20 @@ import { decode } from 'html-entities'
 import { renderSidebar, renderPageTitleBar } from './pageHelpers'
 import { renderBlocks } from './contentHelpers'
 import { SIDEBAR_TYPES } from '~/data/sidebarTypes'
+import type { Collection } from '~/types/openvault'
 
-export function renderCollection(collection) {
+export function renderCollection(collection: Collection) {
   let sidebar
   // console.log('rendering collection', collection)
   sidebar = renderSidebar(
     'In This Collection',
-    collection.content.filter(block => ( SIDEBAR_TYPES.includes(block.type) && block?.value?.show_sidebar ) )
+    collection.content.filter(
+      (block) =>
+        SIDEBAR_TYPES.includes(block.type) &&
+        (block.type == 'heading' ||
+          block.type == 'credits' ||
+          block?.value?.show_sidebar)
+    )
   )
 
   let titleBar
@@ -31,10 +38,10 @@ export function renderCollection(collection) {
   let introduction
   if (collection.introduction) {
     introduction = (
-      <div className="content-block">
+      <div className='content-block'>
         <h3>Introduction</h3>
         <div
-          className="content-block-body"
+          className='content-block-body'
           dangerouslySetInnerHTML={{ __html: decode(collection.introduction) }}
         />
       </div>
@@ -43,12 +50,12 @@ export function renderCollection(collection) {
 
   return (
     <div>
-      <div className="page-container">
+      <div className='page-container'>
         {titleBar}
         {sidebar}
 
-        <div className="page-body-container">
-          <div className="page-body">
+        <div className='page-body-container'>
+          <div className='page-body'>
             {introduction}
             {blockContent}
           </div>

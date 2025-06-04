@@ -30,12 +30,13 @@ div.carousel-container
 }
 
 div.carousel-container .carousel .slide .legend {
-  font-size: 2rem;
-  top: 40%;
+  font-size: 1rem;
+  top: 75%;
   bottom: unset;
-  max-width: 50%;
-  left: 25%;
+  max-width: 25%;
+  left: 12.5%;
   margin-left: auto;
+  background-color: transparent;
 }
 
 @media screen and (max-width: 1000px) {
@@ -46,6 +47,13 @@ div.carousel-container .carousel .slide .legend {
   }
 }
 
+@media screen and (min-width: 1980px) {
+  div.carousel-container .carousel .slide .legend {
+    top: 85%;
+    max-width: 15%;
+    left: 15%;
+  }
+}
 li.slide.selected {
   z-index: unset !important;
 }

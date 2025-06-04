@@ -21,8 +21,7 @@ export function renderAuthorBubble(author, style, key) {
             ? 'url(' + author.image.full_url + ')'
             : '',
         }}
-        className={classes}
-      ></div>
+        className={classes}></div>
     )
   }
 }
@@ -30,30 +29,17 @@ export function renderAuthorBubble(author, style, key) {
 export function renderPageLink(pageType, page, key) {
   let authorBubble, authorLink
 
-  if (page.authors && page.authors.length > 0 && page.authors[0].name) {
-    let author = page.authors[0]
-    if (author.image) {
-      // can't really have authorbubble without an author image!
-      authorBubble = renderAuthorBubble(author, 'attach')
-    }
-    authorLink = <div className="pagelink-subtitle">By {author.name}</div>
-  } else {
-    authorBubble = renderAuthorBubble(false, 'attach')
-    authorLink = <div className="pagelink-subtitle" />
-  }
-
   return (
-    <div key={key} className="pagelink">
+    <div key={key} className='pagelink'>
       <a href={'/' + pageType + '/' + page.meta.slug}>
         <div
-          className="pagelink-image"
+          className='pagelink-image'
           style={{
             backgroundImage: page.cover_image
               ? 'url(' + page.cover_image.full_url + ')'
               : null,
-          }}
-        ></div>
-        <h4 className="pagelink-title">{page.title}</h4>
+          }}></div>
+        <h4 className='pagelink-title'>{page.title}</h4>
         {authorBubble}
       </a>
       {authorLink}
@@ -65,7 +51,7 @@ export function renderPageLinks(pageType, pages) {
   let pageLinks = pages.map((page, index) => {
     return renderPageLink(pageType, page, index)
   })
-  return <div className="pagelinks">{pageLinks}</div>
+  return <div className='pagelinks'>{pageLinks}</div>
 }
 
 export function renderSidebar(
@@ -115,13 +101,12 @@ export function renderSidebar(
   let authorSectionLink
   if (authors) {
     authorSectionLink = (
-      <div key={sections.length} className="page-sidebar-link">
+      <div key={sections.length} className='page-sidebar-link'>
         <a
           onClick={() => {
             scrollSectionIntoView('authors-section')
           }}
-          className=""
-        >
+          className=''>
           Authors
         </a>
       </div>
@@ -131,13 +116,12 @@ export function renderSidebar(
   let footnoteSectionLink
   if (footnotes) {
     footnoteSectionLink = (
-      <div key={sections.length + 1} className="page-sidebar-link">
+      <div key={sections.length + 1} className='page-sidebar-link'>
         <a
           onClick={() => {
             scrollSectionIntoView('footnote-section')
           }}
-          className=""
-        >
+          className=''>
           Footnotes
         </a>
       </div>
@@ -146,7 +130,15 @@ export function renderSidebar(
 
   var sidebarSections = sections.map((section, index) => {
     // aapb data has title nested likea so
-    var title = section.type == 'heading' ? section.value : section.value.title
+    let title
+    if (section.type == 'heading') {
+      title = section.value
+    } else if (section.type == 'credits') {
+      title = 'Credits'
+    } else {
+      title = section.value.title
+    }
+
     return renderSidebarSection(title, section.id, index)
   })
 
@@ -154,9 +146,9 @@ export function renderSidebar(
 
   return (
     <div className={isOpen ? 'page-sidebar sidebar-open' : 'page-sidebar'}>
-      <div className="page-sidebar-header">
-        <MenuIcon id="sidebar-menu-icon" onClick={() => setIsOpen(!isOpen)} />
-        <div className="page-sidebar-title mobile-hidden">{sidebarTitle}</div>
+      <div className='page-sidebar-header'>
+        <MenuIcon id='sidebar-menu-icon' onClick={() => setIsOpen(!isOpen)} />
+        <div className='page-sidebar-title mobile-hidden'>{sidebarTitle}</div>
       </div>
       {isOpen && sidebarSections}
     </div>
@@ -165,7 +157,7 @@ export function renderSidebar(
 
 export function renderSidebarSection(title, id, key) {
   return (
-    <div key={key} className="page-sidebar-link">
+    <div key={key} className='page-sidebar-link'>
       <a
         onClick={() => {
           scrollSectionIntoView(id)
@@ -205,16 +197,15 @@ function scrollToAnchor(anchorId) {
 export function renderPageTitleBar(title, hero_image_url, subtitle = null) {
   let subtitleContainer
   if (subtitle) {
-    subtitleContainer = <div className="page-titlebar-subtitle">{subtitle}</div>
+    subtitleContainer = <div className='page-titlebar-subtitle'>{subtitle}</div>
   }
-
+  //{title}
   return (
     <div
-      className="page-titlebar"
-      style={{ backgroundImage: `url(${hero_image_url})` }}
-    >
-      <h1 className="page-titlebar-title">
-        {title}
+      className='page-titlebar'
+      style={{ backgroundImage: `url(${hero_image_url})` }}>
+      <h1 className='page-titlebar-title'>
+        <div>{title}</div>
         {subtitleContainer}
       </h1>
     </div>
@@ -223,10 +214,10 @@ export function renderPageTitleBar(title, hero_image_url, subtitle = null) {
 
 export function renderFootnoteContent(footnote, index) {
   return (
-    <li className="footnote-content" key={index}>
+    <li className='footnote-content' key={index}>
       <a
         id={ovFootnoteSlug(footnote.uuid)}
-        className="footnote-text"
+        className='footnote-text'
         dangerouslySetInnerHTML={{ __html: decode(footnote.text) }}
       />
     </li>
@@ -239,7 +230,7 @@ export function renderFootnoteSection(footnotes) {
   })
 
   return (
-    <div id="footnote-section">
+    <div id='footnote-section'>
       <h3>Footnotes</h3>
       <ul>{notes}</ul>
     </div>
@@ -255,7 +246,7 @@ export function renderFootnotesInBody(body, footnotes) {
   useEffect(() => {
     var ftts = document.querySelectorAll('a.footnote-text')
     Array.prototype.slice.call(ftts).map((ele, index) => {
-      ele.addEventListener('click', e => {
+      ele.addEventListener('click', (e) => {
         // +1 because they start at 1 not 0
         scrollToAnchor(`footnote-${index + 1}`)
       })
@@ -269,14 +260,14 @@ export function renderFootnotesInBody(body, footnotes) {
         return parseInt(a) - parseInt(b)
       })
       .map((ele, index) => {
-        ele.addEventListener('click', e => {
+        ele.addEventListener('click', (e) => {
           scrollToAnchor(ovFootnoteSlug(footnotes[index].uuid))
         })
       })
   }, [])
 
   footnotes.map((footnote, index) => {
-    body = body.map(contentBlock => {
+    body = body.map((contentBlock) => {
       if (
         contentBlock.type == 'text' &&
         contentBlock.value.includes(
@@ -304,7 +295,7 @@ export function renderFootnotesInBody(body, footnotes) {
 export function renderFootnoteLink(footnote, number) {
   return (
     // <a onClick={ (e) => scrollSectionIntoView( ovFootnoteSlug(footnote.uuid) ) } className="footnote-link">
-    <a id={`footnote-${number}`} className="footnote-link">
+    <a id={`footnote-${number}`} className='footnote-link'>
       {number}
     </a>
   )

@@ -1,4 +1,5 @@
 import { useLoaderData, Link } from '@remix-run/react'
+import { ExternalLink, Search, X } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { Meta } from '~/classes/meta'
 import { seriesData } from '~/data/seriesData'
@@ -25,7 +26,7 @@ export const loader = async () => {
 
 function renderSeriesLink(series) {
   return (
-    <a href={series.url} className="series-link">
+    <a href={series.url} className='series-link'>
       {series.title}
     </a>
   )
@@ -39,9 +40,8 @@ export default function Series() {
   let alphabetLinks = Object.keys(seriesData).map((letter, index) => (
     <Link
       key={index}
-      className="series-alphabet-link"
-      to={'#series-' + letter.toLowerCase()}
-    >
+      className='series-alphabet-link'
+      to={'#series-' + letter.toLowerCase()}>
       {letter}
     </Link>
   ))
@@ -49,7 +49,7 @@ export default function Series() {
   let seriesAlphaGroups = Object.keys(seriesData).map((letter, index) => {
     let seriesGroup = seriesData[letter]
     if (seriesSearch.length > 0) {
-      seriesGroup = seriesGroup.filter(title =>
+      seriesGroup = seriesGroup.filter((title) =>
         title.toLowerCase().includes(seriesSearch)
       )
     }
@@ -58,22 +58,21 @@ export default function Series() {
       return (
         <a
           key={groupIndex}
-          className="series-link"
-          href={`${data.AAPB_HOST}/catalog?f[series_titles][]=${title}&q=+(contributing_organizations: WGBH(MA) OR producing_organizations: WGBH Educational Foundation)&f[access_types][]=all`}
-          target="_blank"
-        >
-          {title}
+          className='series-link'
+          // href={`${data.AAPB_HOST}/catalog?f[series_titles][]=${title}&q=+(contributing_organizations: WGBH(MA) OR producing_organizations: WGBH Educational Foundation)&f[access_types][]=all`}
+          href={`${data.AAPB_HOST}/catalog?q=(+(series_titles: ${title} OR program_titles: ${title}) AND (contributing_organizations: WGBH(MA) OR producing_organizations: WGBH Educational Foundation))&f[access_types][]=all`}
+          target='_blank'>
+          {title} <ExternalLink size={16} />
         </a>
       )
     })
 
     if (seriesGroup.length > 0)
       return (
-        <div key={index} className="series-group">
+        <div key={index} className='series-group'>
           <div
             id={'series-' + letter.toLowerCase()}
-            className="series-group-letter"
-          >
+            className='series-group-letter'>
             {letter}
           </div>
           {seriesGroup}
@@ -118,30 +117,51 @@ export default function Series() {
       }
     })
   }, [])
-  // seriesAlphaGroups = seriesAlphaGroups.filter( (sG) => sG.length > 0  )
-  return (
-    <div className="page-container">
-      <div className="page-sidebar">
-        <h4 className="page-sidebar-title spaced">Search GBH Series</h4>
-        <div className="series-search-container">
-          <input
-            className="series-search"
-            onKeyUp={e => setSeriesSearch(e.target.value.toLowerCase())}
-            type="text"
-            name="series-search"
-            placeholder="Series Name"
-          />
-          <div className="series-search-button" />
-        </div>
 
-        <h4 className="page-sidebar-title spaced">Jump To</h4>
-        <div className="series-alphabet">{alphabetLinks}</div>
+  seriesAlphaGroups = seriesAlphaGroups.filter((sG) => sG)
+  if (seriesAlphaGroups.length == 0) {
+    seriesAlphaGroups = (
+      <div>
+        No results were found for your search query. Please revise your query
+        and try again.
+      </div>
+    )
+  }
+
+  var clearSearch = function () {
+    document.getElementById('search').value = ''
+    setSeriesSearch('')
+  }
+
+  return (
+    <div className='page-container'>
+      <div className='page-sidebar list-page'>
+        <span>
+          <h4 className='page-sidebar-title spaced'>Search GBH Series</h4>
+          <div className='series-search-container'>
+            <input
+              id='search'
+              className='series-search'
+              onKeyUp={(e) => setSeriesSearch(e.target.value.toLowerCase())}
+              type='text'
+              name='series-search'
+              placeholder='Search...'
+            />
+            <div className='search-clear-button' onClick={(e) => clearSearch()}>
+              <X />
+            </div>
+            <Search />
+          </div>
+
+          <h4 className='page-sidebar-title spaced'>Jump To</h4>
+          <div className='series-alphabet'>{alphabetLinks}</div>
+        </span>
       </div>
 
-      <div className="page-body-container">
-        <div className="page-body">
-          <h1 className="series-bigtitle">GBH Series</h1>
-          <div className="series-summary">
+      <div className='page-body-container'>
+        <div className='page-body'>
+          <h1 className='series-bigtitle'>GBH Series</h1>
+          <div className='series-summary'>
             Browse by title and explore records on AAPB
           </div>
           {seriesAlphaGroups}
