@@ -4,7 +4,6 @@ export default {
     'slug',
     'exhibits_exhibitpage__body_edgengrams',
     'ov_collections_collection__introduction_edgengrams',
-    'featured',
   ],
   result_attributes: [
     'title',
@@ -21,12 +20,22 @@ export default {
   ],
   facet_attributes: [
     { attribute: 'content_type', field: 'content_type', type: 'string' },
-  ],
-  filter_attributes: [
     {
       attribute: 'featured',
       field: 'exhibits_exhibitpage__featured_filter',
-      type: 'string',
+      type: 'boolean',
+    },
+  ],
+  filter_attributes: [
+    {
+      attribute: 'live',
+      field: 'live_filter',
+      type: 'boolean',
+    },
+    {
+      attribute: 'id',
+      field: 'id_filter',
+      type: 'numeric',
     },
   ],
 
