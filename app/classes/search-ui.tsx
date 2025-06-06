@@ -36,6 +36,7 @@ export const Search = ({ serverUrl, aapbHost, searchClient }: SearchProps) => {
       future={{
         preserveSharedStateOnUnmount: true,
       }}>
+      <Configure filters='live:true AND id>3' />
       <ScrollTo>
         <SearchBox
           autoFocus
@@ -55,10 +56,7 @@ export const Search = ({ serverUrl, aapbHost, searchClient }: SearchProps) => {
           <Tab
             title={
               <span>
-                <Index indexName='wagtail__wagtailcore_page'>
-                  <Configure filters='live:true AND id>3' />
-                  Open Vault <ResultsCount />
-                </Index>
+                Open Vault <ResultsCount />
               </span>
             }>
             <OVResults />
@@ -67,6 +65,7 @@ export const Search = ({ serverUrl, aapbHost, searchClient }: SearchProps) => {
             title={
               <span>
                 <Index indexName='gbh-series'>
+                  <Configure filters='' />
                   GBH Series <ResultsCount />
                 </Index>
               </span>

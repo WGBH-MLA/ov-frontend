@@ -50,10 +50,9 @@ export async function loader() {
 
 export default function App() {
   var data = useLoaderData()
-  let meta = import.meta
-  if (meta.env && meta.env.LEGACY) {
-    console.log('legacy browser detected')
-  }
+  // if (import.meta.env.LEGACY) {
+  //   console.log('legacy browser detected')
+  // }
 
   useEffect(() => {
     let lastScrollTop = 0
