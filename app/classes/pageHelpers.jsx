@@ -26,6 +26,19 @@ export function renderAuthorBubble(author, style, key) {
   }
 }
 
+function titleTrunc(text){
+  if(text){
+    if(text.length > 120){
+      return text.slice(0,120) + "..."  
+    } else {
+      return text
+    }
+  } else {
+    return "Untitled"
+  }
+
+}
+
 export function renderPageLink(pageType, page, key) {
   let authorBubble, authorLink
 
@@ -39,7 +52,7 @@ export function renderPageLink(pageType, page, key) {
               ? 'url(' + page.cover_image.full_url + ')'
               : null,
           }}></div>
-        <h4 className='pagelink-title'>{page.title}</h4>
+        <h4 className='pagelink-title'>{ titleTrunc(page.title) }</h4>
         {authorBubble}
       </a>
       {authorLink}

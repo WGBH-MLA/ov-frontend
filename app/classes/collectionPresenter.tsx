@@ -6,7 +6,7 @@ import type { Collection } from '~/types/openvault'
 
 export function renderCollection(collection: Collection) {
   let sidebar
-  // console.log('rendering collection', collection)
+  // console.log('rendering collection', collection.content)
   sidebar = renderSidebar(
     'In This Collection',
     collection.content.filter(
