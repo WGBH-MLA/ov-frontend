@@ -1,6 +1,7 @@
 import type { Hit as AlgoliaHit } from 'instantsearch.js'
 import { ExternalLink } from 'lucide-react'
 import {
+  Configure,
   Highlight,
   Hits,
   Index,
@@ -37,6 +38,7 @@ export const SeriesResults = ({ aapbHost }) => {
 
   return (
     <Index indexName='gbh-series'>
+      <Configure filters='' />
       <NoResultsBoundary fallback={<NoResultsMessage />}>
         Found {<ResultsCount />} GBH Series
         <div className='search-result-header'>

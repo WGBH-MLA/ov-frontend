@@ -4,10 +4,7 @@ import {
   useInstantSearch,
   ClearRefinements,
   RefinementList,
-  panel,
 } from 'react-instantsearch'
-
-import { Panel } from 'react-instantsearch'
 
 const ATTRIBUTES = { content_type: 'Type', featured: 'Featured' }
 
@@ -16,22 +13,22 @@ const CONTENT_TYPES = {
   'exhibits.ExhibitPage': 'Scholar Exhibits',
   'ov_collections.Collection': 'Special Collections',
 }
-export const transformContentTypes = (items) =>
+export const transformContentTypes = items =>
   items
-    .filter((item) => item.value in CONTENT_TYPES)
-    .map((item) => {
+    .filter(item => item.value in CONTENT_TYPES)
+    .map(item => {
       if (item.label in CONTENT_TYPES) {
         return { ...item, label: CONTENT_TYPES[item.label] }
       }
     })
 
-export const transformItems = (items) =>
+export const transformItems = items =>
   // transform refinement Labels
-  items.map((item) => {
+  items.map(item => {
     console.log('refinement', item)
     if (item.attribute in ATTRIBUTES) {
       // if this is an attribute we track, transform the label for each refinement
-      item.refinements = item.refinements.map((refinement) => {
+      item.refinements = item.refinements.map(refinement => {
         if (refinement.value in CONTENT_TYPES) {
           // Transform the refinement label
           return {
