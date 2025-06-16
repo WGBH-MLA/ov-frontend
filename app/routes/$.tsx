@@ -15,7 +15,7 @@ export const loader = async ({ params }) => {
     case 'exhibits':
       newSlug = exhibitLinks[slug]
       if (newSlug) {
-        if (newSlug === 'zoom') {
+        if (slug === 'zoom') {
           // Special case for the Zoom exhibit, which links to AAPB
           return redirect(newSlug)
         }
@@ -33,8 +33,8 @@ export const loader = async ({ params }) => {
     default:
       newSlug = externalLinks[path]
       if (newSlug) {
-        console.log(`Redirecting to external link: ${externalLinks[path]}`)
-        return redirect(externalLinks[path])
+        console.log(`Redirecting to external link: ${newSlug}`)
+        return redirect(newSlug)
       }
       throw new Response(`No page found for: ${path}`, { status: 404 })
   }

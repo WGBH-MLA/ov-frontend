@@ -1,6 +1,6 @@
 /* Ye Olde Open Vault URL redirect links */
 
-export const collectionLinks = {
+export const collectionLinks: Record<string, string> = {
   1964: '1964-interviews',
   abolitionists: 'the-abolitionists-interviews',
   advocates: 'the-advocates',
@@ -30,7 +30,7 @@ export const collectionLinks = {
   vietnam: 'the-vietnam-collection',
   war_peace: 'war-and-peace-in-the-nuclear-age',
 }
-export const exhibitLinks = {
+export const exhibitLinks: Record<string, string> = {
   advocates: 'the-advocates-an-innovation-in-public-affairs-television',
   art_of_asian_cooking: 'art-of-asian-cooking',
   bibring: 'the-grete-l-bibring-collection',
@@ -52,7 +52,7 @@ export const exhibitLinks = {
   television_violence: 'television-on-television-violence',
   zoom: 'https://americanarchive.org/special_collections/zoom',
 }
-export const externalLinks = {
+export const externalLinks: Record<string, string> = {
   'american-archive-of-public-broadcasting': 'https://americanarchive.org/',
   'stock-sales': 'https://wgbhstocksales.org/',
 }
