@@ -2,7 +2,6 @@ import { useRouteError } from '@remix-run/react'
 import { redirectDocument } from '@remix-run/node'
 import type { LoaderFunction, LoaderFunctionArgs } from '@remix-run/node'
 import type { Guid } from '~/types/pbcore'
-
 export const loader: LoaderFunction = async ({
   params,
 }: LoaderFunctionArgs) => {
@@ -57,7 +56,7 @@ export const ErrorBoundary = () => {
   const error = useRouteError()
   console.log('cat error', error)
   return (
-    <div className="page-body-container">
+    <div className='page-body-container'>
       {error.status === 404 ? (
         <h1>Not found</h1>
       ) : (
