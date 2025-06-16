@@ -1,3 +1,4 @@
+import { redirect } from '@remix-run/node'
 import { exhibitLinks, collectionLinks } from '~/data/redirects'
 
 export async function getExhibits() {
@@ -51,7 +52,10 @@ export async function getPageBySlug(
         throw redirect(`/collections/${newSlug}`)
       }
     }
-    throw new Response(`No ${type} called: ${slug}`, { status: 404 })
+    throw new Response('Page not found', {
+      status: 404,
+      statusText: `No ${type} called: ${slug}`,
+    })
   }
   return await fetch(
     `${process.env.OV_API_URL}/api/v2/${type}/${body.items[0].id}`
