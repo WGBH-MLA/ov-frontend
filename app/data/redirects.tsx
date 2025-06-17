@@ -30,6 +30,12 @@ export const collectionLinks: Record<string, string> = {
   vietnam: 'the-vietnam-collection',
   war_peace: 'war-and-peace-in-the-nuclear-age',
 }
+
+export const collectionExternalLinks: Record<string, string> = {
+  'american-archive-of-public-broadcasting': 'https://americanarchive.org/',
+  'stock-sales': 'https://wgbhstocksales.org/',
+}
+
 export const exhibitLinks: Record<string, string> = {
   advocates: 'the-advocates-an-innovation-in-public-affairs-television',
   art_of_asian_cooking: 'art-of-asian-cooking',
@@ -50,9 +56,8 @@ export const exhibitLinks: Record<string, string> = {
   showing_status: 'gbh-and-the-presidents-commission-on-the-status-of-women',
   'tech-nostalgia': 'considering-our-tech-nostalgia',
   television_violence: 'television-on-television-violence',
-  zoom: 'https://americanarchive.org/special_collections/zoom',
 }
-export const externalLinks: Record<string, string> = {
-  'american-archive-of-public-broadcasting': 'https://americanarchive.org/',
-  'stock-sales': 'https://wgbhstocksales.org/',
+
+export const exhibitExternalLinks: Record<string, string> = {
+  zoom: 'https://americanarchive.org/special_collections/zoom',
 }

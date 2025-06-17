@@ -2,25 +2,31 @@
 
 import { redirect } from '@remix-run/node'
 import { isRouteErrorResponse, useRouteError } from '@remix-run/react'
-import { exhibitLinks, collectionLinks, externalLinks } from '~/data/redirects'
+import {
+  exhibitLinks,
+  collectionLinks,
+  collectionExternalLinks,
+  exhibitExternalLinks,
+} from '~/data/redirects'
 
 export const loader = async ({ params }) => {
   let path = params['*'] || ''
   let parts = path.split('/')
   let route = parts[0]
   let slug = parts[1] || ''
-  let newSlug
+  let newSlug, external
   // Check if the path matches an exhibit or collection redirect
   switch (route) {
     case 'exhibits':
       newSlug = exhibitLinks[slug]
       if (newSlug) {
-        if (slug === 'zoom') {
-          // Special case for the Zoom exhibit, which links to AAPB
-          return redirect(newSlug)
-        }
         console.log(`Redirecting to new exhibit slug: ${newSlug}`)
         return redirect(`/exhibits/${newSlug}`)
+      }
+      external = exhibitExternalLinks[slug]
+      if (external) {
+        console.log(`Redirecting to external link: ${external}`)
+        return redirect(external)
       }
       break
     case 'collections':
@@ -29,13 +35,13 @@ export const loader = async ({ params }) => {
         console.log(`Redirecting to new collection slug: ${newSlug}`)
         return redirect(`/collections/${newSlug}`)
       }
+      external = collectionExternalLinks[slug]
+      if (external) {
+        console.log(`Redirecting to external link: ${external}`)
+        return redirect(external)
+      }
       break
     default:
-      newSlug = externalLinks[path]
-      if (newSlug) {
-        console.log(`Redirecting to external link: ${newSlug}`)
-        return redirect(newSlug)
-      }
       throw new Response(`No page found for: ${path}`, { status: 404 })
   }
 
