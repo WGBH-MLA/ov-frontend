@@ -54,8 +54,26 @@ p {
   transform: translate(-100%, -100%);
 }
 
+span.ais-Highlight {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-inline-box;
+  line-clamp: 3;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
 span.ais-Highlight * {
   font-size: 1.4rem;
+}
+
+a span.ais-Snippet {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  line-clamp: 3;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
 }
 
 a span.ais-Snippet-nonHighlighted {
@@ -104,7 +122,6 @@ div.refinements {
   margin-left: 1rem;
 }
 
-
 .series-carousel .ais-Hits-item {
   border: 2px solid var(--light-purple);
   padding: 0.5rem;
@@ -115,7 +132,6 @@ div.refinements {
   text-wrap: auto;
   overflow: hidden;
   max-height: 20vh;
-  
 }
 
 .search-hit-thumb {
