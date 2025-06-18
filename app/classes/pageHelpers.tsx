@@ -2,6 +2,7 @@ import { decode } from 'html-entities'
 import { MenuIcon } from './mobileMenu'
 import { useState, useEffect } from 'react'
 import { renderToString } from 'react-dom/server'
+import trunc from '~/utils/trunc'
 
 export function renderAuthorBubble(author, style, key) {
   let classes = 'author-bubble'
@@ -39,7 +40,7 @@ export function renderPageLink(pageType, page, key) {
               ? 'url(' + page.cover_image.full_url + ')'
               : null,
           }}></div>
-        <h4 className='pagelink-title'>{page.title}</h4>
+        <h4 className='pagelink-title'>{trunc(page.title)}</h4>
         {authorBubble}
       </a>
       {authorLink}
@@ -246,7 +247,7 @@ export function renderFootnotesInBody(body, footnotes) {
   useEffect(() => {
     var ftts = document.querySelectorAll('a.footnote-text')
     Array.prototype.slice.call(ftts).map((ele, index) => {
-      ele.addEventListener('click', (e) => {
+      ele.addEventListener('click', e => {
         // +1 because they start at 1 not 0
         scrollToAnchor(`footnote-${index + 1}`)
       })
@@ -260,14 +261,14 @@ export function renderFootnotesInBody(body, footnotes) {
         return parseInt(a) - parseInt(b)
       })
       .map((ele, index) => {
-        ele.addEventListener('click', (e) => {
+        ele.addEventListener('click', e => {
           scrollToAnchor(ovFootnoteSlug(footnotes[index].uuid))
         })
       })
   }, [])
 
   footnotes.map((footnote, index) => {
-    body = body.map((contentBlock) => {
+    body = body.map(contentBlock => {
       if (
         contentBlock.type == 'text' &&
         contentBlock.value.includes(

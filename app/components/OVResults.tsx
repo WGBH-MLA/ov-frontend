@@ -1,5 +1,12 @@
 import type { Hit } from 'instantsearch.js'
-import { Highlight, Snippet, Hits, Index, SortBy } from 'react-instantsearch'
+import {
+  Highlight,
+  Snippet,
+  Hits,
+  Index,
+  SortBy,
+  Configure,
+} from 'react-instantsearch'
 
 import {
   NoResultsBoundary,
@@ -59,6 +66,8 @@ export const OVPageHit = ({ hit }: OVHitProps) => {
 
 export const OVResults = () => (
   <Index indexName='wagtail__wagtailcore_page'>
+    <Configure filters='live:true AND id>3' />
+
     <NoResultsBoundary fallback={<NoResultsMessage />}>
       <Refinements />
       <>Found {<ResultsCount />} Open Vault results</>
@@ -91,6 +100,7 @@ export const OVResults = () => (
 
         <PerPage />
       </div>
+
       <Hits hitComponent={OVPageHit} />
       <Pagination />
     </NoResultsBoundary>

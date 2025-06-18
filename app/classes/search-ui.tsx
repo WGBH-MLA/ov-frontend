@@ -1,4 +1,4 @@
-import { InstantSearch, SearchBox, Index } from 'react-instantsearch'
+import { InstantSearch, SearchBox, Index, Configure } from 'react-instantsearch'
 
 import { SearchProps } from '~/routes/search'
 import {
@@ -36,12 +36,13 @@ export const Search = ({ serverUrl, aapbHost, searchClient }: SearchProps) => {
       future={{
         preserveSharedStateOnUnmount: true,
       }}>
+      <Configure filters='live:true AND id>3' />
       <ScrollTo>
         <SearchBox
           autoFocus
           placeholder='Search GBH Open Vault'
           queryHook={(query, search) => {
-            // console.log('searchbox', search)
+            console.debug('searchbox', search)
             // debounce the search input box
 
             clearTimeout(timerId)
@@ -64,6 +65,7 @@ export const Search = ({ serverUrl, aapbHost, searchClient }: SearchProps) => {
             title={
               <span>
                 <Index indexName='gbh-series'>
+                  <Configure filters='' />
                   GBH Series <ResultsCount />
                 </Index>
               </span>
