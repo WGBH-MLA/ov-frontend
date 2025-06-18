@@ -51,10 +51,10 @@ export { ErrorBoundary }
 export const sitemap: SitemapFunction = async ({ config, request }) => {
   const collections = await fetch(
     process.env.OV_API_URL + '/api/v2/collections/'
-  ).then((res) => {
+  ).then(res => {
     return res.json()
   })
-  return collections.items.map((collection) => {
+  return collections.items.map(collection => {
     return {
       loc: `/collections/${collection.meta.slug}`,
       priority: 0.8,
