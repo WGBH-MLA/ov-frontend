@@ -8,6 +8,8 @@ import {
   renderFootnoteSection,
   renderFootnotesInBody,
 } from './pageHelpers'
+
+import { Share } from '../classes/share'
 import { renderBlocks } from './contentHelpers'
 import { SIDEBAR_TYPES } from '~/data/sidebarTypes'
 import type { Exhibit } from '~/types/openvault'
@@ -121,6 +123,7 @@ export function renderExhibit(exhibit: Exhibit) {
       <div className='page-authorbubble-stacked'>
         {bubbles}
         {extras}
+        <Share url={exhibit.url} />
       </div>
     )
   }
@@ -141,6 +144,8 @@ export function renderExhibit(exhibit: Exhibit) {
       <div className='page-container'>
         {titleBar}
         {exhibitAuthor}
+        
+
         {sidebar}
 
         <div className='page-body-container'>
