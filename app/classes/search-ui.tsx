@@ -1,4 +1,5 @@
 import { InstantSearch, SearchBox, Index, Configure } from 'react-instantsearch'
+import { useState, useCallback } from 'react'
 
 import { SearchProps } from '~/routes/search'
 import {
@@ -16,11 +17,17 @@ import {
   Help,
   EmptyQueryMessage,
   EmptyQueryBoundary,
+  AAPBResultCount,
 } from '~/components'
 
 export const Search = ({ serverUrl, aapbHost, searchClient }: SearchProps) => {
   let timerId: NodeJS.Timeout
   let timeout: number = 250
+
+  const [aapbResultCount, setAapbResultCount] = useState<number | null>(null)
+  const handleResultCountChange = useCallback((count: number | null) => {
+    setAapbResultCount(count)
+  }, [])
 
   return (
     <InstantSearch
@@ -72,8 +79,17 @@ export const Search = ({ serverUrl, aapbHost, searchClient }: SearchProps) => {
             }>
             <SeriesResults aapbHost={aapbHost} />
           </Tab>
-          <Tab title='American Archive'>
-            <AAPBResults aapbHost={aapbHost} />
+          <Tab
+            title={
+              <span>
+                American Archive
+                <AAPBResultCount resultCount={aapbResultCount} />
+              </span>
+            }>
+            <AAPBResults
+              aapbHost={aapbHost}
+              onResultCountChange={handleResultCountChange}
+            />
           </Tab>
           <Tab title='Help'>
             <Help />
