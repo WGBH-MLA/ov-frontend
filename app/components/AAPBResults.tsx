@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useMemo, useRef } from 'react'
 import { useInstantSearch } from 'react-instantsearch'
 import debounce from '~/utils/debounce'
 import { ExternalLink } from 'lucide-react'
@@ -21,40 +21,61 @@ export type AAPBHitProps = {
   aapbHost: string
 }
 
-export const AAPBResults = ({ aapbHost }) => {
+export const AAPBResults = ({
+  aapbHost,
+  onResultCountChange,
+}: {
+  aapbHost: string
+  onResultCountChange?: (count: number | null) => void
+}) => {
   const { indexUiState } = useInstantSearch()
+  const callbackRef = useRef(onResultCountChange)
 
-  const [result_count, setResults] = useState(null)
+  // Extract only the query from indexUiState
+  const query = indexUiState.query || ''
+
+  // Keep the ref current
+  useEffect(() => {
+    callbackRef.current = onResultCountChange
+  }, [onResultCountChange])
+
+  const [result_count, setResults] = useState<number | null>(null)
   const [hits, setHits] = useState([])
 
-  const fetchResults = useCallback(
-    debounce(currentQuery => {
-      console.log('fetching AAPB results for', currentQuery)
-      fetch(
-        `${aapbHost}/api.json?q=${encodeURIComponent(currentQuery)}&rows=10`
-      )
-        .then(response => response.json())
-        .then(data => {
-          setResults(data.response.numFound.toLocaleString())
-          setHits(data.response.docs)
-        })
-        .catch(error => console.error(error))
-    }, 200),
-    []
+  const updateResults = useCallback((count: number | null) => {
+    setResults(count)
+    callbackRef.current?.(count)
+  }, [])
+
+  // Memoize the debounced function
+  const debouncedFetch = useMemo(
+    () =>
+      debounce((currentQuery: string) => {
+        console.log('fetching AAPB results for', currentQuery)
+        fetch(
+          `${aapbHost}/api.json?q=${encodeURIComponent(currentQuery)}&rows=10`
+        )
+          .then(response => response.json())
+          .then(data => {
+            const count = data.response.numFound
+            updateResults(count)
+            setHits(data.response.docs)
+          })
+          .catch(error => console.error(error))
+      }, 200),
+    [aapbHost, updateResults]
   )
 
   useEffect(() => {
-    setResults(null) // Set results to null when the query changes to show the spinner
-    fetchResults(indexUiState.query || '')
-  }, [fetchResults, indexUiState])
+    updateResults(null)
+    debouncedFetch(query)
+  }, [debouncedFetch, query, updateResults]) // Use query instead of indexUiState
 
   return (
     <>
       Found
-      <span className='ais-RefinementList-count'>
-        {result_count === null ? <Spinner /> : result_count}
-      </span>
-      matching records on AmericanArchive.org for "{indexUiState.query}"
+      <AAPBResultCount resultCount={result_count} />
+      matching records on AmericanArchive.org for "{query}"
       <div className='ais-Hits'>
         <div className='ais-Hits-list'>
           {hits.map((hit: AAPBHit) => (
@@ -62,13 +83,9 @@ export const AAPBResults = ({ aapbHost }) => {
           ))}
         </div>
       </div>
-      <a
-        href={`${aapbHost}/catalog?q=${indexUiState.query}${gbh_query}`}
-        target='_blank'>
+      <a href={`${aapbHost}/catalog?q=${query}${gbh_query}`} target='_blank'>
         View
-        <span className='ais-RefinementList-count'>
-          {result_count === null ? <Spinner /> : result_count}
-        </span>
+        <AAPBResultCount resultCount={result_count} />
         more results on AmericanArchive.org"
         <ExternalLink />
       </a>
@@ -196,3 +213,13 @@ export const highlightSnippet = (text: string) => {
 
 export const removeSpecialChars = (text: string) =>
   text.replace(/[.*+?^${}()|[\]\\"']/g, '')
+
+export const AAPBResultCount = ({
+  resultCount,
+}: {
+  resultCount: number | null
+}) => (
+  <span className='ais-RefinementList-count'>
+    {resultCount === null ? <Spinner /> : resultCount.toLocaleString()}
+  </span>
+)
