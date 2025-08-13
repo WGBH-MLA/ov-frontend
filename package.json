@@ -10,7 +10,7 @@
     "start": "remix-serve ./build/server/index.js"
   },
   "dependencies": {
-    "@emotion/styled": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
     "@fontsource/red-hat-display": "^5.2.6",
     "@fontsource/red-hat-text": "^5.2.6",
     "@radix-ui/react-toast": "^1.2.14",
@@ -23,7 +23,7 @@
     "@vitejs/plugin-react": "^4.6.0",
     "html-entities": "^2.5.3",
     "instantsearch.css": "^8.5.1",
-    "lucide-react": "^0.523.0",
+    "lucide-react": "^0.539.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-instantsearch": "^7.16.0",
