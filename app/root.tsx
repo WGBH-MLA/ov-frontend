@@ -15,6 +15,7 @@ import { ToastContainer, toast, Flip } from 'react-toastify'
 import { HomeMeta } from '~/classes/meta'
 import { NavigationBar } from '~/classes/navigationBar'
 import { Footer } from '~/classes/footer'
+import Cookies from '~/components/Cookies'
 
 import 'react-toastify/dist/ReactToastify.css'
 import '~/styles/styles.css'
@@ -112,6 +113,7 @@ export default function App() {
 
         <ScrollRestoration />
         <Scripts />
+        <Cookies />
       </body>
     </html>
   )
