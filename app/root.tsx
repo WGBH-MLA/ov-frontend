@@ -23,7 +23,7 @@ import '~/styles/colors.css'
 import '@fontsource/red-hat-display'
 import '@fontsource/red-hat-text'
 
-// Links to include in the header. Left empty in case we want to easily add some later.
+// Links to include in the header.
 // Stylesheets are now bundled correctly, so we don't need to include them here.
 export function links() {
   return [{ rel: 'icon', href: '/favicon.ico', type: 'image/png' }]
@@ -45,6 +45,7 @@ export async function loader() {
       AAPB_HOST: process.env.AAPB_HOST || 'https://americanarchive.org',
       OV_API_URL: process.env.OV_API_URL || 'http://localhost:8000',
       ORGAN_URL: process.env.ORGAN_URL || 'http://localhost:9000',
+      COOKIE_CONSENT_ID: process.env.COOKIE_CONSENT_ID,
     },
   }
 }
@@ -88,6 +89,7 @@ export default function App() {
           gtag('config', 'G-H82X285XCF');`,
           }}
         />
+        <Cookies />
       </head>
       <body>
         {meta.env && meta.env.LEGACY ? (
@@ -113,7 +115,6 @@ export default function App() {
 
         <ScrollRestoration />
         <Scripts />
-        <Cookies />
       </body>
     </html>
   )
