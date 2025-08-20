@@ -1,4 +1,4 @@
-import { useLoaderData, Link } from '@remix-run/react'
+import { useLoaderData, Link } from 'react-router';
 import { ExternalLink, Search } from 'lucide-react'
 import { useState, useEffect } from 'react'
 
@@ -138,7 +138,7 @@ export default function Masterpiece() {
   }
 
   return (
-    <div className='page-container'>
+    (<div className='page-container'>
       <div className='page-sidebar list-page'>
         <span>
           <h4 className='page-sidebar-title spaced'>
@@ -167,7 +167,6 @@ export default function Masterpiece() {
           <div className='masterpiece-seasons'>{seasonLinks}</div>
         </span>
       </div>
-
       <div className='page-body-container'>
         <div className='page-body'>
           <h1 className='masterpiece-bigtitle'>
@@ -201,6 +200,6 @@ export default function Masterpiece() {
           {seasonGroups}
         </div>
       </div>
-    </div>
-  )
+    </div>)
+  );
 }

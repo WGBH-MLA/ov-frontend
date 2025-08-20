@@ -1,6 +1,6 @@
-import { useRouteError } from '@remix-run/react'
-import { redirectDocument } from '@remix-run/node'
-import type { LoaderFunction, LoaderFunctionArgs } from '@remix-run/node'
+import { useRouteError } from 'react-router';
+import { redirectDocument } from 'react-router';
+import type { LoaderFunction, LoaderFunctionArgs } from 'react-router';
 import type { Guid } from '~/types/pbcore'
 export const loader: LoaderFunction = async ({
   params,

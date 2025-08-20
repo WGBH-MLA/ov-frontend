@@ -1,5 +1,5 @@
 /* Help page for search */
-import { useNavigate } from '@remix-run/react'
+import { useNavigate } from 'react-router';
 import { useSearchBox } from 'react-instantsearch'
 
 export const Help = () => {

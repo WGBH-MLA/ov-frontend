@@ -1,7 +1,7 @@
 /**
  * @type {import('@remix-run/dev/config').AppConfig}
  */
-import { vitePlugin as remix } from '@remix-run/dev'
+import { reactRouter } from '@react-router/dev/vite';
 import { defineConfig } from 'vite'
 import legacy from '@vitejs/plugin-legacy'
 import jsconfigPaths from 'vite-jsconfig-paths'
@@ -15,7 +15,7 @@ declare module '@remix-run/node' {
 
 export default defineConfig({
   plugins: [
-    remix({
+    reactRouter({
       future: {
         v3_fetcherPersist: true,
         v3_lazyRouteDiscovery: true,

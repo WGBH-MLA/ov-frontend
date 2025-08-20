@@ -1,7 +1,7 @@
 import React from 'react'
 import { renderToString } from 'react-dom/server'
-import { RemixServer } from '@remix-run/react'
-import type { EntryContext } from '@remix-run/node'
+import { ServerRouter } from 'react-router';
+import type { EntryContext } from 'react-router';
 import { createSitemapGenerator } from 'remix-sitemap'
 
 const { isSitemapUrl, sitemap } = createSitemapGenerator({
@@ -15,12 +15,12 @@ export default async function handleRequest(
   request: Request,
   responseStatusCode: number,
   responseHeaders: Headers,
-  remixContext: EntryContext
+  reactRouterContext: EntryContext
 ) {
-  if (isSitemapUrl(request)) return await sitemap(request, remixContext)
+  if (isSitemapUrl(request)) return await sitemap(request, reactRouterContext);
 
   const markup = renderToString(
-    <RemixServer context={remixContext} url={request.url} />
+    <ServerRouter context={reactRouterContext} url={request.url} />
   )
 
   responseHeaders.set('Content-Type', 'text/html')

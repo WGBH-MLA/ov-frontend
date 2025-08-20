@@ -1,13 +1,5 @@
-import {
-  useLoaderData,
-  useRouteError,
-  isRouteErrorResponse,
-} from '@remix-run/react'
-import type {
-  LoaderFunction,
-  MetaFunction,
-  LoaderFunctionArgs,
-} from '@remix-run/node'
+import { useLoaderData, useRouteError, isRouteErrorResponse } from 'react-router';
+import type { LoaderFunction, MetaFunction, LoaderFunctionArgs } from 'react-router';
 import { getPageBySlug } from '~/utils/fetch'
 import { renderExhibit } from '~/classes/exhibitPresenter'
 import type { SitemapFunction } from 'remix-sitemap'
