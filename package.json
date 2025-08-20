@@ -19,7 +19,7 @@
     "@remix-run/serve": "^2.17.0",
     "@remix-run/server-runtime": "^2.17.0",
     "@searchkit/instantsearch-client": "^4.14.1",
-    "@vitejs/plugin-legacy": "^6.1.1",
+    "@vitejs/plugin-legacy": "^7.2.1",
     "@vitejs/plugin-react": "^4.6.0",
     "html-entities": "^2.5.3",
     "instantsearch.css": "^8.5.1",
