@@ -1,4 +1,4 @@
 import { hydrateRoot } from 'react-dom/client'
-import { RemixBrowser } from '@remix-run/react'
+import { HydratedRouter } from 'react-router/dom';
 
-const root = hydrateRoot(document, <RemixBrowser />)
+const root = hydrateRoot(document, <HydratedRouter />)

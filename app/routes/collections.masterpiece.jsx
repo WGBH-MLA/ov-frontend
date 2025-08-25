@@ -1,4 +1,4 @@
-import { useLoaderData, Link } from '@remix-run/react'
+import { useLoaderData, Link } from 'react-router'
 import { ExternalLink, Search } from 'lucide-react'
 import { useState, useEffect } from 'react'
 
@@ -48,9 +48,9 @@ export default function Masterpiece() {
     if (masterpieceSearch.length > 0) {
       seasonGroup = {}
       var includeThese = Object.keys(masterpieceData[seasonNumber]).filter(
-        (title) => title.toLowerCase().includes(masterpieceSearch)
+        title => title.toLowerCase().includes(masterpieceSearch)
       )
-      includeThese.forEach((title) => {
+      includeThese.forEach(title => {
         seasonGroup[title] = masterpieceData[seasonNumber][title]
       })
     } else {
@@ -62,8 +62,7 @@ export default function Masterpiece() {
         <a
           key={groupIndex}
           className='masterpiece-link'
-          href={`/miniseries/${normalizedMiniseriesTitle}`}
-        >
+          href={`/miniseries/${normalizedMiniseriesTitle}`}>
           {seasonGroup[normalizedMiniseriesTitle].title}
         </a>
       ))
@@ -84,12 +83,12 @@ export default function Masterpiece() {
   })
 
   // remove whole section for empty season group
-  seasonGroups = seasonGroups.flatMap((sg) => sg).filter((sg) => sg)
+  seasonGroups = seasonGroups.flatMap(sg => sg).filter(sg => sg)
   if (seasonGroups.length == 0) {
     seasonGroups = (
       <div>
-        No results were found for your search. Please revise your query
-        and try again.
+        No results were found for your search. Please revise your query and try
+        again.
       </div>
     )
   }
@@ -148,7 +147,7 @@ export default function Masterpiece() {
             <input
               id='search'
               className='series-search'
-              onKeyUp={(e) =>
+              onKeyUp={e =>
                 setMasterpieceSearch(
                   e.target.value.toLowerCase().replace(/\s+/g, '')
                 )
@@ -157,7 +156,7 @@ export default function Masterpiece() {
               name='series-search'
               placeholder='Search...'
             />
-            <div className='search-clear-button' onClick={(e) => clearSearch()}>
+            <div className='search-clear-button' onClick={e => clearSearch()}>
               X
             </div>
             <Search />
@@ -167,7 +166,6 @@ export default function Masterpiece() {
           <div className='masterpiece-seasons'>{seasonLinks}</div>
         </span>
       </div>
-
       <div className='page-body-container'>
         <div className='page-body'>
           <h1 className='masterpiece-bigtitle'>

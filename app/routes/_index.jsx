@@ -1,4 +1,4 @@
-import { useLoaderData } from '@remix-run/react'
+import { useLoaderData } from 'react-router';
 import { OpenCarousel } from '~/classes/openCarousel'
 import { renderPageLinks } from '~/classes/pageHelpers'
 import shuffle from '~/utils/shuffle'

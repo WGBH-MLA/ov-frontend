@@ -1,17 +1,27 @@
 /**
  * @type {import('@remix-run/dev/config').AppConfig}
  */
-import { vitePlugin as remix } from '@remix-run/dev'
+import { reactRouter } from '@react-router/dev/vite';
 import { defineConfig } from 'vite'
 import legacy from '@vitejs/plugin-legacy'
 import jsconfigPaths from 'vite-jsconfig-paths'
 import tsconfigPaths from 'vite-tsconfig-paths'
 
+declare module '@remix-run/node' {
+  interface Future {
+    v3_singleFetch: true
+  }
+}
+
 export default defineConfig({
   plugins: [
-    remix({
+    reactRouter({
       future: {
+        v3_fetcherPersist: true,
+        v3_lazyRouteDiscovery: true,
         v3_relativeSplatPath: true,
+        v3_routeConfig: true,
+        v3_singleFetch: true,
       },
     }),
     legacy({
@@ -27,10 +37,5 @@ export default defineConfig({
       strict: true,
     },
     hmr: { overlay: false },
-  },
-  css: {
-    modules: {
-      localsConvention: 'camelCaseOnly',
-    },
   },
 })

@@ -1,4 +1,4 @@
-import { useLoaderData } from '@remix-run/react'
+import { useLoaderData } from 'react-router';
 import { getMasterpiece } from '~/utils/masterpiece'
 import { masterpieceFlavor } from '~/data/masterpieceFlavor'
 import { renderPageTitleBar } from '~/classes/pageHelpers'

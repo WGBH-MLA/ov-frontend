@@ -1,7 +1,7 @@
 /* This is a catch-all route for any unmatched paths */
 
-import { redirect } from '@remix-run/node'
-import { isRouteErrorResponse, useRouteError } from '@remix-run/react'
+import { redirect } from 'react-router';
+import { isRouteErrorResponse, useRouteError } from 'react-router';
 import {
   exhibitLinks,
   collectionLinks,

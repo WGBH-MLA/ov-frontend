@@ -1,5 +1,5 @@
-import { redirect } from '@remix-run/node'
-import type { LoaderFunction } from '@remix-run/node'
+import { redirect } from 'react-router';
+import type { LoaderFunction } from 'react-router';
 
 /*
 On Ye Olde Opene Vaulte, this route used to handle catalog search requests.
