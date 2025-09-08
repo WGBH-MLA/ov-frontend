@@ -1,4 +1,4 @@
-import { Link, useLoaderData } from '@remix-run/react'
+import { Link, useLoaderData } from 'react-router';
 import { getExhibits } from '~/utils/fetch'
 import { renderPageLinks } from '~/classes/pageHelpers'
 import { Meta } from '~/classes/meta'

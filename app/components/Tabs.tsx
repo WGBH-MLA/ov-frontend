@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { useNavigate, useLocation } from '@remix-run/react'
+import { useNavigate, useLocation } from 'react-router';
 import { TABS } from '~/routes/search'
 import '~/styles/tabs.css'
 

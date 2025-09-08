@@ -1,5 +1,5 @@
-import { useLoaderData } from '@remix-run/react'
-import { LoaderFunctionArgs } from '@remix-run/server-runtime'
+import { useLoaderData } from 'react-router';
+import { LoaderFunctionArgs } from 'react-router';
 import { getPreview } from '~/utils/preview'
 import { renderCollection } from '~/classes/collectionPresenter'
 import { renderExhibit } from '~/classes/exhibitPresenter'

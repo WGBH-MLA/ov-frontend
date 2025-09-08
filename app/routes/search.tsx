@@ -1,5 +1,5 @@
-import type { LoaderFunction, MetaFunction } from '@remix-run/node'
-import { useLoaderData, useRouteError } from '@remix-run/react'
+import type { LoaderFunction, MetaFunction } from 'react-router';
+import { useLoaderData, useRouteError } from 'react-router';
 import Client from '@searchkit/instantsearch-client'
 import Searchkit from 'searchkit'
 import search_settings from '~/data/searchkit'
