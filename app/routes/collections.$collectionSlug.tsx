@@ -1,9 +1,5 @@
-import { useLoaderData } from '@remix-run/react'
-import type {
-  LoaderFunction,
-  MetaFunction,
-  LoaderFunctionArgs,
-} from '@remix-run/node'
+import { useLoaderData } from 'react-router';
+import type { LoaderFunction, MetaFunction, LoaderFunctionArgs } from 'react-router';
 import { getPageBySlug } from '~/utils/fetch'
 import { renderCollection } from '~/classes/collectionPresenter'
 import { ErrorBoundary } from './exhibits.$exhibitSlug'

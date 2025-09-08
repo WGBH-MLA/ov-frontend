@@ -1,4 +1,4 @@
-import { useLoaderData, Link } from '@remix-run/react'
+import { useLoaderData, Link } from 'react-router';
 import { ExternalLink, Search, X } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { Meta } from '~/classes/meta'

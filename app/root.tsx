@@ -7,8 +7,8 @@ import {
   ScrollRestoration,
   useLoaderData,
   useRouteError,
-} from '@remix-run/react'
-import type { LoaderFunction, MetaFunction } from '@remix-run/node'
+} from 'react-router';
+import type { LoaderFunction, MetaFunction } from 'react-router';
 import { useEffect } from 'react'
 import { ToastContainer, toast, Flip } from 'react-toastify'
 
