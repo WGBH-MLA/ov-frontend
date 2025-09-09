@@ -1,5 +1,5 @@
 // OneTrust Cookies Consent Notice start for openvault.wgbh.org
-import { useLoaderData } from '@remix-run/react'
+import { useLoaderData } from 'react-router'
 
 export default () => {
   const { ENV } = useLoaderData()
