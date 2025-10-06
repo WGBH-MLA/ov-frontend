@@ -8,3 +8,5 @@ noteys
 
 .DS_Store
 .vscode
+
+.react-router/

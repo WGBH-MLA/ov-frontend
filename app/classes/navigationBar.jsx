@@ -9,11 +9,6 @@ const aboutLinks = [
     url: '/about',
   },
   {
-    label: 'Support Us',
-    url: 'https://gbharchivesopenvault.donorsupport.co/page/general-fundraising',
-    external: true,
-  },
-  {
     label: 'Visit Us',
     url: '/visit-us',
   },
@@ -60,6 +55,7 @@ export function NavigationBar() {
         <a href='/' className='top-title'>
           Open Vault
         </a>
+        <button className="donate-button">Donate!</button>
         <img src='/MLA_logo_white.png' className='ov-logo' />
       </div>
 
