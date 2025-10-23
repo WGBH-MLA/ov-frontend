@@ -7,7 +7,6 @@ import { Search } from '~/classes/search-ui'
 import 'instantsearch.css/themes/algolia-min.css'
 import '~/styles/search.css'
 import { Meta } from '~/classes/meta'
-import { Transporter } from '~/classes/transport'
 
 export const TABS = ['', '#gbh', '#aapb', '#help']
 

@@ -61,7 +61,10 @@ export const AAPBResults = ({
             updateResults(count)
             setHits(data.response.docs)
           })
-          .catch(error => console.error(error))
+          .catch(error => {
+            console.error(error)
+            setResults(undefined)
+          })
       }, 200),
     [aapbHost, updateResults]
   )
@@ -70,7 +73,18 @@ export const AAPBResults = ({
     updateResults(null)
     debouncedFetch(query)
   }, [debouncedFetch, query, updateResults]) // Use query instead of indexUiState
-
+  const aapbSearchUrl = `${aapbHost}/catalog?q=${query}${gbh_query}`
+  if (result_count === undefined) {
+    return (
+      <>
+        <h2>Search Error</h2>
+        Sorry, there was an issue{' '}
+        <a href={aapbSearchUrl}>
+          searching AmericanArchive.org for <em>{query}</em> <ExternalLink />
+        </a>
+      </>
+    )
+  }
   return (
     <>
       Found
@@ -83,7 +97,7 @@ export const AAPBResults = ({
           ))}
         </div>
       </div>
-      <a href={`${aapbHost}/catalog?q=${query}${gbh_query}`} target='_blank'>
+      <a href={aapbSearchUrl} target='_blank'>
         View
         <AAPBResultCount resultCount={result_count} />
         more results on AmericanArchive.org"
@@ -168,15 +182,13 @@ export const highlightHighlight = (text: string) => {
   return (
     <span className='ais-Highlight'>
       {parts.map((part, i) =>
-        part.toLowerCase() === query.toLowerCase() ? (
+        part.toLowerCase() === query.toLowerCase() ?
           <mark className='ais-Highlight-highlighted' key={i}>
             {part}
           </mark>
-        ) : (
-          <span className='ais-Highlight-nonHighlighted' key={i}>
+        : <span className='ais-Highlight-nonHighlighted' key={i}>
             {part}
           </span>
-        )
       )}
     </span>
   )
@@ -197,15 +209,13 @@ export const highlightSnippet = (text: string) => {
   return (
     <span className='ais-Snippet'>
       {parts.map((part, i) =>
-        part.toLowerCase() === query.toLowerCase() ? (
+        part.toLowerCase() === query.toLowerCase() ?
           <mark className='ais-Snippet-highlighted' key={i}>
             {part}
           </mark>
-        ) : (
-          <span className='ais-Snippet-nonHighlighted' key={i}>
+        : <span className='ais-Snippet-nonHighlighted' key={i}>
             {part}
           </span>
-        )
       )}
     </span>
   )
@@ -217,9 +227,11 @@ export const removeSpecialChars = (text: string) =>
 export const AAPBResultCount = ({
   resultCount,
 }: {
-  resultCount: number | null
+  resultCount: number | null | undefined
 }) => (
   <span className='ais-RefinementList-count'>
-    {resultCount === null ? <Spinner /> : resultCount.toLocaleString()}
+    {resultCount === null ?
+      <Spinner />
+    : resultCount.toLocaleString()}
   </span>
 )

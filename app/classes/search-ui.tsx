@@ -3,7 +3,6 @@ import { useState, useCallback } from 'react'
 
 import { SearchProps } from '~/routes/search'
 import {
-  Error,
   ScrollTo,
   Tabs,
   Tab,
@@ -83,7 +82,10 @@ export const Search = ({
                 </Index>
               </span>
             }>
-            <SeriesResults aapbHost={aapbHost} />
+            <SeriesResults
+              aapbHost={aapbHost}
+              gbhSeriesIndexName={gbhSeriesIndexName}
+            />
           </Tab>
           <Tab
             title={
