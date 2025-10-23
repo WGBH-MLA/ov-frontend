@@ -20,7 +20,13 @@ import {
   AAPBResultCount,
 } from '~/components'
 
-export const Search = ({ serverUrl, aapbHost, searchClient }: SearchProps) => {
+export const Search = ({
+  serverUrl,
+  aapbHost,
+  searchClient,
+  ovIndexName,
+  gbhSeriesIndexName,
+}: SearchProps) => {
   let timerId: NodeJS.Timeout
   let timeout: number = 250
 
@@ -34,16 +40,16 @@ export const Search = ({ serverUrl, aapbHost, searchClient }: SearchProps) => {
       searchClient={searchClient}
       routing={{
         router: Router(serverUrl),
-        stateMapping: {
-          stateToRoute,
-          routeToState,
-        },
+        // stateMapping: {
+        //   stateToRoute,
+        //   routeToState,
+        // },
       }}
-      indexName='wagtail__wagtailcore_page'
+      indexName={ovIndexName}
       future={{
         preserveSharedStateOnUnmount: true,
       }}>
-      <Configure filters='live:true AND id>3' />
+      {/* <Configure filters='live:true AND id>3' /> */}
       <ScrollTo>
         <SearchBox
           autoFocus
@@ -66,7 +72,7 @@ export const Search = ({ serverUrl, aapbHost, searchClient }: SearchProps) => {
                 Open Vault <ResultsCount />
               </span>
             }>
-            <OVResults />
+            <OVResults indexName={ovIndexName} />
           </Tab>
           <Tab
             title={
@@ -96,8 +102,6 @@ export const Search = ({ serverUrl, aapbHost, searchClient }: SearchProps) => {
           </Tab>
         </Tabs>
       </ScrollTo>
-
-      <Error />
     </InstantSearch>
   )
 }

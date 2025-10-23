@@ -1,5 +1,5 @@
-import type { LoaderFunction, MetaFunction } from 'react-router';
-import { useLoaderData, useRouteError } from 'react-router';
+import type { LoaderFunction, MetaFunction } from 'react-router'
+import { useLoaderData, useRouteError } from 'react-router'
 import Client from '@searchkit/instantsearch-client'
 import Searchkit from 'searchkit'
 import search_settings from '~/data/searchkit'
@@ -7,6 +7,7 @@ import { Search } from '~/classes/search-ui'
 import 'instantsearch.css/themes/algolia-min.css'
 import '~/styles/search.css'
 import { Meta } from '~/classes/meta'
+import { Transporter } from '~/classes/transport'
 
 export const TABS = ['', '#gbh', '#aapb', '#help']
 
@@ -31,6 +32,8 @@ export const loader: LoaderFunction = async ({ request }) => {
     aapbHost: process.env.AAPB_HOST,
     esUrl: process.env.ES_URL,
     esApiKey: process.env.ES_API_KEY,
+    ovIndexName: process.env.OV_INDEX || 'wagtail__wagtailcore_page',
+    gbhSeriesIndexName: process.env.GBH_INDEX || 'gbh-series',
   }
 }
 
@@ -39,10 +42,19 @@ export type SearchProps = {
   aapbHost?: string
   esUrl?: string
   esApiKey?: string
+  ovIndexName?: string
+  gbhSeriesIndexName?: string
 }
 
 export default function SearchPage() {
-  const { serverUrl, aapbHost, esUrl, esApiKey }: SearchProps = useLoaderData()
+  const {
+    serverUrl,
+    aapbHost,
+    esUrl,
+    esApiKey,
+    ovIndexName = 'wagtail__wagtailcore_page',
+    gbhSeriesIndexName = 'gbh-series',
+  }: SearchProps = useLoaderData()
 
   const sk = new Searchkit({
     connection: {
@@ -73,6 +85,8 @@ export default function SearchPage() {
           serverUrl={serverUrl}
           aapbHost={aapbHost}
           searchClient={searchClient}
+          ovIndexName={ovIndexName}
+          gbhSeriesIndexName={gbhSeriesIndexName}
         />
       </div>
     </>
@@ -81,7 +95,7 @@ export default function SearchPage() {
 
 export function ErrorBoundary() {
   const error = useRouteError()
-  console.log('search error', error)
+  console.warn('search error', error)
   return (
     <div className='page-body-container'>
       <h1>Search Error</h1>

@@ -10,6 +10,7 @@ import {
 } from 'react-instantsearch'
 
 import {
+  Error,
   NoResultsBoundary,
   NoResultsMessage,
   ResultsCount,
@@ -23,7 +24,10 @@ type SeriesHitProps = {
   }>
 }
 
-export const SeriesResults = ({ aapbHost }) => {
+export const SeriesResults = ({
+  aapbHost = 'https://demo.aapb.wgbh-mla.org',
+  gbhSeriesIndexName = 'gbh-series',
+}) => {
   const aapb_link = (title: string) =>
     `${aapbHost}/catalog?f[series_titles][]=${title}&q=+(contributing_organizations: WGBH(MA) OR producing_organizations: WGBH Educational Foundation)&f[access_types][]=all`
 
@@ -37,7 +41,8 @@ export const SeriesResults = ({ aapbHost }) => {
   }
 
   return (
-    <Index indexName='gbh-series'>
+    <Index indexName={gbhSeriesIndexName}>
+      <Error />
       <Configure filters='' />
       <NoResultsBoundary fallback={<NoResultsMessage />}>
         Found {<ResultsCount />} GBH Series
@@ -46,15 +51,15 @@ export const SeriesResults = ({ aapbHost }) => {
             items={[
               {
                 label: 'Relevance',
-                value: 'gbh-series',
+                value: gbhSeriesIndexName,
               },
               {
                 label: 'A-Z',
-                value: 'gbh-series_seriestitle_asc',
+                value: `${gbhSeriesIndexName}_seriestitle_asc`,
               },
               {
                 label: 'Z-A',
-                value: 'gbh-series_seriestitle_desc',
+                value: `${gbhSeriesIndexName}_seriestitle_desc`,
               },
             ]}
           />

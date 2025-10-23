@@ -13,8 +13,16 @@ type RouteState = {
 
 export const stateToRoute = (uiState: UiState): RouteState => {
   console.log('stateToRoute', uiState)
-  let wagtail = uiState['wagtail__wagtailcore_page']
-  let gbh = uiState['gbh-series']
+
+  let ovIndexName = window.ENV.OV_INDEX
+  let gbhSeriesIndexName = window.ENV.GBH_INDEX
+
+  if (!uiState[ovIndexName] || !uiState[gbhSeriesIndexName]) {
+    return {}
+  }
+
+  let wagtail = uiState[ovIndexName]
+  let gbh = uiState[gbhSeriesIndexName]
   return {
     q: wagtail.query,
     p: wagtail.page,
@@ -22,7 +30,7 @@ export const stateToRoute = (uiState: UiState): RouteState => {
     featured: wagtail.toggle?.featured,
     sort: wagtail.sortBy,
     perPage: wagtail.hitsPerPage,
-    'gbh-series': {
+    [gbhSeriesIndexName]: {
       page: gbh?.page,
       sort: gbh?.sortBy,
     },

@@ -7,8 +7,8 @@ import {
   ScrollRestoration,
   useLoaderData,
   useRouteError,
-} from 'react-router';
-import type { LoaderFunction, MetaFunction } from 'react-router';
+} from 'react-router'
+import type { LoaderFunction, MetaFunction } from 'react-router'
 import { useEffect } from 'react'
 import { ToastContainer, toast, Flip } from 'react-toastify'
 
@@ -43,9 +43,11 @@ export async function loader() {
   return {
     ENV: {
       AAPB_HOST: process.env.AAPB_HOST || 'https://americanarchive.org',
-      OV_API_URL: process.env.OV_API_URL || 'http://localhost:8000',
-      ORGAN_URL: process.env.ORGAN_URL || 'http://localhost:9000',
       COOKIE_CONSENT_ID: process.env.COOKIE_CONSENT_ID,
+      OV_API_URL: process.env.OV_API_URL || 'http://localhost:8000',
+      OV_INDEX: process.env.OV_INDEX || 'wagtail__wagtailcore_page',
+      GBH_INDEX: process.env.GBH_INDEX || 'gbh-series',
+      ORGAN_URL: process.env.ORGAN_URL || 'http://localhost:9000',
     },
   }
 }
@@ -92,7 +94,7 @@ export default function App() {
         <Cookies />
       </head>
       <body>
-        {meta.env && meta.env.LEGACY ? (
+        {meta.env && meta.env.LEGACY ?
           <div className='legacy-warning'>
             <h3>You are using an outdated browser.</h3>
             <p>
@@ -101,7 +103,7 @@ export default function App() {
             </p>
             {/* TODO: Make this dismissable */}
           </div>
-        ) : null}
+        : null}
         <ToastContainer />
         <NavigationBar />
         <Outlet />
@@ -135,18 +137,17 @@ export function ErrorBoundary() {
       <body>
         <NavigationBar />
         <div className='page-body-container'>
-          {isRouteErrorResponse(error) ? (
+          {isRouteErrorResponse(error) ?
             <>
               <h1>{error.status} error</h1>
               <h3>{error.data}</h3>
               <p>{error.statusText}</p>
             </>
-          ) : (
-            <div className='error-container'>
+          : <div className='error-container'>
               <h1>Oh no!</h1>
               <p>Oops! Something went wrong. Please try again later.</p>
             </div>
-          )}
+          }
         </div>
         <Footer />
         <ScrollRestoration />
