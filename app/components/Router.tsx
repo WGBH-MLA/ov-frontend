@@ -14,7 +14,7 @@ type RouteState = {
 export const stateToRoute = (uiState: UiState): RouteState => {
   console.log('stateToRoute', uiState)
 
-  let ovIndexName = window.ENV.OV_INDEX
+  let ovIndexName = window.ENV.ES_OV_INDEX
   let gbhSeriesIndexName = window.ENV.GBH_INDEX
 
   if (!uiState[ovIndexName] || !uiState[gbhSeriesIndexName]) {

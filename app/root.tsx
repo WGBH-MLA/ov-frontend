@@ -45,7 +45,7 @@ export async function loader() {
       AAPB_HOST: process.env.AAPB_HOST || 'https://americanarchive.org',
       COOKIE_CONSENT_ID: process.env.COOKIE_CONSENT_ID,
       OV_API_URL: process.env.OV_API_URL || 'http://localhost:8000',
-      OV_INDEX: process.env.OV_INDEX || 'wagtail__wagtailcore_page',
+      ES_OV_INDEX: process.env.ES_OV_INDEX || 'wagtail__wagtailcore_page',
       GBH_INDEX: process.env.GBH_INDEX || 'gbh-series',
       ORGAN_URL: process.env.ORGAN_URL || 'http://localhost:9000',
     },

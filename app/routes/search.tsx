@@ -31,7 +31,7 @@ export const loader: LoaderFunction = async ({ request }) => {
     aapbHost: process.env.AAPB_HOST,
     esUrl: process.env.ES_URL,
     esApiKey: process.env.ES_API_KEY,
-    ovIndexName: process.env.OV_INDEX || 'wagtail__wagtailcore_page',
+    ovIndexName: process.env.ES_OV_INDEX || 'wagtail__wagtailcore_page',
     gbhSeriesIndexName: process.env.GBH_INDEX || 'gbh-series',
   }
 }
