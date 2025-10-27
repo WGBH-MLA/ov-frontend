@@ -39,10 +39,10 @@ export const Search = ({
       searchClient={searchClient}
       routing={{
         router: Router(serverUrl),
-        // stateMapping: {
-        //   stateToRoute,
-        //   routeToState,
-        // },
+        stateMapping: {
+          stateToRoute,
+          routeToState,
+        },
       }}
       indexName={ovIndexName}
       future={{

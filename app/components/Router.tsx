@@ -39,8 +39,12 @@ export const stateToRoute = (uiState: UiState): RouteState => {
 
 export const routeToState = (routeState: RouteState): UiState => {
   console.log('routeToState', routeState)
+
+  let ovIndexName = window.ENV.ES_OV_INDEX
+  let gbhSeriesIndexName = window.ENV.GBH_INDEX
+
   return {
-    wagtail__wagtailcore_page: {
+    [ovIndexName]: {
       query: routeState.q,
       page: routeState.p,
       refinementList: { content_type: routeState.types },
@@ -48,7 +52,7 @@ export const routeToState = (routeState: RouteState): UiState => {
       sortBy: routeState.sort,
       hitsPerPage: routeState.perPage,
     },
-    'gbh-series': routeState['gbh-series'],
+    [gbhSeriesIndexName]: routeState[gbhSeriesIndexName],
   }
 }
 
