@@ -7,6 +7,7 @@ import {
   Index,
   SortBy,
   HitsPerPage,
+  useInstantSearch,
 } from 'react-instantsearch'
 
 import {
@@ -39,12 +40,23 @@ export const SeriesResults = ({
       </a>
     )
   }
-
+  const { results } = useInstantSearch()
   return (
     <Index indexName={gbhSeriesIndexName}>
       <Error />
       <Configure filters='' />
-      <NoResultsBoundary fallback={<NoResultsMessage />}>
+      <NoResultsBoundary
+        fallback={
+          <>
+            <h2>
+              No GBH series titles matched <i>{results.query}</i>
+            </h2>
+            <p>
+              Try using different keywords, or try{' '}
+              <a href='#aapb'>searching the American Archive</a>
+            </p>
+          </>
+        }>
         Found {<ResultsCount />} GBH Series
         <div className='search-result-header'>
           <SortBy
