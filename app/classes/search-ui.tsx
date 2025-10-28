@@ -17,6 +17,7 @@ import {
   EmptyQueryMessage,
   EmptyQueryBoundary,
   AAPBResultCount,
+  AAPBResultCountProps,
 } from '~/components'
 
 export const Search = ({
@@ -29,8 +30,9 @@ export const Search = ({
   let timerId: NodeJS.Timeout
   let timeout: number = 250
 
-  const [aapbResultCount, setAapbResultCount] = useState<number | null>(null)
-  const handleResultCountChange = useCallback((count: number | null) => {
+  const [aapbResultCount, setAapbResultCount] =
+    useState<AAPBResultCountProps>(null)
+  const handleResultCountChange = useCallback((count: AAPBResultCountProps) => {
     setAapbResultCount(count)
   }, [])
 
@@ -91,7 +93,10 @@ export const Search = ({
             title={
               <span>
                 American Archive
-                <AAPBResultCount resultCount={aapbResultCount} />
+                <AAPBResultCount
+                  resultCount={aapbResultCount}
+                  onResultCountChange={handleResultCountChange}
+                />
               </span>
             }>
             <AAPBResults

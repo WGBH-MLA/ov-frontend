@@ -26,7 +26,7 @@ export const AAPBResults = ({
   onResultCountChange,
 }: {
   aapbHost: string
-  onResultCountChange?: (count: number | null) => void
+  onResultCountChange?: (count: AAPBResultCountProps) => void
 }) => {
   const { indexUiState } = useInstantSearch()
   const callbackRef = useRef(onResultCountChange)
@@ -39,10 +39,10 @@ export const AAPBResults = ({
     callbackRef.current = onResultCountChange
   }, [onResultCountChange])
 
-  const [result_count, setResults] = useState<number | null>(null)
+  const [result_count, setResults] = useState<AAPBResultCountProps>(null)
   const [hits, setHits] = useState([])
 
-  const updateResults = useCallback((count: number | null) => {
+  const updateResults = useCallback((count: AAPBResultCountProps) => {
     setResults(count)
     callbackRef.current?.(count)
   }, [])
@@ -224,14 +224,24 @@ export const highlightSnippet = (text: string) => {
 export const removeSpecialChars = (text: string) =>
   text.replace(/[.*+?^${}()|[\]\\"']/g, '')
 
-export const AAPBResultCount = ({
-  resultCount,
-}: {
+export type AAPBResultCountProps = {
+  /* The result of the AAPB query 
+  Possible values:
+  - number: the count of results
+  - null: query in progress
+  - undefined: error getting results
+  */
   resultCount: number | null | undefined
-}) => (
-  <span className='ais-RefinementList-count'>
-    {resultCount === null ?
-      <Spinner />
-    : resultCount.toLocaleString()}
-  </span>
-)
+}
+
+export const AAPBResultCount = ({ resultCount }: AAPBResultCountProps) => {
+  return (
+    <span className='ais-RefinementList-count'>
+      {resultCount === undefined ?
+        '⚠️'
+      : resultCount === null ?
+        <Spinner />
+      : resultCount.toLocaleString()}
+    </span>
+  )
+}
