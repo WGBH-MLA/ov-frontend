@@ -89,7 +89,7 @@ export const AAPBResults = ({
     return (
       <>
         <h2>No Results</h2>
-        Sorry, there were no results for <em>{query}</em>
+        Sorry, there were no American Archive results for <em>{query}</em>
         <br />
         Try searching directly on{' '}
         <a href={aapbSearchUrl} target='_blank'>

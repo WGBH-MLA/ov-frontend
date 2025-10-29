@@ -71,7 +71,7 @@ export const OVResults = ({ indexName }) => (
     <StatusSpinner />
     <Error />
     <Configure filters='live:true AND id>3' />
-    <NoResultsBoundary fallback={<NoResultsMessage />}>
+    <NoResultsBoundary fallback={<NoResultsMessage index='Open Vault' />}>
       <Refinements />
       <>Found {<ResultsCount />} Open Vault results</>
       <div className='search-result-header'>
