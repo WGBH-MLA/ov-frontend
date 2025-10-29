@@ -13,9 +13,9 @@ import {
 import {
   Error,
   NoResultsBoundary,
-  NoResultsMessage,
   ResultsCount,
   Pagination,
+  StatusSpinner,
 } from '~/components'
 
 type SeriesHitProps = {
@@ -43,6 +43,7 @@ export const SeriesResults = ({
   const { results } = useInstantSearch()
   return (
     <Index indexName={gbhSeriesIndexName}>
+      <StatusSpinner />
       <Error />
       <Configure filters='' />
       <NoResultsBoundary

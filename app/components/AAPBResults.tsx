@@ -85,11 +85,29 @@ export const AAPBResults = ({
       </>
     )
   }
+  if (result_count === 0) {
+    return (
+      <>
+        <h2>No Results</h2>
+        Sorry, there were no results for <em>{query}</em>
+        <br />
+        Try searching directly on{' '}
+        <a href={aapbSearchUrl} target='_blank'>
+          AmericanArchive.org <ExternalLink />
+        </a>
+      </>
+    )
+  }
   return (
     <>
-      Found
-      <AAPBResultCount resultCount={result_count} />
-      matching records on AmericanArchive.org for "{query}"
+      {result_count === null ?
+        <Spinner />
+      : <div className='aapb-results-count'>
+          Found
+          <AAPBResultCount resultCount={result_count} />
+          matching records on AmericanArchive.org for "{query}"
+        </div>
+      }
       <div className='ais-Hits'>
         <div className='ais-Hits-list'>
           {hits.map((hit: AAPBHit) => (

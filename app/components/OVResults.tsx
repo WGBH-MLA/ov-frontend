@@ -16,6 +16,7 @@ import {
   PerPage,
   ResultsCount,
   Error,
+  StatusSpinner,
 } from '~/components'
 
 type OVHitProps = {
@@ -67,6 +68,7 @@ export const OVPageHit = ({ hit }: OVHitProps) => {
 
 export const OVResults = ({ indexName }) => (
   <Index indexName={indexName}>
+    <StatusSpinner />
     <Error />
     <Configure filters='live:true AND id>3' />
     <NoResultsBoundary fallback={<NoResultsMessage />}>
