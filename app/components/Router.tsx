@@ -13,8 +13,16 @@ type RouteState = {
 
 export const stateToRoute = (uiState: UiState): RouteState => {
   console.log('stateToRoute', uiState)
-  let wagtail = uiState['wagtail__wagtailcore_page']
-  let gbh = uiState['gbh-series']
+
+  let ovIndexName = window.ENV.ES_OV_INDEX
+  let gbhSeriesIndexName = window.ENV.GBH_INDEX
+
+  if (!uiState[ovIndexName] || !uiState[gbhSeriesIndexName]) {
+    return {}
+  }
+
+  let wagtail = uiState[ovIndexName]
+  let gbh = uiState[gbhSeriesIndexName]
   return {
     q: wagtail.query,
     p: wagtail.page,
@@ -22,7 +30,7 @@ export const stateToRoute = (uiState: UiState): RouteState => {
     featured: wagtail.toggle?.featured,
     sort: wagtail.sortBy,
     perPage: wagtail.hitsPerPage,
-    'gbh-series': {
+    [gbhSeriesIndexName]: {
       page: gbh?.page,
       sort: gbh?.sortBy,
     },
@@ -31,8 +39,12 @@ export const stateToRoute = (uiState: UiState): RouteState => {
 
 export const routeToState = (routeState: RouteState): UiState => {
   console.log('routeToState', routeState)
+
+  let ovIndexName = window.ENV.ES_OV_INDEX
+  let gbhSeriesIndexName = window.ENV.GBH_INDEX
+
   return {
-    wagtail__wagtailcore_page: {
+    [ovIndexName]: {
       query: routeState.q,
       page: routeState.p,
       refinementList: { content_type: routeState.types },
@@ -40,7 +52,7 @@ export const routeToState = (routeState: RouteState): UiState => {
       sortBy: routeState.sort,
       hitsPerPage: routeState.perPage,
     },
-    'gbh-series': routeState['gbh-series'],
+    [gbhSeriesIndexName]: routeState[gbhSeriesIndexName],
   }
 }
 

@@ -3,7 +3,6 @@ import { useState, useCallback } from 'react'
 
 import { SearchProps } from '~/routes/search'
 import {
-  Error,
   ScrollTo,
   Tabs,
   Tab,
@@ -18,14 +17,22 @@ import {
   EmptyQueryMessage,
   EmptyQueryBoundary,
   AAPBResultCount,
+  AAPBResultCountProps,
 } from '~/components'
 
-export const Search = ({ serverUrl, aapbHost, searchClient }: SearchProps) => {
+export const Search = ({
+  serverUrl,
+  aapbHost,
+  searchClient,
+  ovIndexName,
+  gbhSeriesIndexName,
+}: SearchProps) => {
   let timerId: NodeJS.Timeout
   let timeout: number = 250
 
-  const [aapbResultCount, setAapbResultCount] = useState<number | null>(null)
-  const handleResultCountChange = useCallback((count: number | null) => {
+  const [aapbResultCount, setAapbResultCount] =
+    useState<AAPBResultCountProps>(null)
+  const handleResultCountChange = useCallback((count: AAPBResultCountProps) => {
     setAapbResultCount(count)
   }, [])
 
@@ -39,11 +46,11 @@ export const Search = ({ serverUrl, aapbHost, searchClient }: SearchProps) => {
           routeToState,
         },
       }}
-      indexName='wagtail__wagtailcore_page'
+      indexName={ovIndexName}
       future={{
         preserveSharedStateOnUnmount: true,
       }}>
-      <Configure filters='live:true AND id>3' />
+      {/* <Configure filters='live:true AND id>3' /> */}
       <ScrollTo>
         <SearchBox
           autoFocus
@@ -66,7 +73,7 @@ export const Search = ({ serverUrl, aapbHost, searchClient }: SearchProps) => {
                 Open Vault <ResultsCount />
               </span>
             }>
-            <OVResults />
+            <OVResults indexName={ovIndexName} />
           </Tab>
           <Tab
             title={
@@ -77,13 +84,19 @@ export const Search = ({ serverUrl, aapbHost, searchClient }: SearchProps) => {
                 </Index>
               </span>
             }>
-            <SeriesResults aapbHost={aapbHost} />
+            <SeriesResults
+              aapbHost={aapbHost}
+              gbhSeriesIndexName={gbhSeriesIndexName}
+            />
           </Tab>
           <Tab
             title={
               <span>
                 American Archive
-                <AAPBResultCount resultCount={aapbResultCount} />
+                <AAPBResultCount
+                  resultCount={aapbResultCount}
+                  onResultCountChange={handleResultCountChange}
+                />
               </span>
             }>
             <AAPBResults
@@ -96,8 +109,6 @@ export const Search = ({ serverUrl, aapbHost, searchClient }: SearchProps) => {
           </Tab>
         </Tabs>
       </ScrollTo>
-
-      <Error />
     </InstantSearch>
   )
 }
