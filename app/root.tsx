@@ -7,14 +7,15 @@ import {
   ScrollRestoration,
   useLoaderData,
   useRouteError,
-} from 'react-router';
-import type { LoaderFunction, MetaFunction } from 'react-router';
+} from 'react-router'
+import type { LoaderFunction, MetaFunction } from 'react-router'
 import { useEffect } from 'react'
 import { ToastContainer, toast, Flip } from 'react-toastify'
 
 import { HomeMeta } from '~/classes/meta'
 import { NavigationBar } from '~/classes/navigationBar'
 import { Footer } from '~/classes/footer'
+import Cookies from '~/components/Cookies'
 
 import 'react-toastify/dist/ReactToastify.css'
 import '~/styles/styles.css'
@@ -22,7 +23,7 @@ import '~/styles/colors.css'
 import '@fontsource/red-hat-display'
 import '@fontsource/red-hat-text'
 
-// Links to include in the header. Left empty in case we want to easily add some later.
+// Links to include in the header.
 // Stylesheets are now bundled correctly, so we don't need to include them here.
 export function links() {
   return [{ rel: 'icon', href: '/favicon.ico', type: 'image/png' }]
@@ -42,7 +43,10 @@ export async function loader() {
   return {
     ENV: {
       AAPB_HOST: process.env.AAPB_HOST || 'https://americanarchive.org',
+      COOKIE_CONSENT_ID: process.env.COOKIE_CONSENT_ID,
       OV_API_URL: process.env.OV_API_URL || 'http://localhost:8000',
+      ES_OV_INDEX: process.env.ES_OV_INDEX || 'wagtail__wagtailcore_page',
+      GBH_INDEX: process.env.GBH_INDEX || 'gbh-series',
       ORGAN_URL: process.env.ORGAN_URL || 'http://localhost:9000',
     },
   }
@@ -87,9 +91,10 @@ export default function App() {
           gtag('config', 'G-H82X285XCF');`,
           }}
         />
+        <Cookies />
       </head>
       <body>
-        {meta.env && meta.env.LEGACY ? (
+        {meta.env && meta.env.LEGACY ?
           <div className='legacy-warning'>
             <h3>You are using an outdated browser.</h3>
             <p>
@@ -98,7 +103,7 @@ export default function App() {
             </p>
             {/* TODO: Make this dismissable */}
           </div>
-        ) : null}
+        : null}
         <ToastContainer />
         <NavigationBar />
         <Outlet />
@@ -132,18 +137,17 @@ export function ErrorBoundary() {
       <body>
         <NavigationBar />
         <div className='page-body-container'>
-          {isRouteErrorResponse(error) ? (
+          {isRouteErrorResponse(error) ?
             <>
               <h1>{error.status} error</h1>
               <h3>{error.data}</h3>
               <p>{error.statusText}</p>
             </>
-          ) : (
-            <div className='error-container'>
+          : <div className='error-container'>
               <h1>Oh no!</h1>
               <p>Oops! Something went wrong. Please try again later.</p>
             </div>
-          )}
+          }
         </div>
         <Footer />
         <ScrollRestoration />

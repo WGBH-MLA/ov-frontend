@@ -15,6 +15,8 @@ import {
   Pagination,
   PerPage,
   ResultsCount,
+  Error,
+  StatusSpinner,
 } from '~/components'
 
 type OVHitProps = {
@@ -64,11 +66,12 @@ export const OVPageHit = ({ hit }: OVHitProps) => {
   )
 }
 
-export const OVResults = () => (
-  <Index indexName='wagtail__wagtailcore_page'>
+export const OVResults = ({ indexName }) => (
+  <Index indexName={indexName}>
+    <StatusSpinner />
+    <Error />
     <Configure filters='live:true AND id>3' />
-
-    <NoResultsBoundary fallback={<NoResultsMessage />}>
+    <NoResultsBoundary fallback={<NoResultsMessage index='Open Vault' />}>
       <Refinements />
       <>Found {<ResultsCount />} Open Vault results</>
       <div className='search-result-header'>
@@ -76,23 +79,23 @@ export const OVResults = () => (
           items={[
             {
               label: 'Relevance',
-              value: 'wagtail__wagtailcore_page',
+              value: `${indexName}`,
             },
             {
               label: 'Newest',
-              value: 'wagtail__wagtailcore_page_last_published_date_desc',
+              value: `${indexName}_last_published_date_desc`,
             },
             {
               label: 'Oldest',
-              value: 'wagtail__wagtailcore_page_last_published_date_asc',
+              value: `${indexName}_last_published_date_asc`,
             },
             {
               label: 'A-Z',
-              value: 'wagtail__wagtailcore_page_title_asc',
+              value: `${indexName}_title_asc`,
             },
             {
               label: 'Z-A',
-              value: 'wagtail__wagtailcore_page_title_desc',
+              value: `${indexName}_title_desc`,
             },
           ]}
         />

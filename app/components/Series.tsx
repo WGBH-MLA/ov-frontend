@@ -7,13 +7,15 @@ import {
   Index,
   SortBy,
   HitsPerPage,
+  useInstantSearch,
 } from 'react-instantsearch'
 
 import {
+  Error,
   NoResultsBoundary,
-  NoResultsMessage,
   ResultsCount,
   Pagination,
+  StatusSpinner,
 } from '~/components'
 
 type SeriesHitProps = {
@@ -23,7 +25,10 @@ type SeriesHitProps = {
   }>
 }
 
-export const SeriesResults = ({ aapbHost }) => {
+export const SeriesResults = ({
+  aapbHost = 'https://demo.aapb.wgbh-mla.org',
+  gbhSeriesIndexName = 'gbh-series',
+}) => {
   const aapb_link = (title: string) =>
     `${aapbHost}/catalog?f[series_titles][]=${title}&q=+(contributing_organizations: WGBH(MA) OR producing_organizations: WGBH Educational Foundation)&f[access_types][]=all`
 
@@ -35,26 +40,39 @@ export const SeriesResults = ({ aapbHost }) => {
       </a>
     )
   }
-
+  const { results } = useInstantSearch()
   return (
-    <Index indexName='gbh-series'>
+    <Index indexName={gbhSeriesIndexName}>
+      <StatusSpinner />
+      <Error />
       <Configure filters='' />
-      <NoResultsBoundary fallback={<NoResultsMessage />}>
+      <NoResultsBoundary
+        fallback={
+          <>
+            <h2>
+              No GBH series titles matched <i>{results.query}</i>
+            </h2>
+            <p>
+              Try using different keywords, or try{' '}
+              <a href='#aapb'>searching the American Archive</a>
+            </p>
+          </>
+        }>
         Found {<ResultsCount />} GBH Series
         <div className='search-result-header'>
           <SortBy
             items={[
               {
                 label: 'Relevance',
-                value: 'gbh-series',
+                value: gbhSeriesIndexName,
               },
               {
                 label: 'A-Z',
-                value: 'gbh-series_seriestitle_asc',
+                value: `${gbhSeriesIndexName}_seriestitle_asc`,
               },
               {
                 label: 'Z-A',
-                value: 'gbh-series_seriestitle_desc',
+                value: `${gbhSeriesIndexName}_seriestitle_desc`,
               },
             ]}
           />

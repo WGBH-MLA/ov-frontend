@@ -2,17 +2,26 @@ import { useSearchBox } from 'react-instantsearch'
 import shuffle from '~/utils/shuffle'
 
 export const default_suggestions = [
+  // People
   'Julia Child',
   'Joyce Chen',
   'Louis Lyons',
+  // Topics
   'Boston',
-  'Arthur',
-  'NOVA',
   'Civil Rights',
+  'Cooking',
+  'History',
+  'Music',
+  'Radio',
+  'Television',
   'Vietnam',
   'WGBH',
-  'Cooking',
-  'Music',
+  // Shows
+  'Arthur',
+  'NOVA',
+  'Frontline',
+  'The Big Dig',
+  'The French Chef',
 ]
 
 export const SearchLink = (query: string) => {
@@ -20,7 +29,7 @@ export const SearchLink = (query: string) => {
 
   return (
     <div
-      onClick={(event) => {
+      onClick={event => {
         refine(query)
       }}>
       {query}
@@ -35,8 +44,10 @@ export default () => {
       <ul>
         {shuffle(default_suggestions)
           .slice(0, 4)
-          .map((query) => (
-            <li className="search-suggestion" key={query}>{SearchLink(query)}</li>
+          .map(query => (
+            <li className='search-suggestion' key={query}>
+              {SearchLink(query)}
+            </li>
           ))}
       </ul>
     </>

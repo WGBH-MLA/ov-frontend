@@ -26,12 +26,12 @@ export function NoResultsBoundary({
   return <>{children}</>
 }
 
-export const NoResultsMessage = () => {
+export const NoResultsMessage = ({ index }: { index: string }) => {
   const { results } = useInstantSearch()
   return (
     <>
       <h2>
-        No results for <i>{results.query}</i>
+        No {index} results for <i>{results.query}</i>
       </h2>
       <p>Try using different keywords, or check your spelling.</p>
     </>

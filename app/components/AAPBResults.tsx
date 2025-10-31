@@ -26,7 +26,7 @@ export const AAPBResults = ({
   onResultCountChange,
 }: {
   aapbHost: string
-  onResultCountChange?: (count: number | null) => void
+  onResultCountChange?: (count: AAPBResultCountProps) => void
 }) => {
   const { indexUiState } = useInstantSearch()
   const callbackRef = useRef(onResultCountChange)
@@ -39,10 +39,10 @@ export const AAPBResults = ({
     callbackRef.current = onResultCountChange
   }, [onResultCountChange])
 
-  const [result_count, setResults] = useState<number | null>(null)
+  const [result_count, setResults] = useState<AAPBResultCountProps>(null)
   const [hits, setHits] = useState([])
 
-  const updateResults = useCallback((count: number | null) => {
+  const updateResults = useCallback((count: AAPBResultCountProps) => {
     setResults(count)
     callbackRef.current?.(count)
   }, [])
@@ -61,7 +61,10 @@ export const AAPBResults = ({
             updateResults(count)
             setHits(data.response.docs)
           })
-          .catch(error => console.error(error))
+          .catch(error => {
+            console.error(error)
+            setResults(undefined)
+          })
       }, 200),
     [aapbHost, updateResults]
   )
@@ -70,12 +73,41 @@ export const AAPBResults = ({
     updateResults(null)
     debouncedFetch(query)
   }, [debouncedFetch, query, updateResults]) // Use query instead of indexUiState
-
+  const aapbSearchUrl = `${aapbHost}/catalog?q=${query}${gbh_query}`
+  if (result_count === undefined) {
+    return (
+      <>
+        <h2>Search Error</h2>
+        Sorry, there was an issue{' '}
+        <a href={aapbSearchUrl}>
+          searching AmericanArchive.org for <em>{query}</em> <ExternalLink />
+        </a>
+      </>
+    )
+  }
+  if (result_count === 0) {
+    return (
+      <>
+        <h2>No Results</h2>
+        Sorry, there were no American Archive results for <em>{query}</em>
+        <br />
+        Try searching directly on{' '}
+        <a href={aapbSearchUrl} target='_blank'>
+          AmericanArchive.org <ExternalLink />
+        </a>
+      </>
+    )
+  }
   return (
     <>
-      Found
-      <AAPBResultCount resultCount={result_count} />
-      matching records on AmericanArchive.org for "{query}"
+      {result_count === null ?
+        <Spinner />
+      : <div className='aapb-results-count'>
+          Found
+          <AAPBResultCount resultCount={result_count} />
+          matching records on AmericanArchive.org for "{query}"
+        </div>
+      }
       <div className='ais-Hits'>
         <div className='ais-Hits-list'>
           {hits.map((hit: AAPBHit) => (
@@ -83,7 +115,7 @@ export const AAPBResults = ({
           ))}
         </div>
       </div>
-      <a href={`${aapbHost}/catalog?q=${query}${gbh_query}`} target='_blank'>
+      <a href={aapbSearchUrl} target='_blank'>
         View
         <AAPBResultCount resultCount={result_count} />
         more results on AmericanArchive.org"
@@ -168,15 +200,13 @@ export const highlightHighlight = (text: string) => {
   return (
     <span className='ais-Highlight'>
       {parts.map((part, i) =>
-        part.toLowerCase() === query.toLowerCase() ? (
+        part.toLowerCase() === query.toLowerCase() ?
           <mark className='ais-Highlight-highlighted' key={i}>
             {part}
           </mark>
-        ) : (
-          <span className='ais-Highlight-nonHighlighted' key={i}>
+        : <span className='ais-Highlight-nonHighlighted' key={i}>
             {part}
           </span>
-        )
       )}
     </span>
   )
@@ -197,15 +227,13 @@ export const highlightSnippet = (text: string) => {
   return (
     <span className='ais-Snippet'>
       {parts.map((part, i) =>
-        part.toLowerCase() === query.toLowerCase() ? (
+        part.toLowerCase() === query.toLowerCase() ?
           <mark className='ais-Snippet-highlighted' key={i}>
             {part}
           </mark>
-        ) : (
-          <span className='ais-Snippet-nonHighlighted' key={i}>
+        : <span className='ais-Snippet-nonHighlighted' key={i}>
             {part}
           </span>
-        )
       )}
     </span>
   )
@@ -214,12 +242,24 @@ export const highlightSnippet = (text: string) => {
 export const removeSpecialChars = (text: string) =>
   text.replace(/[.*+?^${}()|[\]\\"']/g, '')
 
-export const AAPBResultCount = ({
-  resultCount,
-}: {
-  resultCount: number | null
-}) => (
-  <span className='ais-RefinementList-count'>
-    {resultCount === null ? <Spinner /> : resultCount.toLocaleString()}
-  </span>
-)
+export type AAPBResultCountProps = {
+  /* The result of the AAPB query 
+  Possible values:
+  - number: the count of results
+  - null: query in progress
+  - undefined: error getting results
+  */
+  resultCount: number | null | undefined
+}
+
+export const AAPBResultCount = ({ resultCount }: AAPBResultCountProps) => {
+  return (
+    <span className='ais-RefinementList-count'>
+      {resultCount === undefined ?
+        '⚠️'
+      : resultCount === null ?
+        <Spinner />
+      : resultCount.toLocaleString()}
+    </span>
+  )
+}
