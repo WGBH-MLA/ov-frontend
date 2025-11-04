@@ -55,12 +55,23 @@ const affiliatedSites = [
 export function NavigationBar() {
   const pathname = useLocation().pathname
   return (
-    <div className='top-bar-container'>
-      <div className='purple-bar-container'>
-        <a href='/' className='top-title'>
-          Open Vault
-        </a>
-        <img src='/MLA_logo_white.png' className='ov-logo' />
+    <>
+      <div className='top-bar-container'>
+        <div className='purple-bar-container'>
+          <a href='/' className='top-title'>
+            Open Vault
+          </a>
+          <img src='/MLA_logo_white.png' className='ov-logo' />
+          {/* Donate button */}
+          <a
+            href='https://gbharchivesopenvault.donorsupport.co/page/general-fundraising'
+            className='donate-button'
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            Donate
+          </a>
+        </div>
       </div>
 
       <div className='navigation-bar-container'>
@@ -76,7 +87,7 @@ export function NavigationBar() {
             highlight={pathname.startsWith('/exhibits')}
             href='/exhibits'
             text='Scholar Exhibits'
-          />          
+          />
           <NavigationLink
             highlight={pathname.startsWith('/series')}
             href='/series'
@@ -99,6 +110,6 @@ export function NavigationBar() {
           />
         </div>
       </div>
-    </div>
+    </>
   )
 }
