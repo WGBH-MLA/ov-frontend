@@ -399,9 +399,25 @@ div.navigation-bar-container {
 
 img.ov-logo {
   position: absolute;
-  right: 0;
-  margin-right: 3rem;
+  right: 3rem;
+  margin-right: 6rem;
   width: 8rem;
+}
+
+.donate-button {
+  position: absolute;
+  right: 1.5rem;
+  padding: 8px 16px;
+  background-color: white;    /* white button */
+  color: #6a0dad;             /* purple text, adjust to match your branding */
+  font-weight: bold;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.donate-button:hover {
+  background-color: #f0f0f0;  /* light gray on hover */
 }
 
 a.navigation-link {
