@@ -55,16 +55,17 @@ export default function Series() {
     }
 
     seriesGroup = seriesGroup.map((title, groupIndex) => {
+      const host = (data.AAPB_HOST || "").trim().replace(/\/$/, "");
+      
+      const titleClean = decodeURIComponent(title);
+      const titleEncoded = encodeURIComponent(titleClean);
+      
       return (
         <a
           key={groupIndex}
           className='series-link'
           // href={`${data.AAPB_HOST}/catalog?f[series_titles][]=${title}&q=+(contributing_organizations: WGBH(MA) OR producing_organizations: WGBH Educational Foundation)&f[access_types][]=all`}
-          href={
-          `${data.AAPB_HOST}/catalog?` +
-          `f[series_titles][]=${encodeURIComponent(title)}` +
-          `&f[access_types][]=all`
-          }
+          href={`${host}/catalog?f[series_titles][]=${titleEncoded}&f[access_types][]=all`}
           target='_blank'>
           {title} <ExternalLink size={16} />
         </a>
