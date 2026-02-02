@@ -41,9 +41,9 @@ export default function Preview() {
   }
 
   let rendered
-  if (preview.meta.type == 'ov_collections.Collection') {
+  if (preview.meta.type == 'ov_collections.OpenVaultCollection') {
     rendered = renderCollection(preview)
-  } else if (preview.meta.type == 'exhibits.ExhibitPage') {
+  } else if (preview.meta.type == 'exhibits.OpenVaultExhibit') {
     rendered = renderExhibit(preview)
   }
 

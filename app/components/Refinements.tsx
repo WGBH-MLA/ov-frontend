@@ -10,8 +10,8 @@ const ATTRIBUTES = { content_type: 'Type', featured: 'Featured' }
 
 // Labels for content types
 const CONTENT_TYPES = {
-  'exhibits.ExhibitPage': 'Scholar Exhibits',
-  'ov_collections.Collection': 'Special Collections',
+  'exhibits.OpenVaultExhibit': 'Scholar Exhibits',
+  'ov_collections.OpenVaultCollection': 'Special Collections',
 }
 export const transformContentTypes = items =>
   items
