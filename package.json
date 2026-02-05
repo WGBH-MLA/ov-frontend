@@ -25,10 +25,10 @@
     "lucide-react": "^0.540.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
-    "react-instantsearch": "^7.16.2",
+    "react-instantsearch": "^7.23.1",
     "react-instantsearch-core": "^7.11.2",
     "react-responsive-carousel": "^3.2.23",
-    "react-router": "^7.8.1",
+    "react-router": "^7.13.0",
     "react-toastify": "^11.0.3",
     "remix-sitemap": "^3.2.0",
     "searchkit": "^4.15.0"
