@@ -14,7 +14,7 @@
     "@fontsource/red-hat-display": "^5.2.6",
     "@fontsource/red-hat-text": "^5.2.6",
     "@radix-ui/react-toast": "^1.2.15",
-    "@react-router/node": "^7.8.1",
+    "@react-router/node": "^7.9.4",
     "@react-router/serve": "^7.8.1",
     "@searchkit/instantsearch-client": "^4.14.1",
     "@vitejs/plugin-legacy": "^7.2.1",
