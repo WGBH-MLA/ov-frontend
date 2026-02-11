@@ -34,7 +34,7 @@ const aboutLinks = [
 const affiliatedSites = [
   {
     label: 'American Archive of Public Broadcasting',
-    subLabel: 'Access nearly 12,000 public media programs',
+    subLabel: 'Access hundreds of thousands of public media programs',
     url: 'https://americanarchive.org',
     external: true,
   },
@@ -48,6 +48,12 @@ const affiliatedSites = [
     label: 'Boston Local TV News',
     subLabel: 'Learn more about the history of Boston’s local news',
     url: 'https://bostonlocaltv.org/',
+    external: true,
+  },
+    {
+    label: 'GBH Archives Youtube',
+    subLabel: 'Unique content produced by GBH television and radio',
+    url: 'https://www.youtube.com/@GBHArchives',
     external: true,
   },
 ]
@@ -76,7 +82,7 @@ export function NavigationBar() {
             highlight={pathname.startsWith('/exhibits')}
             href='/exhibits'
             text='Scholar Exhibits'
-          />          
+          />
           <NavigationLink
             highlight={pathname.startsWith('/series')}
             href='/series'
@@ -94,7 +100,7 @@ export function NavigationBar() {
           <NavigationSpacer />
           <DrawerMenu
             classes='affiliated-websites-menu'
-            label={'Visit our affiliated websites'}
+            label={'Visit affiliated websites'}
             items={affiliatedSites}
           />
         </div>
