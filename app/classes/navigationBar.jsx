@@ -51,7 +51,7 @@ const affiliatedSites = [
     external: true,
   },
     {
-    label: 'GBH Archives Youtube',
+    label: 'GBH Archives YouTube',
     subLabel: 'Unique content produced by GBH television and radio',
     url: 'https://www.youtube.com/@GBHArchives',
     external: true,
