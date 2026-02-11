@@ -18,7 +18,7 @@
     "@react-router/serve": "^7.8.1",
     "@searchkit/instantsearch-client": "^4.14.1",
     "@vitejs/plugin-legacy": "^7.2.1",
-    "@vitejs/plugin-react": "^4.7.0",
+    "@vitejs/plugin-react": "^5.1.4",
     "html-entities": "^2.5.3",
     "instantsearch.css": "^8.10.0",
     "isbot": "^5",
