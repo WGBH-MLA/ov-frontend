@@ -34,8 +34,8 @@
     "searchkit": "^4.15.0"
   },
   "devDependencies": {
-    "@react-router/dev": "^7.13.0",
-    "@react-router/fs-routes": "^7.13.0",
+    "@react-router/dev": "^7.13.1",
+    "@react-router/fs-routes": "^7.13.1",
     "@types/react": "^19.1.10",
     "@types/react-dom": "^19.1.7",
     "autoprefixer": "^10.4.24",
@@ -45,7 +45,7 @@
     "postcss-import": "^16.1.1",
     "vite": "^7.3.1",
     "vite-jsconfig-paths": "^2.0.1",
-    "vite-tsconfig-paths": "^6.1.0"
+    "vite-tsconfig-paths": "^6.1.1"
   },
   "engines": {
     "node": ">=21"
