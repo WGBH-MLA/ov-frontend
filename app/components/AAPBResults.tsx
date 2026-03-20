@@ -73,7 +73,7 @@ export const AAPBResults = ({
     updateResults(null)
     debouncedFetch(query)
   }, [debouncedFetch, query, updateResults]) // Use query instead of indexUiState
-  const aapbSearchUrl = ``${aapbHost}/catalog?q=${encodeURIComponent(query)}${gbh_query}`
+  const aapbSearchUrl = `${aapbHost}/catalog?q=${encodeURIComponent(query)}${gbh_query}`
   if (result_count === undefined) {
     return (
       <>
