@@ -8,7 +8,7 @@ import { pbcore2json } from '~/utils/pbcore'
 import type { PBCore } from '~/types/pbcore'
 
 const gbh_query =
-  '+AND+(contributing_organizations:%20WGBH(MA)%20OR%20producing_organizations:%20WGBH%20Educational%20Foundation)&f[access_types][]=online'
+  `+AND+(contributing_organizations:%20WGBH(MA)%20OR%20producing_organizations:%20WGBH%20Educational%20Foundation)&f%5Baccess_types%5D%5B%5D=online`
 
 export type AAPBHit = {
   id: string
@@ -73,7 +73,7 @@ export const AAPBResults = ({
     updateResults(null)
     debouncedFetch(query)
   }, [debouncedFetch, query, updateResults]) // Use query instead of indexUiState
-  const aapbSearchUrl = `${aapbHost}/catalog?q=${query}${gbh_query}`
+  const aapbSearchUrl = ``${aapbHost}/catalog?q=${encodeURIComponent(query)}${gbh_query}`
   if (result_count === undefined) {
     return (
       <>
