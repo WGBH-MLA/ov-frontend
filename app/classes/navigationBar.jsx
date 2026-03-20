@@ -41,7 +41,7 @@ const affiliatedSites = [
   {
     label: 'GBH Stock Sales',
     subLabel: 'License footage from GBH programs',
-    url: 'http://www.wgbhstocksales.org/',
+    url: 'https://wgbhstocksales.org/',
     external: true,
   },
   {
