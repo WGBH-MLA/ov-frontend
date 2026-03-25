@@ -34,18 +34,18 @@
     "searchkit": "^4.15.0"
   },
   "devDependencies": {
-    "@react-router/dev": "^7.13.0",
-    "@react-router/fs-routes": "^7.13.0",
+    "@react-router/dev": "^7.13.2",
+    "@react-router/fs-routes": "^7.13.2",
     "@types/react": "^19.1.10",
     "@types/react-dom": "^19.1.7",
-    "autoprefixer": "^10.4.24",
+    "autoprefixer": "^10.4.27",
     "esbuild-plugin-css-modules": "^0.3.0",
-    "postcss": "^8.5.6",
+    "postcss": "^8.5.8",
     "postcss-cli": "^11.0.1",
     "postcss-import": "^16.1.1",
     "vite": "^7.3.1",
     "vite-jsconfig-paths": "^2.0.1",
-    "vite-tsconfig-paths": "^6.1.0"
+    "vite-tsconfig-paths": "^6.1.1"
   },
   "engines": {
     "node": ">=21"
