@@ -51,8 +51,8 @@ export default function SearchPage() {
     aapbHost,
     esUrl,
     esApiKey,
-    ovIndexName = 'wagtail__wagtailcore_page',
-    gbhSeriesIndexName = 'gbh-series',
+    ovIndexName,
+    gbhSeriesIndexName,
   }: SearchProps = useLoaderData()
 
   const sk = new Searchkit({
