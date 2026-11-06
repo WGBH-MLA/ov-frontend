@@ -57,8 +57,8 @@ export default function SearchPage() {
 
   const sk = new Searchkit({
     connection: {
-      host: esUrl,
-      apiKey: esApiKey,
+      host: `${esUrl}?ignore_unavailable=true`,
+      apiKey: esApiKey
     },
     search_settings,
   })
